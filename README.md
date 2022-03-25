@@ -10,6 +10,7 @@ function [include()](https://django.fun/docs/django/ru/3.2/ref/urls/#include).
 page should open when you are accessing `http://127.0.0.1:8000/`. Give this
 path the name `index`, import `index` function from `taxi.views`, assign this
 function as a handler of this path, you will implement this function soon.
+Also, add `app_name` with appropriate value.
 3. Inside `taxi.views` create function `index`. "Views" functions always 
 take the parameter `request`. In this function:
     - count the number of all drivers
