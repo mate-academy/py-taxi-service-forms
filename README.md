@@ -5,7 +5,7 @@
 In this task, you should implement the home page of the site.
 
 1. Inside `taxi_service.urls` add path to the `taxi.urls`. Use
-function [include()](https://django.fun/docs/django/ru/3.2/ref/urls/#include).
+function [include()](https://docs.djangoproject.com/en/4.0/ref/urls/#django.urls.include).
 2. Inside `taxi.urls` create a path for the home page. This
 page should open when you are accessing `http://127.0.0.1:8000/`. Give this
 path the name `index`, import `index` function from `taxi.views`, assign this
@@ -27,7 +27,7 @@ template. Create directory `static` next to directory `taxi`. Inside this
 directory create a file with the following path `css/styles.css`. Don't forget to
 add roots to the settings (`STATICFILES_DIRS` and `STATIC_ROOT`). Also, you 
 need to serve static files during the development, use 
-[static()](https://django.fun/docs/django/ru/4.0/howto/static-files/#serving-static-files-during-development)
+[static()](https://docs.djangoproject.com/en/4.0/howto/static-files/#serving-static-files-during-development)
 and add path to the `urlpatterns`.
 5. Create directory `templates` next to the directory `taxi`. There you will
 store templates for pages. Edit `TEMPLATES` inside settings, set the appropriate 
