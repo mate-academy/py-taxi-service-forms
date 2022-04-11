@@ -48,7 +48,7 @@ for `cars__manufacturer`.
 
 7. Create templates for the views. By default, class-based views try to find      
 a template based on the model name and certain suffix: 
-   1. For list view - `-list`
+   1. For list view - `_list`
    2. For detail view - `_detail`
    - Create templates for manufacturer list, car list, driver list. In these
 templates:
