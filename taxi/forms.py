@@ -19,8 +19,8 @@ class DriverForm(UserCreationForm):
         raise ValidationError("Ensure that value is incorrect")
 
 
-class DriverUpdateForm(UserCreationForm):
-    class Meta(UserCreationForm.Meta):
+class DriverUpdateForm(forms.ModelForm):
+    class Meta:
         model = Driver
         fields = ("license_number",)
 
