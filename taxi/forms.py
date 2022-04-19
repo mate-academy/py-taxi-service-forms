@@ -29,7 +29,12 @@ class DriverUpdateForm(forms.ModelForm):
 
         if len(license_number) == 8 and license_number[:3].isupper() and license_number[3:].isdigit():
             return license_number
-        raise ValidationError("Ensure that value is incorrect")
+        raise ValidationError(
+            "Ensure that value is incorrect: "
+            "* Consist only of 8 characters "
+            "* First 3 characters are uppercase letters "
+            "* Last 5 characters are digits "
+        )
 
 
 class ManufacturerForm(forms.ModelForm):
