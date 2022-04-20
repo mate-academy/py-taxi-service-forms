@@ -21,4 +21,4 @@ driver deletion page.
 detail page, add buttons that lead to the car update page and car deletion page.
 6. On the manufacturer list page, add the button that leads to the manufacturer creation
 page. Also, add columns `Update`, `Delete`, and add links for the updating page and 
-deletion page for each manufacturer.
+deletion page for each manufacturer. 
