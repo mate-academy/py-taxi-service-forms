@@ -8,8 +8,8 @@
   <p><strong>First name:</strong> {{ driver.first_name }}</p>
   <p><strong>Last name:</strong> {{ driver.last_name }}</p>
   <p><strong>License number:</strong> {{ driver.license_number }}
-    <a href="{% url "taxi:driver_update" pk=driver.id%}"><button>Update</button></a>
-    <a href="{% url "taxi:driver_delete" pk=driver.id%}"><button>Delete</button></a>
+    <a href="{% url "taxi:driver-update" pk=driver.id%}"><button>Update</button></a>
+    <a href="{% url "taxi:driver-delete" pk=driver.id%}"><button>Delete</button></a>
   </p>
   <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
 
