@@ -110,3 +110,9 @@ class DriverUpdateView(generic.UpdateView):
     model = Driver
     form_class = DriverCreationForm
     success_url = reverse_lazy("taxi:driver-list")
+
+
+class DriverLicenceUpdateView(generic.UpdateView):
+    model = Driver
+    success_url = reverse_lazy("taxi:driver-list")
+    fields = "license_number",
