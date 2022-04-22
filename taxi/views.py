@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .forms import DriverCreationForm, CarForm
+from .forms import DriverUpdateForm, CarForm, DriverCreationForm
 from .models import Driver, Car, Manufacturer
 
 
@@ -101,6 +101,8 @@ class ManufacturerDeleteView(generic.DeleteView):
 class DriverCreateView(generic.CreateView):
     model = Driver
     form_class = DriverCreationForm
+    template_name = "taxi/driver_form.html"
+    success_url = reverse_lazy("taxi:driver-list")
 
 
 class DriverDeleteView(generic.DeleteView):
@@ -112,5 +114,6 @@ class DriverDeleteView(generic.DeleteView):
 
 class DriverUpdateView(generic.UpdateView):
     model = Driver
-    form_class = DriverCreationForm
+    form_class = DriverUpdateForm
     success_url = reverse_lazy("taxi:driver-list")
+    template_name = "taxi/license_update.html"
