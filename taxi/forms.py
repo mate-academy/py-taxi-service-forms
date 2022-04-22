@@ -1,7 +1,9 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
-from django.forms import models
+from django.core.exceptions import ValidationError
+from django import forms
 
-from taxi.models import Driver
+from taxi.models import Driver, Car
 
 
 class DriverCreationForm(UserCreationForm):
@@ -15,11 +17,23 @@ class DriverCreationForm(UserCreationForm):
         license_number = self.cleaned_data["license_number"]
 
         if len(license_number) < DriverCreationForm.MIN_LENGTH:
-            raise ValueError("License number should be greater or equal than 8")
+            raise ValidationError("License number should be greater or equal than 8")
         if not license_number[:3].isupper():
-            raise ValueError("First 3 letters should be uppercase")
+            raise ValidationError("First 3 letters should be uppercase")
 
         if not license_number[-5:].isdigit():
-            raise ValueError("Last 5 characters should be uppercase")
+            raise ValidationError("Last 5 characters should be uppercase")
 
         return license_number
+
+
+class CarForm(forms.ModelForm):
+    drivers = forms.ModelMultipleChoiceField(
+        queryset=get_user_model().objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False
+    )
+
+    class Meta:
+        model = Car
+        fields = "__all__"
