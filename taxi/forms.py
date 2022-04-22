@@ -17,7 +17,7 @@ class DriverForm(forms.ModelForm):
         if len(license_number) != DriverForm.MIN_LICENSE_CHARACTERS:
             raise ValidationError(f"License has to consist only {DriverForm.MIN_LICENSE_CHARACTERS}")
 
-        if license_number[0:3].isupper() is False:
+        if not license_number[:3].isupper() or not license_number[:3].isalpha():
             raise ValidationError("The first 3 characters have to be UpperCase")
 
         if license_number[-5:].isdigit() is False:

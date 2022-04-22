@@ -14,8 +14,6 @@
         <th>First name</th>
         <th>Last name</th>
         <th>License number</th>
-          <th>Update License</th>
-          <th>Delete Driver</th>
       </tr>
     {% for driver in driver_list %}
       <tr>
@@ -24,12 +22,6 @@
         <td>{{ driver.first_name }}</td>
         <td>{{ driver.last_name }}</td>
         <td>{{ driver.license_number }}</td>
-          <td>
-              <a href="{% url "taxi:driver-update" pk=driver.id %}">UPDATE License</a>
-          </td>
-          <td>
-              <a href="{% url "taxi:driver-delete" pk=driver.id %}">DELETE Driver</a>
-          </td>
       </tr>
     {% endfor %}
 
