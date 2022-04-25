@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
-  {% if car_list %}
-    <ul>
-      {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>There are no cars in taxi</p>
-  {% endif %}
+    <h1>Car list</h1>
+    {% if car_list %}
+        <ul>
+            {% for car in car_list %}
+                <li>
+                    <a href="{% url "taxi:car-detail" car.id %} ">
+                        {{ car.model }} ({{ car.manufacturer.name }})
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no cars in Taxi Service.</p>
+    {% endif %}
+    <form action="{% url "taxi:car-create" %}">
+        {% csrf_token %}
+        <input type="submit" value="Create Car" class="btn btn-primary"/>
+    </form>
 {% endblock %}
