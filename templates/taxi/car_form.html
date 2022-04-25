@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ object|yesno:"Update,Create" }} Car</h1>
+
+  <br>
+
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <br>
+
+    <input class="btn btn-primary" type="submit" value="Submit">
+    {% if object %}
+      <a class="btn btn-secondary" href="{% url 'taxi:car-detail' pk=car.pk %}" role="button">
+        Cansel
+      </a>
+    {% else %}
+      <a class="btn btn-secondary" href="{% url 'taxi:car-list' %}" role="button">
+        Cansel
+      </a>
+    {% endif %}
+  </form>
+{% endblock %}

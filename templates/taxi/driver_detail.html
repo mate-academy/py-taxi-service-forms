@@ -5,10 +5,14 @@
     Username: {{ driver.username }}
   </h1>
 
+  <br>
+
   <p><strong>First name:</strong> {{ driver.first_name }}</p>
   <p><strong>Last name:</strong> {{ driver.last_name }}</p>
   <p><strong>License number:</strong> {{ driver.license_number }}</p>
   <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
+
+  <br>
 
   <div class="ml-3">
     <h4>Cars</h4>
@@ -23,4 +27,14 @@
       <p>No cars!</p>
     {% endfor %}
   </div>
+
+  <br>
+
+  <a class="btn btn-secondary" href="{% url 'taxi:driver-license-update' pk=driver.pk %}" role="button">
+    Update License
+  </a>
+  <a class="btn btn-danger" href="{% url 'taxi:driver-delete' pk=driver.pk %}" role="button">
+    Delete
+  </a>
+
 {% endblock %}
