@@ -112,4 +112,3 @@ class DriverUpdateView(UpdateView):
 class DriverDeleteView(DeleteView):
     model = Driver
     success_url = reverse_lazy("taxi:index")
-
