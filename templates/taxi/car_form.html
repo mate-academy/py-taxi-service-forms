@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token%}
+        {{ form.as_p }}
+
+        {% if object %}
+            <input type="submit" value="Update">
+        {% else %}
+            <input type="submit" value="Create">
+        {% endif %}
+    </form>
+{% endblock %}
