@@ -21,7 +21,7 @@ def index(request):
         "num_drivers": num_drivers,
         "num_cars": num_cars,
         "num_manufacturers": num_manufacturers,
-        "num_visits": num_visits,
+        "num_visits": num_visits + 1,
     }
 
     return render(request, "taxi/index.html", context=context)
