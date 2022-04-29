@@ -17,7 +17,7 @@ class DriverCreationForm(UserCreationForm):
         if len(license_number) != 8:
             raise ValidationError("Number should consist 8 characters")
 
-        if not license_number[:3].isupper() and not license_number[:3].isaplha():
+        if not license_number[:3].isupper() or not license_number[:3].isalpha():
             raise ValidationError("First 3 characters must be uppercase letters")
 
         if not license_number[3:].isdigit():
