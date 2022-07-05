@@ -26,17 +26,17 @@ urlpatterns = [
         name="manufacturer-list"
     ),
     path(
-        "manufacturers/create",
+        "manufacturers/create/",
         ManufacturerCreateView.as_view(),
         name="manufacturer-form"
     ),
     path(
-        "manufacturers/<int:pk>/update/",
+        "manufacturers/<int:pk>/delete/",
         ManufacturerDeleteView.as_view(),
         name="manufacturer-delete"
     ),
     path(
-        "manufacturers/<int:pk>/delete/",
+        "manufacturers/<int:pk>/update/",
         ManufacturerUpdateView.as_view(),
         name="manufacturer-form"
     ),
@@ -71,7 +71,7 @@ urlpatterns = [
         name="driver-list"
     ),
     path(
-        "drivers/create",
+        "drivers/create/",
         DriverCreateView.as_view(),
         name="driver-form"
     ),
@@ -81,7 +81,7 @@ urlpatterns = [
         name="driver-detail"
     ),
     path(
-        "drivers/<int:pk>/update",
+        "drivers/<int:pk>/update/",
         DriverUpdateView.as_view(),
         name="driver-update"
     ),
