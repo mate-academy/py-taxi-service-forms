@@ -1,33 +1,36 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-    <h1>Manufacturer List
+    <h1>
+        All manufacturers:
+    <a style="float: right" class="btn btn-primary" href="{% url 'taxi:manufacturer-create' %}">Create</a>
     </h1>
-
-    {% if manufacturer_list %}
-      <table class="table">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
-        </tr>
-
-        {% for manufacturer in manufacturer_list %}
+    {% if manufacturers %}
+        <table class="table">
             <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
-          </tr>
-        {% endfor %}
-      </table>
-
-    {% else %}
-        <p>There are no manufacturers in the service.</p>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            {% for manufacturer in manufacturers %}
+                <tr>
+                    <td>
+                        {{ manufacturer.id }}
+                    </td>
+                    <td>
+                        <a class="text-decoration-none" href="{% url 'taxi:manufacturer-detail' manufacturer.pk %}">{{ manufacturer.name }}</a>
+                    </td>
+                    <td>
+                        <a style="color: darkgreen" class="text-decoration-none" href="{% url 'taxi:manufacturer-update' manufacturer.pk %}">Update</a>
+                    </td>
+                    <td>
+                        <a class="text-decoration-none" style="color: coral" href="{% url 'taxi:manufacturer-delete' manufacturer.pk %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
     {% endif %}
+
 {% endblock %}

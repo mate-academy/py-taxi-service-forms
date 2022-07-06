@@ -1,3 +1,27 @@
 body {
     margin-top: 20px;
 }
+
+.but {
+    background-color: lightblue;
+    float: right;
+    border-color: black;
+    round-clip: 3px;
+    font-size: 14px;
+}
+
+.sidebar-nav {
+    list-style: none;
+}
+
+.list-nav {
+    list-style: none;
+}
+
+.values {
+    padding-left: 0;
+}
+
+.li {
+    margin: 3px;
+}

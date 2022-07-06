@@ -1,12 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
-  </ul>
+
+    <h1>
+        {{ car.model }}
+    </h1>
+    <p>
+        <strong>Manufacturer:</strong>
+        <a class="text-decoration-none" href="{% url 'taxi:manufacturer-detail' car.manufacturer.pk %}">
+            {{ car.manufacturer }}
+        </a>, {{ car.manufacturer.country }}
+    </p>
+    <h3>Drivers:
+        {% if car in user.cars.all %}
+            <a style="float: right" class="btn btn-danger" href="{% url 'taxi:assign_or_delete' pk=car.id %}">Delete me from this car</a>
+        {% else %}
+            <a style="float: right" class="btn btn-success" href="{% url 'taxi:assign_or_delete' pk=car.id %}">Assign me to this car</a>
+        {% endif %}
+    </h3>
+    {% for driver in car.drivers.all %}
+        <hr>
+        <p class="text-muted"><strong>Id: </strong> {{ driver.id }}</p>
+        <p>
+            <strong>Username: </strong> <a class="text-decoration-none" href="{% url 'taxi:driver-detail' driver.pk %}">{{ driver.username }}</a>
+            {% if driver == user %}
+                (Me)
+            {% endif %}
+        </p>
+        {% if driver.first_name and driver.last_name %}
+            <p><strong>Full name: </strong> {{ driver.first_name }} {{ driver.last_name }}</p>
+        {% endif %}
+            <p><strong>License number: </strong>{{ driver.license_number }}</p>
+        {% empty %}
+            <p>No drivers!</p>
+    {% endfor %}
+    <a class="li text-decoration-none btn btn-secondary" href="{% url 'taxi:car-update' car.pk %}">Update</a>
+    <a class="li text-decoration-none btn btn-danger" href="{% url 'taxi:car-delete' car.pk %}">Delete</a>
+
 {% endblock %}
