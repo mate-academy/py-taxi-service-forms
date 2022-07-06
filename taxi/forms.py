@@ -11,6 +11,7 @@ def validate_license_number(number):
         raise ValidationError("First 3 characters should be uppercase letters")
     elif not number[3:].isdigit():
         raise ValidationError("Last 5 characters should be digits")
+    return number
 
 
 class DriverForm(forms.ModelForm):
