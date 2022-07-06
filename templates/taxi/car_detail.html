@@ -1,12 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
-  </ul>
+    <p>Manufacturer:
+        ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+    <h1>Drivers</h1>
+    {% if user in car.drivers.all %}
+        <a href="{% url "taxi:add-to-driver" pk=car.pk action='delete' %}">
+            <button class="btn btn-danger">Delete me from this car</button>
+        </a>
+
+    {% else %}
+        <a href="{% url "taxi:add-to-driver" pk=car.pk action='assign' %}">
+            <button class="btn btn-success">Assign me to this car</button>
+        </a>
+    {% endif %}
+    <hr>
+    <ul>
+        {% for driver in car.drivers.all %}
+            <li>{{ driver.username }}
+                ({{ driver.first_name }} {{ driver.last_name }})
+            </li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <a href="{% url "taxi:update-car" pk=car.pk %}">
+        <button class="btn btn-outline-primary">Update car page</button>
+    </a>
+    <a href="{% url "taxi:delete-car" pk=car.pk %}">
+        <button class="btn btn-outline-primary">Delete car</button>
+    </a>
 {% endblock %}

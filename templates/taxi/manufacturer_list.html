@@ -3,29 +3,40 @@
 {% block content %}
     <h1>Manufacturer List
     </h1>
-
+    <a href="{% url "taxi:create-manufacturer" %}">
+        <button class="btn btn-outline-primary">Create new manufacturer
+        </button>
+    </a>
     {% if manufacturer_list %}
-      <table class="table">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
-        </tr>
-
-        {% for manufacturer in manufacturer_list %}
+        <table class="table">
             <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
-          </tr>
-        {% endfor %}
-      </table>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            {% for manufacturer in manufacturer_list %}
+                <tr>
+                    <td>
+                        {{ manufacturer.id }}
+                    </td>
+                    <td>
+                        {{ manufacturer.name }}
+                    </td>
+                    <td>
+                        {{ manufacturer.country }}
+                    </td>
+                    <td>
+                        <a href="{% url "taxi:update-car" pk=manufacturer.pk %}">Update</a>
+                    </td>
+                    <td>
+                        <a href="{% url "taxi:delete-manufacturer" pk=manufacturer.pk %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
 
     {% else %}
         <p>There are no manufacturers in the service.</p>
