@@ -2,13 +2,15 @@
 
 {% block content %}
   <h1>
-      Car list
-      <a style="float: right" href="{% url 'taxi:car-create' %}">Add</a>
+      Car List
+      <a style="float: right" href="{% url 'taxi:car-create' %}" class="btn btn-primary btn-lg">
+          Add
+      </a>
   </h1>
   {% if car_list %}
-    <ul>
+    <ul class="list-group">
       {% for car in car_list %}
-        <li>
+        <li class="list-group-item">
           <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
         </li>

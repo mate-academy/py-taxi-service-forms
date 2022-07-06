@@ -3,7 +3,9 @@
 {% block content %}
     <h1>
         Driver List
-        <a style="float: right" href="{% url 'taxi:driver-create' %}">Add</a>
+        <a style="float: right" href="{% url 'taxi:driver-create' %}" class="btn btn-primary btn-lg">
+            Add
+        </a>
     </h1>
 
     {% if driver_list %}
