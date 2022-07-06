@@ -1,9 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views import generic
+from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Driver, Car, Manufacturer
+from .forms import DriverUpdateForm, CarForm, DriverCreationForm
 
 
 @login_required
@@ -52,3 +54,66 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+class CarCreateView(generic.CreateView):
+    model = Car
+    form_class = CarForm
+    success_url = reverse_lazy("taxi:car-list")
+    template_name = "taxi/car_form.html"
+
+
+class CarUpdateView(generic.UpdateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    template_name = "taxi/car_form.html"
+
+
+class CarDeleteView(generic.DeleteView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    template_name = "taxi/car_delete_confirm.html"
+
+
+class ManufacturerCreateView(generic.CreateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "taxi/manufacturer_form.html"
+
+
+class ManufacturerUpdateView(generic.UpdateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "taxi/manufacturer_form.html"
+
+
+class ManufacturerDeleteView(generic.DeleteView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "taxi/manufacturer_delete_confirm.html"
+
+
+class DriverCreateView(generic.CreateView):
+    model = Driver
+    form_class = DriverCreationForm
+    template_name = "taxi/driver_form.html"
+    success_url = reverse_lazy("taxi:driver-list")
+
+
+class DriverDeleteView(generic.DeleteView):
+    model = Driver
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:driver-list")
+    template_name = "taxi/driver_delete_confirm.html"
+
+
+class DriverUpdateView(generic.UpdateView):
+    model = Driver
+    form_class = DriverUpdateForm
+    success_url = reverse_lazy("taxi:driver-list")
+    template_name = "taxi/license_update.html"
