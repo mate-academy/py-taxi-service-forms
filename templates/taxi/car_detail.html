@@ -9,4 +9,16 @@
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
+    <a href={% url "taxi:car-create"%}><input type="submit" class="btn btn-primary" value="Create Car" style="margin-bottom: 5px"></a><br>
+      <a href={% url "taxi:cars-update" pk=car.id %} ><input type="submit" class="btn btn-primary" value="Delete Driver" style="margin-bottom: 5px"></a><br>
+    {% if car in user.cars.all %}
+      <button type="button" class="btn btn-outline-danger">
+        <a style="color: red" href="{% url 'taxi:car-assign' pk=car.id operation="cancel" %}">Delete me from this car</a>
+      </button>
+    {% endif %}
+    {% if car not in user.cars.all %}
+      <button type="button" class="btn btn-outline-success">
+        <a style="color: green" href="{% url 'taxi:car-assign' pk=car.id operation="assign" %}">Assign me to this car</a>
+      </button>
+    {% endif %}
 {% endblock %}
