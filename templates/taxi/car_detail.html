@@ -1,22 +1,47 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+  <h1>Model: {{ car }}</h1>
+  <p><strong>Manufacturer: </strong>{{ car.manufacturer.name }} ({{ car.manufacturer.country }})</p>
   <p>
     <button type="button" class="btn btn-outline-primary">
       <a href="{% url 'taxi:car-form' pk=car.id %}">Update car</a>
     </button>
-    <button type="button" class="btn btn-outline-primary">
-      <a href="{% url 'taxi:car-delete' pk=car.id %}">Delete car</a>
+    <button type="button" class="btn btn-outline-danger">
+      <a style="color: red" href="{% url 'taxi:car-delete' pk=car.id %}">Delete car</a>
     </button>
+    {% if car in user.cars.all %}
+      <button type="button" class="btn btn-outline-danger">
+        <a style="color: red" href="{% url 'taxi:car-assign' pk=car.id operation="cancel" %}">Delete me from this car</a>
+      </button>
+    {% else %}
+      <button type="button" class="btn btn-outline-success">
+        <a style="color: green" href="{% url 'taxi:car-assign' pk=car.id operation="assign" %}">Assign me to this car</a>
+      </button>
+    {% endif %}
   </p>
 
   <h1>Drivers</h1>
-  <hr>
-  <ul>
-    {% for driver in car.drivers.all %}
-      <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-    {% endfor %}
-  </ul>
+  <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>License number</th>
+      </tr>
+      {% for driver in car.drivers.all %}
+        <tr>
+          <td>{{ driver.id }}</td>
+          <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a>
+          </td>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td>{{ driver.license_number }}</td>
+        </tr>
+      {% empty %}
+        <p>This car hasn't drivers</p>
+      {% endfor %}
+    </table>
 
 {% endblock %}

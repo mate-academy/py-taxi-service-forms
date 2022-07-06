@@ -4,16 +4,20 @@
   <h1>Car list
     <a href="{% url 'taxi:car-form' %}">+</a>
   </h1>
-  {% if car_list %}
-    <ul>
-      {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
+  <table class="table">
+  <tr>
+    <th>ID</th>
+    <th>Manufacturer</th>
+    <th>Model</th>
+  </tr>
+  {% for car in car_list %}
+    <tr>
+      <td><a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a></td>
+      <td>{{ car.manufacturer }}</td>
+      <td>{{ car.model }}</td>
+    </tr>
+  {% empty %}
     <p>There are no cars in taxi</p>
-  {% endif %}
+  {% endfor %}
+</table>
 {% endblock %}

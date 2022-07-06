@@ -30,7 +30,7 @@
             <a href="{% url 'taxi:manufacturer-form'  pk=manufacturer.id %}">Update</a>
           </td>
           <td>
-            <a href="{% url 'taxi:manufacturer-delete'  pk=manufacturer.id %}">Delete</a>
+            <a style="color: red" href="{% url 'taxi:manufacturer-delete'  pk=manufacturer.id %}">Delete</a>
           </td>
         </tr>
       {% endfor %}

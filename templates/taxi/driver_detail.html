@@ -4,32 +4,38 @@
 
   <h1>
     Username: {{ driver.username }}
+    <button type="button" class="btn btn-outline-primary">
+      <a href="{% url 'taxi:driver-update' pk=driver.id %}">Update license number</a>
+    </button>
+    <button type="button" class="btn btn-outline-danger">
+      <a style="color: red" href="{% url 'taxi:driver-delete' pk=driver.id %}">Delete user</a>
+    </button>
   </h1>
 
   <p><strong>First name:</strong> {{ driver.first_name }}</p>
   <p><strong>Last name:</strong> {{ driver.last_name }}</p>
   <p><strong>License number:</strong> {{ driver.license_number }}</p>
   <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
-  <p>
-    <button type="button" class="btn btn-outline-primary">
-      <a href="{% url 'taxi:driver-update' pk=driver.id %}">Update license number</a>
-    </button>
-    <button type="button" class="btn btn-outline-primary">
-      <a href="{% url 'taxi:driver-delete' pk=driver.id %}">Delete user</a>
-    </button>
-  </p>
+  <br>
 
   <div class="ml-3">
     <h4>Cars</h4>
-    {% for car in driver.cars.all %}
-      <hr>
-      <p><strong>Model:</strong> {{ car.model }}</p>
-      <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
-      <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>
-
-    {% empty %}
-      <p>No cars!</p>
-    {% endfor %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Manufacturer</th>
+        <th>Model</th>
+      </tr>
+      {% for car in driver.cars.all %}
+        <tr>
+          <td><a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a></td>
+          <td>{{ car.manufacturer }}</td>
+          <td>{{ car.model }}</td>
+        </tr>
+      {% empty %}
+        <p>There are no cars in taxi</p>
+      {% endfor %}
+    </table>
   </div>
 
 {% endblock %}
