@@ -17,7 +17,7 @@ class DriverForm(forms.ModelForm):
 
     class Meta:
         model = Driver
-        fields = ("username", "first_name",
+        fields = ("username", "password", "first_name",
                   "last_name", "license_number")
 
     def clean_license_number(self):
