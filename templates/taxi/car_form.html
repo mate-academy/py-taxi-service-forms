@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ object|yesno:"Update, Create" }} Car</h1>
+
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Submit">
+    </form>
+
+{% endblock %}
