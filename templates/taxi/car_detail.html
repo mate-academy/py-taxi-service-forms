@@ -19,11 +19,11 @@
       Drivers
 
       {% if user in car.drivers.all %}
-        <a class="btn btn-danger" href="{% url 'taxi:change_user_to_car_connection' pk=car.pk %}" role="button">
+        <a class="btn btn-danger float-right" href="{% url 'taxi:change_user_to_car_connection' pk=car.pk %}" role="button">
           Delete me from this car
         </a>
       {% else %}
-        <a class="btn btn-success" href="{% url 'taxi:change_user_to_car_connection' pk=car.pk %}" role="button">
+        <a class="btn btn-success float-right" href="{% url 'taxi:change_user_to_car_connection' pk=car.pk %}" role="button">
           Assign me to this car
         </a>
       {% endif %}
