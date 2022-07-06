@@ -3,10 +3,21 @@
 {% block content %}
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
+
+        {% if car not in user.cars.all %}
+            <a href="{% url 'taxi:car-assign' pk=car.id %}" class="btn btn-info">Assign me to this car</a>
+        {% else %}
+            <a href="{% url 'taxi:car-assign' pk=car.id %}" class="btn btn-danger">Delete me from this car</a>
+        {% endif %}
+
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
+    <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-info">Update car info</a>
+      <br>
+      <br>
+      <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-info">Delete car</a>
 {% endblock %}
