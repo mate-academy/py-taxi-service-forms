@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -114,3 +115,15 @@ class LicenseUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("taxi:driver-list")
     form_class = LicenseUpdateForm
     template_name = "taxi/license_update.html"
+
+
+def set_user_to_car_view(request, pk):
+    car = Car.objects.get(pk=pk)
+    car.drivers.add(request.user)
+    return HttpResponseRedirect(reverse(f"taxi:car-detail", kwargs={"pk": pk}))
+
+
+def delete_user_from_car_view(request, pk):
+    car = Car.objects.get(pk=pk)
+    car.drivers.remove(request.user)
+    return HttpResponseRedirect(reverse(f"taxi:car-detail", kwargs={"pk": pk}))

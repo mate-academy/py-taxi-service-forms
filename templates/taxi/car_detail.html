@@ -2,7 +2,13 @@
 
 {% block content %}
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
+  <h1>Drivers
+    {% if user in car.drivers.all %}
+        <p style="float: right" class="btn btn-danger"><a style="color: white" href="{% url 'taxi:delete_driver' pk=car.pk%}">delete driver</a></p>
+        {% else %}
+            <p style="float: right" class="btn btn-primary"><a style="color: white" href="{% url 'taxi:set_driver' pk=car.pk%}">set driver</a></p>
+    {% endif %}
+    </h1>
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
