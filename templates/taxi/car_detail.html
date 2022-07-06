@@ -1,12 +1,54 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
-  </ul>
+  <h1>
+    Model: {{ car.model }}
+  </h1>
+
+  <br>
+
+  <p>
+    <strong>Manufacturer:</strong>
+    {{ car.manufacturer.name }} ({{ car.manufacturer.country }})
+  </p>
+
+  <br>
+
+  <div class="ml-3">
+    <h4>
+      Drivers
+
+      {% if user in car.drivers.all %}
+        <a class="btn btn-danger float-right" href="{% url 'taxi:change_user_to_car_connection' pk=car.pk %}" role="button">
+          Delete me from this car
+        </a>
+      {% else %}
+        <a class="btn btn-success float-right" href="{% url 'taxi:change_user_to_car_connection' pk=car.pk %}" role="button">
+          Assign me to this car
+        </a>
+      {% endif %}
+
+    </h4>
+
+
+    {% for driver in car.drivers.all %}
+        <hr>
+        <p><strong>Username:</strong> {{ driver.username }}</p>
+        <p><strong>Full name:</strong> {{ driver.first_name }} {{ driver.last_name }}</p>
+        <p><strong>License number:</strong> {{ driver.license_number }}</p>
+
+    {% empty %}
+      <p>No drivers!</p>
+    {% endfor %}
+  </div>
+
+  <br>
+
+  <a class="btn btn-secondary" href="{% url 'taxi:car-update' pk=car.pk %}" role="button">
+    Update
+  </a>
+  <a class="btn btn-danger" href="{% url 'taxi:car-delete' pk=car.pk %}" role="button">
+    Delete
+  </a>
+
 {% endblock %}

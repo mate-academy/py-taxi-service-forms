@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Car</h1>
+
+  <br>
+
+  <p>Are you sure you want to delete car <b><i>{{ car.model }}</i></b>?</p>
+
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+
+    <br>
+
+    <input class="btn btn-danger" type="submit" value="Yes, delete">
+    <a class="btn btn-secondary" href="{% url 'taxi:car-detail' pk=car.pk %}" role="button">
+      Cansel
+    </a>
+  </form>
+{% endblock %}
