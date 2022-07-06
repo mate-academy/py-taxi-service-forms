@@ -8,10 +8,12 @@
   <p><strong>First name:</strong> {{ driver.first_name }}</p>
   <p><strong>Last name:</strong> {{ driver.last_name }}</p>
   <p><strong>License number:</strong> {{ driver.license_number }}</p>
+    <button class="btn btn-success"><a style="color: white" href="{% url 'taxi:license_update' pk=driver.pk %}">edit license number</a></button>
+    <p></p>
   <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
 
   <div class="ml-3">
-    <h4>Cars</h4>
+    <h2>Cars</h2>
 
     {% for car in driver.cars.all %}
         <hr>
@@ -23,4 +25,7 @@
       <p>No cars!</p>
     {% endfor %}
   </div>
+    <br>
+    <button class="btn btn-success"><a style="color: white" href="{% url "taxi:driver_update" pk=driver.pk %}">update</a></button>
+    <button class="btn btn-danger"><a style="color: black" href="{% url "taxi:driver_delete" pk=driver.pk %}">delete</a></button>
 {% endblock %}

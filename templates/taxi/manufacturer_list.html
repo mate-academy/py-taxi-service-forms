@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Manufacturer List
-    </h1>
+        <a style="float: right" href="{% url "taxi:manufacturer_create" %}">+</a></h1>
 
     {% if manufacturer_list %}
       <table class="table">
@@ -10,6 +10,8 @@
           <th>ID</th>
           <th>Name</th>
           <th>Country</th>
+            <th>UPDATE</th>
+            <th>DELETE</th>
         </tr>
 
         {% for manufacturer in manufacturer_list %}
@@ -23,6 +25,14 @@
               <td>
                   {{ manufacturer.country }}
               </td>
+
+            <td>
+                <h6><a href="{% url "taxi:manufacturer_update" pk=manufacturer.id %}">update</a></h6>
+            </td>
+
+            <td>
+                <h6><a style="color: red" href="{% url "taxi:manufacturer_delete" pk=manufacturer.id %}">delete </a></h6>
+            </td>
           </tr>
         {% endfor %}
       </table>
