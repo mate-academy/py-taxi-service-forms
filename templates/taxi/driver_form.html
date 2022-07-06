@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Create new driver</title>{% endblock %}
+
+{% block content %}
+
+  <h1>{{ object|yesno:"Update license, Create driver" }}</h1>
+
+  {% include "includes/create_update_form.html" %}
+
+{% endblock %}
