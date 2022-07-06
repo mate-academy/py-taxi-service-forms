@@ -18,7 +18,16 @@ license:
 4. On the driver detail page add buttons that lead to the driver's license updating page and
 driver deletion page.
 5. On the car list page add button that leads to the car creation page. On the car 
-detail page, add buttons that lead to the car update page and car deletion page.
+detail page add buttons that lead to the car update page and car deletion page.
 6. On the manufacturer list page, add the button that leads to the manufacturer creation
 page. Also, add columns `Update`, `Delete`, and add links for the updating page and 
 deletion page for each manufacturer.
+7. On the car detail page add button `Assign me to this car`. This button adds 
+current user to car drivers. When current user is already a driver of this car, 
+there should be `Delete me from this car` button that deletes user from car drivers.
+
+The car detail page should look like this:
+![image](https://mate-academy-images.s3.eu-central-1.amazonaws.com/django-forms-1.png)
+![image](https://mate-academy-images.s3.eu-central-1.amazonaws.com/django-forms-2.png)
+
+NOTE: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them.
