@@ -1,0 +1,7 @@
+{% load crispy_forms_filters %}
+
+<form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ form|crispy }}
+    <input class="btn btn-primary" type="submit" value="{{ object|yesno:'Update,Create' }}">
+    </form>

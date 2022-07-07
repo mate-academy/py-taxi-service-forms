@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ object|yesno:'Update,Create' }} manufacturer</h1>
+    {% include 'includes/create_update_form.html' %}
+{% endblock %}
