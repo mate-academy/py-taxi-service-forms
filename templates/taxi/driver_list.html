@@ -2,7 +2,12 @@
 
 {% block content %}
     <h1>Driver List
-    </h1>
+    <a href="{% url 'taxi:driver-create' %}"><button class="btn btn-primary" style="float:right">Add driver</button></a></h1>
+
+    <form action="" method="get">
+    {{ search_form  }}
+        <input type="submit"  class="btn btn-dark" value="🔎">
+    </form>
 
     {% if driver_list %}
     <table class="table">
@@ -27,4 +32,13 @@
     {% else %}
       <p>There are no drivers in the service.</p>
     {% endif %}
+    <div class="bg-image"
+        style="
+
+  background-repeat: no-repeat;
+  background-size: cover;
+    background-image: url(https://prod-images.tcm.com/Master-Profile-Images/taxidriver1976.16448.jpg);
+    height: 435px;
+  ">
+    </div>
 {% endblock %}
