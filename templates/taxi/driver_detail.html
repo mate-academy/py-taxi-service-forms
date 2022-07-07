@@ -4,6 +4,14 @@
   <h1>
     Username: {{ driver.username }}
   </h1>
+  <p>
+    <a href="{% url 'taxi:driver-license-update' pk=driver.id %}">
+      <input class="btn btn-primary" type="submit" value="Update license">
+    </a>
+    <a href="{% url 'taxi:driver-delete' pk=driver.id %}">
+      <input class="btn btn-danger" type="submit" value="Delete">
+    </a>
+  </p>
 
   <p><strong>First name:</strong> {{ driver.first_name }}</p>
   <p><strong>Last name:</strong> {{ driver.last_name }}</p>
