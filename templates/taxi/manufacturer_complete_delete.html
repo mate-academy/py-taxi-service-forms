@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Do you want to fully delete manufacturer: "{{ manufacturer.name }}"?</h1>
+    {% include 'includes/delete_form.html' %}
+{% endblock %}
