@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h1>Delete manufacturer</h1>
+    {% if manufacturer.cars.all %}
+        <p>if you delete this manufacturer {{ manufacturer.name }} you also will delete all its cars:
+            {% for car in  manufacturer.cars.all %}
+                {{ car }}
+            {% endfor %}
+            {% else %}
+        <p>You delete manufacture: {{ manufacturer.name }}</p>
+    {% endif %}
+    <br>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Click
+            <input class="btn btn-primary" type="submit" value="Yes"> or
+            <a class="btn btn-primary" href="{% url "taxi:manufacturer-list" %}">No</a>
+        </p>
+    </form>
+{% endblock %}
