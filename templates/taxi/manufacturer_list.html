@@ -1,33 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
-    </h1>
-
+    <h1>Manufacturer List</h1>
     {% if manufacturer_list %}
-      <table class="table">
+        <table class="table">
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
-
-        {% for manufacturer in manufacturer_list %}
+            {% for manufacturer in manufacturer_list %}
             <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
-          </tr>
-        {% endfor %}
-      </table>
-
+                <td>{{ manufacturer.id }}</td>
+                <td>{{ manufacturer.name }}</td>
+                <td>{{ manufacturer.country }}</td>
+                <td>
+                    <a class="btn btn-secondary" role="button" href="{% url "taxi:manufacturer-update" manufacturer.id %}">
+                        Update
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-secondary" role="button" href="{% url "taxi:manufacturer-delete" manufacturer.id %}">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
     {% else %}
         <p>There are no manufacturers in the service.</p>
     {% endif %}
+    <form action="{% url "taxi:manufacturer-create" %}">
+    {% csrf_token %}
+    <input type="submit" value="Create Manufacturer" class="btn btn-primary"/>
+    </form>
 {% endblock %}

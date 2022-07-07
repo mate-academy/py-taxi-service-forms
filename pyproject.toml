@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "taxi-service"
+version = "0.5.0"
+description = ""
+authors = ["Dmitry Ivanov <karward94@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.0.3"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+django-debug-toolbar = "^3.2.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

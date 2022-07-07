@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+
+{% block content %}
+    <h1>{{ object|yesno:"Update,Create" }} Car</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="{{ object|yesno:"Update,Create" }}" class="btn btn-primary"/>
+    </form>
+    <br>
+    <form action="{%  url "taxi:car-list" %}">
+        {% csrf_token %}
+        <input type="submit" value="Back to Car List" class="btn btn-secondary">
+    </form>
+{% endblock %}
