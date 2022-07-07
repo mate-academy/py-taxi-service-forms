@@ -17,4 +17,15 @@
       Delete
     </a>
     </p>
+        <p>
+          {% if car in user.cars.all %}
+                    <a type="button" class="btn btn-warning" href="{% url "taxi:car-assign" pk=car.id %}">
+                        Delete me from this car
+                    </a>
+              {% else %}
+                    <a class="btn btn-secondary" href="{% url "taxi:car-assign" pk=car.id %}">
+                            Assign me to this car
+                    </a>
+          {% endif %}
+        </p>
 {% endblock %}

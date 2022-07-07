@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -110,3 +111,13 @@ class DriverLicenseUpdateView(LoginRequiredMixin, generic.UpdateView):
     form_class = LicenseUpdateForm
     success_url = reverse_lazy("taxi:driver-list")
     template_name = "taxi/driver_license_update.html"
+
+
+def car_assign(request, pk):
+    current_driver = Driver.objects.get(id=request.user.id)
+    if Car.objects.get(id=pk) not in current_driver.cars.all():
+        current_driver.cars.add(pk)
+    else:
+        current_driver.cars.remove(pk)
+
+    return HttpResponseRedirect(reverse_lazy("taxi:car-detail", args=[pk]))
