@@ -16,10 +16,6 @@ class DriverCreateForm(forms.ModelForm):
         model = Driver
         fields = ["username", "password", "first_name", "last_name", "email",
                   "license_number"]
-        # Question to mentors: how I can get current logged on user fields?
-        # if model.is_superuser:
-        #     fields.append("is_superuser")
-        #     fields.append("is_staff")
 
 
 class DriverUpdateForm(forms.ModelForm):
