@@ -23,4 +23,12 @@
       <p>No cars!</p>
     {% endfor %}
   </div>
+  <form action="{% url "taxi:driver-update" pk=driver.id %}">
+    {% csrf_token %}
+    <input type="submit" value="Update License Number" class="btn btn-primary floated"/>
+  </form>
+  <form action="{% url "taxi:driver-delete" pk=driver.id %}">
+    {% csrf_token %}
+    <input type="submit" value="Delete Driver" class="btn btn-primary floated"/>
+  </form>
 {% endblock %}

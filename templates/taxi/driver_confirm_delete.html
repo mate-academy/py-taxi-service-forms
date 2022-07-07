@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Delete Driver</h1>
+
+  <p>Are you sure you want to delete the driver: {{ driver.username }}?</p>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger"/>
+  </form>
+
+{% endblock %}
