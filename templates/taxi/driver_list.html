@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Driver List
+    <h1>
+        Driver List
+        <a class="btn btn-primary" style="float: right" href="{% url 'taxi:driver-create' %}">Create</a>
     </h1>
 
     {% if driver_list %}
@@ -12,6 +14,7 @@
         <th>First name</th>
         <th>Last name</th>
         <th>License number</th>
+        <th>Update driver</th>
       </tr>
     {% for driver in driver_list %}
       <tr>
@@ -20,6 +23,7 @@
         <td>{{ driver.first_name }}</td>
         <td>{{ driver.last_name }}</td>
         <td>{{ driver.license_number }}</td>
+        <td><a class="btn btn-primary" href="{% url 'taxi:driver-update' pk=driver.id %}">Update driver</a></td>
       </tr>
     {% endfor %}
 
