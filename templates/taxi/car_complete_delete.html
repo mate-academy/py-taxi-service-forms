@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Do you really want to delete this car: {{ car }}?</h1>
+    {% include 'includes/delete_form.html' %}
+{% endblock %}
