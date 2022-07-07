@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Add new driver</h1>
+    <h1>{{ object|yesno:"Update, Create new" }} driver</h1>
 
     {% include 'includes/forms.html' %}
 

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Add new car</h1>
+    <h1>{{ object|yesno:"Update, Create" }} car</h1>
 
     {% include 'includes/forms.html' %}
 
