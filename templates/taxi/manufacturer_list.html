@@ -2,7 +2,8 @@
 
 {% block content %}
     <h1>Manufacturer List
-    </h1>
+    <a href="{% url 'taxi:manufacturer-create' %}"><button class="btn btn-primary" style="float:right">Add manufacturer</button></a></h1>
+
 
     {% if manufacturer_list %}
       <table class="table">
@@ -10,6 +11,8 @@
           <th>ID</th>
           <th>Name</th>
           <th>Country</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
 
         {% for manufacturer in manufacturer_list %}
@@ -23,11 +26,27 @@
               <td>
                   {{ manufacturer.country }}
               </td>
+            <td>
+                <a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">Update</a>
+            </td>
+            <td>
+                <a href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">Delete</a>
+            </td>
           </tr>
         {% endfor %}
+
       </table>
 
     {% else %}
         <p>There are no manufacturers in the service.</p>
     {% endif %}
+    <div class="bg-image"
+        style="
+  background-repeat: no-repeat;
+  background-size: cover;
+    background-image: url(https://static.wixstatic.com/media/961f25_a6381e36b4d74c19a7afadf9e35c89a4~mv2.jpg/v1/fill/w_1000,h_667,al_c,q_90/961f25_a6381e36b4d74c19a7afadf9e35c89a4~mv2.jpg);
+    height: 440px;
+  ">
+    </div>
+
 {% endblock %}

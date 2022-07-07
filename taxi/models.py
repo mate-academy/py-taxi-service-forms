@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
+from django.core.validators import MinLengthValidator
 
 
 class Manufacturer(models.Model):
@@ -15,14 +16,16 @@ class Manufacturer(models.Model):
 
 
 class Driver(AbstractUser):
-    license_number = models.CharField(max_length=255, unique=True)
+    license_number = models.CharField(max_length=8, unique=True, validators=[MinLengthValidator(8)])
 
     class Meta:
         verbose_name = "driver"
         verbose_name_plural = "drivers"
 
     def __str__(self):
-        return f"{self.username} ({self.first_name} {self.last_name})"
+        if self.first_name and self.last_name:
+            return f"{self.username} ({self.first_name} {self.last_name})"
+        return f"{self.username}"
 
     def get_absolute_url(self):
         return reverse("taxi:driver-detail", kwargs={'pk': self.pk})
