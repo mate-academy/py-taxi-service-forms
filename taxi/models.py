@@ -10,6 +10,9 @@ class Manufacturer(models.Model):
     class Meta:
         ordering = ["name"]
 
+    def get_absolute_url(self):
+        return reverse("taxi:manufacturer-list", args=[str(self.id)])
+
     def __str__(self):
         return f"{self.name} {self.country}"
 
@@ -35,3 +38,4 @@ class Car(models.Model):
 
     def __str__(self):
         return self.model
+

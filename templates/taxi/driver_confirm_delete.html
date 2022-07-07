@@ -1,0 +1,10 @@
+{%  extends "base.html" %}
+
+{%  block content %}
+    <h1>Delete liscense</h1>
+    <p>Are you shure?</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Yes">
+    </form>
+{% endblock %}
