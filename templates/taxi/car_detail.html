@@ -6,9 +6,9 @@
     <br>
     <h4>Drivers:
     {% if not user in car.drivers.all %}
-        <button class="btn btn-success" style="float: right"><a style="color: white" href="{% url "taxi:set_driver" pk=car.pk %}">Assign me to this car</a></button>
+        <button class="btn btn-success" style="float: right"><a class="a" style="color: white; text-decoration: none" href="{% url "taxi:set_driver" pk=car.pk %}">Assign me to this car</a></button>
     {% else %}
-        <button class="btn btn-danger" style="float: right"><a style="color: white" href="{% url "taxi:delete_driver_from_cars" pk=car.pk %}">Delete me from this car</a></button>
+        <button class="btn btn-danger" style="float: right"><a class="a" style="color: white; text-decoration: none" href="{% url "taxi:delete_driver_from_cars" pk=car.pk %}">Delete me from this car</a></button>
     {% endif %}</h4>
     <hr>
 
@@ -23,7 +23,7 @@
 
     <br>
 
-    <button class="btn btn-success"><a style="color: white" href="{% url "taxi:car_update" pk=car.pk %}">update</a></button>
-    <button class="btn btn-danger"><a style="color: black" href="{% url "taxi:car_delete" pk=car.pk %}">delete</a></button>
+    <button class="btn btn-outline-success"><a style="color: black; text-decoration: none" href="{% url "taxi:car_update" pk=car.pk %}">update</a></button>
+    <button class="btn btn-outline-danger"><a style="color: black; text-decoration: none" href="{% url "taxi:car_delete" pk=car.pk %}">delete</a></button>
 
 {% endblock %}
