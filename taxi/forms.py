@@ -7,6 +7,7 @@ from taxi.models import Driver
 
 def validate_license_number(license_number):
     if len(license_number) == 8 \
+            and license_number[:3].isalpha() \
             and license_number[:3] == license_number[:3].upper() \
             and license_number[3:].isdigit():
         return license_number
