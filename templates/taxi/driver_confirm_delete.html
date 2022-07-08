@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Delete Driver</h1>
+    <p>{{ driver.username }}</p>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="submit" value="Yes">
+    </form>
+
+{% endblock %}
