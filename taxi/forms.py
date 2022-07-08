@@ -33,23 +33,33 @@ class DriverForm(forms.ModelForm):
         if len(license_number) != DriverForm.LICENSE_LEN:
             raise ValidationError(f"License number should be"
                                   f" {DriverForm.LICENSE_LEN} symbols!")
-        elif not license_number[:DriverForm.LETTERS_LICENSE].isupper():
+        if not license_number[:DriverForm.LETTERS_LICENSE].isupper():
             raise ValidationError(f"First {DriverForm.LETTERS_LICENSE} must be"
                                   f" letters in uppercase!")
-        elif not license_number[:DriverForm.LETTERS_LICENSE].isalpha():
+        if not license_number[:DriverForm.LETTERS_LICENSE].isalpha():
             raise ValidationError(f"First {DriverForm.LETTERS_LICENSE} must be"
                                   f" letters, not contain numbers!")
-        elif not license_number[-DriverForm.DIGITS_LICENSE:].isdigit():
+        if not license_number[-DriverForm.DIGITS_LICENSE:].isdigit():
             raise ValidationError(f"Last {DriverForm.DIGITS_LICENSE} must be"
                                   f" integer numbers!")
 
         return license_number
 
 
-class LicenseUpdateForm(DriverForm):
+class DriverLicenseUpdateForm(DriverForm):
     class Meta:
         model = Driver
         fields = ["license_number"]
+
+
+class SearchForm(forms.Form):
+    title = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={"placeholder": "search ..."})
+    )
 
 
 class ManufacturerForm(forms.ModelForm):

@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 
+
 {% block content %}
     <h1>Driver List
     <a class="btn btn-outline-primary" style="float: right" href="{% url "taxi:driver_create" %}">+</a>
     </h1>
+
+    {% block search %}
+        {% include "includes/search.html" %}
+    {% endblock %}
+
 
     {% if driver_list %}
     <table class="table">

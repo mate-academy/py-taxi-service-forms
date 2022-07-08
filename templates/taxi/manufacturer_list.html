@@ -4,6 +4,11 @@
     <h1>Manufacturer List
         <a class="btn btn-outline-primary" style="float: right" href="{% url "taxi:manufacturer_create" %}">+</a></h1>
 
+    {% block search %}
+        {% include "includes/search.html" %}
+    {% endblock %}
+
+
     {% if manufacturer_list %}
       <table class="table">
         <tr>

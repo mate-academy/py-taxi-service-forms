@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 
+
 {% block content %}
   <h1>Car list
       <a style="float: right" class="btn btn-outline-primary" href="{% url "taxi:car_create" %}">+</a></h1>
+
+    {% block search %}
+        {% include "includes/search.html" %}
+    {% endblock %}
+
   {% if car_list %}
       <table class="table">
         <tr>
