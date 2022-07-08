@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ object|yesno:"Update Licence, Create Driver" }}  </h1>
+
+    <form method="post" action="" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Submit">
+    </form>
+
+{% endblock %}
