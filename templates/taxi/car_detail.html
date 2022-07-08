@@ -1,8 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
+  <h2>Model: {{ car.model }}</h2>
+  <h3>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</h3>
+  <p>
+    <button type="button" class="btn btn-outline-primary"><a href="{% url 'taxi:car-update' pk=car.id %}">Update car info</a></button>
+    <button type="button" class="btn btn-outline-danger"><a href="{% url 'taxi:car-delete' pk=car.id %}">Delete this car </a></button>
+  </p>
+  <p>Drivers</p>
+  <button type="button" class="btn btn-outline-primary"><a href="{% url 'taxi:car-assign' pk=car.id %}">
+    {% if car in user.cars.all %}
+      Delete me from this car
+      {% else %}
+      Assign me to this car
+    {% endif %} 
+  </a>
+  </button>
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
