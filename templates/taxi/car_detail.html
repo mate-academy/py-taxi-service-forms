@@ -5,10 +5,10 @@
     <h1>
         Drivers
         {% if car in user.cars.all %}
-            <a class="btn btn-secondary float-right" href="{% url 'taxi:assign-or-delete' pk=user.id %}">Delete me from
+            <a class="btn btn-secondary float-right" href="{% url 'taxi:assign-or-delete' pk=car.id %}">Delete me from
                 this car</a>
         {% else %}
-            <a class="btn btn-secondary float-right" href="{% url 'taxi:assign-or-delete' pk=user.id %}">Assign me to this
+            <a class="btn btn-secondary float-right" href="{% url 'taxi:assign-or-delete' pk=car.id %}">Assign me to this
                 car</a>
         {% endif %}
     </h1>

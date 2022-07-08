@@ -126,4 +126,4 @@ def assign_or_delete(request, pk):
         driver.cars.remove(car)
     else:
         driver.cars.add(car)
-    return HttpResponseRedirect(reverse_lazy("taxi:car-detail", args=[user_id]))
+    return HttpResponseRedirect(reverse_lazy("taxi:car-detail", args=[pk]))
