@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
+    <h1>
+      Manufacturer List
+      <a class="btn btn-success float-right" href="{% url 'taxi:manufacturer-create' %}" role="button">
+        Add
+      </a>
     </h1>
 
-    {% if manufacturer_list %}
+     {% if manufacturer_list %}
       <table class="table">
         <tr>
           <th>ID</th>
           <th>Name</th>
           <th>Country</th>
+          <th></th>
+          <th></th>
         </tr>
-
         {% for manufacturer in manufacturer_list %}
             <tr>
               <td>
@@ -23,10 +28,21 @@
               <td>
                   {{ manufacturer.country }}
               </td>
+              <td>
+               <a class="btn btn-success"
+                  href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}" role="button">
+                  Update
+                </a>
+              </td>
+              <td>
+                <a class="btn btn-danger"
+                  href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}" role="button">
+                  Delete
+                </a>
+              </td>
           </tr>
         {% endfor %}
       </table>
-
     {% else %}
         <p>There are no manufacturers in the service.</p>
     {% endif %}
