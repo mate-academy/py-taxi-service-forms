@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ manufacturer.name }}</h1>
+    <p><strong>Country: </strong>{{ manufacturer.country }}</p>
+    <h3>Cars:</h3>
+    {% for car in manufacturer.car_set.all %}
+        {% if car.model %}
+            <hr>
+            <p class="text-muted"><strong>Id: </strong>{{ car.id }}</p>
+            <p><strong>Model: </strong><a class="text-decoration-none" href="{% url 'taxi:car-detail' car.pk %}">{{ car.model }}</a></p>
+        {% endif %}
+        {% empty %}
+            <p>Sorry, our service doesn't have any car of this manufacturer((</p>
+            <a class="btn btn-success" href="{% url 'taxi:manufacturers' %}">See other manufacturers</a>
+    {% endfor %}
+{% endblock %}
