@@ -29,8 +29,8 @@ class DriverForm(forms.ModelForm):
 
     def clean_license_number(self):
         license_number = self.cleaned_data["license_number"]
-        first_three = all([True if (s.isupper() and s.isalpha()) else False for s in license_number[:3]])
-        last_five = all([True if n.isdigit() else False for n in license_number[3:9]])
+        first_three = all([license_number[:3].isupper(), license_number[:3].isalpha()])
+        last_five = license_number[3:9].isdigit()
         if not first_three or len(license_number) != 8 or not last_five:
             raise ValidationError("Incorrect License number!")
         return license_number
