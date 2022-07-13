@@ -1,12 +1,44 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
+  <p>
+      <strong style="color: darkgreen">
+          Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})
+          <br>
+          Model: {{ car.model }}
+      </strong>
+      <br>
+      <br>
+      <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-warning">
+          Update
+      </a>
+      <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-danger">
+          Delete
+      </a>
+  </p>
+  <h1 style="color: darkgreen">Drivers
+    {% if user in car.drivers.all %}
+        <a style="float: right" href="{% url 'taxi:car-delete-driver' pk=car.id %}" class="btn btn-danger">
+            Delete me from this car
+        </a>
+    {% else %}
+        <a style="float: right" href="{% url 'taxi:car-add-driver' pk=car.id %}" class="btn btn-success">
+            Assign me to this car
+        </a>
+    {% endif %}
+  </h1>
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+    <li>
+        {{ driver.username }}
+        {% if driver.first_name %}
+        ({{ driver.first_name }} {{ driver.last_name }})
+        {% endif %}
+        {% if driver == user %}
+            (Me)
+        {% endif %}
+    </li>
   {% endfor %}
   </ul>
 {% endblock %}
