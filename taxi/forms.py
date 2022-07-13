@@ -46,15 +46,10 @@ def validate_license_number(license_number):
     if not len(license_number) == 8:
         raise ValidationError("Ensure that length of license equals 8")
 
-    for char in license_number[:3]:
-        if not char.isalpha():
-            raise ValidationError("Ensure that first 3 characters are letters")
+    if not license_number[:3].isalpha() or not license_number[:3].isupper():
+        raise ValidationError("Ensure that first 3 characters are letters and uppercase")
 
-        if not char.isupper():
-            raise ValidationError("Ensure that first 3 characters are uppercase")
-
-    for char in license_number[3:]:
-        if not char.isdigit():
-            raise ValidationError("Ensure that last 5 characters are digits")
+    if not license_number[3:].isdigit():
+        raise ValidationError("Ensure that last 5 characters are digits")
 
     return license_number
