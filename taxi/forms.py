@@ -5,23 +5,36 @@ from django.core.exceptions import ValidationError
 from taxi.models import Driver, Car
 
 
-class DriverUpdateForm(forms.ModelForm):
+class DriverCreateForm(forms.ModelForm):
     class Meta:
         model = Driver
-
-        fields = ["id", "username", "first_name", "last_name", "licence_number"]
+        fields = ["id", "username", "first_name", "last_name",
+                  "licence_number"]
 
     def clean_licence_number(self):
-        licence_number = self.cleaned_data["licence_number"]
-        if len(licence_number) == 8 and licence_number[
-                                        0:3].isupper() and licence_number[
-                                                           3:].isnumeric():
-            return licence_number
-        raise ValidationError(
-            "- There must be 8 symbols!"
-            " First 3 symbols must be alphabets in upper case!"
-            " Last 5 symbols must be numeric!"
-        )
+        return validate_licence_number(self.cleaned_data["licence_number"])
+
+
+class DriverLicenceUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Driver
+        fields = ["licence_number"]
+
+    def clean_licence_number(self):
+        return validate_licence_number(self.cleaned_data["licence_number"])
+
+
+def validate_licence_number(licence):
+    licence_number = licence
+    letters = licence_number[0:3].isupper()
+    numbers = licence_number[3:].isnumeric()
+    if len(licence_number) == 8 and letters and numbers:
+        return licence_number
+    raise ValidationError(
+        "- There must be 8 symbols!"
+        " First 3 symbols must be alphabets in upper case!"
+        " Last 5 symbols must be numeric!"
+    )
 
 
 class CarForm(forms.ModelForm):
