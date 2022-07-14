@@ -12,7 +12,7 @@ class DriverCreateForm(UserCreationForm):
         min_length=8,
         max_length=8,
         help_text=mark_safe(
-            f"License number format: <strong>AAA00000</strong><br><ul>"
+            f"License number format: <strong>AAA00000</strong><ul>"
             f"<li>3 capital A-Z at the start</li>"
             f"<li>5 digits at the end</li>"
             f"<li>full length: 8 characters</li></ul>"),
