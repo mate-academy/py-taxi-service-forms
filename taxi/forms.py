@@ -8,13 +8,13 @@ from django import forms
 class DriverCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Driver
-        fields = UserCreationForm.Meta.fields + ('first_name', 'last_name', 'license_number',)
+        fields = UserCreationForm.Meta.fields + ("first_name", "last_name", "license_number",)
 
 
 class DriverUpdatingForm(forms.ModelForm):
     class Meta:
         model = Driver
-        fields = ('license_number',)
+        fields = ("license_number",)
 
     def clean_license_number(self):
         return check_license(self.cleaned_data["license_number"])
