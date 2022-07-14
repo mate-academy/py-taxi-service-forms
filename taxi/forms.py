@@ -4,6 +4,21 @@ from django import forms
 from taxi.models import Driver
 
 
+def validate_license_number(license_number: str):
+    error = "Password requirements: Password should be 8 characters long, " \
+            "first 3 characters should be uppercase, " \
+            "Last 5 characters should be digits"
+
+    if len(license_number) != 8:
+        raise forms.ValidationError(error)
+    elif not license_number[:3].isupper() or not license_number[:3].isalpha():
+        raise forms.ValidationError(error)
+    elif not license_number[5:].isdigit():
+        raise forms.ValidationError(error)
+
+    return license_number
+
+
 class DriverCreationForm(UserCreationForm):
 
     class Meta:
@@ -11,6 +26,9 @@ class DriverCreationForm(UserCreationForm):
         fields = UserCreationForm.Meta.fields + (
             "license_number", "first_name", "last_name",
         )
+
+    def clean_license_number(self):
+        return validate_license_number(self.cleaned_data["license_number"])
 
 
 class LicenseUpdateForm(forms.ModelForm):
@@ -21,13 +39,4 @@ class LicenseUpdateForm(forms.ModelForm):
         fields = ["license_number"]
 
     def clean_license_number(self):
-        data = self.cleaned_data.get("license_number")
-
-        if not data[:3].isupper():
-            raise forms.ValidationError("First 3 letters should be uppercase")
-        elif not data[5:].isdigit():
-            raise forms.ValidationError("Last 5 letters should be numbers")
-        elif len(data) != 8:
-            raise forms.ValidationError("Password should be 8 symbols long")
-
-        return data
+        return validate_license_number(self.cleaned_data["license_number"])
