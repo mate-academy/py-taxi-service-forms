@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <h1>
+        Car list
+    </h1>
+
+    <p>
+        <a class="float-right btn" href={% url "taxi:create-car" %}>
+            <img alt="Add car" src="https://files.softicons.com/download/toolbar-icons/fatcow-hosting-icons-by-fatcow/png/32/car_add.png" width="50" height="50">
+        </a>
+    </p>
+
+    <form action="" method="get" class="col-md-3">
+        {{ search_form|crispy }}
+        <input class="btn btn-primary" type="submit" value="🔎">
+    </form>
+
+
+    {% if car_list %}
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Model</th>
+                <th>Manufacturer</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            {% for car in car_list %}
+                <tr>
+                    <td>
+                        {{ car.id }}
+                    </td>
+                    <td>
+                        <a href={% url "taxi:car-detail" pk=car.id %}>{{ car.model }}</a>
+                    </td>
+                    <td>
+                        {{ car.manufacturer.name }}, {{ car.manufacturer.country }}
+                    </td>
+                    <td>
+                        <a href={% url "taxi:manufacturer-update" pk=car.id %}>update</a>
+                    </td>
+                    <td>
+                        <a href={% url "taxi:manufacturer-delete" pk=car.id %}>delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>There are no cars in taxi</p>
+    {% endif %}
+{% endblock %}

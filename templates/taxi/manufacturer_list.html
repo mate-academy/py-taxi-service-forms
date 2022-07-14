@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <h1>
+        Manufacturer List
+    </h1>
+    <p class="float-right">
+        <a style="color:black" class="btn" href={% url "taxi:create-manufacturer" %}>
+            <img alt="Add manufacturer"
+                 src="https://cdn-icons-png.flaticon.com/512/2051/2051493.png"
+                 width="50" height="50">
+
+        </a>
+    </p>
+
+    <form action="" method="get" class="col-md-3">
+        {{ search_form|crispy }}
+        <input class="btn btn-primary" type="submit" value="🔎">
+    </form>
+
+    {% if manufacturer_list %}
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            {% for manufacturer in manufacturer_list %}
+                <tr>
+                    <td>
+                        {{ manufacturer.id }}
+                    </td>
+                    <td>
+                        {{ manufacturer.name }}
+                    </td>
+                    <td>
+                        {{ manufacturer.country }}
+                    </td>
+                    <td>
+                        <a href={% url "taxi:manufacturer-update" pk=manufacturer.id %}>update</a>
+                    </td>
+                    <td>
+                        <a href={% url "taxi:manufacturer-delete" pk=manufacturer.id %}>delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    {% else %}
+        <p>There are no manufacturers in the service.</p>
+    {% endif %}
+{% endblock %}

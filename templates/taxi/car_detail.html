@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Model: {{ car.model }}</h1>
+    <p class="inline-group">
+        <a class="btn btn-warning" href={% url "taxi:car-update" pk=car.id %}>Update</a>
+        <a class="btn btn-danger" href={% url "taxi:car-delete" pk=car.id %}>Delete</a>
+    </p>
+
+    <h2>
+        <p>Manufacturer:</p>
+    </h2>
+
+    <p> {{ car.manufacturer.name }}, country: {{ car.manufacturer.country }}</p>
+    <h2>
+        Drivers
+    </h2>
+
+    <hr>
+
+    <p>
+        {% if user in car.drivers.all %}
+            <a class="btn btn-danger" href={% url "taxi:driver-to-car" pk=car.pk %}>Delete me from this car</a>
+        {% else %}
+            <a class="btn btn-success" href={% url "taxi:driver-to-car" pk=car.pk %}>Assign me to this car</a>
+        {% endif %}</p>
+    <ul>
+        {% for driver in car.drivers.all %}
+            <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>
+        Username: {{ driver.username }}
+    </h1>
+    <br>
+    <p><strong>First name:</strong> {{ driver.first_name }}</p>
+    <p><strong>Last name:</strong> {{ driver.last_name }}</p>
+    <p><strong>License number:</strong> {{ driver.licence_number }} <a class="btn btn-success"
+            href={% url "taxi:driver-update-licence" pk=driver.id %}>update</a></p>
+    <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
+
+    <div class="ml-3">
+        <h4>Cars</h4>
+
+        {% for car in driver.cars.all %}
+            <hr>
+            <p><strong>Model:</strong> {{ car.model }}</p>
+            <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
+            <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>
+
+        {% empty %}
+            <p>No cars!</p>
+        {% endfor %}
+    </div>
+    <p><a class="btn btn-danger" href={% url "taxi:driver-delete" pk=driver.id %}>Delete user</a></p>
+{% endblock %}
