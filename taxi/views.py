@@ -1,11 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .forms import DriverCreationForm, LicenseNummerForm, CarForm
+from .forms import DriverCreationForm, LicenseNumberForm, CarForm
 from .models import Driver, Car, Manufacturer
 
 
@@ -109,12 +109,8 @@ class DriverDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class LicenseUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Driver
-    form_class = LicenseNummerForm
-    success_url = reverse_lazy("taxi:driver-list")
+    form_class = LicenseNumberForm
     template_name = "taxi/driver_form.html"
-
-    def get_success_url(self):
-        return reverse("taxi:driver-detail", args=(self.object.id,))
 
 
 def assign_or_delete(request, pk):

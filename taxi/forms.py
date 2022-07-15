@@ -13,7 +13,7 @@ class DriverCreationForm(UserCreationForm):
             "first_name", "last_name", "license_number", "email",)
 
 
-class LicenseNummerForm(forms.ModelForm):
+class LicenseNumberForm(forms.ModelForm):
 
     class Meta:
         model = Driver
