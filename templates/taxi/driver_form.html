@@ -2,7 +2,7 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <h3>Create new driver</h3>
+  <h3>{{ object|yesno:"Update info, Create driver" }}</h3>
   <form action="" method="post">
     {% csrf_token %}
     {{ form|crispy }}
