@@ -7,15 +7,13 @@ from taxi.models import Driver, Car
 
 
 class DriverCreateForm(UserCreationForm):
-    class Meta:
+    class Meta(UserCreationForm.Meta):
         model = Driver
-        fields = [
-            "id",
-            "username",
+        fields = UserCreationForm.Meta.fields + (
             "first_name",
             "last_name",
-            "licence_number"
-        ]
+            "licence_number",
+        )
 
     def clean_licence_number(self):
         return validate_licence_number(self.cleaned_data["licence_number"])
