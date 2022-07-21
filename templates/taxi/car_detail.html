@@ -1,23 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
+  <h1>Model: {{ car.model }}</h1>
+    <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+    <br>
+    <h3>Drivers:</h3>
   <hr>
-  <ul>
   {% for driver in car.drivers.all %}
-    {% if driver.pk == user.pk %}
-        <li>
-            {{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})
-            <a href="#">Deleted me</a>
-        </li>
-    {% else %}
-        <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }}) </li>
-    {% endif %}
+    <div >
+        <strong>Username: </strong>{{ driver.username }}
+    </div>
+    <div>
+         <strong>Full name: </strong> {{ driver.first_name }} {{ driver.last_name }}
+    </div>
+    <div>
+         <strong>License number: </strong> {{ driver.license_number }}
+    </div>
+      <hr>
   {% endfor %}
-  </ul>
-  <hr>
-  <a style="color: cornflowerblue; font-size: 24px" href="{% url 'taxi:car-update' car.pk %}"> Update </a>
-  <hr>
-  <a style="color: red; font-size: 24px" href="{% url 'taxi:car-delete' car.pk %}"> Deleted </a>
+  <button class="btn btn-info" type="submit"  onclick="location.href='{% url 'taxi:car-update' car.pk %}'"> Update </button>
+  <button class="btn btn-danger" type="submit"  onclick="location.href='{% url 'taxi:car-delete' car.pk %}'"> Delete </button>
+
+{#    {% for car_ in driver.cars.all %}#}
+{#        {% if car.id == car_.id %}#}
+{##}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+{##}
+{#    {% if driver.cars.get(pk=car.id) %}#}
+{#    {% endif %}#}
 {% endblock %}

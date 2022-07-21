@@ -2,7 +2,10 @@
 
 {% block content %}
   <h1>Car list
-  <a style="float: right" align="right" href="{% url 'taxi:car-create' %}"> + </a>
+    <button  style=" float: right" class="btn btn-success" type="submit"
+             onclick="location.href='{% url 'taxi:car-create' %}'">
+        Create
+    </button>
   </h1>
   {% if car_list %}
     <ul>

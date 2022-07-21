@@ -30,3 +30,16 @@ class DriverLicenseUpdateForm(forms.ModelForm):
                 raise ValidationError("Last 5 characters must be digits")
 
         return license_number
+
+
+# class DriverDeletedCarForm(forms.ModelForm):
+#     class Meta:
+#         model = get_user_model()
+#         fields = ("cars",)
+#
+#     def clean_driver_car(self):
+#         self.cleaned_data.get()
+#
+#
+# # class DriverAssignCarForm(forms.ModelForm):
+# #     pass
