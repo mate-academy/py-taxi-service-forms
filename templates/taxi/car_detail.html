@@ -4,7 +4,20 @@
   <h1>Model: {{ car.model }}</h1>
     <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
     <br>
-    <h3>Drivers:</h3>
+    <h3>Drivers:
+    {% if user in car.drivers.all %}
+        <button style=" float: right" class="btn btn-danger" type="submit"
+                onclick="location.href='{% url 'taxi:car-remove-driver' car.pk %}'">
+            Delete me from this car
+        </button>
+    {% else %}
+        <button style=" float: right" class="btn btn-success" type="submit"
+                onclick="location.href='{% url 'taxi:car-assign-driver'  car.pk %}'">
+            Assign me to this car
+        </button>
+
+    {% endif %}
+    </h3>
   <hr>
   {% for driver in car.drivers.all %}
     <div >
@@ -21,12 +34,4 @@
   <button class="btn btn-info" type="submit"  onclick="location.href='{% url 'taxi:car-update' car.pk %}'"> Update </button>
   <button class="btn btn-danger" type="submit"  onclick="location.href='{% url 'taxi:car-delete' car.pk %}'"> Delete </button>
 
-{#    {% for car_ in driver.cars.all %}#}
-{#        {% if car.id == car_.id %}#}
-{##}
-{#        {% endif %}#}
-{#    {% endfor %}#}
-{##}
-{#    {% if driver.cars.get(pk=car.id) %}#}
-{#    {% endif %}#}
 {% endblock %}

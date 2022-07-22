@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Create car</h1>
+    <h1>{{ object|yesno:"Update,Create" }} Car</h1>
     <br>
 
     <form action="" method="post" novalidate>
