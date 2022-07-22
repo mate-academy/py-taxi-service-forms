@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Driver List
+    <h1>
+        Driver List
+        <button  style=" float: right" class="btn btn-success" type="submit"
+                 onclick="location.href='{% url 'taxi:driver-create' %}'">
+            Create
+        </button>
     </h1>
 
     {% if driver_list %}
@@ -11,7 +16,12 @@
         <th>Username</th>
         <th>First name</th>
         <th>Last name</th>
-        <th>License number</th>
+        <th>
+            License number
+            <p style="font-size: 10px; margin: 0">(click to update)</p>
+        </th>
+        <th>Update</th>
+        <th>Delete</th>
       </tr>
     {% for driver in driver_list %}
       <tr>
@@ -19,7 +29,15 @@
         <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a></td>
         <td>{{ driver.first_name }}</td>
         <td>{{ driver.last_name }}</td>
-        <td>{{ driver.license_number }}</td>
+        <td>
+            <button class="btn btn-warning" type="submit"  onclick="location.href='{% url 'taxi:driver-license-update' driver.pk %}'"> {{ driver.license_number }} </button>
+        </td>
+        <td>
+            <button class="btn btn-info" type="submit"  onclick="location.href='{% url 'taxi:driver-update' driver.pk %}'"> Update </button>
+        </td>
+        <td>
+            <button class="btn btn-danger" type="submit"  onclick="location.href='{% url 'taxi:driver-delete' driver.pk %}'"> Delete </button>
+        </td>
       </tr>
     {% endfor %}
 

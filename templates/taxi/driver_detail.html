@@ -15,12 +15,13 @@
 
     {% for car in driver.cars.all %}
         <hr>
-        <p><strong>Model:</strong> {{ car.model }}</p>
-        <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
+        <div><strong>Model:</strong> {{ car.model }}</div>
+        <div><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</div>
+        <div class="text-muted"><strong>Id:</strong> {{car.id}}</div>
 
     {% empty %}
       <p>No cars!</p>
     {% endfor %}
   </div>
+
 {% endblock %}
