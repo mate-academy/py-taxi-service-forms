@@ -9,7 +9,10 @@ def validate_license_number(license_number):
     if len(license_number) == 8 and license_number[:3].isupper() \
             and license_number[3:].isdigit():
         return license_number
-    raise ValidationError("License number is not correct")
+    raise ValidationError("License number is not correct."
+                          "Please write license number in format: XXX00000"
+                          "(first 3 symbols must be letters in upper case)"
+                          "(last 5 symbols must be numbers)")
 
 
 class DriverCreateForm(UserCreationForm):
