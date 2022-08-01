@@ -1,30 +1,43 @@
 {% extends "base.html" %}
 
-{% block content %}
-    <h1>Driver List
-    </h1>
+{% block content%}
+    <h1>Drivers</h1>
+    <p>
+        <a class="btn btn-outline-primary"
+        href="{%  url 'taxi:driver-create' %}"
+        role="button">Add</a>
+    </p>
 
-    {% if driver_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>License number</th>
-      </tr>
-    {% for driver in driver_list %}
-      <tr>
-        <td>{{ driver.id }}</td>
-        <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a></td>
-        <td>{{ driver.first_name }}</td>
-        <td>{{ driver.last_name }}</td>
-        <td>{{ driver.license_number }}</td>
-      </tr>
-    {% endfor %}
-
+    {%  if driver_list %}
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Username</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">License number</th>
+          <th scope="col">E-mail</th>
+        </tr>
+      </thead>
+      {% for driver in driver_list %}
+        <tbody>
+            <tr>
+                <th scope="row">{{ driver.id }}</th>
+                <td><a href="{% url 'taxi:driver-detail' pk=driver.id %}">
+                    {{ driver.username }}
+                    {% if user.username == driver.username%}
+                        <b>(Me)</b>
+                    {% endif %}
+                    </a></td>
+                <td>{{ driver.first_name }}</td>
+                <td>{{ driver.last_name}}</td>
+                <td>{{ driver.license_number}}</td>
+                <td>{{ driver.email}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
     </table>
-    {% else %}
-      <p>There are no drivers in the service.</p>
-    {% endif %}
+    {%  endif %}
+
 {% endblock %}

@@ -1,12 +1,56 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
-  </ul>
-{% endblock %}
+    <h1>Model: {{ car.model }}</h1>
+    <div class="description">
+        <p>Manufacturer: <b>{{ car.manufacturer }}</b></p>
+        <p>Country: <b>{{ car.manufacturer.country }}</b></p>
+    </div>
+    <p>
+        <a class="btn btn-outline-primary btn-sm"
+            href="{%  url 'taxi:car-update' pk=car.id %}"
+            role="button" style="width: 100px;">Edit</a>
+        <a class="btn btn-outline-danger btn-sm"
+            href="{%  url 'taxi:car-delete' pk=car.id %}"
+            role="button" style="width: 100px;">Delete</a>
+        {% if user in car.drivers.all %}
+            <a class="btn btn-danger btn-sm"
+                href="{%  url 'taxi:car-shift' pk=car.id %}"
+                role="button" style="width: 250px; float: right"><b>Remove me from this car</b></a>
+        {% else %}
+            <a class="btn btn-success btn-sm"
+                href="{%  url 'taxi:car-shift' pk=car.id %}"
+                role="button" style="width: 250px; float: right"><b>Assign me to this car</b></a>
+        {%  endif %}
+
+    </p>
+    <hr>
+
+    <h4>Drivers</h4>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Full name</th>
+          <th scope="col">License number</th>
+          <th scope="col">E-mail</th>
+        </tr>
+      </thead>
+        {% for driver in car.drivers.all %}
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        {{ driver.id }}
+                    </th>
+                    <td><a href="{%  url 'taxi:driver-detail' pk=driver.id %}">
+                        {{ driver.first_name }} {{ driver.last_name }}</a></td>
+                    <td>{{ driver.license_number }}</td>
+                    <td>{{ driver.email }}</td>
+                </tr>
+            </tbody>
+        {% empty  %}
+            <p>No drivers!</p>
+        {% endfor %}
+    </table>
+{%  endblock %}
