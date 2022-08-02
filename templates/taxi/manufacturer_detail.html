@@ -20,7 +20,7 @@
           <th scope="col">Car model</th>
         </tr>
       </thead>
-        {% for car in cars %}
+        {% for car in manufacturer.car_set.all %}
             <tbody>
                 <tr>
                     <th scope="row">{{ car.id }}</th>

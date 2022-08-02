@@ -8,9 +8,9 @@
        role="button">Add</a>
     </p>
 
-    {%  if manufacture_list %}
+    {%  if manufacturer_list %}
     <ul>
-        {% for manufacturer in manufacture_list %}
+        {% for manufacturer in manufacturer_list %}
             <li>
                 <a href="{%  url 'taxi:manufacturer-detail' pk=manufacturer.id %}">
                     <b>{{ manufacturer.name }}</b></a>

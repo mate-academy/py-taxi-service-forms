@@ -33,21 +33,13 @@ def index(request):
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
     template_name = "taxi/manufacturer_list.html"
-    context_object_name = "manufacture_list"
+    context_object_name = "manufacturer_list"
     paginate_by = 5
 
 
-@login_required
-def manufacturer_detail_view(request, pk):
-    manufacturer = Manufacturer.objects.get(id=pk)
-    cars = manufacturer.car_set.all()
-
-    context = {
-        "manufacturer": manufacturer,
-        "cars": cars
-    }
-
-    return render(request, "taxi/manufacturer_detail.html", context=context)
+class ManufacturerDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Manufacturer
+    context_object_name = "manufacturer"
 
 
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):

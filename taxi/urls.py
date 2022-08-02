@@ -14,17 +14,17 @@ from .views import (
     DriverUpdateView,
     DriverDeleteView,
     ManufacturerListView,
-    manufacturer_detail_view,
+    ManufacturerDetailView,
     ManufacturerCreateView,
     ManufacturerUpdateView,
-    ManufacturerDeleteView
+    ManufacturerDeleteView,
 )
 
 urlpatterns = [
     path("", index, name="index"),
 
     path("manufacturers/", ManufacturerListView.as_view(), name="manufacturer-list"),
-    path("manufacturers/<int:pk>/", manufacturer_detail_view, name="manufacturer-detail"),
+    path("manufacturers/<int:pk>/", ManufacturerDetailView.as_view(), name="manufacturer-detail"),
     path("manufacturers/create/", ManufacturerCreateView.as_view(), name="manufacturer-create"),
     path("manufacturers/<int:pk>/update/", ManufacturerUpdateView.as_view(), name="manufacturer-update"),
     path("manufacturers/<int:pk>/delete/", ManufacturerDeleteView.as_view(), name="manufacturer-delete"),
