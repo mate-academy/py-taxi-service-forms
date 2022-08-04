@@ -2,6 +2,12 @@
 
 {% block content %}
   <h1>Car list</h1>
+    <br>
+    <form action="http://127.0.0.1:8000/car/create/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Add new car" class="btn btn-primary" />
+    </form>
+    <br>
   {% if car_list %}
     <ul>
       {% for car in car_list %}

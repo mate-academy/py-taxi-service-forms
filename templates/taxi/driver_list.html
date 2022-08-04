@@ -3,6 +3,12 @@
 {% block content %}
     <h1>Driver List
     </h1>
+    <br>
+    <form action="http://127.0.0.1:8000/driver/create/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Add new driver" class="btn btn-primary" />
+    </form>
+    <br>
 
     {% if driver_list %}
     <table class="table">

@@ -2,12 +2,17 @@
 
 {% block content %}
   <h1>
-    Username: {{ driver.username }}
+    Driver`s Details
   </h1>
+    <br>
 
+  <p><strong>Username:</strong> {{ driver.username }}</p>
   <p><strong>First name:</strong> {{ driver.first_name }}</p>
   <p><strong>Last name:</strong> {{ driver.last_name }}</p>
-  <p><strong>License number:</strong> {{ driver.license_number }}</p>
+  <p><strong>License number:</strong> {{ driver.license_number }}
+  <a href="{% url 'taxi:driver_license-update' pk=driver.id %}">Change license number</a>
+  <a href="{% url 'taxi:driver-delete' pk=driver.id %}">Delete Driver</a>
+  </p>
   <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
 
   <div class="ml-3">
