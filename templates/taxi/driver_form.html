@@ -1,35 +1,12 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
     <h1>Create Driver</h1>
-
-    <form action="" method="post">
+    <br>
+    <form action="" method="post" novalidate>
     {% csrf_token %}
-        <label>First Name:
-            <input type="text" name="first_name">
-        </label>
-
-    <br>
-        <label>Last Name:
-            <input type="text" name="last_name">
-        </label>
-
-    <br>
-        <label>Username:
-            <input type="text" name="username">
-        </label>
-
-    <br>
-        <label>Password:
-            <input type="text" name="password">
-        </label>
-
-    <br>
-        <label>License Number:
-            <input type="text" name="license_number">
-        </label>
-
-    <br>
-        <input type="submit" value="Submit">
+        {{ form|crispy }}
+    <input type="submit" value="Submit">
     </form>
 {% endblock %}
