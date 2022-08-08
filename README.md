@@ -24,6 +24,7 @@ template, other templates will extend `base.html`. Inside `base.html`:
       - Create block `title` with `Taxi Service` title inside
       - Load static and import `styles.css`
    - Inside `<body>`:
+      - Create block `sidebar`
       - Create block `content`
 7. Inside `templates` create a directory `taxi`. There you will store templates
 for the app `taxi`. Create `index.html` there. Inside `index.html`:
