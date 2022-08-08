@@ -45,11 +45,9 @@ In this task, you should implement class-based list and detail views.
    - Create car detail template:
        - Place information about the manufacturer of the car (name, country).
        - Place information about all drivers of that car.
-   - Inside `templates` create directory `includes`, create `sidebar.html` 
-   there. In this file place links to the home page, manufacturer list page,
-   car list page, drivers list page. Also, create `pagination.html` for the 
-   pagination purpose and include this template inside `base.html`.
-   - In `base.html` include `sidebar.html`, so all these links will be accessible on all pages.
+   - Inside `templates/includes`:
+       - create `pagination.html` for the pagination purpose and include this template inside `base.html`.
+       - In `sidebar.html` add links to the home page, manufacturer list page, car list page, drivers list page.
     
 8. Create some drivers, manufacturers, and cars. Run server, open 
 `http://127.0.0.1:8000/`, check if everything is displayed correctly.
