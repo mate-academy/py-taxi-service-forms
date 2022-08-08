@@ -24,7 +24,6 @@ template, other templates will extend `base.html`. Inside `base.html`:
       - Create block `title` with `Taxi Service` title inside
       - Load static and import `styles.css`
    - Inside `<body>`:
-      - Create block `sidebar`
       - Create block `content`
 7. Inside `templates` create a directory `taxi`. There you will store templates
 for the app `taxi`. Create `index.html` there. Inside `index.html`:
@@ -32,16 +31,19 @@ for the app `taxi`. Create `index.html` there. Inside `index.html`:
         - Number of cars
         - Number of drivers
         - Number of manufacturers
+    - Inside `templates` create directory `includes`, create `sidebar.html` 
+   there. In this file place links to the home page, manufacturer list page,
+   car list page, drivers list page.
 8. Inside `templates` create a directory `includes`. There you will store includes. 
 Create `sidebar.html` there. Inside `sidebar.html`:
-    - Write realization of block `sidebar` that must have a list of empty links:
+    - Write realization of `sidebar` include that must have a list of empty links:
         - Home page
         - Manufacturers
         - Cars
         - Drivers
+    - In `base.html` include `sidebar.html`, so all these links will be accessible on all pages.
 9. Create some drivers, manufacturers, and cars. Run server, open 
-`http://127.0.0.1:8000/`, check if the information is there and if it is 
-correct.
+`http://127.0.0.1:8000/`, check if the information is there and if it is correct.
 
 NOTE: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them. See example:
 
