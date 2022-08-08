@@ -31,9 +31,6 @@ for the app `taxi`. Create `index.html` there. Inside `index.html`:
         - Number of cars
         - Number of drivers
         - Number of manufacturers
-    - Inside `templates` create directory `includes`, create `sidebar.html` 
-   there. In this file place links to the home page, manufacturer list page,
-   car list page, drivers list page.
 8. Inside `templates` create a directory `includes`. There you will store includes. 
 Create `sidebar.html` there. Inside `sidebar.html`:
     - Write realization of `sidebar` include that must have a list of empty links:
