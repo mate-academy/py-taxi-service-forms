@@ -7,27 +7,12 @@ update or delete content from the site.
 
 1. Implement:
     - `Create`, `Update`, `Delete` views for `Car`, 
-    - `Create`, `Update`, `Delete` views for `Manufacturer`, 
-    - `Create`, `Delete` views for `Driver`, 
-2. On the driver list page create a button that leads to the driver creation page.
-3. Create a driver's license update page. The form on this page must check that 
-license:
-    - Consist only of 8 characters
-    - First 3 characters are uppercase letters
-    - Last 5 characters are digits
-4. On the driver detail page add buttons that lead to the driver's license updating page and
-driver deletion page.
-5. On the car list page add button that leads to the car creation page. On the car 
+    - `Create`, `Update`, `Delete` views for `Manufacturer`.
+2. On the car list page add button that leads to the car creation page. On the car 
 detail page add buttons that lead to the car update page and car deletion page.
-6. On the manufacturer list page, add the button that leads to the manufacturer creation
+3. On the manufacturer list page, add the button that leads to the manufacturer creation
 page. Also, add columns `Update`, `Delete`, and add links for the updating page and 
 deletion page for each manufacturer.
-7. On the car detail page add button `Assign me to this car`. This button adds 
-current user to car drivers. When current user is already a driver of this car, 
-there should be `Delete me from this car` button that deletes user from car drivers.
-
-The car detail page should look like this:
-![image](https://mate-academy-images.s3.eu-central-1.amazonaws.com/django-forms-1.png)
-![image](https://mate-academy-images.s3.eu-central-1.amazonaws.com/django-forms-2.png)
+4. Use crispy forms in your forms to make website more beautiful.
 
 NOTE: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them.
