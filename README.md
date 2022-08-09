@@ -7,7 +7,7 @@
   - Login: `admin.user`
   - Password: `1qazcde3`
 
-Feel free to add more data using admin, if needed.
+Feel free to add more data using admin panel, if needed.
 
 In this task, you should implement class-based list and detail views.
 
