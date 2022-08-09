@@ -2,8 +2,7 @@
 
 - Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before start
 - Use the following command to load prepared data from fixture to test and debug your code:
-
-`python manage.py loaddata taxi_service_db_data.json`
+  `python manage.py loaddata taxi_service_db_data.json`
 
 In this task, you should implement class-based list and detail views.
 
@@ -54,8 +53,7 @@ In this task, you should implement class-based list and detail views.
        - create `pagination.html` for the pagination purpose and include this template inside `base.html`.
        - In `sidebar.html` add links to the home page, manufacturer list page, car list page, drivers list page.
     
-8. Create some drivers, manufacturers, and cars. Run server, open 
-`http://127.0.0.1:8000/`, check if everything is displayed correctly.
+8. Run server, open `http://127.0.0.1:8000/`, check if everything is displayed correctly.
 
 NOTE: Attach screenshots of all created or modified pages to pull request. 
 It's important to attach images not links to them. See example:
