@@ -1,6 +1,10 @@
 # Taxi service home page
 
 - Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before start
+- Use the following command to load prepared data from fixture to test and debug your code:
+  `python manage.py loaddata taxi_service_db_data.json`.
+
+Feel free to add more data using admin, if needed.
 
 In this task, you should implement the home page of the site.
 
@@ -40,8 +44,7 @@ Create `sidebar.html` there. Inside `sidebar.html`:
         - Cars
         - Drivers
     - In `base.html` include `sidebar.html`, so all these links will be accessible on all pages.
-9. Create some drivers, manufacturers, and cars. Run server, open 
-`http://127.0.0.1:8000/`, check if the information is there and if it is correct.
+9. Run server, open `http://127.0.0.1:8000/`, check if the information is there and if it is correct.
 
 NOTE: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them. See example:
 
