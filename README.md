@@ -1,6 +1,13 @@
 # Taxi service class-based views
 
 - Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before start
+- Use the following command to load prepared data from fixture to test and debug your code:
+  `python manage.py loaddata taxi_service_db_data.json`.
+- After loading data from fixture you can use following superuser (or create another one by yourself):
+  - Login: `admin.user`
+  - Password: `1qazcde3`
+
+Feel free to add more data using admin panel, if needed.
 
 In this task, you should implement class-based list and detail views.
 
@@ -23,7 +30,8 @@ In this task, you should implement class-based list and detail views.
 
 5. Create driver detail view `DriverDetailView`:
     - Set model and queryset.
-    - In this view, you display information about cars of the driver. Optimize query not to make a query for a manufacturer for each car (N+1 problem).
+    - In this view, you display information about cars of the driver. 
+      Optimize query not to make a query for a manufacturer for each car (N+1 problem).
 
 6. Inside `taxi/urls.py`:
    - Create such paths:
@@ -33,7 +41,8 @@ In this task, you should implement class-based list and detail views.
      -  `drivers/` - driver list view.      
      -  `drivers/pk/` - driver detail view.
 
-7. Create templates for the views. By default, class-based views try to find a template based on the model name and certain suffix: 
+7. Create templates for the views. 
+   By default, class-based views try to find a template based on the model name and certain suffix: 
    1. For list view - `_list`
    2. For detail view - `_detail`
    - Create templates for manufacturer list, car list, driver list. In these templates:
@@ -49,9 +58,9 @@ In this task, you should implement class-based list and detail views.
        - create `pagination.html` for the pagination purpose and include this template inside `base.html`.
        - In `sidebar.html` add links to the home page, manufacturer list page, car list page, drivers list page.
     
-8. Create some drivers, manufacturers, and cars. Run server, open 
-`http://127.0.0.1:8000/`, check if everything is displayed correctly.
+8. Run server, open `http://127.0.0.1:8000/`, check if everything is displayed correctly.
 
-NOTE: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them. See example:
+NOTE: Attach screenshots of all created or modified pages to pull request. 
+It's important to attach images not links to them. See example:
 
 ![image](https://mate-academy-images.s3.eu-central-1.amazonaws.com/python_pr_with_images.png)
