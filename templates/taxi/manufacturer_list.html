@@ -1,28 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
+    <h1>
+        Manufacturer List
+        <a class="text-decoration-none border rounded" href="{% url "taxi:create-manufacturer" %}">+</a>
     </h1>
 
     {% if manufacturer_list %}
       <table class="table">
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th></th>
+            <th></th>
         </tr>
 
         {% for manufacturer in manufacturer_list %}
             <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
+                <td>
+                    {{ manufacturer.id }}
+                </td>
+                <td>
+                    {{ manufacturer.name }}
+                </td>
+                <td>
+                    {{ manufacturer.country }}
+                </td>
+                <td>
+                    <a class="text-decoration-none" href="{% url "taxi:delete-manufacturer" manufacturer.id %}"><b>DELETE</b></a>
+                </td>
+                <td>
+                    <a class="text-decoration-none" href="{% url "taxi:update-manufacturer" manufacturer.id %}"><b>UPDATE</b></a>
+                </td>
           </tr>
         {% endfor %}
       </table>
