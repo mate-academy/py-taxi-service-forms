@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <h1>Car list
+      <a href="{% url 'taxi:car-create' %}"><button class="btn btn-primary" style="float:right">Add car</button></a></h1>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
@@ -14,4 +15,13 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+    <div class="bg-image"
+        style="
+
+  background-repeat: no-repeat;
+  background-size: cover;
+    background-image: url(https://media.istockphoto.com/photos/taxi-in-the-parking-lot-picture-id1285272781?k=20&m=1285272781&s=612x612&w=0&h=88Tx5_YieGfVXtTzRoLZt6zOjQ-9jdxpAlr8tvy93Hk=);
+    height: 500px;
+  ">
+    </div>
 {% endblock %}
