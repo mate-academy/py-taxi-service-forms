@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 
+
 {% block content %}
     <h1>Driver List
+    <a class="btn btn-outline-primary" style="float: right" href="{% url "taxi:driver_create" %}">+</a>
     </h1>
+
+    {% block search %}
+        {% include "includes/search.html" %}
+    {% endblock %}
+
 
     {% if driver_list %}
     <table class="table">
@@ -12,6 +19,8 @@
         <th>First name</th>
         <th>Last name</th>
         <th>License number</th>
+        <th>UPDATE</th>
+        <th>DELETE</th>
       </tr>
     {% for driver in driver_list %}
       <tr>
@@ -20,6 +29,14 @@
         <td>{{ driver.first_name }}</td>
         <td>{{ driver.last_name }}</td>
         <td>{{ driver.license_number }}</td>
+
+          <td>
+                <h6><a href="{% url "taxi:driver_update" pk=driver.id %}">update</a></h6>
+            </td>
+
+            <td>
+                <h6><a style="color: red" href="{% url "taxi:driver_delete" pk=driver.id %}">delete </a></h6>
+            </td>
       </tr>
     {% endfor %}
 
