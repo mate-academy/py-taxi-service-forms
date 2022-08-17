@@ -6,6 +6,7 @@
 - After loading data from fixture you can use following superuser (or create another one by yourself):
   - Login: `admin.user`
   - Password: `1qazcde3`
+- Make sure that you change the settings for [html-files](https://github.com/mate-academy/py-task-guideline/blob/main/html_settings/README.MD).
 
 Feel free to add more data using admin panel, if needed.
 
