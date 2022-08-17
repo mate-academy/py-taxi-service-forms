@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>Update License</h1>
+<br>
+
+<form action="" method="post" novalidate>
+{% csrf_token %}
+{{ form.as_p }}
+
+<input type="submit" value="submit" class="btn btn-success">
+</form>
+
+
+{% endblock %}
