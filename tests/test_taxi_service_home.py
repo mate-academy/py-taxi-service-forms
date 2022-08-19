@@ -12,9 +12,9 @@ TestCase.fixtures = ['taxi_service_db_data.json', ]
 class HomePageTests(TestCase):
     def test_index_count_content_correctly(self):
         response = self.client.get(reverse("taxi:index"))
-        num_drivers = len(get_user_model().objects.all())
-        num_cars = len(Car.objects.all())
-        num_manufacturers = len(Manufacturer.objects.all())
+        num_drivers = get_user_model().count()
+        num_cars = Car.objects.count()
+        num_manufacturers = Manufacturer.count()
 
         self.assertContains(response, "Home page")
         self.assertEqual(response.status_code, 200)
