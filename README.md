@@ -13,9 +13,9 @@ In this task, you should implement the home page of the site.
 page should open when you are accessing `http://127.0.0.1:8000/`. Give this
 path the name `index`.
 3. Inside `taxi.views` create function `index`. In this function:
-    - count the number of all drivers
-    - count the number of all manufacturers
-    - count the number of all cars
+    - count the number of all drivers with `num_drivers` variable
+    - count the number of all manufacturers with `num_manufacturers` variable
+    - count the number of all cars with `num_cars` variable
     - return `HttpResponse` with rendered template. Pass received data to this template.
 4. Before you create a template you have to create styles for the 
 template. Create directory `static` next to directory `taxi`. Inside this 
