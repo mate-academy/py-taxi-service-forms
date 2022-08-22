@@ -6,7 +6,7 @@ from django.urls import reverse
 
 from taxi.models import Car, Manufacturer
 
-TestCase.fixtures = ['taxi_service_db_data.json', ]
+TestCase.fixtures = ["taxi_service_db_data.json", ]
 
 
 class HomePageTests(TestCase):
