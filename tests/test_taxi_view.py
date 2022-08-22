@@ -9,7 +9,7 @@ CAR_LIST_URL = reverse("taxi:car_list")
 
 
 class ManufacturerListTest(TestCase):
-    fixtures = ['taxi_service_db_data.json', ]
+    fixtures = ["taxi_service_db_data.json", ]
 
     def test_manufacturer_list_response_with_correct_template(self):
         response = self.client.get(MANUFACTURER_LIST_URL)
