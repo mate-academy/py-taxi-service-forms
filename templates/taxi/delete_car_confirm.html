@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Delete car</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Are you sure, you want to delete <b>{{ car.manufacturer.name }} {{ car.model }}({{ car.manufacturer.country }})</b>?</p>
+        <input type="submit" value="Yes, delete" class="btn btn-danger">
+        <input type="button" value="No, go back" class="btn btn-secondary" onclick="history.back()">
+    </form>
+{% endblock %}
