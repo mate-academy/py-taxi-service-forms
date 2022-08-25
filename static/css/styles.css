@@ -1,3 +1,12 @@
 body {
     margin-top: 20px;
 }
+
+.create {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.success{
+    margin: 60px 0 30px
+}
