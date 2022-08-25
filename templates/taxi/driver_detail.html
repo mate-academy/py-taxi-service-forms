@@ -4,6 +4,14 @@
   <h1>
     Username: {{ driver.username }}
   </h1>
+    <h2>
+        <a href="{% url 'taxi:driver-license-update' pk=driver.id %}" class="btn btn-warning">
+            Update license number
+        </a>
+        <a href="{% url 'taxi:driver-delete' pk=driver.id %}" class="btn btn-danger">
+            DELETE USER
+        </a>
+    </h2>
 
   <p><strong>First name:</strong> {{ driver.first_name }}</p>
   <p><strong>Last name:</strong> {{ driver.last_name }}</p>
