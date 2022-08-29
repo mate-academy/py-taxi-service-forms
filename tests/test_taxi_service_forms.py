@@ -20,45 +20,54 @@ class CarTest(TestCase):
             country="USA",
         )
 
-    def create_car(self):
-        return self.client.post(
+    def test_create_car(self):
+        response = self.client.post(
             reverse("taxi:car-create"),
             {
                 "model": "Continental",
-                "manufacturer": 1,
-                "drivers": [1]
+                "manufacturer": self.manufacturer.id,
+                "drivers": [self.user.id]
             }
         )
-
-    def test_create_car(self):
-        response = self.create_car()
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(Car.objects.get(id=1).model, "Continental")
+        self.assertEqual(
+            Car.objects.get(id=self.user.cars.first().id).model,
+            "Continental"
+        )
 
     def test_update_car(self):
-        self.create_car()
+        self.car = Car.objects.create(
+            model="Continental",
+            manufacturer=self.manufacturer,
+        )
         response = self.client.post(
             reverse(
                 "taxi:car-update",
-                kwargs={"pk": 1}),
+                kwargs={"pk": self.car.id}),
             {
-                "pk": 1,
+                "pk": self.car.id,
                 "model": "Not Continental",
-                "manufacturer": 1,
-                "drivers": [1]
+                "manufacturer": self.manufacturer.id,
+                "drivers": [self.user.id]
             }
         )
-        Car.objects.get(id=1).refresh_from_db()
+        Car.objects.get(id=self.car.id).refresh_from_db()
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(Car.objects.get(id=1).model, "Not Continental")
+        self.assertEqual(
+            Car.objects.get(id=self.car.id).model,
+            "Not Continental"
+        )
 
     def test_delete_car(self):
-        self.create_car()
+        self.car = Car.objects.create(
+            model="Continental",
+            manufacturer=self.manufacturer,
+        )
         response = self.client.post(
-            reverse("taxi:car-delete", kwargs={"pk": 1})
+            reverse("taxi:car-delete", kwargs={"pk": self.car.id})
         )
         self.assertEqual(response.status_code, 302)
-        self.assertFalse(Car.objects.filter(id=1).exists())
+        self.assertFalse(Car.objects.filter(id=self.car.id).exists())
 
 
 class ManufacturerTest(TestCase):
@@ -72,8 +81,8 @@ class ManufacturerTest(TestCase):
         )
         self.client.force_login(self.user)
 
-    def create_manufacturer(self):
-        return self.client.post(
+    def test_create_manufacturer(self):
+        response = self.client.post(
             reverse(
                 "taxi:manufacturer-create",
             ),
@@ -82,32 +91,41 @@ class ManufacturerTest(TestCase):
                 "country": "USA"
             }
         )
-
-    def test_create_manufacturer(self):
-        response = self.create_manufacturer()
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Manufacturer.objects.get(id=1).name, "Lincoln")
 
     def test_update_manufacturer(self):
-        self.create_manufacturer()
+        self.manufacturer = Manufacturer.objects.create(
+            name="Lincoln",
+            country="USA",
+        )
         response = self.client.post(
             reverse(
                 "taxi:manufacturer-update",
-                kwargs={"pk": 1}
+                kwargs={"pk": self.manufacturer.id}
             ),
             {
                 "name": "Not Lincoln",
                 "country": "USA"
             }
         )
-        Manufacturer.objects.get(id=1).refresh_from_db()
+        Manufacturer.objects.get(id=self.manufacturer.id).refresh_from_db()
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(Manufacturer.objects.get(id=1).name, "Not Lincoln")
+        self.assertEqual(
+            Manufacturer.objects.get(id=self.manufacturer.id).name,
+            "Not Lincoln"
+        )
 
     def test_delete_manufacturer(self):
-        self.create_manufacturer()
+        self.manufacturer = Manufacturer.objects.create(
+            name="Lincoln",
+            country="USA",
+        )
         response = self.client.post(
-            reverse("taxi:manufacturer-delete", kwargs={"pk": 1})
+            reverse("taxi:manufacturer-delete",
+                    kwargs={"pk": self.manufacturer.id})
         )
         self.assertEqual(response.status_code, 302)
-        self.assertFalse(Manufacturer.objects.filter(id=1).exists())
+        self.assertFalse(
+            Manufacturer.objects.filter(id=self.manufacturer.id).exists()
+        )
