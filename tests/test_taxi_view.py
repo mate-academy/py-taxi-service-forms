@@ -3,9 +3,9 @@ from django.urls import reverse
 
 from taxi.models import Manufacturer
 
-MANUFACTURER_LIST_URL = reverse("taxi:manufacturer_list")
-DRIVER_LIST_URL = reverse("taxi:driver_list")
-CAR_LIST_URL = reverse("taxi:car_list")
+MANUFACTURER_LIST_URL = reverse("taxi:manufacturer-list")
+DRIVER_LIST_URL = reverse("taxi:driver-list")
+CAR_LIST_URL = reverse("taxi:car-list")
 
 
 class ManufacturerListTest(TestCase):
@@ -46,7 +46,7 @@ class CarListTest(TestCase):
         self.assertEqual(len(response.context["car_list"]), 2)
 
     def test_car_detail_response_with_correct_template(self):
-        response = self.client.get(reverse("taxi:car_detail", args=[1]))
+        response = self.client.get(reverse("taxi:car-detail", args=[1]))
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "taxi/car_detail.html")
@@ -66,7 +66,7 @@ class DriverListTest(TestCase):
         self.assertEqual(len(response.context["driver_list"]), 2)
 
     def test_car_detail_response_with_correct_template(self):
-        response = self.client.get(reverse("taxi:driver_detail", args=[1]))
+        response = self.client.get(reverse("taxi:driver-detail", args=[1]))
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "taxi/driver_detail.html")
