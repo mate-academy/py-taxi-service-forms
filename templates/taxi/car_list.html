@@ -4,7 +4,7 @@
   <h1>
     Car list
   </h1>
-  <a class="btn badge-success" href="{% url 'taxi:car-create' %}">Add new</a>
+  <a class="btn badge-success" href="{% url 'taxi:car-create' %}">Add new car</a>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
