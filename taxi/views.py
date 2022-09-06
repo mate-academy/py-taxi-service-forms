@@ -38,7 +38,7 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
 
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
-    fields = ["name"]  # !!!
+    fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
@@ -52,24 +52,6 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     template_name = "taxi/manufacturer_confirm_delete.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
-
-# def manufacturer_create_view(request):
-#     print("request:", request)
-#     context = {}
-#     print("request.POST:", request.POST)
-#     form = ManufacturerForm(request.POST or None)
-#     print("form", form)
-#     print("request.POST:", request.POST)
-#
-#     if form.is_valid():
-#         print("form.is_valid:", form.is_valid)
-#         print("form.cleaned_data:", form.cleaned_data)
-#         form.save()
-#         print('reverse("taxi:manufacturer-list"):', reverse("taxi:manufacturer-list"))
-#         return HttpResponseRedirect(reverse("taxi:manufacturer-list"))
-#
-#     context["form"] = form
-#     return render(request, "taxi/manufacturer_form.html", context=context)
 
 
 class CarListView(LoginRequiredMixin, generic.ListView):
@@ -96,7 +78,7 @@ class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
-    template_name = "taxi/ car_confirm_delete.html"
+    template_name = "taxi/car_confirm_delete.html"
     success_url = reverse_lazy("taxi:car-list")
 
 
@@ -111,4 +93,3 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
 
     def get_slug_field(self):
         return 'username'
-
