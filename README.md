@@ -22,17 +22,17 @@ In this task, you should implement class-based list and detail views.
     - Set the appropriate context variable name, that you will use in the template.
     - Set queryset, select all manufacturers, they should be ordered by `name` by default.
     - Set the name of the template, that view will use, it should be placed inside `templates/taxi`
-    - Set pagination equals to 2. It indicates how many instances should be displayed on a single page.
+    - Set pagination equals to 5. It indicates how many instances should be displayed on a single page.
 
 2. Create car list view `CarListView`:
-    - Set model, pagination, queryset.
+    - Set model, pagination equals to 5, queryset.
     - Note: Car model has foreign key `manufacturer`, so it will be good to improve query performance (N+1 problem).
 
 3. Create car detail view `CarDetailView`:
     - Set only model.
     
 4. Create driver list view `DriverListView`:
-    - Set model and pagination.
+    - Set model and pagination equals to 5.
 
 5. Create driver detail view `DriverDetailView`:
     - Set model and queryset.
