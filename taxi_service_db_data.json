@@ -374,6 +374,7 @@
       "model": "Mitsubishi Lancer",
       "manufacturer": 6,
       "drivers": [
+        11
       ]
     }
   },
@@ -416,6 +417,7 @@
       "model": "Beijing EX5",
       "manufacturer": 13,
       "drivers": [
+        9
       ]
     }
   },
@@ -426,6 +428,7 @@
       "model": "MG 5 II",
       "manufacturer": 11,
       "drivers": [
+        8
       ]
     }
   },
@@ -436,6 +439,8 @@
       "model": "Rising Auto ER6",
       "manufacturer": 11,
       "drivers": [
+        7,
+        3
       ]
     }
   },
@@ -446,6 +451,7 @@
       "model": "SP250",
       "manufacturer": 8,
       "drivers": [
+        6
       ]
     }
   },
@@ -456,6 +462,8 @@
       "model": "Daimler Sovereign",
       "manufacturer": 8,
       "drivers": [
+        11,
+        7
       ]
     }
   },
@@ -466,6 +474,7 @@
       "model": "X5 M",
       "manufacturer": 14,
       "drivers": [
+        10
       ]
     }
   },
@@ -476,6 +485,7 @@
       "model": "Floride",
       "manufacturer": 10,
       "drivers": [
+        9
       ]
     }
   },
@@ -486,6 +496,7 @@
       "model": "MX-30",
       "manufacturer": 12,
       "drivers": [
+        4
       ]
     }
   }
