@@ -15,9 +15,6 @@ Feel free to add more data using admin panel, if needed.
 In this task, you will implement a custom form and django built-in forms to create,
 update or delete content from the site.
 
-Since this task is the last step before deploying your project, 
-there is no fixture attached to this task, we strongly recommend that you fill it out yourself.
-
 1. Implement:
     - `Create`, `Update`, `Delete` views for `Car`, 
     - `Create`, `Update`, `Delete` views for `Manufacturer`.
