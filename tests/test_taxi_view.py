@@ -6,6 +6,7 @@ from taxi.models import Manufacturer
 MANUFACTURER_LIST_URL = reverse("taxi:manufacturer-list")
 DRIVER_LIST_URL = reverse("taxi:driver-list")
 CAR_LIST_URL = reverse("taxi:car-list")
+PAGINATION = 5
 
 
 class ManufacturerListTest(TestCase):
@@ -20,15 +21,19 @@ class ManufacturerListTest(TestCase):
     def test_manufacturer_list_paginated_by_2(self):
         response = self.client.get(MANUFACTURER_LIST_URL)
 
-        self.assertEqual(len(response.context["manufacturer_list"]), 2)
+        self.assertEqual(
+            len(response.context["manufacturer_list"]),
+            PAGINATION
+        )
 
     def test_manufacturer_list_ordered_by_name(self):
         response = self.client.get(MANUFACTURER_LIST_URL)
         man_list = Manufacturer.objects.all().order_by("name")
+        manufacturer_context = response.context["manufacturer_list"]
 
         self.assertEqual(
-            list(response.context["manufacturer_list"]),
-            list(man_list[:2])
+            list(manufacturer_context),
+            list(man_list[:len(manufacturer_context)])
         )
 
 
@@ -43,7 +48,7 @@ class CarListTest(TestCase):
 
     def test_car_list_paginated_by_2(self):
         response = self.client.get(CAR_LIST_URL)
-        self.assertEqual(len(response.context["car_list"]), 2)
+        self.assertEqual(len(response.context["car_list"]), PAGINATION)
 
     def test_car_detail_response_with_correct_template(self):
         response = self.client.get(reverse("taxi:car-detail", args=[1]))
@@ -63,7 +68,7 @@ class DriverListTest(TestCase):
 
     def test_car_list_paginated_by_2(self):
         response = self.client.get(DRIVER_LIST_URL)
-        self.assertEqual(len(response.context["driver_list"]), 2)
+        self.assertEqual(len(response.context["driver_list"]), PAGINATION)
 
     def test_car_detail_response_with_correct_template(self):
         response = self.client.get(reverse("taxi:driver-detail", args=[1]))
