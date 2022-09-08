@@ -31,12 +31,12 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
     context_object_name = "manufacturer_list"
     template_name = "taxi/manufacturer_list.html"
-    paginate_by = 2
+    paginate_by = 5
 
 
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
-    paginate_by = 2
+    paginate_by = 5
     queryset = Car.objects.all().select_related("manufacturer")
 
 
@@ -46,7 +46,7 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
     model = Driver
-    paginate_by = 2
+    paginate_by = 5
 
 
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
