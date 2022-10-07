@@ -1,26 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Username: {{ driver.username }}
-  </h1>
+    <h1>
+        Username: {{ driver.username }}
+        <button type="button" class="btn btn-secondary"><a
+                href="{% url 'taxi:driver-update-license' pk=driver.id %}"
+                style="color: white">Update license number</a></button>
+        <button type="button" class="btn btn-danger"><a
+                href="{% url 'taxi:driver-delete' pk=driver.id %}"
+                style="color: white">Delete driver</a></button>
+    </h1>
 
-  <p><strong>First name:</strong> {{ driver.first_name }}</p>
-  <p><strong>Last name:</strong> {{ driver.last_name }}</p>
-  <p><strong>License number:</strong> {{ driver.license_number }}</p>
-  <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
 
-  <div class="ml-3">
-    <h4>Cars</h4>
+    <p><strong>First name:</strong> {{ driver.first_name }}</p>
+    <p><strong>Last name:</strong> {{ driver.last_name }}</p>
+    <p><strong>License number:</strong> {{ driver.license_number }}</p>
+    <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
 
-    {% for car in driver.cars.all %}
-        <hr>
-        <p><strong>Model:</strong> {{ car.model }}</p>
-        <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
+    <div class="ml-3">
+        <h4>Cars</h4>
 
-    {% empty %}
-      <p>No cars!</p>
-    {% endfor %}
-  </div>
+        {% for car in driver.cars.all %}
+            <hr>
+            <p><strong>Model:</strong> {{ car.model }}</p>
+            <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
+            <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>
+
+        {% empty %}
+            <p>No cars!</p>
+        {% endfor %}
+    </div>
 {% endblock %}
