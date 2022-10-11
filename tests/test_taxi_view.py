@@ -10,7 +10,9 @@ PAGINATION = 5
 
 
 class ManufacturerListTest(TestCase):
-    fixtures = ["taxi_service_db_data.json", ]
+    fixtures = [
+        "taxi_service_db_data.json",
+    ]
 
     def test_manufacturer_list_response_with_correct_template(self):
         response = self.client.get(MANUFACTURER_LIST_URL)
@@ -22,8 +24,7 @@ class ManufacturerListTest(TestCase):
         response = self.client.get(MANUFACTURER_LIST_URL)
 
         self.assertEqual(
-            len(response.context["manufacturer_list"]),
-            PAGINATION
+            len(response.context["manufacturer_list"]), PAGINATION
         )
 
     def test_manufacturer_list_ordered_by_name(self):
@@ -33,12 +34,14 @@ class ManufacturerListTest(TestCase):
 
         self.assertEqual(
             list(manufacturer_context),
-            list(man_list[:len(manufacturer_context)])
+            list(man_list[: len(manufacturer_context)]),
         )
 
 
 class CarListTest(TestCase):
-    fixtures = ['taxi_service_db_data.json', ]
+    fixtures = [
+        "taxi_service_db_data.json",
+    ]
 
     def test_car_list_response_with_correct_template(self):
         response = self.client.get(CAR_LIST_URL)
@@ -58,7 +61,9 @@ class CarListTest(TestCase):
 
 
 class DriverListTest(TestCase):
-    fixtures = ['taxi_service_db_data.json', ]
+    fixtures = [
+        "taxi_service_db_data.json",
+    ]
 
     def test_car_list_response_with_correct_template(self):
         response = self.client.get(DRIVER_LIST_URL)
