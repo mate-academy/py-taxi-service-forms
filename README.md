@@ -45,6 +45,7 @@ Create `sidebar.html` there. Inside `sidebar.html`:
         - Drivers
     - In `base.html` include `sidebar.html`, so all these links will be accessible on all pages.
 9. Run server, open `http://127.0.0.1:8000/`, check if the information is there and if it is correct.
+10. Run `python manage.py test` to check your code results.
 
 NOTE: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them. See example:
 
