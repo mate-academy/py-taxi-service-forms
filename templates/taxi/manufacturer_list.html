@@ -3,9 +3,10 @@
 {% block content %}
     <h1>Manufacturer List</h1>
     <a class="btn btn-success btn-lg active" href="{% url 'taxi:manufacturer-create' %}">Add manufacturer</a>
-    <br>
+<p></p>
     {% if manufacturer_list %}
       <table class="table">
+        <thead class="thead-dark">
         <tr>
           <th>ID</th>
           <th>Name</th>
@@ -13,7 +14,7 @@
           <th>Update</th>
           <th>Delete</th>
         </tr>
-
+        </thead>
         {% for manufacturer in manufacturer_list %}
             <tr>
               <td>
