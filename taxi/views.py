@@ -60,14 +60,14 @@ class CarFormCreate(LoginRequiredMixin, generic.CreateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
-    template_name = "taxi/car_create.html"
+    template_name = "taxi/car_from.html"
 
 
 class CarFormUpdate(LoginRequiredMixin, generic.UpdateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
-    template_name = "taxi/car_create.html"
+    template_name = "taxi/car_from.html"
 
 
 class CarFormDelete(LoginRequiredMixin, generic.DeleteView):
@@ -80,14 +80,14 @@ class ManufacturerFormCreate(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template_name = "taxi/manufacturer_create.html"
+    template_name = "taxi/manufacturer_form.html"
 
 
 class ManufacturerFormUpdate(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template_name = "taxi/manufacturer_create.html"
+    template_name = "taxi/manufacturer_form.html"
 
 
 class ManufacturerFormDelete(LoginRequiredMixin, generic.DeleteView):
