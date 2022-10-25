@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
+from django import forms
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -52,3 +54,50 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+class CarFormCreate(LoginRequiredMixin, generic.CreateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    template_name = "taxi/car_create.html"
+
+
+class CarFormUpdate(LoginRequiredMixin, generic.UpdateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    template_name = "taxi/car_create.html"
+
+
+class CarFormDelete(LoginRequiredMixin, generic.DeleteView):
+    model = Car
+    template_name = "taxi/car_delete.html"
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class ManufacturerFormCreate(LoginRequiredMixin, generic.CreateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "taxi/manufacturer_create.html"
+
+
+class ManufacturerFormUpdate(LoginRequiredMixin, generic.UpdateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "taxi/manufacturer_create.html"
+
+
+class ManufacturerFormDelete(LoginRequiredMixin, generic.DeleteView):
+    model = Manufacturer
+    template_name = "taxi/manufacturer_delete.html"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class DriverFormCreate(LoginRequiredMixin, generic.CreateView):
+    model = Driver
+    fields = ["username", "first_name", "last_name", "license_number"]
+    template_name = "taxi/driver_create.html"
+    success_url = reverse_lazy("taxi:driver-list")
