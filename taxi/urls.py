@@ -6,9 +6,14 @@ from .views import (
     CarDetailView,
     DriverListView,
     DriverDetailView,
-    ManufacturerListView, CarFormCreate, ManufacturerFormCreate,
-    CarFormUpdate, CarFormDelete, ManufacturerFormUpdate,
-    ManufacturerFormDelete, DriverFormCreate
+    ManufacturerListView,
+    CarFormCreate,
+    ManufacturerFormCreate,
+    CarFormUpdate,
+    CarFormDelete,
+    ManufacturerFormUpdate,
+    ManufacturerFormDelete,
+    DriverFormCreate
 )
 
 urlpatterns = [
