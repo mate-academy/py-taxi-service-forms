@@ -1,12 +1,44 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
-  </ul>
+  <h1>
+    {{ car.model }}
+
+    <span class="float-right">
+      <a href="{% url 'taxi:car-update' pk=car.id %}" class="modify-icon">
+        <i class="bi bi-pencil-square"></i>
+      </a>
+      <a href="{% url 'taxi:car-delete' pk=car.id %}" class="modify-icon">
+        <i class="bi bi-trash"></i>
+      </a>
+    </span>
+  </h1>
+  <p>
+    <span class="font-weight-bold">Manufacturer: </span>{{ car.manufacturer.name }}
+    <br>
+    <span class="font-weight-bold">Country: </span>{{ car.manufacturer.country }}
+  </p>
+
+  {% if car.drivers.all %}
+    <h3>Drivers:</h3>
+
+    {% for driver in car.drivers.all %}
+      <hr>
+      <h5><a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a></h5>
+      <p>
+        <span class="font-weight-bold">id: </span>{{ driver.id }}
+        <br>
+        <span class="font-weight-bold">First name: </span>{{ driver.first_name }}
+        <br>
+        <span class="font-weight-bold">Last name: </span>{{ driver.last_name }}
+        <br>
+        <span class="font-weight-bold">Email: </span>{{ driver.email }}
+      </p>
+      {% if forloop.last %}<hr>{% endif %}
+    {% endfor %}
+
+  {% else %}
+    <p class="text-muted">This car has no drivers.</p>
+  {% endif %}
+
 {% endblock %}
