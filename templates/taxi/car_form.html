@@ -9,5 +9,10 @@
   {{ form|crispy }}
   <br>
   <input type="submit" value="Submit" class="btn btn-primary">
+  {% if object %}
+    <a href="{% url 'taxi:car-detail' pk=car.id %}" class="btn btn-secondary">Cancel</a>
+  {% else %}
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Cancel</a>
+  {% endif %}
   </form>
 {% endblock %}
