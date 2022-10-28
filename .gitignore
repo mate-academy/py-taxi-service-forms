@@ -9,3 +9,4 @@ venv/
 db.sqlite3
 /django-debug-toolbar
 /django-crispy-forms
+env/
