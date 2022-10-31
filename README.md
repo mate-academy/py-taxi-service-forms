@@ -2,7 +2,8 @@
 
 - Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before start
 - Use the following command to load prepared data from fixture to test and debug your code:
-  `python manage.py loaddata taxi_service_db_data.json`.
+
+  ```python manage.py loaddata taxi_service_db_data.json```.
 
 Feel free to add more data using admin panel, if needed.
 
@@ -16,9 +17,9 @@ path the name `index`.
     - count the number of all drivers with `num_drivers` variable
     - count the number of all manufacturers with `num_manufacturers` variable
     - count the number of all cars with `num_cars` variable
-    - return `HttpResponse` with rendered template. Pass received data to this template.
+    - return `HttpResponse` with rendered template. Pass received data to this template (don't import `HttpResponse` if you use `render`, this import is unnecessary).
 4. Before you create a template you have to create styles for the 
-template. Create directory `static` next to directory `taxi`. Inside this 
+template. Create directory `static` next to the directory `taxi`. Inside this 
 directory create a file with the following path `css/styles.css`. Don't forget to do all necessary steps so that Django can serve these static files.
 5. Create directory `templates` next to the directory `taxi`. There you will
 store templates for pages. Edit settings so that engine knows where to look for template source files.
@@ -44,9 +45,10 @@ Create `sidebar.html` there. Inside `sidebar.html`:
         - Cars
         - Drivers
     - In `base.html` include `sidebar.html`, so all these links will be accessible on all pages.
-9. Run server, open `http://127.0.0.1:8000/`, check if the information is there and if it is correct.
-10. Run `python manage.py test` to check your code results.
+9. Check that you put empty lines at the end of each HTML file.
+10. Run server, open `http://127.0.0.1:8000/`, check if the information is there and if it is correct.
+11. Run `python manage.py test` to check your code results.
 
-NOTE: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them. See example:
+### Note: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them. See example:
 
 ![image](https://mate-academy-images.s3.eu-central-1.amazonaws.com/python_pr_with_images.png)
