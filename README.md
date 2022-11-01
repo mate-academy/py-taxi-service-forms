@@ -68,6 +68,7 @@ In this task, you should implement class-based list and detail views.
 10. Check your code style with `flake8`.
 
 ### Note: Attach screenshots of all created or modified pages to pull request. 
-It's important to attach images not links to them. See example:
+it would be better to attach screenshots to the comment, NOT in commit. 
+It's important to **attach images** not links to them. See example:
 
 ![image](https://mate-academy-images.s3.eu-central-1.amazonaws.com/python_pr_with_images.png)
