@@ -48,7 +48,10 @@ Create `sidebar.html` there. Inside `sidebar.html`:
 9. Check that you put empty lines at the end of each HTML file.
 10. Run server, open `http://127.0.0.1:8000/`, check if the information is there and if it is correct.
 11. Run `python manage.py test` to check your code results.
+12. Don't push a lot of extra files(`venv`, `pycache`, `.idea`, etc.) and don't forget to add `.gitignore` to your PR.
 
-### Note: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them. See example:
+### Note: Attach screenshots of all created or modified pages to pull request. 
+
+it would be better to attach screenshots to the comment, NOT in commit. It's important to **attach images** not links to them. See example:
 
 ![image](https://mate-academy-images.s3.eu-central-1.amazonaws.com/python_pr_with_images.png)
