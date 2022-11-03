@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <h1>Deleting manufacturer {{ manufacturer }}</h1>
+
+    <p style="color: red">Are you sure? All cars of this manufacturer will also be deleted!</p>
+
+    <form action="" method="post">
+      {% csrf_token %}
+      <input class="btn btn-danger" type="submit" value="YES!">
+      <input class="btn btn-success" type="reset" value="NO!" onclick="history.back()">
+    </form>
+
+  {% endblock %}
