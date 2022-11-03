@@ -7,6 +7,6 @@
     {% csrf_token %}
     {{ form|crispy }}
     <input type="submit" value="SUBMIT" class="btn btn-success">
-    <a href="{% url 'taxi:car-detail' pk=car.id %}" class="btn btn-primary ">Back</a>
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-primary ">Back</a>
   </form>
 {% endblock %}
