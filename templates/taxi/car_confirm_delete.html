@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Confirm deletion of car</h1>
+
+  <p>click on the button to confirm the deletion</p>
+  <form action="" method="post">
+  {% csrf_token %}
+  <input class="btn btn-danger" type="submit" value="Delete">
+  </form>
+{% endblock %}
