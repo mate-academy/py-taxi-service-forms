@@ -15,6 +15,7 @@
     {{ form|crispy }}
 
     <input class="btn btn-outline-danger" type="submit" value="Yes, delete">
+    <a href="{% url 'taxi:index' %}" class="btn btn-outline-secondary">Cancel</a>
   </form>
 
 {% endblock %}
