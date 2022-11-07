@@ -5,12 +5,12 @@
   {% if object %}
     <h1>Update manufacturer "{{ manufacturer.name }}"</h1>
   {% else %}
-    <h1>Add new car to service</h1>
+    <h1>Add new manufacturer to service</h1>
   {% endif %}
 
   <form action="" method="post" novalidate>
     {% csrf_token %}
     {{ form|crispy }}
-    <input type="submit" value="Add">
+    <input type="submit" value="{{ object|yesno:"Update,Add" }}">
   </form>
 {% endblock %}

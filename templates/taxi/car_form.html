@@ -11,6 +11,6 @@
   <form action="" method="post" novalidate>
     {% csrf_token %}
     {{ form|crispy }}
-    <input type="submit" value="Add">
+    <input type="submit" value="{{ object|yesno:"Update, Add" }}">
   </form>
 {% endblock %}
