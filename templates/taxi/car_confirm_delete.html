@@ -6,7 +6,8 @@
   <p>Are you sure you want to delete {{ car }}?</p>
   <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Yes" class="button btn-danger">
+    <input type="submit" value="Yes" class="btn btn-danger">
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Cancel</a>
   </form>
 
 {% endblock %}
