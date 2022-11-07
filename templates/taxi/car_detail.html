@@ -2,6 +2,8 @@
 
 {% block content %}
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+  <a class="btn btn-outline-success"  href="{% url 'taxi:car-update' pk=car.id %}">↻</a>
+  <a class="btn btn-outline-danger"  href="{% url 'taxi:car-delete' pk=car.id%}">❌</a>
   <h1>Drivers</h1>
   <hr>
   <ul>
