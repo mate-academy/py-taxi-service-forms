@@ -1,16 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-{#  <h1>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</h1>#}
-{#  <p>Drivers:</p>#}
-{#  <hr>#}
-{#  <ul>#}
-{#  {% for driver in car.drivers.all %}#}
-{#    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>#}
-{#  {% endfor %}#}
-{#  </ul>#}
   <h1>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</h1>
   {% if car.drivers.count > 0 %}
+
     <h3>Drivers:</h3>
     <table class="table table-hover .bg-primary">
       <tr class="table-primary">
