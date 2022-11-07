@@ -6,6 +6,12 @@
   <h5>Are you sure you want to delete {{ manufacturer.name }}?</h5>
   <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Yes" class="btn btn-danger">
+    <input type="submit" value="Yes" class="btn btn-success">
+
+      <a href="{% url 'taxi:manufacturer-list' %}">
+        <button type="button" class="btn btn-danger">
+          Cansel
+        </button>
+      </a>
   </form>
 {% endblock %}
