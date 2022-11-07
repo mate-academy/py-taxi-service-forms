@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete {{ car.model }}?</h1>
+
+  <p>Dou you really want to delete {{ car.model }}?</p>
+  <p>The process is irreversible. Also all the associated data will also be deleted.</p>
+  <p>Choose wisely!</p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="I've chosen" class="btn btn-warning">
+    <a class="btn btn-outline-warning ml-4" href={% url "taxi:car-list" %}>Maybe later</a>
+  </form>
+{% endblock %}
