@@ -9,7 +9,8 @@
   <form action="" method="POST">
     {% csrf_token %}
 
-    <input type="submit" value="Yes" class="btn btn-danger"/>
+    <input type="submit" value="Yes" class="btn btn-success"/>
+    <button class="btn btn-danger" href="{% url 'taxi:manufacturer-list' %}" name="Cancel">Cancel</button>
   </form>
 
 

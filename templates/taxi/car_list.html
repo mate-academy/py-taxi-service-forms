@@ -13,8 +13,6 @@
         <th scope="col">Manufacture</th>
         <th scope="col">Model</th>
         <th scope="col">Country</th>
-        <th scope="col">Update</th>
-        <th scope="col">Delete</th>
       </tr>
       </thead>
       <tbody>
@@ -29,12 +27,6 @@
         </td>
         <td>{{ car.manufacturer.name }}</td>
         <td>{{ car.manufacturer.country }}</td>
-        <td>
-          <a href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
-        </td>
-        <td>
-          <a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
-        </td>
       {% endfor %}
 
       </tbody>
