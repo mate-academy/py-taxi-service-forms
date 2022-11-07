@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>Delete car:</h1>
-  <h1>Are you sure about deleting car: {{ car.model }} info?</h1>
+  <h2 class="alert-danger">Delete car:</h2>
+  <h3>Are you sure about deleting car: {{ car.model }} info?</h3>
   <form action="" method="post" novalidate>
   {% csrf_token %}
   <input class="btn btn-danger" type="submit" value="Yes">
+  <a class="btn btn-primary" href="{% url 'taxi:car-list' %}">No</a>
   </form>
 {% endblock %}

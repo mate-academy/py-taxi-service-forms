@@ -3,9 +3,9 @@
 
 {% block content %}
   {% if "create" in request.path %}
-    <h1>Create car:</h1>
+    <h2>Create car:</h2>
   {% else %}
-    <h1>Update car:</h1>
+    <h2>Update car:</h2>
   {% endif %}
   <form action="" method="post" novalidate>
   {% csrf_token %}
