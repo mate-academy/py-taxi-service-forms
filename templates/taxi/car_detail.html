@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
+  <h1>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</h1>
+  <br>
+  <p><i><strong>Drivers:</strong></i></p>
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
