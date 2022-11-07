@@ -2,18 +2,18 @@
 
 {% block content %}
   <a href="{% url 'taxi:car-update' pk=car.id %}" style="float: right">
-    <button type="button" class="btn btn-secondary btn-lg">
+    <button type="button" class="btn btn-secondary">
      Update car
     </button>
   </a>
   <a href="{% url 'taxi:car-delete' pk=car.id %}" style="float: right">
-    <button type="button" class="btn btn-danger btn-lg">
+    <button type="button" class="btn btn-danger">
      Delete car
     </button>
   </a>
 
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
+  <h2>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</h2>
+  <h4>Drivers:</h4>
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
