@@ -3,8 +3,10 @@
 {% block content %}
   <h1>
     Car list
-    <a class="btn btn-primary" style="float: right" href="{% url "taxi:car-create" %}">Create</a>
   </h1>
+  <p>
+    <a class="btn btn-primary" href="{% url "taxi:car-create" %}">Create</a>
+  </p>
   {% if car_list %}
     <table class="table">
       <thead>
