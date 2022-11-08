@@ -49,7 +49,6 @@ class ManufacturerUpdate(LoginRequiredMixin, generic.UpdateView):
 
 class ManufacturerDelete(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
-    fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
@@ -77,7 +76,6 @@ class CarUpdate(LoginRequiredMixin, generic.UpdateView):
 
 class CarDelete(LoginRequiredMixin, generic.DeleteView):
     model = Car
-    fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
 
 
