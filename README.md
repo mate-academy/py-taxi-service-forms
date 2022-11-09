@@ -66,6 +66,7 @@ In this task, you should implement class-based list and detail views.
 8. Run server, open `http://127.0.0.1:8000/`, check if everything is displayed correctly.
 9. Check that you put empty lines at the end of each HTML file.
 10. Check your code style with `flake8`.
+11. Run `python manage.py test` to check your code results.
 
 ### Note: Attach screenshots of all created or modified pages to pull request. 
 it would be better to attach screenshots to the comment, NOT in commit. 
