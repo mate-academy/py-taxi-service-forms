@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <form method="post">
+  {% csrf_token %}
+    <label>
+      Confirm manufacturer delete
+      <input type="submit" class="btn btn-danger" value="Confirm">
+    </label>
+  </form>
+{% endblock %}
