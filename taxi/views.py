@@ -40,21 +40,11 @@ class ManufacturerCreateView(generic.CreateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["class"] = "create"
-        return context
-
 
 class ManufacturerUpdateView(generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["class"] = "update"
-        return context
 
 
 class ManufacturerDeleteView(generic.DeleteView):
@@ -78,21 +68,11 @@ class CarCreateView(generic.CreateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["class"] = "create"
-        return context
-
 
 class CarUpdateView(generic.UpdateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["class"] = "update"
-        return context
 
 
 class CarDeleteView(generic.DeleteView):

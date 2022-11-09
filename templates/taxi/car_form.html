@@ -2,11 +2,9 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  {% if class == "create" %}
-     <h1>Create Car</h1>
-  {% else %}
-    <h1>Update Car</h1>
-  {% endif %}
+  <h1>
+    {{ object|yesno:"Update,Create" }} Car
+  </h1>
   <form method="post" action="">
     {% csrf_token %}
     {{ form|crispy }}
