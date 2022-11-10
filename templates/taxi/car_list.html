@@ -3,8 +3,9 @@
 {% block content %}
   <h1>
     Car list
-    <a href="{% url "taxi:car-create" %}">(add)</a>
+    <a href="{% url "taxi:car-create" %}" class="btn btn-primary link-to-page">Add</a>
   </h1>
+
   {% if car_list %}
     <ul>
       {% for car in car_list %}
