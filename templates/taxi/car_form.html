@@ -2,6 +2,7 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
+
   <h2>{{ object|yesno:"Update,Create" }} Car</h2>
 
   <form action="" method="post" novalidate>
@@ -9,5 +10,6 @@
     {{ form|crispy }}
 
     <input type="submit" value="Submit">
+
   </form>
 {% endblock %}
