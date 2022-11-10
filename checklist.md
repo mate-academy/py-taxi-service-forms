@@ -7,23 +7,7 @@ Make sure you don't push db files (files with `.sqlite`, `.db3`, etc. extension)
 ## Don't forget to attach all screenshots of created/modified pages.
 
 ## Code Efficiency
-1. Use `UserCreationForm` while creating user.
-
-Good example:
-
-```python
-class DriverCreateForm(UserCreationForm):
-    pass
-```
-
-Bad example:
-
-```python
-class DriverCreateForm(forms.ModelForm):
-    pass
-```
-
-2. Don't override `template_name`, `context_object_name` and so on if they are the same as default ones.
+Don't override `template_name`, `context_object_name` and so on if they are the same as default ones.
 
 ## Code Style
 1. Make sure you've added a blank line at the end to all your files including `.css`, `.html` and `.gitignore`.
