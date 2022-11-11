@@ -10,19 +10,18 @@
         <th>ID</th>
         <th>Model</th>
         <th>Manufacturer</th>
-        <th>Action</th>
       </tr>
       {% for car in car_list %}
         <tr>
-          <td class="row"><a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a></td>
-          <td>{{ car.model }}</td>
-          <td>{{ car.manufacturer.name }}</td>
-
           <td>
-            <a class="btn btn-outline-success"  href="{% url 'taxi:car-update' pk=car.id %}">↻</a>
-            <a class="btn btn-outline-danger"  href="{% url 'taxi:car-delete' pk=car.id%}">❌</a>
+            <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
           </td>
-
+          <td>
+            {{ car.model }}
+          </td>
+          <td>
+            {{ car.manufacturer.name }}
+          </td>
         </tr>
       {% endfor %}
     </table>
