@@ -2,15 +2,18 @@
 
 {% block content %}
   <h1>Taxi Service Home</h1>
+  <hr>
   <p>Welcome to Best Taxi Ever!</p>
+  <br>
   <h2>Dynamic content</h2>
+  <hr>
   <p>The Taxi service has the following record counts:</p>
   <ul>
     <li><strong>Cars:</strong> {{ num_cars }}</li>
     <li><strong>Drivers:</strong> {{ num_drivers }}</li>
     <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
   </ul>
-
+  <hr>
   <p>You have visited this page
     {{ num_visits }} time{{ num_visits|pluralize }}.
   </p>
