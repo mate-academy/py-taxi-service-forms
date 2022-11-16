@@ -1,6 +1,6 @@
 # Taxi service forms
 
-- Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before start.
+Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before starting.
 - Make sure that you change the settings for [html-files](https://github.com/mate-academy/py-task-guideline/blob/main/html_settings/README.MD).
 - Use the following command to load prepared data from fixture to test and debug your code:
   
@@ -26,3 +26,5 @@ deletion page for each manufacturer.
 4. Use crispy forms in your forms to make website more beautiful.
 
 NOTE: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them.
+
+### Note: Check your code using this [checklist](checklist.md) before pushing your solution.
