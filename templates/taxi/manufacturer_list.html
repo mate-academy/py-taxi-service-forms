@@ -4,7 +4,7 @@
   <h1>
     Manufacturer List
     <button type="button" class="btn btn-outline-primary">
-      <a href="{% url 'taxi:manufacturer-list-create' %}">Add manufacturer</a>
+      <a href="{% url 'manufacturer-create' %}">Add manufacturer</a>
     </button>
   </h1>
 
@@ -27,12 +27,12 @@
             <td>{{ manufacturer.name }}</td>
             <td>{{ manufacturer.country }}</td>
             <td>
-              <a href="{% url 'taxi:manufacturer-list-update' manufacturer.pk %}">
+              <a href="{% url 'manufacturer-update' manufacturer.pk %}">
                 Update
               </a>
             </td>
             <td>
-              <a href="{% url 'taxi:manufacturer-list-delete' manufacturer.pk %}">
+              <a href="{% url 'manufacturer-delete' manufacturer.pk %}">
                 Delete
               </a>
             </td>

@@ -4,10 +4,10 @@
   <h1>{{ car.model }}</h1>
 
   <button type="button" class="btn btn-outline-danger">
-    <a href="{% url 'taxi:car-list-delete' car.pk%}">Delete car</a>
+    <a href="{% url 'car-delete' car.pk%}">Delete car</a>
   </button>
   <button type="button" class="btn btn-outline-primary">
-    <a href="{% url 'taxi:car-list-update' car.pk%}">Update car</a>
+    <a href="{% url 'car-update' car.pk%}">Update car</a>
   </button>
 
   <p><strong>Manufacturer: </strong>{{ car.manufacturer.name }}</p>
