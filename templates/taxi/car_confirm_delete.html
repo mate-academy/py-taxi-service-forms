@@ -9,7 +9,8 @@
   <p><i>All information about {{ car }} <strong>will be deleted</strong></i></p>
   <form action="" method="POST" >
   {% csrf_token %}
-    <input type="submit" value="Yes I'm sure!">
+    <input class="btn btn-primary" type="submit" value="Yes I'm sure!">
+    <input class="btn btn-secondary" type="submit" value="Cancel">
   </form>
 
 {%  endblock %}
