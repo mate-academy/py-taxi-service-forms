@@ -4,9 +4,9 @@
 {%  block content %}
   <h1>Delete Car</h1>
   <p style="color: red">
-    <strongg color: red>Warning!!!</strongg>Are you sure, you want to delete manufacturer: {{ manufacturer }}?
+    <strongg color: red>Warning!!!</strongg>Are you sure, you want to delete car: {{ car }}?
   </p>
-  <p><i>All information about {{ manufacturer }} <strong>will be deleted</strong></i></p>
+  <p><i>All information about {{ car }} <strong>will be deleted</strong></i></p>
   <form action="" method="POST" >
   {% csrf_token %}
     <input type="submit" value="Yes I'm sure!">
