@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete car</h1>
+  <h2>Are you sure? {{ car }}</h2>
+  <form action="" method="post">
+  {% csrf_token %}
+    <input type="submit" value="Yes">
+
+  </form>
+{% endblock %}
