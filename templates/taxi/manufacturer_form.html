@@ -9,7 +9,8 @@
   {% csrf_token %}
   {{ form|crispy }}
     <input class="btn btn-primary" type="submit" name="Addition">
-    <input class="btn btn-secondary" type="submit" value="Cancel">
+    <input class="btn btn-primary" type="button" value="Cancel"
+           onclick="location.href='{% url 'taxi:manufacturer-list' %}'">
   </form>
 
 {% endblock %}addition
