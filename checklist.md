@@ -87,6 +87,23 @@ path("create/", ManufacturerCreateView.as_view(), name="manufacturer-create")
 5. Add `Cancel` button apart from `Delete` one. The `Cancel` button will lead to the previous page the user was on.
 
 6. Make sure you use 2 whitespaces indentations in your `.html` files.
+7. Use `-` to split words in URL identification parameter `name`, not the `_`.
+
+Good example:
+
+```python
+urlpatterns = [
+    path("buses/", BusListView.as_view(), name="bus-list"),
+]
+ ```
+
+Bad example:
+
+```python
+urlpatterns = [
+    path("buses/", BusListView.as_view(), name="bus_list"),
+]
+ ```
 
 ## Clean Code
 Add comments, prints, and functions to check your solution when you write your code. 
