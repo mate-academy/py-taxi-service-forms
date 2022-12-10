@@ -80,6 +80,14 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = "taxi/car_confirm_delete.html"
     success_url = reverse_lazy("taxi:car-list")
 
+    # def post(self, request, *args, **kwargs):
+    #     if "cancel" in request.POST:
+    #         self.object = self.get_object()
+    #         url = self.get_success_url()
+    #         return HttpResponseRedirect(url)
+    #     else:
+    #         return super(CarDeleteView, self).post(request, *args, **kwargs)
+
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
     model = Driver
