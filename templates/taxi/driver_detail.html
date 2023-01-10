@@ -1,26 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Username: {{ driver.username }}
-  </h1>
-
-  <p><strong>First name:</strong> {{ driver.first_name }}</p>
-  <p><strong>Last name:</strong> {{ driver.last_name }}</p>
+  <h1>{{ driver.first_name }} {{ driver.last_name }}</h1>
+  <p><strong>Username:</strong> {{ driver.username }}</p>
   <p><strong>License number:</strong> {{ driver.license_number }}</p>
-  <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
-
-  <div class="ml-3">
-    <h4>Cars</h4>
-
-    {% for car in driver.cars.all %}
+  <h2>Cars</h2>
+  {% if driver.cars.all %}
+    <ul>
+      {% for car in driver.cars.all %}
+        <li>
+          {{ car }} (<a class="text-warning link" href="{% url 'taxi:car-detail' pk=car.id %}">ID: {{ car.id }}</a>)
+        </li>
         <hr>
-        <p><strong>Model:</strong> {{ car.model }}</p>
-        <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
-
-    {% empty %}
-      <p>No cars!</p>
-    {% endfor %}
-  </div>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no cars for {{ driver.first_name }} {{ driver.last_name }}</p>
+  {% endif %}
 {% endblock %}
