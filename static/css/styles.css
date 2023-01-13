@@ -1,3 +1,11 @@
 body {
     margin-top: 20px;
+    background-color: lavender;
+}
+.sidebar-nav {
+    border-radius: 10px;
+}
+.container{
+    background-color: white;
+    border-radius: 10px;
 }
