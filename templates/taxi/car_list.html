@@ -1,21 +1,3 @@
-{#{% extends "base.html" %}#}
-{##}
-{#{% block content %}#}
-{#  <h1>Car list</h1>#}
-{#  {% if car_list %}#}
-{#    <ul>#}
-{#      {% for car in car_list %}#}
-{#        <li>#}
-{#          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>#}
-{#          {{ car.model }} ({{ car.manufacturer.name }})#}
-{#        </li>#}
-{#      {% endfor %}#}
-{#    </ul>#}
-{#  {% else %}#}
-{#    <p>There are no cars in taxi</p>#}
-{#  {% endif %}#}
-{#{% endblock %}#}
-
 {% extends "base.html" %}
 
 {% block content %}
@@ -35,10 +17,10 @@
         {% for car in car_list %}
             <tr>
               <td>
-                  {{ car.pk }}
+                {{ car.pk}}
               </td>
               <td>
-                  {{ car.model }}
+                <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.model }}</a>
               </td>
               <td>
                   {{ car.manufacturer.name }}
