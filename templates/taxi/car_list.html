@@ -15,3 +15,6 @@
     <p>There are no cars in taxi</p>
   {% endif %}
 {% endblock %}
+{% block new_create %}
+  <a class = "creation" href="{% url 'taxi:car-create' %}">+</a>
+{% endblock %}
