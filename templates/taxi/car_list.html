@@ -12,16 +12,16 @@
 				<th>Delete</th>
 			</tr>
 
-      {% for car in car_list %}
-				<tr>
-					<td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
-					<td>{{ car.model }}</td>
-					<td><a href="{% url 'taxi:car-update' pk=car.id %}">Update</a></td>
-					<td><a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a></td>
-				</tr>
-      {% endfor %}
-  {% else %}
-    <p>There are no cars!</p>
+		{% for car in car_list %}
+			<tr>
+				<td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
+				<td>{{ car.model }}</td>
+				<td><a href="{% url 'taxi:car-update' pk=car.id %}">Update</a></td>
+				<td><a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a></td>
+			</tr>
+		{% endfor %}
+		{% else %}
+			<p>There are no cars in taxi!</p>
+		</table>
   {% endif %}
-</table>
 {% endblock %}
