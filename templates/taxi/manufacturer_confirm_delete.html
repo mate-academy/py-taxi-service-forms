@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+	<h1>Delete manufacturer:</h1>
+	<br>
+	<p>Are you sure you want to delete <strong>{{ manufacturer }}</strong>?</p>
+
+	<form action="" method="post">
+	{% csrf_token %}
+		{{ form|crispy }}
+		<br>
+		<input class="btn-danger btn" type="submit" value="Yes, delete!" style="margin-left: 130px">
+	</form>
+{% endblock %}
