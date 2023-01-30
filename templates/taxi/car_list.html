@@ -3,25 +3,24 @@
 {% block content %}
   <h1>Car List</h1>
 	<p><a href="{% url 'taxi:car-create' %}">Create new car</a></p>
-  {% if car_list %}
-		<table class="table">
-			<tr>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Update</th>
-				<th>Delete</th>
-			</tr>
-
-		{% for car in car_list %}
-			<tr>
-				<td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
-				<td>{{ car.model }}</td>
-				<td><a href="{% url 'taxi:car-update' pk=car.id %}">Update</a></td>
-				<td><a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a></td>
-			</tr>
-		{% endfor %}
-		{% else %}
-			<p>There are no cars in taxi!</p>
-		</table>
-  {% endif %}
+{% if car_list %}
+	<table class="table">
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Update</th>
+			<th>Delete</th>
+		</tr>
+	{% for car in car_list %}
+		<tr>
+			<td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
+			<td>{{ car.model }}</td>
+			<td><a href="{% url 'taxi:car-update' pk=car.id %}">Update</a></td>
+			<td><a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a></td>
+		</tr>
+	{% endfor %}
+	{% else %}
+		<p>There are no cars in taxi!</p>
+	</table>
+{% endif %}
 {% endblock %}
