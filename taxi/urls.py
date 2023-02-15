@@ -31,32 +31,32 @@ urlpatterns = [
     path(
         "cars/create/",
         CarCreateView.as_view(),
-        name="car_create",
+        name="car-create",
     ),
     path(
         "cars/<int:pk>/update/",
         CarUpdateView.as_view(),
-        name="car_update",
+        name="car-update",
     ),
     path(
         "cars/<int:pk>/delete/",
         CarDeleteView.as_view(),
-        name="car_delete",
+        name="car-delete",
     ),
     path(
         "manufacturers/create/",
         ManufacturerCreateView.as_view(),
-        name="manufacturer_create",
+        name="manufacturer-create",
     ),
     path(
         "manufacturer/<int:pk>/update/",
         ManufacturerUpdateView.as_view(),
-        name="manufacturer_update"
+        name="manufacturer-update"
     ),
     path(
         "manufacturer/<int:pk>/delete/",
         ManufacturerDeleteView.as_view(),
-        name="manufacturer_delete"
+        name="manufacturer-delete"
     ),
 ]
 
