@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car Format list <a href="{% url 'taxi:car-create' %}">+</a></h1>
+  {% if car_format_list %}
+      <table class="table">
+      <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Manufacturer</th>
+          <th>Update</th>
+          <th>Delete</th>
+      </tr>
+      {% for car in car_format_list %}
+      <tr>
+          <td>
+              {{ car.id }}
+          </td>
+          <td>
+              {{ car.model }}
+          </td>
+          <td>
+              {{ car.manufacturer.name }}
+          </td>
+          <td>
+              <a href="{% url "taxi:car-update" pk=car.id %}">update</a>
+          </td>
+          <td>
+              <a href="{% url "taxi:car-delete" pk=car.id %}">delete</a>
+          </td>
+      {% endfor %}
+      </table>
+  {% else %}
+    <p>There are no cars in taxi</p>
+  {% endif %}
+{% endblock %}
