@@ -28,3 +28,22 @@ deletion page for each manufacturer.
 NOTE: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them.
 
 ### Note: Check your code using this [checklist](checklist.md) before pushing your solution.
+
+# Note
+Follow these steps if you need to use `crispy_forms` v2.0 with Python 3.11:
+
+1. Add `CRISPY_TEMPLATE_PACK` to `settings.py`.
+
+```python
+CRISPY_TEMPLATE_PACK="bootstrap4"
+```
+
+2. Add these apps to `INSTALLED_APPS` and install them corresponding to the `CRISPY_TEMPLATE_PACK` bootstrap version.
+
+```python
+INSTALLED APPS = [
+   ...,
+   "crispy_bootstrap4",
+   "crispy_forms",
+]
+```
