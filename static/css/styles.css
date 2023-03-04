@@ -1,3 +1,7 @@
 body {
     margin-top: 20px;
 }
+
+.btn.btn-outline-primary {
+    margin-left: 30px;
+}
