@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Car</h1>
+  <h4 class="alert alert-danger">
+    Are you sure you want to delete Car {{ car.id }}?
+  </h4>
+
+  <form method="post" action="">
+    {% csrf_token %}
+    <input type="submit" value="Yes, I want to delete">
+  </form>
+  <a href="{% url "taxi:car-detail" pk=car.pk %}" class="badge badge-danger">
+    No, go back
+  </a>
+{% endblock %}
