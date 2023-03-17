@@ -29,10 +29,6 @@
             <a href="{% url "taxi:car-delete" pk=car.id%}">DELETE</a>
           </td>
         </tr>
-{#        <li>#}
-{#          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>#}
-{#          {{ car.model }} ({{ car.manufacturer.name }})#}
-{#        </li>#}
       {% endfor %}
     </table>
   {% else %}

@@ -18,7 +18,6 @@ from .views import (
     ManufacturerDeleteView
 )
 
-
 urlpatterns = [
     path("", index, name="index"),
     path(
@@ -49,7 +48,7 @@ urlpatterns = [
     path("cars/<int:pk>/delete/",
          CarDeleteView.as_view(),
          name="car-delete"
-     ),
+         ),
     path(
         "drivers/",
         DriverListView.as_view(),
