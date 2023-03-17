@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    <span style="margin-right: 5px">Car list</span>
+    <a href="{% url "taxi:car-create" %}">+</a>
+  </h1>
+  {% if car_list %}
+
+    <table class="table">
+      <tr>
+        <th>id</th>
+        <th>Model</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      {% for car in car_list %}
+        <tr>
+          <td>
+            {{ car.id }}
+          </td>
+          <td>
+            {{ car.model }}
+          </td>
+          <td>
+            <a href="{% url "taxi:car-update" pk=car.id%}">UPDATE</a>
+          </td>
+          <td>
+            <a href="{% url "taxi:car-delete" pk=car.id%}">DELETE</a>
+          </td>
+        </tr>
+{#        <li>#}
+{#          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>#}
+{#          {{ car.model }} ({{ car.manufacturer.name }})#}
+{#        </li>#}
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no cars in taxi</p>
+  {% endif %}
+{% endblock %}
