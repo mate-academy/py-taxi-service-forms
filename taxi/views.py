@@ -41,15 +41,27 @@ class ManufacturerMixin:
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-class ManufacturerCreateView(LoginRequiredMixin, ManufacturerMixin, generic.CreateView):
+class ManufacturerCreateView(
+    LoginRequiredMixin,
+    ManufacturerMixin,
+    generic.CreateView
+):
     pass
 
 
-class ManufacturerUpdateView(LoginRequiredMixin, ManufacturerMixin, generic.UpdateView):
+class ManufacturerUpdateView(
+    LoginRequiredMixin,
+    ManufacturerMixin,
+    generic.UpdateView
+):
     pass
 
 
-class ManufacturerDeleteView(LoginRequiredMixin, ManufacturerMixin, generic.DeleteView):
+class ManufacturerDeleteView(
+    LoginRequiredMixin,
+    ManufacturerMixin,
+    generic.DeleteView
+):
     pass
 
 
