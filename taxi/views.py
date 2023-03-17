@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -34,10 +35,58 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
+class ManufacturerMixin:
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerCreateView(
+    LoginRequiredMixin,
+    ManufacturerMixin,
+    generic.CreateView
+):
+    pass
+
+
+class ManufacturerUpdateView(
+    LoginRequiredMixin,
+    ManufacturerMixin,
+    generic.UpdateView
+):
+    pass
+
+
+class ManufacturerDeleteView(
+    LoginRequiredMixin,
+    ManufacturerMixin,
+    generic.DeleteView
+):
+    pass
+
+
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
     queryset = Car.objects.all().select_related("manufacturer")
+
+
+class CarMixin:
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class CarCreateView(LoginRequiredMixin, CarMixin, generic.CreateView):
+    pass
+
+
+class CarUpdateView(LoginRequiredMixin, CarMixin, generic.UpdateView):
+    pass
+
+
+class CarDeleteView(LoginRequiredMixin, CarMixin, generic.DeleteView):
+    pass
 
 
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
