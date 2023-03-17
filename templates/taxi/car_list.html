@@ -1,16 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <h1>Car list
+    <a href="{% url "taxi:car-create" %}">
+      <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 12H12M12 12H9M12 12V9M12 12V15M17 21H7C4.79086 21 3 19.2091 3 17V7C3 4.79086 4.79086 3 7 3H17C19.2091 3 21 4.79086 21 7V17C21 19.2091 19.2091 21 17 21Z" stroke="#029410 " stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </a>
+  </h1>
   {% if car_list %}
-    <ul>
-      {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
-      {% endfor %}
-    </ul>
+    <div style="width: 30%">
+      <ul>
+        {% for car in car_list %}
+          <li>
+            <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+            {{ car.model }} ({{ car.manufacturer.name }})
+            <a href="{% url "taxi:car-delete" pk=car.id %}" style="margin-left: 15px; float: right;">
+              <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 11V17" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 11V17" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 7H20" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 7H12H18V18C18 19.6569 16.6569 21 15 21H9C7.34315 21 6 19.6569 6 18V7Z" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="{% url "taxi:car-edit" pk=car.id %}" style="margin-left: 15px; float: right;">
+              <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 21H21" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20.0651 7.39423L7.09967 20.4114C6.72438 20.7882 6.21446 21 5.68265 21H4.00383C3.44943 21 3 20.5466 3 19.9922V18.2987C3 17.7696 3.20962 17.2621 3.58297 16.8873L16.5517 3.86681C19.5632 1.34721 22.5747 4.87462 20.0651 7.39423Z" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15.3096 5.30981L18.7273 8.72755" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path opacity="0.1" d="M18.556 8.90942L7.09967 20.4114C6.72438 20.7882 6.21446 21 5.68265 21H4.00383C3.44943 21 3 20.5466 3 19.9922V18.2987C3 17.7696 3.20962 17.2621 3.58297 16.8873L15.0647 5.35974C15.0742 5.4062 15.0969 5.45049 15.1329 5.48653L18.5506 8.90426C18.5524 8.90601 18.5542 8.90773 18.556 8.90942Z" fill="#323232"/>
+              </svg>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
