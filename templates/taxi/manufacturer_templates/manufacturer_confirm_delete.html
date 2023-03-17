@@ -2,10 +2,9 @@
 
 {% block content %}
 
-<h1> Delete Car Record</h1>
+<h1> Delete Manufacturer Record</h1>
 
-<p>Are you sure that you want to remove the car: {{ car }}?</p>
-<p><i>All Drivers records will be also deleted!</i></p>
+<p>Are you sure that you want to remove the manufacturer: {{ manufacturer }}?</p>
 
   <form action="" method="post">
     {% csrf_token %}
@@ -13,3 +12,4 @@
   </form>
 
 {% endblock %}
+
