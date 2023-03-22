@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -30,8 +32,43 @@ def index(request):
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
     context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
+
+
+class ManufacturerCreateView(
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    generic.CreateView
+):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "taxi/manufacturer_form.html"
+    success_message = "%(name)s has been successfully created"
+
+
+class ManufacturerUpdateView(
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    generic.UpdateView
+):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    success_message = "%(name)s has been successfully updated"
+    template_name = "taxi/manufacturer_form.html"
+
+
+class ManufacturerDeleteView(
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    generic.DeleteView
+):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    success_message = "Manufacturer has been deleted!"
+    template_name = "taxi/manufacturer_confirm_delete.html"
 
 
 class CarListView(LoginRequiredMixin, generic.ListView):
@@ -42,6 +79,42 @@ class CarListView(LoginRequiredMixin, generic.ListView):
 
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
+
+
+class CarCreateView(
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    generic.CreateView
+):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    template_name = "taxi/car_form.html"
+    success_message = "%(model)s has been successfully created"
+
+
+class CarUpdateView(
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    generic.UpdateView
+):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    success_message = "%(model)s has been successfully updated"
+    template_name = "taxi/car_form.html"
+
+
+class CarDeleteView(
+    LoginRequiredMixin,
+    SuccessMessageMixin,
+    generic.DeleteView
+):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    success_message = "Car has been deleted!"
+    template_name = "taxi/car_confirm_delete.html"
 
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
