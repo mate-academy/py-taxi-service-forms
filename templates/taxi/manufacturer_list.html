@@ -27,10 +27,10 @@
                   {{ manufacturer.country }}
               </td>
               <td>
-                <a href="{% url 'taxi:man-update' pk=manufacturer.id%}">Update Info</a>
+                <a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id%}">Update Info</a>
               </td>
               <td>
-                <a class="btn btn-danger" href="{% url 'taxi:man-delete' pk=manufacturer.id %}">Delete</a>
+                <a class="btn btn-danger" href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">Delete</a>
               </td>
           </tr>
         {% endfor %}
