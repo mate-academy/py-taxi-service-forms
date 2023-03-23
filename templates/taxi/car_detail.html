@@ -2,9 +2,13 @@
 
 {% block content %}
   <h1>{{ car.model }}</h1>
-  <a href="{% url "taxi:car-update" pk=car.id%} " >update this car</a>
-  <br>
-  <a href="{% url "taxi:car-delete" pk=car.id%} " >delete this car</a>
+  <form action=""method="post">
+    {% csrf_token %}
+    <a class="btn btn-primary" href="{% url "taxi:car-update" pk=car.id%} " >update</a>
+    <a class="btn btn-danger" href="{% url "taxi:car-delete" pk=car.id%} " >delete</a>
+  </form>
+
+  
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
   <hr>
