@@ -79,7 +79,6 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
     field = "__all__"
     success_url = reverse_lazy("taxi:car-list")
-    # template_name = "taxi/car_confirm_delete.html"
 
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
