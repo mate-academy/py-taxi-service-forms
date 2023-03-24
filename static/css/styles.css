@@ -1,3 +1,20 @@
 body {
     margin-top: 20px;
 }
+
+.create-btn, .update-btn, .delete-btn {
+    float: right;
+    background-color: dodgerblue;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.update-btn {
+    margin-right: 20px;
+}
