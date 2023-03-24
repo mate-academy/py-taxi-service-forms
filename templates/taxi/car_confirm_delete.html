@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Car</h1>
+  <p>Are you sure {{ car }} should be deleted?</p>
+  <form method="post">
+    {% csrf_token %}
+    <a href="{% url 'taxi:car-detail' pk=car.id %}"><input class="btn btn-primary" type="button" value="No, back"></a>
+    <input class="btn btn-danger" type="submit" value="Delete">
+  </form>
+{% endblock %}
