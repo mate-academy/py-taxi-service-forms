@@ -15,6 +15,7 @@
 </head>
 
 <body>
+{% load crispy_forms_filters %}
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2">
@@ -25,7 +26,7 @@
 
     </div>
     <div class="col-sm-10 ">
-
+      {{ form|crispy }}
       {% block content %}{% endblock %}
 
       {% block pagination %}
@@ -36,5 +37,4 @@
   </div>
 </div>
 </body>
-
 </html>
