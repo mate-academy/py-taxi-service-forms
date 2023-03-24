@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
   <h1>Car list</h1>
@@ -14,4 +15,5 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+    <a href="{% url "taxi:car-create" %}" class="btn btn-primary">Create</a>
 {% endblock %}

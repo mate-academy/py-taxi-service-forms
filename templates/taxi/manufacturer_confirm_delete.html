@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h2>Delete manufacturer</h2>
+  <p>
+    Are you sure you want to delete the manufacturer
+    {{ object.name }} from {{ object.country }} ?
+    <p>
+    It will also delete <span style="color: #8e0505;">all</span> corresponding cars!
+    </p>
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+
+{% endblock %}
