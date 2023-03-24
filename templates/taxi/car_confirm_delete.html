@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete car:</h1>
+    <p>{{ car.model }} ({{ car.manufacturer }})</p>
+  <form action="" method="post">{% csrf_token %}
+    <p class="alert alert-danger alert_inline">
+      Are you sure you want to delete the selected car?
+    </p>
+    <input class="btn btn-danger" type="submit" value="Delete">
+    <a href="{{ request.META.HTTP_REFERER }}">
+      <button class="btn btn-primary">
+        Cancel
+      </button>
+    </a>
+  </form>
+{% endblock %}
