@@ -67,14 +67,14 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
-    fields = [field.name for field in model._meta.get_fields()]
+    fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
 
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
     template_name = "taxi/car_form.html"
-    fields = [field.name for field in model._meta.get_fields()]
+    fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
 
 
