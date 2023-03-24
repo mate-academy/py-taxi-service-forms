@@ -8,10 +8,16 @@
         <li>
           <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
+          <a href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
+          <a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
         </li>
       {% endfor %}
     </ul>
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+{% endblock %}
+{% block sidebar %}
+  {% include "includes/sidebar.html" %}
+  {% include "includes/create_car.html" %}
 {% endblock %}
