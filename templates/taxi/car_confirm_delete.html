@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h3>Delete car</h3>
+  <br>
+  <h6>Are you sure you want to delete {{ car }} car?</h6>
+  <form action="" method="post">
+  {% csrf_token %}
+  {{ form | crispy }}
+    <input type="submit" value="Delete">
+  </form>
+{% endblock %}
