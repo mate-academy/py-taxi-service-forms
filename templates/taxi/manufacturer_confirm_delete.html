@@ -12,5 +12,6 @@
     {{ form | crispy }}
     <br>
     <input type="submit" value="Delete">
+      <a href="{% url "taxi:manufacturer-list" %}">Cancel</a>
   </form>
 {% endblock %}
