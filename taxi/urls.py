@@ -16,7 +16,6 @@ from .views import (
 )
 
 
-
 urlpatterns = [
     path("", index, name="index"),
     path(
@@ -40,13 +39,19 @@ urlpatterns = [
         "cars/<int:pk>/delete", CarDeleteView.as_view(), name="car-delete",
     ),
     path(
-        "manufacturers/create", ManufacturerCreateView.as_view(), name="manufacturer-create",
+        "manufacturers/create",
+        ManufacturerCreateView.as_view(),
+        name="manufacturer-create",
     ),
     path(
-        "manufacturers/<int:pk>/update", ManufacturerUpdateView.as_view(), name="manufacturer-update",
+        "manufacturers/<int:pk>/update",
+        ManufacturerUpdateView.as_view(),
+        name="manufacturer-update",
     ),
     path(
-        "manufacturers/<int:pk>/delete", ManufacturerDeleteView.as_view, name="manufacturer-delete",
+        "manufacturers/<int:pk>/delete",
+        ManufacturerDeleteView.as_view,
+        name="manufacturer-delete",
     ),
 ]
 

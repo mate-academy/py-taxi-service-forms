@@ -91,4 +91,3 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     template_name = "taxi/manufacturer-confirm-delete.html"
-
