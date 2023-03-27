@@ -8,6 +8,9 @@
   <form action="" method="POST">
     {% csrf_token %}
     <input type="submit" value="Yes, delete" class="btn btn-danger" />
+    <a href="{% url 'taxi:car-detail' pk=car.id %}"><label>
+      <input value="No, cancel" class="btn btn-success" />
+    </label></a>
   </form>
 
 {% endblock %}
