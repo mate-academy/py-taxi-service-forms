@@ -6,6 +6,8 @@
   <form action="" method="post">
     {% csrf_token %}
     <input class="btn btn-danger" type="submit" value="Yes" />
+    <a href="{% url 'taxi:car-detail' pk=car.id %}" role="button"
+       class="btn btn-primary">Cancel</a>
   </form>
 
 {% endblock %}
