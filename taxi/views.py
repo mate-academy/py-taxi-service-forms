@@ -52,6 +52,11 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["previous_url"] = self.request.META.get("HTTP_REFERER")
+        return context
+
 
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
