@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h2>Delete manufacturer</h2>
+  <p>The {{ manufacturer }} will be deleted, are you sure?</p>
+  <p style="color: red">All referred fields will be also deleted</p>
+  <form action="" method="post">
+   {% csrf_token %}
+  <input type="submit" value="Yes, delete" class="btn btn-danger"/>
+  </form>
+
+{% endblock %}
