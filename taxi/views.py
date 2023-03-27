@@ -43,7 +43,6 @@ class ManufacturerCreateView(
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template_name = "taxi/manufacturer_form.html"
     success_message = "%(name)s has been successfully created"
 
 
@@ -56,7 +55,6 @@ class ManufacturerUpdateView(
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     success_message = "%(name)s has been successfully updated"
-    template_name = "taxi/manufacturer_form.html"
 
 
 class ManufacturerDeleteView(
@@ -102,7 +100,6 @@ class CarUpdateView(
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
     success_message = "%(model)s has been successfully updated"
-    template_name = "taxi/car_form.html"
 
 
 class CarDeleteView(
