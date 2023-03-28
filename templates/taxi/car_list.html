@@ -5,14 +5,27 @@
   <button class="btn btn-primary" type="button" onclick="location.href='{% url 'taxi:car-create' %}'">Create</button>
   </h1>
   {% if car_list %}
-    <ul>
-      {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
-      {% endfor %}
-    </ul>
+    <table class="table">
+        <tr>
+          <th>ID</th>
+          <th>Model</th>
+          <th>Manufacturer</th>
+        </tr>
+
+        {% for car in car_list %}
+            <tr>
+              <td>
+                  <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+              </td>
+              <td>
+                  {{ car.model }}
+              </td>
+              <td>
+                  {{ car.manufacturer.name }} ({{ car.manufacturer.country }})
+              </td>
+          </tr>
+        {% endfor %}
+      </table>
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
