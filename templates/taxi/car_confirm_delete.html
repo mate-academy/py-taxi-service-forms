@@ -8,7 +8,9 @@
       {% csrf_token %}
       <input type="submit" value="Delete" class="btn btn-danger">
     </form>
+	  <br>
+	  <button class="btn btn-outline-success">
+		  <a href="{% url "taxi:car-detail" pk=car.pk %}">Cancel</a>
+	  </button>
 
   {% endblock %}
-
-
