@@ -17,11 +17,7 @@
     </ul>
   {% else %}
     <p>There are no cars in taxi</p>
-    <form action="" method="post">
-      {% csrf_token %}
       <a class="btn btn-success" href="{% url "taxi:car-create"%}">create a car</a>
-    </form>
-
   {% endif %}
 
 {% endblock %}
