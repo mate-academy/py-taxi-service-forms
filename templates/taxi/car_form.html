@@ -1,16 +1,10 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
 {% block content %}
-   {% if object|yesno:"Update car,New car" == "Update car" %}
-    <h1>Update car</h1>
-  {% else %}
-    <h1>New car</h1>
-  {% endif %}
-
-  <form action="" method="post" novalidate>
+   <h1>{{ object|yesno:"Update,Create" }} Car</h1>
+  <form method="post" novalidate>
     {% csrf_token %}
     {{ form|crispy }}
-
     <input class="btn btn-primary" type="submit" value="submit">
   </form>
 {% endblock %}
