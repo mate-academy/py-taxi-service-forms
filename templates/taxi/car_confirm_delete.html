@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car Delete</h1>
+  <p>Are you sure to delete of the car:
+    <strong>{{ car.model }} </strong>?
+  </p>
+  <p style="color: red">
+    <strong>
+      {{ car.drivers.count }} drivers are still attached to this car!
+    </strong>
+  </p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit"
+           value="Yes, delete"
+           class="btn btn-danger">
+    <a href="{% url 'taxi:car-list' %}"
+       class="btn btn-primary">
+      No, cancel
+    </a>
+  </form>
+{% endblock %}
