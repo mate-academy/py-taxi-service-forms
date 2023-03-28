@@ -114,3 +114,4 @@ class ManufacturerTest(TestCase):
         self.assertFalse(
             Manufacturer.objects.filter(id=manufacturer.id).exists()
         )
+
