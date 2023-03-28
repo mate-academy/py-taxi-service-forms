@@ -50,7 +50,7 @@ urlpatterns = [
     ),
     path(
         "manufacturers/<int:pk>/delete",
-        ManufacturerDeleteView.as_view,
+        ManufacturerDeleteView.as_view(),
         name="manufacturer-delete",
     ),
 ]
