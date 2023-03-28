@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_filters %}
 
 {% block content %}
   <h1>Delete Manufacturer</h1>
@@ -6,6 +7,10 @@
 
   <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Yes, delete" class="btn btn-primary">
+    <a href="{% url 'taxi:manufacturer-list' %}">
+      <input type="button" value="Cancel" class="btn btn-primary">
+    </a>
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
   </form>
+
 {% endblock %}
