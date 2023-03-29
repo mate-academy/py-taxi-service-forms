@@ -10,13 +10,14 @@
           {{ car.model }} ({{ car.manufacturer.name }})
         </li>
       {% endfor %}
-    <form action="" method="post">
-      {% csrf_token %}
-      <a class="btn btn-success" href="{% url "taxi:car-create"%}">create a car</a>
-    </form>
+
     </ul>
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <a class="btn btn-success" href="{% url "taxi:car-create"%}">create a car</a>
+  </form>
 
 {% endblock %}
