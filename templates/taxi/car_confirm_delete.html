@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+  <h1>Car Deleting Page</h1>
+
+  <p>Are you sure? {{ car.model }} will be deleted</p>
+
+  <form action="" method="POST">
+  {% csrf_token %}
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <button type="button" class="btn btn-secondary" onclick="goBack()">Cancel</button>
+  </form>
+
+  {% block extra_js %}
+  <script>
+    function goBack() {
+      window.history.go(-1);
+    }
+  </script>
+  {% endblock %}
+
+{% endblock %}
