@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Car Model</h1>
+  <p>Do you confirm deletion of {{ car.model }} ?</p>
+  <p><strong>Removed data can't be restored!</strong></p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <label>
+      <input type="submit" value="Yes, I agree" class="btn btn-danger">
+    </label>
+      <a href="{% url 'taxi:car-list' %}" class='btn btn-primary'>No, I changed my mind</a>
+  </form>
+{% endblock %}
