@@ -7,6 +7,7 @@
   <form action="" method="post">
   {% csrf_token %}
     <input type="submit" value="Delete!" class="btn btn-danger">
+    <a href="{{ previous_page }}" class="btn btn-secondary">Cancel</a>
   </form>
 
 {% endblock %}
