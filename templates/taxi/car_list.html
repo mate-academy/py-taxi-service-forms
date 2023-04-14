@@ -22,7 +22,7 @@
                   {{ car.model }}
               </td>
               <th><a href="{% url "taxi:car-update" pk=car.pk %}">+</a></th>
-              <th><a href="{% url "taxi:car-confirm-delete" pk=car.pk %}">-</a></th>
+              <th><a href="{% url "taxi:car-delete" pk=car.pk %}">-</a></th>
           </tr>
         {% endfor %}
       </table>
