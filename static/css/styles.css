@@ -1,3 +1,14 @@
 body {
     margin-top: 20px;
 }
+
+.car-update-style:hover {
+    text-decoration: none;
+    background-color:#e7e7e7;
+    border-radius: 5px;
+}
+
+.car-update-style {
+    text-decoration: none;
+}
+
