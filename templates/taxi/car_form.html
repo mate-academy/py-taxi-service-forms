@@ -4,7 +4,7 @@
 {% block content %}
   <h1>{{ object|yesno:"Update,Create" }} car for Taxi Service</h1>
 
-  <form action="" method="post">
+  <form action="" method="post" novalidate>
   {% csrf_token %}
   {{ form|crispy }}
 
