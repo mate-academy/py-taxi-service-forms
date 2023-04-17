@@ -9,10 +9,8 @@
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+          <a href="{% url 'taxi:car-detail' pk=car.id %} ">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
-          <a class="car-update-style" href="{% url 'taxi:car-update' pk=car.pk %}">🖊</a>
-          <a class="car-update-style" href="{% url 'taxi:car-delete' pk=car.pk %}">❌</a>
         </li>
       {% endfor %}
     </ul>

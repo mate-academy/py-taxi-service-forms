@@ -8,7 +8,7 @@
     {% csrf_token %}
 
     <input type="submit" value="Yes, delete" class="btn btn-danger" />
-    <a class="btn btn-secondary" href="{% url 'taxi:car-list' %}">No, back</a>
+    <a class="btn btn-secondary" href="{% url 'taxi:car-detail' pk=car.pk %}">Cancel</a>
 
   </form>
 {% endblock %}
