@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+`{% extends "base.html" %}
 
 {% block content %}
   <h1>Car list</h1>
@@ -14,4 +14,6 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+  <a href="{% url "taxi:car-create" %}" class=" button btn btn-secondary">Create</a>
+  <br>
 {% endblock %}
