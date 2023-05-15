@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h2> Realy delete this  </h2>
+
+  {% if car %}
+    <h2> car {{ car.model }}</h2>
+  {% endif %}
+
+  {% if manufacturer %}
+    <h2> manufacturer {{ manufacturer.name }}</h2>
+  {% endif %}
+
+  {% if driver %}
+    <h2> driver {{ driver.username }}</h2>
+  {% endif %}
+
+  <form action="" method="post">
+  {% csrf_token %}
+    <label for="">
+      <input type="submit" value="Submit">
+    </label>
+  </form>
+
+{% endblock %}

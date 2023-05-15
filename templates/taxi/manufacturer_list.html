@@ -15,7 +15,7 @@
         {% for manufacturer in manufacturer_list %}
             <tr>
               <td>
-                  {{ manufacturer.id }}
+                <a href="{% url "taxi:manufacturer-detail" pk=manufacturer.pk %}"> {{ manufacturer.id }} </a>
               </td>
               <td>
                   {{ manufacturer.name }}
@@ -30,4 +30,6 @@
     {% else %}
         <p>There are no manufacturers in the service.</p>
     {% endif %}
+  <button type="button" class="btn btn-warning"><a href="{% url "taxi:manufacturer-create" %}"> Create </a></button>
+  <p></p>
 {% endblock %}
