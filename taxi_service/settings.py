@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "taxi",
 ]
 
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
