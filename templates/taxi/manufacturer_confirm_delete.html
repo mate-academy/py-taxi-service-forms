@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete a manufacturer?</h1>
+  <p style="color: red">Warning! Deleting a manufacturer can cause deletion of all connected cars!</p>
+  <p>Are you sure about that?</p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+  </form>
+
+{% endblock %}
