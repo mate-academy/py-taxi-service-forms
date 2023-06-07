@@ -2,6 +2,7 @@
 
 {% block content %}
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+
   <h1>Drivers</h1>
   <hr>
   <ul>
@@ -9,4 +10,17 @@
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
+  <a style="background-color: dodgerblue;
+    float: left;
+    margin: 10px;
+    color: white;"
+    class="btn btn_primary"
+    href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
+
+  <a style="background-color:red;
+      float: right;
+      margin: 10px;
+      color: white;"
+      class="btn btn_danger"
+      href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
 {% endblock %}

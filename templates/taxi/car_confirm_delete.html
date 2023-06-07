@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete Manufacturer</h1>
+  <h1>Delete Car</h1>
 
-  <p>Are you sure you want to delete the manufacturer <strong>{{ manufacturer }}</strong></p>
+  <p>Are you sure you want to delete the car {{ car }}</p>
 
   <form action="" method="POST">
   {% csrf_token %}
