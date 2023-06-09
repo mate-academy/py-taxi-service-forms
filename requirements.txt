@@ -1,8 +1,11 @@
 asgiref==3.6.0
 atomicwrites==1.4.1
 attrs==22.2.0
+beautifulsoup4==4.12.2
 colorama==0.4.6
+crispy-bootstrap4==2022.1
 Django==4.0.2
+django-bootstrap4==23.1
 django-crispy-forms==2.0
 django-debug-toolbar==4.1.0
 execnet==1.9.0
@@ -24,6 +27,7 @@ pytest-django==4.5.2
 pytest-forked==1.6.0
 pytest-timeout==2.1.0
 pytest-xdist==2.5.0
+soupsieve==2.4.1
 sqlparse==0.4.4
 toml==0.10.2
 tomli==2.0.1
