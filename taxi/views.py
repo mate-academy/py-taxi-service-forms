@@ -5,12 +5,12 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.http import HttpResponse
 from .models import Driver, Car, Manufacturer
 
 
 @login_required
-def index(request) -> Callable:
+def index(request) -> HttpResponse:
     """View function for the home page of the site."""
 
     num_drivers = Driver.objects.count()
