@@ -28,21 +28,21 @@ urlpatterns = [
     path(
         "drivers/<int:pk>/", DriverDetailView.as_view(), name="driver-detail"
     ),
-    path("car/create", CreateCarView.as_view(), name="car-create"),
-    path("car/<int:pk>/update", UpdateCarView.as_view(), name="car-update"),
-    path("car/<int:pk>/delete", DeleteCarView.as_view(), name="car-delete"),
+    path("car/create/", CreateCarView.as_view(), name="car-create"),
+    path("car/<int:pk>/update/", UpdateCarView.as_view(), name="car-update"),
+    path("car/<int:pk>/delete/", DeleteCarView.as_view(), name="car-delete"),
     path(
-        "manufacturer/create",
+        "manufacturer/create/",
         CreateManufacturerView.as_view(),
         name="manufacturer-create",
     ),
     path(
-        "manufacturer/<int:pk>/update",
+        "manufacturer/<int:pk>/update/",
         UpdateManufacturerView.as_view(),
         name="manufacturer-update",
     ),
     path(
-        "manufacturer/<int:pk>/delete",
+        "manufacturer/<int:pk>/delete/",
         DeleteManufacturerView.as_view(),
         name="manufacturer-delete",
     ),
