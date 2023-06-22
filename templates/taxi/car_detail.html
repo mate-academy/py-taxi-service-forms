@@ -11,8 +11,8 @@
   </ul>
 
   <h5>
-    <a style="padding: 5px; border-style: solid" href="{% url "taxi:car-update" pk=car.id%}">update</a>
-    <a style="padding: 5px; border-style: solid; color: red" href="{% url "taxi:car-delete" pk=car.id%}">delete</a>
+    <a style="padding: 5px; border-style: solid" href="{% url 'taxi:car-update' pk=car.id%}">update</a>
+    <a style="padding: 5px; border-style: solid; color: red" href="{% url 'taxi:car-delete' pk=car.id%}">delete</a>
   </h5>
 
 {% endblock %}
