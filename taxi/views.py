@@ -35,16 +35,18 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
-class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
+class BaseManufacturerView(LoginRequiredMixin):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = Manufacturer
-    fields = "__all__"
-    success_url = reverse_lazy("taxi:manufacturer-list")
+class ManufacturerCreateView(BaseManufacturerView, generic.CreateView):
+    pass
+
+
+class ManufacturerUpdateView(BaseManufacturerView, generic.UpdateView):
+    pass
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -63,16 +65,18 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
 
 
-class CarCreateView(LoginRequiredMixin, generic.CreateView):
+class BaseCarView(LoginRequiredMixin):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
 
 
-class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = Car
-    fields = "__all__"
-    success_url = reverse_lazy("taxi:car-list")
+class CarCreateView(BaseCarView, generic.CreateView):
+    pass
+
+
+class CarUpdateView(BaseCarView, generic.UpdateView):
+    pass
 
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
