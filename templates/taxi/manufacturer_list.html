@@ -2,6 +2,10 @@
 
 {% block content %}
     <h1>Manufacturer List
+      <a style="float: left" href="{% url "taxi:manufacturer-create" %}">
+        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/add.css' rel='stylesheet'>
+        <i class="gg-add"></i>
+      </a>
     </h1>
 
     {% if manufacturer_list %}
@@ -10,6 +14,8 @@
           <th>ID</th>
           <th>Name</th>
           <th>Country</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
 
         {% for manufacturer in manufacturer_list %}
@@ -22,6 +28,18 @@
               </td>
               <td>
                   {{ manufacturer.country }}
+              </td>
+              <td>
+                <a href="{% url "taxi:manufacturer-update" pk=manufacturer.id %}">
+                  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/add.css' rel='stylesheet'>
+                  <i class="gg-add"></i>
+                </a>
+              </td>
+              <td>
+                <a href="{% url "taxi:manufacturer-delete" pk=manufacturer.id%}">
+                  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/remove.css' rel='stylesheet'>
+                  <i class="gg-remove"></i>
+                </a>
               </td>
           </tr>
         {% endfor %}
