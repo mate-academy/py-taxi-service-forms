@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <h2>Car </h2>
+  <strong>
+    <a style="color: darkgreen" href="{% url "taxi:car-update" pk=car.id %}">UPDATE</a>
+  </strong>
+  <tr></tr>
+  <strong>
+    <a style="color: brown" href="{% url "taxi:car-delete" pk=car.id %}">DELETE</a>
+  </strong>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
   <hr>
