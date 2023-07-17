@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Delete car</h1>
+  <h4>Are you sure you want to delete <strong>{{ car }}</strong>?</h4>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <a href="{% url 'taxi:car-detail' pk=car.id %}" class="btn btn-primary">No, cancel</a>
+  # one more rickroll: https://www.youtube.com/watch?v=RM7lw0Ovzq0
+
+  </form>
+
+{% endblock %}
