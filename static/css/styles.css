@@ -1,3 +1,49 @@
 body {
     margin-top: 20px;
 }
+
+tr:hover {
+    background-color: white;
+}
+
+thead {
+    background-color: lightgray;
+}
+
+table, div[class="stylised"] {
+    border: 3px solid;
+    max-width: 700px;
+    min-width: 350px;
+    box-shadow: 10px 10px lightblue;
+    background-color: aliceblue;
+}
+
+.stylised {
+    padding: 20px;
+}
+
+.btn-primary {
+    background-color: #0072B5;
+    border: 0;
+}
+
+.btn-danger {
+    background-color: #E15D44;
+    border: 0;
+}
+
+.parent {
+  width: 69%;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.child {
+  display: inline-block;
+  width: 49%;
+}
+
+.list {
+    margin: 0;
+    padding: 1px 7px;
+}
