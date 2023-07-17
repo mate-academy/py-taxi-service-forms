@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}"><input type="button" value="Update"></a>
+  <a href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}"><input type="button" value="Delete"></a>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
   <hr>
