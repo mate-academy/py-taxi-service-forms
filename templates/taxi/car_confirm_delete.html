@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Car</h1>
+
+  <p> Do you really want to delete the Car</p>
+    <strong>{{ car.model }} <p>{{ car.manufacturer }}</p></strong>
+  <p><i>All relate manufacturers and drivers will be deleted</i></p>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes delete" class="btn-danger">
+    <input class="col-sm-4 control-label" type=button value="Cancel / Return" onClick="javascript:history.go(-1);">
+  </form>
+  <br>
+
+{% endblock %}
