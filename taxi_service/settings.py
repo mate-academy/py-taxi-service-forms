@@ -23,7 +23,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "debug_toolbar",
-    "bootstrap4",
     "crispy_forms",
     "taxi",
 ]
