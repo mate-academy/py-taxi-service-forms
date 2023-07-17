@@ -11,7 +11,7 @@
     {% csrf_token %}
     <p>
       <input class="btn btn-danger" type="submit" value="Yes">
-      <a href="{% url 'taxi:manufacturer-list' %}"><button  class="btn btn-success">Cansel</button></a>
+      {% include "includes/cansel_button.html" %}
     </p>
   </form>
 {% endblock %}

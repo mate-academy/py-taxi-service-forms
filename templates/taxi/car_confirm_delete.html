@@ -10,7 +10,7 @@
     {% csrf_token %}
     <p>
       <input class="btn btn-danger" type="submit" value="Yes">
-      <input class="btn btn-success" type="button" value="Cansel" onclick="history.back()">
+      {% include "includes/cansel_button.html" %}
     </p>
   </form>
 {% endblock %}
