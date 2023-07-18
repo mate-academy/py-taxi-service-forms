@@ -6,8 +6,16 @@
   <p>Are you sure you want to delete the car: <b>{{ car.model }}?</b></p>
   <p>All information about the car drivers <b>will be also deleted!</b></p>
 
-  <form action="" method="POST">
+
+  <form action="" method="POST" style="">
     {% csrf_token %}
     <input class="btn btn-danger" type="submit" value="Yes, delete" />
+
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-primary">
+      Cancel
+    </a>
   </form>
+
+
+
 {% endblock %}
