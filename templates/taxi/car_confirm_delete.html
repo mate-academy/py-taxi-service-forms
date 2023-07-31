@@ -9,7 +9,7 @@
     <div class="button-container">
       <input type="submit" value="Yes" class="btn btn-danger" style="margin-right: 50px">
       <button class="btn page-link">
-        <a href="{% url 'taxi:car-list' %}">No</a>
+        <a href="{% url 'taxi:car-detail' pk=car.id %}">No</a>
       </button>
     </div>
   </form>
