@@ -31,7 +31,6 @@ urlpatterns = [
         name="manufacturer-delete"
     ),
     path("cars/", CarListView.as_view(), name="car-list"),
-    path("cars/?page=<int:page_num>", CarListView.as_view(), name="car-list-page"),
     path(
         "cars/create/",
         CarCreateView.as_view(),
