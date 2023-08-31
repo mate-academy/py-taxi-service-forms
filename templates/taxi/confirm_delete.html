@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Delete {{ manufacturer|yesno:"manufacturer,car" }}</h1>
+
+  {% if car %}
+  	<p>Are you sure in deleting Car: <strong>{{ car.model }}</strong></p>
+  {% else %}
+    <p>Are you sure in deleting Manufacturer: <strong>{{ manufacturer.name }}</strong></p>
+  {% endif %}
+
+  <p><i>Think twice! Deleting will cause fatal changes!!</i></p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, I'm samurai!" class="btn btn-danger">
+
+  </form>
+  <a href="javascript:history.go(-1)" class="btn btn-outline-secondary">Cancel</a>
+
+{% endblock %}
