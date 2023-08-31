@@ -21,7 +21,7 @@
                   {{ car.id }}
               </td>
               <td>
-                  {{ car.model }}
+                <a href="{% url 'taxi:car-detail' pk=car.id%}">{{ car.model }}</a>
               </td>
               <td>
                   {{ car.manufacturer }}
