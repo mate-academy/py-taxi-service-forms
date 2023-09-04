@@ -9,5 +9,6 @@
   <form action="" method="post" novalidate>
     {% csrf_token %}
     <input class="btn btn-danger" type="submit" value="Ok">
+    <button class="btn btn-success" onclick="{% url 'taxi:manufacturer-list' %}">Cancel</button>
   </form>
 {% endblock %}
