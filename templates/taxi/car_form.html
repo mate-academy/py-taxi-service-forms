@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block title %}
   <title>Taxi Service - {{ object|yesno:"Update,Add" }} car</title>
@@ -6,9 +7,9 @@
 
 {% block content %}
   <h1>{{ object|yesno:"Update,Add" }} car</h1>
-  <form action="" method="post" novalidate>
+  <form action="" method="post" novalidate style="max-width: 20em;">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <input type="submit" value="Submit" class="btn btn-primary">
   </form>
 {% endblock %}
