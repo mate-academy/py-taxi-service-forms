@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Taxi Service - {{ object|yesno:"Update,Add" }} car</title>
+{% endblock %}
+
+{% block content %}
+  <h1>{{ object|yesno:"Update,Add" }} car</h1>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" class="btn btn-primary">
+  </form>
+{% endblock %}

@@ -37,4 +37,4 @@ class Car(models.Model):
         return self.model
 
     def get_absolute_url(self):
-        return reverse("taxi:driver-detail", kwargs={"pk": self.pk})
+        return reverse("taxi:car-detail", kwargs={"pk": self.pk})
