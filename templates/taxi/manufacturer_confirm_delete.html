@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Taxi Service - Delete manufacturer</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Delete manufacturer</h1>
+    <p>Are you sure, that you want to delete this manufacturer: {{ manufacturer }}?</p>
+    <p><i>All Cars with this manufacturer ({{ manufacturer.car_set.count }}) will also be deleted!</i></p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete" class="btn btn-danger">
+    <a href="{{ request.GET.next }}" class="btn btn-light">Cancel</a>
+  </form>
+{% endblock %}

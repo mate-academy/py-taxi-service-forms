@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Driver List
-    </h1>
+    <h1>Driver List</h1>
 
     {% if driver_list %}
+    <p>Total number of drivers: {{ paginator.count }}</p>
     <table class="table">
       <tr>
         <th>ID</th>
