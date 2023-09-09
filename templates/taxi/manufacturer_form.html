@@ -11,5 +11,6 @@
     {% csrf_token %}
     {{ form|crispy }}
     <input type="submit" value="Submit" class="btn btn-primary">
+    <a href="{{ request.GET.next }}" class="btn btn-light">Cancel</a>
   </form>
 {% endblock %}

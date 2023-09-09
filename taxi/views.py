@@ -44,7 +44,9 @@ class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
-    success_url = reverse_lazy("taxi:manufacturer-list")
+
+    def get_success_url(self):
+        return self.request.GET.get("next", reverse("taxi:manufacturer-list"))
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
