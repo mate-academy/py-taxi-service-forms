@@ -26,10 +26,10 @@
             <a href="{{ car.get_absolute_url }}" class="btn-outline-secondary">details</a>
           </th>
           <th>
-            <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn-outline-info">update</a>
+            <a href="{% url 'taxi:car-update' pk=car.id %}?next={{ request.get_full_path }}" class="btn-outline-info">update</a>
           </th>
           <th>
-            <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn-outline-danger">delete</a>
+            <a href="{% url 'taxi:car-delete' pk=car.id %}?next={{ request.get_full_path }}" class="btn-outline-danger">delete</a>
           </th>
         </tr>
       {% endfor %}

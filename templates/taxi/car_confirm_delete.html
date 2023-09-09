@@ -11,6 +11,6 @@
   <form action="" method="post">
     {% csrf_token %}
     <input type="submit" value="Delete" class="btn btn-danger">
-    <a href="{% url 'taxi:car-list' %}" class="btn btn-light">Cancel</a>
+    <a href="{{ request.GET.next }}" class="btn btn-light">Cancel</a>
   </form>
 {% endblock %}

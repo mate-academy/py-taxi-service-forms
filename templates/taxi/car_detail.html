@@ -7,8 +7,8 @@
 {% block content %}
   <h1>{{ car.model }}</h1>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <a href="{% url 'taxi:car-update' pk=car.id %}?next={{ request.path }}" class="btn btn-info">update</a>
-  <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-danger">delete</a>
+  <a href="{% url 'taxi:car-update' pk=car.id %}?next={{ request.get_full_path }}" class="btn btn-info">update</a>
+  <a href="{% url 'taxi:car-delete' pk=car.id %}?next={{ request.get_full_path }}" class="btn btn-danger">delete</a>
   <hr>
   <h2>Drivers</h2>
   <hr>
