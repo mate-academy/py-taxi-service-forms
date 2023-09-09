@@ -43,7 +43,7 @@ class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form_type'] = 'Manufacturer'  # Set the form_type variable to 'Manufacturer'
+        context["form_type"] = "Manufacturer"
         return context
 
 
@@ -52,7 +52,7 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_form.html"
-    form_type = 'Manufacturer'
+    form_type = "Manufacturer"
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
