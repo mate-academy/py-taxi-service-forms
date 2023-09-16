@@ -23,12 +23,7 @@ urlpatterns = [
         name="manufacturer-list",
     ),
     path(
-        "manufacturers/<int:pk>/",
-        ManufacturerCreateView.as_view(),
-        name="manufacturer-create",
-    ),
-    path(
-        "manufacturers/create",
+        "manufacturers/create/",
         ManufacturerCreateView.as_view(),
         name="manufacturer-create",
     ),

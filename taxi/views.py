@@ -38,6 +38,8 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
     fields = "__all__"
+
+    # return to manufacturers list after creation
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
@@ -45,12 +47,15 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
 
+    # return to manufacturers list after update
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy("taxi:manufacturer-list")
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
+
+    # return to manufacturers list after deletion
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
@@ -67,6 +72,8 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     fields = "__all__"
+
+    # return to cars list after creation
     success_url = reverse_lazy("taxi:car-list")
 
 
@@ -74,12 +81,15 @@ class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
     fields = "__all__"
 
+    # return to car detail view after update
     def get_success_url(self, **kwargs) -> str:
         return reverse_lazy("taxi:car-detail", args=(self.object.id,))
 
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
+
+    # return to cars list after deletion
     success_url = reverse_lazy("taxi:car-list")
 
 
