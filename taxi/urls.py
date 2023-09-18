@@ -24,7 +24,7 @@ urlpatterns = [
         name="manufacturer-list",
     ),
     path(
-        "manufacturers/create",
+        "manufacturers/create/",
         ManufacturerCreateView.as_view(),
         name="manufacturer-create"
     ),
@@ -49,7 +49,7 @@ urlpatterns = [
         name="car-detail"
     ),
     path(
-        "cars/create",
+        "cars/create/",
         CarCreateView.as_view(),
         name="car-create"
     ),
