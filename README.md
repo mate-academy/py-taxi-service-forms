@@ -17,9 +17,7 @@ In this task, you should implement class-based list and detail views.
 
 1. Create `ManufacturerListView` list view.
     - Set model on which the list view is built.
-    - Set the appropriate context variable name, that you will use in the template.
-    - Set queryset, select all manufacturers, they should be ordered by `name` by default.
-    - Set the name of the template, that view will use, it should be placed inside `templates/taxi`
+    - Set queryset, select all manufacturers, they should be ordered by name by default.
     - Set pagination equals to 5. It indicates how many instances should be displayed on a single page.
 
 2. Create `CarListView` list view.
