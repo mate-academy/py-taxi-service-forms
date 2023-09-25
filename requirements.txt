@@ -1,3 +1,4 @@
+crispy_bootstrap4==2022.1
 django==4.1
 flake8==5.0.4
 flake8-quotes==3.3.1
