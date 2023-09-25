@@ -1,33 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
-    </h1>
+  <div class="content-header">
+    <h1>Manufacturer list</h1>
+    <div class="content-controls">
+      <a href="{% url 'taxi:manufacturer-create' %}">
+        <i class="fa-solid fa-square-plus fa-xl"></i>
+      </a>
+    </div>
+  </div>
+  {% if manufacturer_list %}
+    <ul>
+      {% for manufacturer in manufacturer_list %}
+        <li>
+          {{ manufacturer.name }}
+          <a href="{% url 'taxi:manufacturer-update' manufacturer.pk %}">
+            <i class="fa-solid fa-pen fa-xs"></i>
+          </a>
+          <a href="{% url 'taxi:manufacturer-delete' manufacturer.pk %}">
+            <i class="fa-solid fa-trash fa-xs"></i>
+          </a>
+        </li> 
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no manufacturers</p>
+  {% endif %}
+{% endblock content %}
 
-    {% if manufacturer_list %}
-      <table class="table">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
-        </tr>
-
-        {% for manufacturer in manufacturer_list %}
-            <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
-          </tr>
-        {% endfor %}
-      </table>
-
-    {% else %}
-        <p>There are no manufacturers in the service.</p>
-    {% endif %}
-{% endblock %}
