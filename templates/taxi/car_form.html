@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <h1>{{ object|yesno:"Update,Create" }} Car</h1>
+    <div class="textinput">
+      {{ form|crispy }}
+      <input type="submit" value="Submit" class="btn btn-primary">
+    </div>
+  </form>
+{% endblock %}
