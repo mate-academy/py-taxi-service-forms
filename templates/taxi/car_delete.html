@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Car</h1>
+  <p>Are you sure you want to delete this car: {{ car }}?</p>
+  <p><i>All drivers who drive this car will be without it</i></p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="gap-3">
+      <button type="submit" class="btn btn-warning">Delete</button>
+      <button type="button" class="btn btn-danger"><a href="{% url "taxi:car-list" %}">Cancel</a></button>
+    </div>
+  </form>
+{% endblock %}
