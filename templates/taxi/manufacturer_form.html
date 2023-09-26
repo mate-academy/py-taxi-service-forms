@@ -6,7 +6,7 @@
   {% csrf_token %}
     <h1>{{ object|yesno:"Update,Create" }} Manufacturer</h1>
     {{ form|crispy }}
-    <button type="button" class="btn btn-secondary" onclick="window.history.back();">Cancel</button>
+    <a class="btn btn-secondary" href="{% url "taxi:manufacturer-list" %}">Cancel</a>
     <input type="submit" value="Submit" class="btn btn-primary">
   </form>
 {% endblock %}
