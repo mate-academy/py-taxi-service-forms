@@ -2,10 +2,11 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <form action="" method="">
-    {% csrf_token %}
+  <form action="" method="post">
+  {% csrf_token %}
     <h1>{{ object|yesno:"Update,Create" }} Manufacturer</h1>
     {{ form|crispy }}
+    <button type="button" class="btn btn-secondary" onclick="window.history.back();">Cancel</button>
     <input type="submit" value="Submit" class="btn btn-primary">
   </form>
 {% endblock %}
