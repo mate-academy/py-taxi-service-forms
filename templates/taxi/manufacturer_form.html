@@ -8,6 +8,9 @@
   <form action="" method="post" novalidate>
   {% csrf_token %}
     {{ form|crispy }}
-    <input class="btn-primary" type="submit" value="Add manufacturer">
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-primary">
+      Back
+    </a>
+    <input class="btn btn-primary" type="submit" value="{{ object|yesno:"Update, Add" }} manufacturer">
   </form>
 {% endblock %}
