@@ -2,7 +2,7 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <form action="" method="post">
+  <form action="" method="post" novalidate>
     {% csrf_token %}
     <h1>{{ object|yesno:"Update,Create" }} Car</h1>
     <div class="textinput">
