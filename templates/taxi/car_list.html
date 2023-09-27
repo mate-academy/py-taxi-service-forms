@@ -3,7 +3,6 @@
 {% block content %}
   <h1>
     Car list
-    <a class="btn btn-primary" href="{% url 'taxi:car-create' %}">Add a new car</a>
   </h1>
 
   {% if car_list %}
@@ -15,8 +14,8 @@
         </li>
       {% endfor %}
     </ul>
-
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+  <a class="btn btn-primary mb-5" href="{% url 'taxi:car-create' %}">Add a new car</a>
 {% endblock %}
