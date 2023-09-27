@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="mb-5">Delete {{ object }}?</h1>
+<h5 class="font-italic ml-3">
+  Are you sure? All the cars of this brand will be deleted as well.
+</h5>
+<form action="" method="post">
+  {% csrf_token %}
+  <input type="submit" value="Confirm" class="btn btn-warning mt-5">
+  <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-success mt-5 ml-5">Cancel</a>
+</form>
+{% endblock %}
