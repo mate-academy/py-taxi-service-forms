@@ -1,3 +1,9 @@
 body {
     margin-top: 20px;
 }
+
+.cancel{
+    color: darkgrey;
+    text-decoration-line: underline;
+    font-size: smaller;
+}
