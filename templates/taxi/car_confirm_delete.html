@@ -6,7 +6,11 @@
 
     <form action="" method="post">
         {% csrf_token %}
-        <input type="submit" value="Yes, delete" class="btn btn-danger" />
+        <input type="submit"
+               name="confirm-delete"
+               value="Yes, delete"
+               class="btn btn-danger" />
+        <a href="{% url 'taxi:car-list' %}" class="btn btn-success">Cancel</a>
     </form>
 
 {% endblock %}
