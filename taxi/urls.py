@@ -22,7 +22,7 @@ urlpatterns = [
         ManufacturerListView.as_view(),
         name="manufacturer-list",
     ),
-path(
+    path(
         "manufacturers/create",
         ManufacturerCreateView.as_view(),
         name="manufacturer-create",
