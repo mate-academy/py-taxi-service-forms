@@ -1,23 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <h1>Login</h1>
+  {% if form.errors %}
+    <p style="color: red">Invalid credentials were provided!</p>
+  {% endif %}
+  <form class="login-form" method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label>Username:
+        <input class="form-input" type="text" name="username">
+      </label>
+    </div>
+    <div class="form-group">
+      <label>Password:
+        <input class="form-input" type="password" name="password">
+      </label>
+    </div>
+    <div class="form-group">
+      <input class="form-button" type="submit" value="Submit">
+    </div>
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+{% endblock content %}
 
-{% if form.errors %}
-  <p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-<h1>Login</h1>
-
-{% if next %}
-  <p>Please login to see this page.</p>
-{% endif %}
-
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-{{ form.as_p }}
-
-<input type="submit" value="Login" class="btn btn-primary" />
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
-
-{% endblock %}

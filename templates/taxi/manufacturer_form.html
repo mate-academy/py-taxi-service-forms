@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+  <div class="content-header">
+    <h1>{{ manufacturer|yesno:"Update,Create" }} Manufacturer</h1>
+  </div>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="submit-button" type="submit" value="Submit">
+  </form>
+{% endblock content %}
+
