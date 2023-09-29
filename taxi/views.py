@@ -36,7 +36,6 @@ def index(request: HttpRequest) -> HttpResponse:
 
 class ManufacturerListView(LoginRequiredMixin, ListView):
     model = Manufacturer
-    context_object_name = "manufacturer_list"
     queryset = Manufacturer.objects.all()
     paginate_by = 5
 
@@ -70,39 +69,33 @@ class CarCreateView(LoginRequiredMixin, CreateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
-    context_object_name = "car"
 
 
 class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
-    context_object_name = "car"
 
 
 class CarDeleteView(LoginRequiredMixin, DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_delete.html"
-    context_object_name = "car"
 
 
 class ManufacturerCreateView(LoginRequiredMixin, CreateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    context_object_name = "manufacturer"
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    context_object_name = "manufacturer"
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_delete.html"
-    context_object_name = "manufacturer"
