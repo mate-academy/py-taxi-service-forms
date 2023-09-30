@@ -3,7 +3,6 @@ body {
 }
 
 .cancel{
-    color: darkgrey;
-    text-decoration-line: underline;
-    font-size: smaller;
+    color: white;
+    text-decoration: none;
 }
