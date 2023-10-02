@@ -5,7 +5,7 @@
   <p>Are you sure you want to delete the car: {{ car }}?</p>
   <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Yes, SIR!" class="btn btn-danger"/>
-    <a class="btn btn-primary" href="{% url 'taxi:car-list' %}">No, GOD, please, NO!</a>
+    <input type="submit" value="Yes" class="btn btn-danger"/>
+    <a class="btn btn-primary" href="{% url 'taxi:car-list' %}">No</a>
   </form>
 {% endblock %}
