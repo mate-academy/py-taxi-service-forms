@@ -30,14 +30,9 @@
       {% block pagination %}
         {% include "includes/pagination.html" %}
       {% endblock %}
-<a href="{% if request.META.HTTP_REFERER %}
-            {{ request.META.HTTP_REFERER }}
-            {% else %}{% url 'taxi:index' %}
-         {% endif %}" class="btn btn-secondary" style="position: absolute; margin-top: 10px">
-  Cancel
-</a>
     </div>
   </div>
+
 </div>
 </body>
 
