@@ -1,3 +1,8 @@
 body {
     margin-top: 20px;
 }
+
+.cancel{
+    color: white;
+    text-decoration: none;
+}
