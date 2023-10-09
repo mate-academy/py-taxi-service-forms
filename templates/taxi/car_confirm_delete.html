@@ -8,4 +8,5 @@
     {% csrf_token %}
     <input type="submit" value="Confirm" class="btn-danger">
   </form>
+  <a href="{% url "taxi:index" %}" class="btn-secondary">Cancel</a>
 {%  endblock %}
