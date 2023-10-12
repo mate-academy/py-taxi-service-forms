@@ -3,7 +3,9 @@
 {% block content %}
     <h1>Manufacturer List
     </h1>
-
+    <br>
+    <a class="btn btn-primary" href="{% url "taxi:manufacturer-create" %}">Create manufacturer</a>
+    <br>
     {% if manufacturer_list %}
       <table class="table">
         <tr>
@@ -34,7 +36,6 @@
           </tr>
         {% endfor %}
       </table>
-
     {% else %}
         <p>There are no manufacturers in the service.</p>
     {% endif %}
