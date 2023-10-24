@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Create manufacturer</h1>
+{% load crispy_forms_filters %}
+    <h1>{{ object|yesno:"Update,Create" }} manufacturer</h1>
     <form action="" method="post" novalidate>
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit">
+        {{ form|crispy }}
+        <input class="btn btn-primary" type="submit" value="Submit">
     </form>
 {% endblock %}
