@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete car</h1>
+
+  <p>are you sure you want to delete the machine <b>{{ car }}</b>?</p>
+  <p><i>All information about the car will be deleted!</i></p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <button><a class="btn" href="javascript:history.back()">Cancel</a></button>
+  </form>
+{% endblock %}
