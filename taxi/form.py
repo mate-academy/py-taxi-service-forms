@@ -1,6 +1,6 @@
 from django import forms
 
-from taxi.models import Car, Driver
+from taxi.models import Car, Driver, Manufacturer
 
 
 class CarForm(forms.ModelForm):
@@ -13,3 +13,8 @@ class DriverForm(forms.ModelForm):
     class Meta:
         model = Driver
         fields = "__all__"
+
+
+class ManufacturerForm:
+    model = Manufacturer
+    fields = "__all__"
