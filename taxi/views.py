@@ -2,7 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 
+from .form import CarForm
 from .models import Driver, Car, Manufacturer
 
 
@@ -40,6 +42,12 @@ class CarListView(LoginRequiredMixin, generic.ListView):
     queryset = Car.objects.all().select_related("manufacturer")
 
 
+class CarCreateView(generic.CreateView):
+    form_class = CarForm
+    success_url = reverse_lazy("taxi:car_list")
+    template_name = "taxi/car_form.html"
+
+
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
 
@@ -52,3 +60,9 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+class DriverCreateView(generic.CreateView):
+    form_class = Car
+    success_url = reverse_lazy("taxi:driver_list")
+    template_name = "taxi/driver_form.html"
