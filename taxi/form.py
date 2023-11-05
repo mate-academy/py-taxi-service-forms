@@ -15,6 +15,7 @@ class DriverForm(forms.ModelForm):
         fields = "__all__"
 
 
-class ManufacturerForm:
-    model = Manufacturer
-    fields = "__all__"
+class ManufacturerForm(forms.ModelForm):
+    class Meta:
+        model = Manufacturer
+        fields = "__all__"
