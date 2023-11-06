@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Create New Car</h1>
+  <h1>{{ object|yesno:"Update, Delete" }}Create New Car</h1>
   <form action="" method="post" novalidate>
       {% csrf_token %}
       {{ form.as_p }}
