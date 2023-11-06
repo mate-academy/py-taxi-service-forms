@@ -43,7 +43,7 @@ class CarListView(LoginRequiredMixin, generic.ListView):
 class CarCreateView(generic.CreateView):
     model = Car
     fields = "__all__"
-    success_url = reverse_lazy("taxi:car_list")
+    success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_form.html"
 
 
@@ -54,13 +54,13 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 class CarUpdateView(generic.UpdateView):
     model = Car
     fields = "__all__"
-    success_url = reverse_lazy("taxi:car_list")
+    success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_form.html"
 
 
 class CarDeleteView(generic.DeleteView):
     model = Car
-    success_url = reverse_lazy("taxi:car_list")
+    success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_confirm_delete.html"
 
 
@@ -77,25 +77,25 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
 class DriverCreateView(generic.CreateView):
     model = Driver
     fields = "__all__"
-    success_url = reverse_lazy("taxi:driver_list")
+    success_url = reverse_lazy("taxi:driver-list")
     template_name = "taxi/driver_form.html"
 
 
 class ManufacturerCreateView(generic.CreateView):
     model = Manufacturer
     fields = "__all__"
-    success_url = reverse_lazy("taxi:manufacturer_list")
+    success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_form.html"
 
 
 class ManufacturerUpdateView(generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
-    success_url = reverse_lazy("taxi:manufacturer_list")
+    success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_form.html"
 
 
 class ManufacturerDeleteView(generic.DeleteView):
     model = Manufacturer
-    success_url = reverse_lazy("taxi:manufacturer_list")
+    success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_confirm_delete.html"
