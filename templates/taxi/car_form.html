@@ -1,10 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ object|yesno:"Update, Delete" }}Create New Car</h1>
-  <form action="" method="post" novalidate>
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" value="Створити">
-  </form>
+    <div class="container">
+        <h1 class="text-center mt-4">{{ object|yesno:"Update, Create" }} New Car</h1>
+        <form action="" method="post" novalidate class="mt-4">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.model.label_tag }}
+                {{ form.model }}
+            </div>
+            <div class="form-group">
+                {{ form.manufacturer.label_tag }}
+                {{ form.manufacturer }}
+            </div>
+            <div class="form-group">
+                {{ form.year.label_tag }}
+                {{ form.year }}
+            </div>
+            <div class="form-group">
+                {{ form.color.label_tag }}
+                {{ form.color }}
+            </div>
+            <div class="form-group">
+                {{ form.license_plate.label_tag }}
+                {{ form.license_plate }}
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
 {% endblock %}
