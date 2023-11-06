@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load crispy_forms_filters %}
 
 {% block content %}
   <div class="container">
@@ -12,7 +11,7 @@
           <div class="card-body">
             <form action="" method="post" novalidate>
               {% csrf_token %}
-              {{ form|crispy }}
+              {{ form.as_p }}
               <button class="btn btn-success btn-block" type="submit">Create</button>
             </form>
           </div>
