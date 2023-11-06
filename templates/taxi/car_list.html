@@ -8,10 +8,15 @@
         {% if car_list %}
             <ul class="list-group">
                 {% for car in car_list %}
-                    <li class="list-group-item">
-                        <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-                        <span class="badge badge-info ml-2">{{ car.model }}</span>
-                        <span class="badge badge-secondary">{{ car.manufacturer.name }}</span>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a>
+                            <small class="text-muted">{{ car.manufacturer.name }}</small>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-warning btn-sm">Update</a>
+                            <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-danger btn-sm">Delete</a>
+                        </div>
                     </li>
                 {% endfor %}
             </ul>

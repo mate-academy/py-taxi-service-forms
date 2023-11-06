@@ -1,33 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List <a href="{% url 'taxi:manufacturer-create' %}">+</a>
-    </h1>
+    <div class="container">
+        <h1 class="text-center mt-4">Manufacturer List</h1>
+        <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary mb-4">Add New Manufacturer</a>
 
-    {% if manufacturer_list %}
-      <table class="table">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
-        </tr>
-
-        {% for manufacturer in manufacturer_list %}
-            <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
-          </tr>
-        {% endfor %}
-      </table>
-
-    {% else %}
-        <p>There are no manufacturers in the service.</p>
-    {% endif %}
+        {% if manufacturer_list %}
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Country</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for manufacturer in manufacturer_list %}
+                        <tr>
+                            <td>{{ manufacturer.id }}</td>
+                            <td>{{ manufacturer.name }}</td>
+                            <td>{{ manufacturer.country }}</td>
+                            <td>
+                                <a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}" class="btn btn-warning btn-sm">Update</a>
+                                <a href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="text-danger mt-4">There are no manufacturers in the service.</p>
+        {% endif %}
+    </div>
 {% endblock %}
