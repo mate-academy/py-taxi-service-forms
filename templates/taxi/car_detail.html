@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+  <div class="main-info">
+    <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+    <div class="actions">
+      <a class="action__link" href="{% url 'taxi:car-update' pk=car.id %}"><i class="bi bi-pencil"></i></a>
+      <a class="action__link" href="{% url 'taxi:car-delete' pk=car.id %}"><i class="bi bi-trash3-fill"></i></a>
+    </div>
+  </div>
+
   <h1>Drivers</h1>
   <hr>
   <ul>
