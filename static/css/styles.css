@@ -1,3 +1,23 @@
 body {
     margin-top: 20px;
 }
+
+.main-info {
+    display: flex;
+    align-items: center;
+}
+
+.main-info p {
+    margin: 0;
+}
+
+.main-info .actions {
+    display: flex;
+    margin-left: auto;
+    flex-direction: row;
+    gap: 15px;
+}
+.main-info .actions .action__link {
+    font-size: 20px;
+}
+
