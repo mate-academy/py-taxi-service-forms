@@ -4,12 +4,16 @@
     <h1>Manufacturer List
     </h1>
 
+    <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary my-5 mx-3" role="button">Create new manufacturer</a>
+
     {% if manufacturer_list %}
       <table class="table">
         <tr>
           <th>ID</th>
           <th>Name</th>
           <th>Country</th>
+          <th>UPDATE</th>
+          <th>DELETE</th>
         </tr>
 
         {% for manufacturer in manufacturer_list %}
@@ -22,6 +26,12 @@
               </td>
               <td>
                   {{ manufacturer.country }}
+              </td>
+              <td>
+                <a href="{% url 'taxi:manufacturer-update' manufacturer.pk %}" class="btn btn-warning" role="button">UPDATE</a>
+              </td>
+              <td>
+                <a href="{% url 'taxi:manufacturer-delete' manufacturer.pk %}" class="btn btn-danger" role="button">DELETE</a>
               </td>
           </tr>
         {% endfor %}
