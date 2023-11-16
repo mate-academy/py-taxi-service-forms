@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Delete manufacturer</h1>
+  <h1>Delete manufacturer
+    <a type="button" class="btn btn-outline-success" href="{% url 'taxi:car-create' %}">Cancel</a></h1>
   <p>Are you sure you want to delete the manufacturer {{ manufacturer.name }}?</p>
   <p><i>All cars with this manufacturer will be deleted.</i></p>
   <form action="" method="post">
