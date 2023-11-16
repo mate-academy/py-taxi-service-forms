@@ -10,6 +10,6 @@
   <form action="" method="post" novalidate class="">
     {% csrf_token %}
     <input type="submit" value="Delete">
-    <a href="{% url 'taxi:car-list' %}"><button type="button">Cancel</button></a>
+    <a href="{% url 'taxi:car-detail' pk=car.id %}"><button type="button">Cancel</button></a>
   </form>
 {% endblock %}
