@@ -46,8 +46,8 @@ INSTALLED_APPS = [
 
     "taxi",
 
-    #Third-party packages
-    'crispy_forms',
+    # Third-party packages
+    "crispy_forms",
     "crispy_bootstrap4",
 ]
 
