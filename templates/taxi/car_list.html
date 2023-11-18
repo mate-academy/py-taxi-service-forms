@@ -1,17 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <h1>Car list <a href="{% url 'taxi:create-car' %}"><strong>+</strong></a></h1>
   {% if car_list %}
-    <ul>
-      {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+  <ul class="list-group">
+    {% for car in car_list %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>There are no cars in taxi</p>
-  {% endif %}
+        </div>
+        <div class="btn-group" role="group">
+          <a href="{% url 'taxi:update-car' pk=car.id %}" class="btn btn-warning btn-sm">Update</a>
+          <a href="{% url 'taxi:delete-car' pk=car.id %}" class="btn btn-danger btn-sm">Delete</a>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No cars available.</p>
+{% endif %}
 {% endblock %}
