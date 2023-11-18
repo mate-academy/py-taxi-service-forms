@@ -33,9 +33,6 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
-
-CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Application definition
 
@@ -51,6 +48,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap4",
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -146,3 +144,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
