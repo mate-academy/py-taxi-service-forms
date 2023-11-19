@@ -1,25 +1,23 @@
 {% extends "base.html" %}
-
 {% block content %}
-    <h1>Driver List
-    </h1>
-
+  <h3 class="head-title">DRIVERS LIST</h3>
+  <br>
     {% if driver_list %}
     <table class="table">
       <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>License number</th>
+        <th style="width: 50px;">ID</th>
+        <th style="width: 150px;">Username</th>
+        <th style="width: 150px;">First name</th>
+        <th style="width: 150px;">Last name</th>
+        <th style="width: 150px;">License number</th>
       </tr>
     {% for driver in driver_list %}
       <tr>
-        <td>{{ driver.id }}</td>
-        <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a></td>
-        <td>{{ driver.first_name }}</td>
-        <td>{{ driver.last_name }}</td>
-        <td>{{ driver.license_number }}</td>
+        <td style="width: 50px;">{{ driver.id }}</td>
+        <td style="width: 150px;"><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a></td>
+        <td style="width: 150px;">{{ driver.first_name }}</td>
+        <td style="width: 150px;">{{ driver.last_name }}</td>
+        <td style="width: 150px;">{{ driver.license_number }}</td>
       </tr>
     {% endfor %}
 
