@@ -8,6 +8,9 @@
       {% crispy form %}
     {% else %}
       {{ form.as_p }}
+      <h3>Are you sure?</h3>
+      <a href="{{request.META.HTTP_REFERER}}" class="btn btn-secondary">Cancel</a>
+
       <button type="submit" class="btn m-1 btn-danger">Confirm Deletion</button>
     {% endif %}
   </form>
