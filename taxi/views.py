@@ -2,7 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy, reverse
 
+from .forms import CarForm, ManufacturerForm
 from .models import Driver, Car, Manufacturer
 
 
@@ -52,3 +54,56 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+class CarCreateView(generic.CreateView):
+    model = Car
+    form_class = CarForm
+    template_name = "taxi/crud.html"
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class CarUpdateView(generic.UpdateView):
+    model = Car
+    form_class = CarForm
+    template_name = "taxi/crud.html"
+
+    def get_success_url(self):
+        car_id = self.object.pk
+        return reverse("taxi:car-detail", kwargs={"pk": car_id})
+
+
+class CarDeleteView(generic.DeleteView):
+    model = Car
+    template_name = "taxi/crud.html"
+    success_url = reverse_lazy("taxi:car-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["has_delete_button"] = True
+        return context
+
+
+class ManufacturerCreateView(generic.CreateView):
+    model = Manufacturer
+    form_class = ManufacturerForm
+    template_name = "taxi/crud.html"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerUpdateView(generic.UpdateView):
+    model = Manufacturer
+    form_class = ManufacturerForm
+    template_name = "taxi/crud.html"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerDeleteView(generic.DeleteView):
+    model = Manufacturer
+    template_name = "taxi/crud.html"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["has_delete_button"] = True
+        return context
