@@ -51,7 +51,6 @@ class ManufacturerUpdateForm(LoginRequiredMixin, generic.UpdateView):
 
 class ManufacturerDeleteForm(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
-    fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer/delete.html"
 

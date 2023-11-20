@@ -23,17 +23,17 @@ urlpatterns = [
         name="manufacturer-list",
     ),
     path(
-        "manufacturers/create",
+        "manufacturers/create/",
         ManufacturerCreateForm.as_view(),
         name="manufacturer-create",
     ),
     path(
-        "manufacturers/<int:pk>/update",
+        "manufacturers/<int:pk>/update/",
         ManufacturerUpdateForm.as_view(),
         name="manufacturer-update",
     ),
     path(
-        "manufacturers/<int:pk>/delete",
+        "manufacturers/<int:pk>/delete/",
         ManufacturerDeleteForm.as_view(),
         name="manufacturer-delete",
     ),
