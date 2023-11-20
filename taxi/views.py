@@ -30,8 +30,6 @@ def index(request):
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
-    context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
@@ -55,43 +53,35 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
 
 
-class CarListCreateView(LoginRequiredMixin, generic.CreateView):
+class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
-    template = "taxi/car_form.html"
 
 
-class CarDetailUpdateView(LoginRequiredMixin, generic.UpdateView):
+class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
-    template = "taxi/car_form.html"
 
 
-class CarDetailDeleteView(LoginRequiredMixin, generic.DeleteView):
+class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
-    fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
-    template = "taxi/car_confirm_delete.html"
 
 
-class ManufacturerListCreateView(LoginRequiredMixin, generic.CreateView):
+class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template = "taxi/manufacturer_form.html"
 
 
-class ManufacturerListUpdateView(LoginRequiredMixin, generic.UpdateView):
+class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template = "taxi/manufacturer_form.html"
 
 
-class ManufacturerListDeleteView(LoginRequiredMixin, generic.DeleteView):
+class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
-    fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template = "taxi/manufacturer_confirm_delete.html"
