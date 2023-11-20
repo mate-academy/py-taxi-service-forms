@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {% if not has_delete_button %}
+      {% crispy form %}
+      <a href="{{ request.META.HTTP_REFERER }}" class="btn m-1 btn-secondary">Cancel</a>
+    {% else %}
+      {{ form.as_p }}
+      <button type="submit" class="btn m-1 btn-danger">Confirm Deletion</button>
+      <a href="{{ request.META.HTTP_REFERER }}" class="btn m-1 btn-secondary">Cancel</a>
+    {% endif %}
+  </form>
+{% endblock %}
