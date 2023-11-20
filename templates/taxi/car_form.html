@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {% if 'update' in request.path %}
+      <h3 class="head-title">UPDATE CAR</h3>
+    {% elif 'create' in request.path %}
+      <h3 class="head-title">ADD CAR</h3>
+    {% endif %}
+    <br>
+    {{ form|crispy }}
+    <button class="btn btn-dark" onclick="history.back()">Cancel</button>
+    <input class="btn btn-success" type="submit" value="Submit">
+  </form>
+{% endblock %}

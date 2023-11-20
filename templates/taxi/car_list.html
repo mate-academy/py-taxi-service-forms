@@ -1,17 +1,31 @@
 {% extends "base.html" %}
-
 {% block content %}
-  <h1>Car list</h1>
+  <h3 class="head-title">CAR LIST</h3>
+  <br>
   {% if car_list %}
-    <ul>
-      {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>There are no cars in taxi</p>
+    <table class="table">
+    <tr>
+      <th style="width: 50px;">ID</th>
+      <th style="width: 150px;">Model</th>
+      <th style="width: 150px;">Manufacturer</th>
+      <th style="width: 100px;">Country</th>
+      <th style="width: 100px;">Update</th>
+      <th style="width: 100px;">Delete</th>
+    </tr>
+    {% for car in car_list %}
+      <tr>
+          <td style="width: 50px;">{{ car.id }}</td>
+          <td style="width: 150px;"><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a></td>
+          <td style="width: 150px;">{{ car.manufacturer.name }}</td>
+          <td style="width: 100px;">{{ car.manufacturer.country }}</td>
+          <td style="width: 100px;"><a class="btn btn-outline-warning" href="{% url 'taxi:car-update' pk=car.id %}" role="button">Update</a></td>
+          <td style="width: 100px;"><a class="btn btn-outline-danger" href="{% url 'taxi:car-delete' pk=car.id %}" role="button">Delete</a></td>
+      </tr>
+    {% endfor %}
+      </table>
+    {% else %}
+      <p>There are no cars in taxi</p>
   {% endif %}
+  <a class="btn btn-success btn-lg btn-block" href="{% url 'taxi:car-create' %}">Add car</a>
+  <br>
 {% endblock %}
