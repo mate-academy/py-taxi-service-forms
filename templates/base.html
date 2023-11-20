@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
   {% block title %}<title>Taxi Service</title>{% endblock %}
@@ -15,6 +15,33 @@
 </head>
 
 <body>
+<main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-md-4">
+  <nav class="navbar navbar-expand navbar-dark bg-dark navbar navbar-expand navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="{{ user.get_absolute_url }}">{{ user.get_username }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample02">
+      <ul class="navbar-nav mr-auto">
+        {% if user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'taxi:index' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'logout' %}">Logout <span class="sr-only">(current)</span></a>
+          </li>
+        {% else %}
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'login' %}">Login <span class="sr-only">(current)</span></a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+</main>
+<br>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2">
@@ -25,6 +52,8 @@
 
     </div>
     <div class="col-sm-10 ">
+
+<br>
 
       {% block content %}{% endblock %}
 
