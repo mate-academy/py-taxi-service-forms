@@ -31,8 +31,6 @@ def index(request):
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
-    context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
@@ -60,7 +58,6 @@ class CarCreateView(generic.CreateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
-    template_name = "taxi/car_form.html"
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -72,7 +69,6 @@ class CarUpdateView(generic.UpdateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
-    template_name = "taxi/car_form.html"
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -83,7 +79,6 @@ class CarUpdateView(generic.UpdateView):
 class CarDeleteView(generic.DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
-    template_name = "taxi/car_confirm_delete.html"
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -95,7 +90,6 @@ class ManufacturerCreateView(generic.CreateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template_name = "taxi/manufacturer_form.html"
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -107,7 +101,6 @@ class ManufacturerUpdateView(generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template_name = "taxi/manufacturer_form.html"
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -118,7 +111,6 @@ class ManufacturerUpdateView(generic.UpdateView):
 class ManufacturerDeleteView(generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template_name = "taxi/manufacturer_confirm_delete.html"
 
     def form_valid(self, form):
         response = super().form_valid(form)

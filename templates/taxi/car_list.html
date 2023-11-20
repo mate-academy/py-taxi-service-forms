@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list <a href="{% url 'taxi:create-car' %}"><strong>+</strong></a></h1>
+  <h1>Car list <a href="{% url 'taxi:car-create' %}"><strong>+</strong></a></h1>
   {% if car_list %}
   <ul class="list-group">
     {% for car in car_list %}
@@ -11,8 +11,8 @@
           {{ car.model }} ({{ car.manufacturer.name }})
         </div>
         <div class="btn-group" role="group">
-          <a href="{% url 'taxi:update-car' pk=car.id %}" class="btn btn-warning btn-sm">Update</a>
-          <a href="{% url 'taxi:delete-car' pk=car.id %}" class="btn btn-danger btn-sm">Delete</a>
+          <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-warning btn-sm">Update</a>
+          <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-danger btn-sm">Delete</a>
         </div>
       </li>
     {% endfor %}
