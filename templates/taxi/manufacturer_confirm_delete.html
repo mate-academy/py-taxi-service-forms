@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Dou you really want to delete this manufacturer?</h3>
+<form action="" method="post">
+  {% csrf_token %}
+  <input type="submit" value="Yes, I do" class="btn btn-danger">
+  <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
