@@ -3,15 +3,16 @@
 {% block content %}
   <h1>
     {{ car.model }}
-  </h1>
-  <h4>
-    <a href="{% url "taxi:car-update" car.id %}">
-      Update
-    </a>
-    <a style="color: darkred" href="{% url "taxi:car-delete" car.id %}">
+    <a style="float: right" href="{% url "taxi:car-delete" car.id %}" class="btn btn-danger link-to-page">
       Delete
     </a>
-  </h4>
+    <a href="{% url "taxi:car-update" car.id %}" class="btn btn-primary link-to-page">
+      Update
+    </a>
+    {% block cancel_btn %}
+      {% include "includes/cancel_btn.html" %}
+    {% endblock %}
+  </h1>
   <table class="table">
   <tr>
     <th>Manufacturer</th>

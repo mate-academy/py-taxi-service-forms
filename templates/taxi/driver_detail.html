@@ -3,14 +3,31 @@
 {% block content %}
   <h1>
     Username: {{ driver.username }}
+    {% block cancel_btn %}
+      {% include "includes/cancel_btn.html" %}
+    {% endblock %}
   </h1>
 
-  <p><strong>First name:</strong> {{ driver.first_name }}</p>
-  <p><strong>Last name:</strong> {{ driver.last_name }}</p>
-  <p><strong>License number:</strong> {{ driver.license_number }}</p>
-  <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
+  <table class="table">
+    <tr>
+      <th>First name</th>
+      <td>{{ driver.first_name }}</td>
+    </tr>
+    <tr>
+      <th>Last Name</th>
+      <td>{{ driver.last_name }}</td>
+    </tr>
+    <tr>
+      <th>License number</th>
+      <td>{{ driver.license_number }}</td>
+    </tr>
+    <tr>
+      <th>Is staff</th>
+      <td>{{ driver.is_staff }}</td>
+    </tr>
+  </table>
 
-  <div class="ml-3">
+  <div class="ml-2">
     <h4>Cars</h4>
 
     {% for car in driver.cars.all %}

@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>Delete Manufacturer</h1>
+	<h1>
+    Delete Manufacturer
+    {% block cancel_btn %}
+      {% include "includes/cancel_btn.html" %}
+    {% endblock %}
+  </h1>
 
   <p>Are you sure you want to delete manufacturer: {{ manufacturer }}</p>
   <p><i>All car models from this manufacturer will also be deleted!</i></p>
