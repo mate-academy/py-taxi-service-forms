@@ -1,3 +1,9 @@
 body {
     margin-top: 20px;
+    background-color: #F5F5F5;
+    color: darkslategrey;
+}
+
+.logo {
+    justify-content: center;
 }

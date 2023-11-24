@@ -1,4 +1,7 @@
 <ul class="sidebar-nav list-group">
+  {% load static %}
+  <img src="{% static 'images/logo.png' %}" alt="Mate Taxi Logo" class="img-frounded mx-auto d-blockluid">
+  <br>
   {% if user.is_authenticated %}
     <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
     <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
