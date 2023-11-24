@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block content %}
   <h1>Car list</h1>
   {% if car_list %}
@@ -14,4 +13,7 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+  <a href="{% url 'taxi:car-create' %}" class="button-link">
+    <input class="btn btn-primary" type="submit" value="Create" style="margin-bottom: 20px">
+  </a>
 {% endblock %}
