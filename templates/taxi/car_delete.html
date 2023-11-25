@@ -8,5 +8,6 @@
     <h3>You gonna delete {{ car.model }}. Are you sure?</h3>
     <br>
     <input type="submit" value="Submit" class="btn btn-danger">
+    <a href="{% url 'taxi:car-detail' car.id %}"><input type="button" value="Cancel" class="btn btn-success"></a>
   </form>
 {% endblock %}
