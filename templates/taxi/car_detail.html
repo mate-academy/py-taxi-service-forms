@@ -14,6 +14,6 @@
     <a class="btn btn-primary" href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
   </td>
   <td>
-    <a style="float: right" class="btn btn-danger" href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
+    <a class="btn btn-danger" href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
   </td>
 {% endblock %}
