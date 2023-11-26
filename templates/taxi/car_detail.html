@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+  <p>Manufacturer: <a href="#">({{ car.manufacturer.name }}</a>, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
   <hr>
   <ul>
@@ -9,4 +10,14 @@
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
+  <br>
+  <hr>
+  <div class="btn_panel">
+  <a class="btn_panel__link" href="{% url 'taxi:car-update' pk=car.id%}">
+    <input class="btn btn-primary" type="submit" value="Update">
+  </a>
+  <a class="btn_panel__link" href="{% url 'taxi:car-delete' pk=car.id%}">
+    <input class="btn btn-danger" type="submit" value="Delete">
+  </a>
+  </div>
 {% endblock %}
