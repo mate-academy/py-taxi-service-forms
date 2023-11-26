@@ -1,3 +1,17 @@
 body {
     margin-top: 20px;
 }
+
+.btn_panel {
+    display: block;
+
+}
+
+.btn_panel__link {
+    text-decoration: none;
+    padding-right: 10px;
+}
+
+.btn_panel__link:hover{
+    text-decoration: none;
+}
