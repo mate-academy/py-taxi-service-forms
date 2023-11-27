@@ -1,3 +1,7 @@
 body {
     margin-top: 20px;
 }
+
+ .larger-text {
+        font-size: 20px;
+    }
