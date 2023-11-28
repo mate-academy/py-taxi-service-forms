@@ -3,10 +3,7 @@
 {% block content %}
     <h1>
     Car list
-    <a
-        style="float: center"
-        href="{% url 'taxi:car-create' %}"
-    > <input class="btn btn-primary" type="submit" value="+">
+    <a style="float: center" href="{% url 'taxi:car-create' %}"> <input class="btn btn-primary" type="submit" value="+">
     </a>
   </h1>
   {% if car_list %}

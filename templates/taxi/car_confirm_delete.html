@@ -9,9 +9,7 @@
     <input type="submit" value="Yes, delete" class="btn btn-danger" >
   </form>
 
-      <a
-        href="{% url 'taxi:car-detail' pk=car.id %}"
-    > <input class="btn btn-primary" type="submit" value="CANCEL">
+      <a href="{% url 'taxi:car-detail' pk=car.id %}"> <input class="btn btn-primary" type="submit" value="CANCEL">
     </a>
 
 {% endblock %}
