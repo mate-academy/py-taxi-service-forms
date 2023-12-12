@@ -5,6 +5,6 @@
   <p>Are you sure you want to delete the car: {{ car.manufacturer.name }}</p>
   <form action="" method="post" novalidate>
     {% csrf_token %}
-    <input type="submit" value="Yes">
+    <input class="btn btn-primary" type="submit" value="Yes">
   </form>
 {% endblock %}
