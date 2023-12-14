@@ -7,23 +7,7 @@ Make sure you don't push db files (files with `.sqlite`, `.db3`, etc. extension)
 ## Don't forget to attach all screenshots of created/modified pages.
 
 ## Code Efficiency
-1. Use `UserCreationForm` while creating user.
-
-Good example:
-
-```python
-class DriverCreateForm(UserCreationForm):
-    pass
-```
-
-Bad example:
-
-```python
-class DriverCreateForm(forms.ModelForm):
-    pass
-```
-
-2. Don't override `template_name`, `context_object_name` and so on if they are the same as default ones.
+Don't override `template_name`, `context_object_name` and so on if they are the same as default ones.
 
 ## Code Style
 1. Make sure you've added a blank line at the end to all your files including `.css`, `.html` and `.gitignore`.
@@ -103,6 +87,23 @@ path("create/", ManufacturerCreateView.as_view(), name="manufacturer-create")
 5. Add `Cancel` button apart from `Delete` one. The `Cancel` button will lead to the previous page the user was on.
 
 6. Make sure you use 2 whitespaces indentations in your `.html` files.
+7. Use `-` to split words in URL identification parameter `name`, not the `_`.
+
+Good example:
+
+```python
+urlpatterns = [
+    path("buses/", BusListView.as_view(), name="bus-list"),
+]
+ ```
+
+Bad example:
+
+```python
+urlpatterns = [
+    path("buses/", BusListView.as_view(), name="bus_list"),
+]
+ ```
 
 ## Clean Code
 Add comments, prints, and functions to check your solution when you write your code. 
