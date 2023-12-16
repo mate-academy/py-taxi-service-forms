@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "taxi",
     "crispy_forms",
-    "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [
