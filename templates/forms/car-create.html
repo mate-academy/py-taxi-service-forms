@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Create Car Form</h1>
+    <form method="post" action="">
+    {% csrf_token %}
+    <label>Model of your car
+        <input type="text" name="model">
+    </label>
+    <br>
+    <label>Your manufacturer
+        <input type="text" name="manufacturer">
+    </label>
+    <br>
+    <label>Your driver
+        <input type="text" name="driver">
+    </label>
+    <br>
+
+    <input type="submit" value="Submit">
+    </form>
+{% endblock %}
