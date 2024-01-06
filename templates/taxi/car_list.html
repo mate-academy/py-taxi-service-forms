@@ -2,6 +2,14 @@
 
 {% block content %}
   <h1>Car list</h1>
+
+  <form action="/cars/create/" method="post">
+    {% csrf_token %}
+    <input class="btn btn-primary" type="submit" value="Add new car">
+  </form>
+
+  <br>
+
   {% if car_list %}
     <ul>
       {% for car in car_list %}
@@ -14,4 +22,5 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+
 {% endblock %}
