@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+	<h3>Delete the manufacturer "{{ manufacturer.name }}"?</h3>
+  <h5 style="color: #f53c3c">*Please note, this may result in data loss!</h5>
+  <br>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="Delete">
+  </form>
+{% endblock %}  
