@@ -10,7 +10,6 @@ from .views import (
     CarCreateView,
     CarUpdateView,
     CarDeleteView,
-    ManufacturerDetailView,
     ManufacturerCreateView,
     ManufacturerUpdateView,
     ManufacturerDeleteView,
