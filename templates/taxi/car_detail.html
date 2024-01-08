@@ -3,14 +3,14 @@
 {% block content %}
   <h1>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</h1>
   <hr>
-  <div class="row p-1">
+  <div class="row m-3">
     <form action="{% url 'taxi:car-update' car.pk %}" method="post">
       {% csrf_token %}
-      <input class="btn btn-primary" type="submit" value="Update">
+      <input class="btn btn-primary mr-5" type="submit" value="Update">
     </form>
-    <form action="{% url 'taxi:car-delete' car.pk %}" method="post">
+    <form action="{% url 'taxi:car-delete' car.pk %}" method="get">
       {% csrf_token %}
-      <input class="btn btn-danger" type="submit" value="Delete">
+      <input class="btn btn-danger ml-5" type="submit" value="Delete">
     </form>
   </div>
   <hr>
