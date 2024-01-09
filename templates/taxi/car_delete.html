@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>
+    Really, You want to delete "{{ car.model }}"?
+    <br>What`s wrong with you, man?
+  </h2>
+  <h5 style="color: #f53c3c">*Please note, this may result in data loss!</h5>
+  <div class="row ml-5">
+    <form action="" method="post">
+      {% csrf_token %}
+      <input class="btn btn-danger ml-5" type="submit" value="Delete">
+    </form>
+    <button
+        class="btn btn-info ml-5"
+        onclick="history.back(); return false;">
+      Cancel
+    </button>
+  </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <h3>Delete the manufacturer "{{ manufacturer.name }}"?</h3>
+  <h5 style="color: #f53c3c">*Please note, this may result in data loss!</h5>
+  <br>
+  <div class="row ml-5">
+    <form action="" method="post">
+      {% csrf_token %}
+      <input class="btn btn-danger mr-5" type="submit" value="Delete">
+    </form>
+    <button
+        class="btn btn-info ml-5"
+        onclick="history.back(); return false;">
+      Cancel
+    </button>
+  </div>
+{% endblock %}
