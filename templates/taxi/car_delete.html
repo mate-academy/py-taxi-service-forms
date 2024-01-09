@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-	<h2>
+  <h2>
     Really, You want to delete "{{ car.model }}"?
     <br>What`s wrong with you, man?
   </h2>
@@ -10,9 +10,10 @@
       {% csrf_token %}
       <input class="btn btn-danger ml-5" type="submit" value="Delete">
     </form>
-    <form action="" method="post">
-      {% csrf_token %}
-      <input class="btn btn-info ml-5" type="submit" value="Cancel">
-    </form>
+    <button
+        class="btn btn-info ml-5"
+        onclick="history.back(); return false;">
+      Cancel
+    </button>
   </div>
 {% endblock %}
