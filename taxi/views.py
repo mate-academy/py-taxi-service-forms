@@ -1,8 +1,12 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView, CreateView
 
+import taxi
 from .models import Driver, Car, Manufacturer
 
 
@@ -52,3 +56,55 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+class CarFormatListView(LoginRequiredMixin, generic.ListView):
+    model = Car
+    template_name = "taxi/car_format_list.html"
+    context_object_name = "car_format_list"
+
+
+class CarFormatCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-format-list")
+    template_name = "taxi/car_format_form.html"
+
+
+class CarFormatUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-format-list")
+    template_name = "taxi/car_format_form.html"
+
+
+class CarFormatDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Car
+    template_name = "taxi/car_format_confirm_delete.html"
+    success_url = reverse_lazy("taxi:car-format-list")
+
+
+class ManufacturerFormatListView(LoginRequiredMixin, generic.ListView):
+    model = Manufacturer
+    template_name = "taxi/manufacturer_format_list.html"
+    context_object_name = "manufacturer_format_list"
+
+
+class ManufacturerFormatCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-format-list")
+    template_name = "taxi/manufacturer_form.html"
+
+
+class ManufacturerFormatUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-format-list")
+    template_name = "taxi/manufacturer_form.html"
+
+
+class ManufacturerFormatDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Manufacturer
+    template_name = "taxi/manufacturer_confirm_delete.html"
+    success_url = reverse_lazy("taxi:manufacturer-format-list")
