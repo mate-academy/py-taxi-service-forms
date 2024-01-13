@@ -33,6 +33,8 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +46,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "debug_toolbar",
     "taxi",
+    "crispy_bootstrap4",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
