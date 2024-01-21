@@ -6,6 +6,17 @@
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
+    <tr>
+      <td><a style="float: right" href="{% url 'taxi:car-update' pk=car.id %}">UPDATE</a></td>
+      <br>
+{#      <form action="" method="post">#}
+{#        {% csrf_token %}#}
+{#        <input type="submit" value="Update" class="btn btn-danger">#}
+{#      </form>#}
+      <td><a style="float: right" href="{% url 'taxi:car-delete' pk=car.id %}">DELETE</a></td>
+      <br>
+      <br>
+    </tr>
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
