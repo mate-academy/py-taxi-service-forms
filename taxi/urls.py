@@ -9,8 +9,13 @@ from .views import (
     ManufacturerListView,
     CarCreateView,
     CarUpdateView,
-    CarDeleteView, ManufacturerCreateView, ManufacturerUpdateView, ManufacturerDeleteView, DriverDeleteView,
-    DriverCreateView, DriverUpdateView
+    CarDeleteView,
+    ManufacturerCreateView,
+    ManufacturerUpdateView,
+    ManufacturerDeleteView,
+    DriverDeleteView,
+    DriverCreateView,
+    DriverUpdateView
 )
 
 urlpatterns = [
@@ -20,9 +25,15 @@ urlpatterns = [
         ManufacturerListView.as_view(),
         name="manufacturer-list",
     ),
-    path("manufacturers/create/", ManufacturerCreateView.as_view(), name="manufacturer-create"),
-    path("manufacturers/update/<int:pk>/", ManufacturerUpdateView.as_view(), name="manufacturer-update"),
-    path("manufacturers/delete/<int:pk>/", ManufacturerDeleteView.as_view(), name="manufacturer-delete"),
+    path("manufacturers/create/",
+         ManufacturerCreateView.as_view(),
+         name="manufacturer-create"),
+    path("manufacturers/update/<int:pk>/",
+         ManufacturerUpdateView.as_view(),
+         name="manufacturer-update"),
+    path("manufacturers/delete/<int:pk>/",
+         ManufacturerDeleteView.as_view(),
+         name="manufacturer-delete"),
     path("cars/", CarListView.as_view(), name="car-list"),
     path("cars/<int:pk>/", CarDetailView.as_view(), name="car-detail"),
     path("cars/create/", CarCreateView.as_view(), name="car-create"),
@@ -33,8 +44,12 @@ urlpatterns = [
         "drivers/<int:pk>/", DriverDetailView.as_view(), name="driver-detail"
     ),
     path("drivers/create/", DriverCreateView.as_view(), name="driver-create"),
-    path("drivers/update/<int:pk>/", DriverUpdateView.as_view(), name="driver-update"),
-    path("drivers/delete/<int:pk>/", DriverDeleteView.as_view(), name="driver-delete"),
+    path("drivers/update/<int:pk>/",
+         DriverUpdateView.as_view(),
+         name="driver-update"),
+    path("drivers/delete/<int:pk>/",
+         DriverDeleteView.as_view(),
+         name="driver-delete"),
 
 ]
 

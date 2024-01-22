@@ -134,7 +134,7 @@ STATICFILES_DIRS = (BASE_DIR / "static",)
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-CRISPY_TEMPLATE_PACK = 'uni_form'
+CRISPY_TEMPLATE_PACK = "uni_form"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 # Default primary key field type
