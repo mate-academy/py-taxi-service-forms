@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Driver List
-    </h1>
-
-    {% if driver_list %}
+  <h1>Driver List </h1>
+  <br>
+  <button class="btn btn-primary"><a href="{% url 'taxi:driver-create' %}" style="text-decoration: none; color: white;">Add
+    new driver</a></button>
+  <br>
+  <br>
+  {% if driver_list %}
     <table class="table">
       <tr>
         <th>ID</th>
@@ -13,18 +16,27 @@
         <th>Last name</th>
         <th>License number</th>
       </tr>
-    {% for driver in driver_list %}
-      <tr>
-        <td>{{ driver.id }}</td>
-        <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a></td>
-        <td>{{ driver.first_name }}</td>
-        <td>{{ driver.last_name }}</td>
-        <td>{{ driver.license_number }}</td>
-      </tr>
-    {% endfor %}
+      {% for driver in driver_list %}
+        <tr>
+          <td>{{ driver.id }}</td>
+          <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a>
+          </td>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td>{{ driver.license_number }}</td>
+          <td>
+            <button class="btn btn-primary"><a href="{% url 'taxi:driver-update' pk=driver.id %}"
+                                               style="text-decoration: none; color: white;">Update</a></button>
+          </td>
+          <td>
+            <button class="btn btn-danger"><a href="{% url 'taxi:driver-delete' pk=driver.id %}"
+                                              style="text-decoration: none; color: white;">Delete</a></button>
+          </td>
+        </tr>
+      {% endfor %}
 
     </table>
-    {% else %}
-      <p>There are no drivers in the service.</p>
-    {% endif %}
+  {% else %}
+    <p>There are no drivers in the service.</p>
+  {% endif %}
 {% endblock %}
