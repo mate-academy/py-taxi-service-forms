@@ -2,16 +2,35 @@
 
 {% block content %}
   <h1>Car list</h1>
+  <br>
+  <button class="btn btn-primary"><a href="{% url 'taxi:car-create' %}" style="text-decoration: none; color: white;">Add new car</a></button>
+  <br>
+  <br>
   {% if car_list %}
-    <ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>UPDATE</th>
+        <th>DELETE</th>
+      </tr>
+
       {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
+        <tr>
+          <td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
+          <td>{{ car.model }} ({{ car.manufacturer.name }})</td>
+          <td>
+            <button class="btn btn-primary"><a href="{% url 'taxi:car-update' pk=car.id %}" style="text-decoration: none; color: white;">Update</a></button>
+          </td>
+          <td>
+            <button class="btn btn-danger"><a href="{% url 'taxi:car-delete' pk=car.id %}" style="text-decoration: none; color: white;">Delete</a></button>
+          </td>
+        </tr>
       {% endfor %}
-    </ul>
+
+    </table>
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+
 {% endblock %}
