@@ -7,7 +7,7 @@
   {% else %}
     <h1>Create Manufacturer</h1>
   {% endif %}
-  
+
   <form action="" method="post" novalidate>
     {% csrf_token %}
     {{ form|crispy }}

@@ -7,11 +7,10 @@
   {% else %}
     <h1>Create Car</h1>
   {% endif %}
-  
+
   <form action="" method="post" novalidate>
     {% csrf_token %}
     {{ form|crispy }}
     <input class="btn btn-primary" type="submit" value="Submit">
   </form>
 {% endblock %}
-
