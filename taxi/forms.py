@@ -24,4 +24,3 @@ class ManufacturerForm(forms.ModelForm):
         super(ManufacturerForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.add_input(Submit("submit", "Save"))
-
