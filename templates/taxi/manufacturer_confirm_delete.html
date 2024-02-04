@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Confirm Delete</h2>
+  <p>Are you sure you want to delete "{{ object }}"?</p>
+  <form method="post" action="{% url 'taxi:manufacturer-delete' pk=object.pk %}">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+  </form>
+  <a href="{% url 'taxi:manufacturer-list' %}">Cancel</a>
+{% endblock %}
