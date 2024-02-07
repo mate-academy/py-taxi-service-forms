@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h2 class="subtitle">Delete Car</h2>
+  
+  <p>Are you sure you would like to delete this car {{ car }}?</p>
+  
+  <form action="" method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger d-flex justify-content-center align-items-center addBtn" type="submit">
+      Yes, delete
+    </button>
+  </form>
+{% endblock %}

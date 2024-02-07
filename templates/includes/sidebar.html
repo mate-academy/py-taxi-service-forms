@@ -1,15 +1,28 @@
-<ul class="sidebar-nav list-group">
-  {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-  {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-  {% endif %}
+{% load bootstrap_icons %}
 
-  <br>
-
-  <li class="list-group-item"><a href="{% url 'taxi:index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:driver-list' %}">All drivers</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:car-list' %}">All cars</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:manufacturer-list' %}">All manufacturers</a></li>
+<ul class="nav nav-pills flex-column mb-auto">
+  <li class="nav-item">
+    <a href="{% url 'taxi:index' %}" class="nav-link d-flex align-items-center {% if url_home %} active{% endif %}" aria-current="page">
+      {% bs_icon "house-fill" size='1.1em' extra_classes="mr-2" %}
+      Home page
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'taxi:manufacturer-list' %}" class="nav-link d-flex align-items-center {% if url_manufacturer %} active{% endif %}">
+      {% bs_icon "buildings-fill" size='1.1em' extra_classes="mr-2" %}
+      Manufacturers
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'taxi:car-list' %}" class="nav-link d-flex align-items-center {% if url_car %} active{% endif %}">
+      {% bs_icon "car-front-fill" size='1.1em' extra_classes="mr-2" %}
+      Cars
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'taxi:driver-list' %}" class="nav-link d-flex align-items-center {% if url_driver %} active{% endif %}">
+      {% bs_icon "people-fill" size='1.1em' extra_classes="mr-2" %}
+      Drivers
+    </a>
+  </li>
 </ul>

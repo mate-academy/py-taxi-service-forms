@@ -1,0 +1,18 @@
+{% load bootstrap_icons %}
+
+<header class="d-flex justify-content-between align-items-center px-4">
+  <h1 class="title">Taxi Service</h1>
+  
+  <div class="d-flex justify-content-between align-items-center">
+    {% if user.is_authenticated %}
+      <span>Welcome, <a href="{% url "taxi:driver-detail" user.id %}">{{ user.first_name }}</a></span>
+      <a class="btn btn-primary d-flex align-items-center ml-3" href="{% url "logout" %}" role="button">
+        {% bs_icon "box-arrow-right" size='1.1em' extra_classes="mr-2" %}Logout
+      </a>
+      {% else %}
+      <a class="btn btn-primary d-flex align-items-center ml-3" href="{% url "login" %}" role="button">
+        {% bs_icon "box-arrow-in-right" size='1.1em' extra_classes="mr-2" %}Login
+      </a>
+    {% endif %}
+  </div>
+</header>

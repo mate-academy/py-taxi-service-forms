@@ -1,3 +1,5 @@
+from typing import Callable
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
@@ -24,14 +26,17 @@ class Driver(AbstractUser):
     def __str__(self):
         return f"{self.username} ({self.first_name} {self.last_name})"
 
-    def get_absolute_url(self):
-        return reverse("taxi:driver-detail", kwargs={"pk": self.pk})
+    def get_absolute_url(self) -> Callable:
+        return reverse("taxi:driver-detail", args=[str(self.id)])
 
 
 class Car(models.Model):
     model = models.CharField(max_length=255)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     drivers = models.ManyToManyField(Driver, related_name="cars")
+
+    def get_absolute_url(self) -> Callable:
+        return reverse("taxi:car-detail", args=[str(self.id)])
 
     def __str__(self):
         return self.model
