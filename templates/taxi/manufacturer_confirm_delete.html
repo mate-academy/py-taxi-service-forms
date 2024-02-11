@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1 style="color:red">Delete</h1>
+<h1>Delete</h1>
 <h3>Are you sure you want to delete the Manufacturer:
   <strong style="color:blue">{{ manufacturer.name }}</strong> ?</h3>
 <h4><i style="color:orange">All fields related to this object will also be deleted</i></h4>
@@ -10,6 +10,7 @@
 <form action="" method="post">
   {% csrf_token %}
   <input class="btn btn-danger" type="submit" value="Yes, delete">
+  <a class="btn btn-success" href="{% url 'taxi:manufacturer-list'%}">Not now</a>
 </form>
 
 {% endblock %}
