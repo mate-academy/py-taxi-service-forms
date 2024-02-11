@@ -1,33 +1,48 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
-    </h1>
+<h1>Manufacturer List</h1>
+<hr>
+<h3><i>Press the button to add a new manufacturer</i></h3>
+<hr>
+<form action="{% url 'taxi:manufacturer-create' %}" method="post" novalidate>
+  {% csrf_token %}
+  <input class="btn btn-info" type="submit" value="Press me!">
+</form>
+<hr>
 
-    {% if manufacturer_list %}
-      <table class="table">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
-        </tr>
+{% if manufacturer_list %}
+<table class="table">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
 
-        {% for manufacturer in manufacturer_list %}
-            <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
-          </tr>
-        {% endfor %}
-      </table>
+  {% for manufacturer in manufacturer_list %}
+  <tr>
+    <td>
+      {{ manufacturer.id }}
+    </td>
+    <td>
+      {{ manufacturer.name }}
+    </td>
+    <td>
+      {{ manufacturer.country }}
+    </td>
+    <td>
+      <a href="{% url 'taxi:manufacturer-update' manufacturer.id %}">UPDATE</a>
+    </td>
+    <td>
+      <a href="{% url 'taxi:manufacturer-delete' manufacturer.id %}">DELETE</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
 
-    {% else %}
-        <p>There are no manufacturers in the service.</p>
-    {% endif %}
+{% else %}
+<p>There are no manufacturers in the service.</p>
+{% endif %}
 {% endblock %}
