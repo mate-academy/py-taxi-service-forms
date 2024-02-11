@@ -44,7 +44,6 @@ class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
@@ -56,7 +55,6 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     template_name = "taxi/manufacturer_confirm_delete.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
-
 
 
 class CarListView(LoginRequiredMixin, generic.ListView):
@@ -82,7 +80,8 @@ class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "taxi/car_form.html"
 
     def get_success_url(self):
-        return reverse_lazy("taxi:car-detail", kwargs= {"pk": self.object.pk})
+        return reverse_lazy("taxi:car-detail", kwargs={"pk": self.object.pk})
+
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
@@ -102,4 +101,4 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
 
 def logout_view(request: HttpRequest) -> HttpResponse:
     logout(request)
-    return render(request,"accounts/logged_out.html")
+    return render(request, "accounts/logged_out.html")
