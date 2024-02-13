@@ -1,3 +1,19 @@
+html{
+    font-size: 26px;
+}
+
 body {
     margin-top: 20px;
+}
+
+.center{
+    position: absolute;
+    margin: 100px 400px;
+}
+
+.button-warning{
+    height: 200px;
+    width: 500px;
+    text-align: center;
+    line-height: 200px;
 }
