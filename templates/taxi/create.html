@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load crispy_forms_filters %}
 
 {% block content %}
   <h1 class="display-4 text-center mb-4">{{ title }}</h1>
@@ -8,7 +7,7 @@
   {% endif %}
   <form method="post">
     {% csrf_token %}
-    {{ form|crispy }}
+    {{ form.as_p }}
     <button type="submit" class="btn btn-primary">{{ btn_text }}</button>
   </form>
 {% endblock %}
