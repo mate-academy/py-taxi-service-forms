@@ -79,6 +79,7 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Do you really want to delete car?"
+        context["url"] = "taxi:car-list"
         return context
 
 
@@ -116,6 +117,7 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Do you really want to delete manufacturer?"
+        context["url"] = "taxi:manufacturer-list"
         return context
 
 
