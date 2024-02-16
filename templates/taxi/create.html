@@ -2,9 +2,6 @@
 
 {% block content %}
   <h1 class="display-4 text-center mb-4">{{ title }}</h1>
-  {% if "ManufacturerCreateView" in view %}
-    <p>{{ view }}</p>
-  {% endif %}
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
