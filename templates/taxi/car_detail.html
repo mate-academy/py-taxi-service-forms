@@ -14,8 +14,8 @@
     <input class="btn btn-success" type="submit" value="Update car">
   </form>
   <br>
-  <form action="{% url 'taxi:car-delete' pk=car.id %}" method="get" novalidate>
+  <form action="{% url 'taxi:car-delete' pk=car.id %}" method="post" novalidate>
     {% csrf_token %}
-    <input class="btn btn-danger" type="submit" value="Delete car">
+    <a class="btn btn-danger" href="{% url 'taxi:car-delete' pk=car.id %}">Delete car</a>
   </form>
 {% endblock %}
