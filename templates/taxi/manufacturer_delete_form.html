@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Remove object page</h1>
+  <p>Are you sure that you want to delete {{ manufacturer.name }}?</p>
+  <p>All data for this model will be deleted!</p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="Delete">
+  </form>
+{% endblock %}
