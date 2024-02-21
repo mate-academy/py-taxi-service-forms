@@ -14,4 +14,10 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+    <form action="{% url 'taxi:car-create' %}" method="post" novalidate>
+    {% csrf_token %}
+    <input class="btn btn-success" type="submit" value="Create new car!">
+    </form>
+  <br>
 {% endblock %}
+
