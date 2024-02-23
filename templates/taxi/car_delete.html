@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete car</h1>
+  <p>Are you sure you want to delete <strong>{{ car.model }}</strong>?</p>
+  <p><i>Deletion is not revertible! All related objects will be deleted</i></p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <a href="{{ previous_url }}" class="btn btn-light">Cancel</a>
+  </form>
+{% endblock %}
