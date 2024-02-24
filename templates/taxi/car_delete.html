@@ -7,6 +7,6 @@
         {% csrf_token%}
         {{form.as_p}}
 
-        <input type="submit" value="Delete">
+        <input type="submit" value="Delete">    <button onclick="goBack()">Cancel</button>
     </form>
 {% endblock %}
