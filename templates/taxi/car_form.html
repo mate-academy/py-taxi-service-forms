@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block title %}
+  <title>{{ object|yesno:"Update,Create" }} Car</title>
+{% endblock %}
+
+{% block content %}
+  <h1>{{ object|yesno:"Update,Create" }} Car</h1>
+  <form class="col-sm-5" action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn-primary" type="submit" value="Submit">
+  </form>
+{% endblock %}

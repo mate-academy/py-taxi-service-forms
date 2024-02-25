@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Delete Manufacturer</title>
+{% endblock %}
+
+{% block content %}
+  <h1>Delete Manufacturer</h1>
+  <p>Are you sure to delete "{{ manufacturer.name }}" manufacturer?</p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input class="btn-danger" type="submit" value="Delete">
+  </form>
+{% endblock %}
