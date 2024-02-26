@@ -45,7 +45,7 @@ urlpatterns = [
         name="car-update"
     ),
     path(
-        'cars/<int:pk>/delete/',
+        "cars/<int:pk>/delete/",
         views.CarDeleteView.as_view(),
         name="car-delete"
     ),
