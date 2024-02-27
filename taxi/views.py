@@ -35,24 +35,24 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
-class ManufacturerListCreateView(LoginRequiredMixin, generic.ListView):
+class ManufacturerListCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
     fields = "__all__"
-    success_url = reverse_lazy("taxi: manufacturer-list")
+    success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_list_form.html"
 
 
-class ManufacturerListUpdateView(LoginRequiredMixin, generic.ListView):
+class ManufacturerListUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
-    success_url = reverse_lazy("taxi: manufacturer-list")
+    success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_list_form.html"
 
 
-class ManufacturerListDeleteView(LoginRequiredMixin, generic.ListView):
+class ManufacturerListDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     fields = "__all__"
-    success_url = reverse_lazy("taxi: manufacturer-list")
+    success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_list_confirm_delete.html"
 
 
@@ -62,24 +62,24 @@ class CarListView(LoginRequiredMixin, generic.ListView):
     queryset = Car.objects.all().select_related("manufacturer")
 
 
-class CarListCreateView(LoginRequiredMixin, generic.ListView):
+class CarListCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     fields = "__all__"
-    success_url = reverse_lazy("taxi: car-list")
+    success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_list_form.html"
 
 
-class CarListUpdateView(LoginRequiredMixin, generic.ListView):
+class CarListUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
     fields = "__all__"
-    success_url = reverse_lazy("taxi: car-list")
+    success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_list_form.html"
 
 
-class CarListDeleteView(LoginRequiredMixin, generic.ListView):
+class CarListDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
     fields = "__all__"
-    success_url = reverse_lazy("taxi: car-list")
+    success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_list_confirm_delete.html"
 
 
