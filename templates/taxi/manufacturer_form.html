@@ -9,5 +9,6 @@
     {{ form|crispy }}
 
     <input class="btn btn-success" type="submit" value="Save">
+    <a class="btn btn-danger" href="{% url "taxi:manufacturer-list" %}">Cancel</a>
   </form>
 {% endblock %}
