@@ -31,14 +31,12 @@ def index(request):
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
     context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
 class ManufacturerOperationBaseView(LoginRequiredMixin, generic.FormView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template_name = "taxi/manufacturer_form.html"
     fields = "__all__"
 
 
@@ -73,7 +71,6 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 class CarOperationBaseView(LoginRequiredMixin, generic.FormView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
-    template_name = "taxi/car_form.html"
     fields = "__all__"
 
 
