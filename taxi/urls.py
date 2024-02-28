@@ -40,7 +40,7 @@ urlpatterns = [
     path(
         "manufacture/<int:pk>/update", ManufactureUpdateView.as_view(), name="manufacturer-update"
     ),
-path(
+    path(
         "manufacture/<int:pk>/delete", ManufactureDeleteView.as_view(), name="manufacturer-delete"
     )
 ]
