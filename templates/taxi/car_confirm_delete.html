@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <p>Delete Car</p>
+
+  <p>Are you sure you want to delete {{ car }}? </p>
+  <div class="d-flex">
+    <form action="" method="post" class="mr-2">
+      {% csrf_token %}
+      <input class="btn btn-danger" type="submit" value="Delete">
+    </form>
+    <form action="{% url 'taxi:car-detail' car.id %}" method="get">
+      <input type="submit" value="Cancel" class="btn btn-secondary">
+    </form>
+  </div>
+
+{% endblock %}

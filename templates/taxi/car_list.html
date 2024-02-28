@@ -5,12 +5,16 @@
   {% if car_list %}
     <ul>
       {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+        <li class="mb-3 row">
+          <a class="mr-2" href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
         </li>
       {% endfor %}
     </ul>
+    <a href="{% url 'taxi:car-create' %}">
+      <button class="btn btn-primary" type="submit">Create</button>
+    </a>
+    
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
