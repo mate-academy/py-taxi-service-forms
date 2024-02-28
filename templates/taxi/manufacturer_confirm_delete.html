@@ -4,9 +4,15 @@
   <p>Delete Manufacturer</p>
 
   <p>Are you sure you want to delete {{ manufacturer }}? </p>
-  <form action="" method="post">
-    {% csrf_token %}
-    <input class="btn btn-danger" type="submit" value="Delete">
-  </form>
+  <div class="d-flex">
+    <form action="" method="post" class="mr-2">
+      {% csrf_token %}
+      <input class="btn btn-danger" type="submit" value="Delete">
+    </form>
+    
+    <form action="{% url 'taxi:manufacturer-list' %}" method="get">
+      <input type="submit" value="Cancel" class="btn btn-secondary">
+    </form>
+  </div>
   
 {% endblock %}
