@@ -1,3 +1,16 @@
 body {
     margin-top: 20px;
+    background: #b7ddb7;
+}
+
+.item_list {
+    width: 300px;
+    display: inline-block;
+}
+.bold-text {
+    font-weight: bold;
+    font-size: 20px;
+}
+.title {
+    margin-right: 40px;
 }
