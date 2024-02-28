@@ -19,29 +19,55 @@ urlpatterns = [
         ManufacturerListView.as_view(),
         name="manufacturer-list",
     ),
-    path("cars/", CarListView.as_view(), name="car-list"),
-    path("cars/<int:pk>/", CarDetailView.as_view(), name="car-detail"),
-    path("drivers/", DriverListView.as_view(), name="driver-list"),
     path(
-        "drivers/<int:pk>/", DriverDetailView.as_view(), name="driver-detail"
+        "cars/",
+        CarListView.as_view(),
+        name="car-list"
     ),
     path(
-        "cars/create/", CarsCreateView.as_view(), name="car-create"
+        "cars/<int:pk>/",
+        CarDetailView.as_view(),
+        name="car-detail"
     ),
     path(
-        "cars/<int:pk>/update/", CarsUpdateView.as_view(), name="car-update"
+        "drivers/",
+        DriverListView.as_view(),
+        name="driver-list"
     ),
     path(
-        "cars/<int:pk>/delete/", CarsDeleteView.as_view(), name="car-delete"
+        "drivers/<int:pk>/",
+        DriverDetailView.as_view(),
+        name="driver-detail"
     ),
     path(
-        "manufacture/create/", ManufactureCreateView.as_view(), name="manufacturer-create"
+        "cars/create/",
+        CarsCreateView.as_view(),
+        name="car-create"
     ),
     path(
-        "manufacture/<int:pk>/update", ManufactureUpdateView.as_view(), name="manufacturer-update"
+        "cars/<int:pk>/update/",
+        CarsUpdateView.as_view(),
+        name="car-update"
     ),
     path(
-        "manufacture/<int:pk>/delete", ManufactureDeleteView.as_view(), name="manufacturer-delete"
+        "cars/<int:pk>/delete/",
+        CarsDeleteView.as_view(),
+        name="car-delete"
+    ),
+    path(
+        "manufacture/create/",
+        ManufactureCreateView.as_view(),
+        name="manufacturer-create"
+    ),
+    path(
+        "manufacture/<int:pk>/update",
+        ManufactureUpdateView.as_view(),
+        name="manufacturer-update"
+    ),
+    path(
+        "manufacture/<int:pk>/delete",
+        ManufactureDeleteView.as_view(),
+        name="manufacturer-delete"
     )
 ]
 
