@@ -10,17 +10,17 @@ urlpatterns = [
         name="manufacturer-list",
     ),
     path(
-        "manufacturers/create",
+        "manufacturers/create/",
         views.ManufacturerCreateView.as_view(),
         name="manufacturer-create"
     ),
     path(
-        "manufacturers/<int:pk>/update",
+        "manufacturers/<int:pk>/update/",
         views.ManufacturerUpdateView.as_view(),
         name="manufacturer-update"
     ),
     path(
-        "manufacturers/<int:pk>/delete",
+        "manufacturers/<int:pk>/delete/",
         views.ManufacturerDeleteView.as_view(),
         name="manufacturer-delete"
     ),
