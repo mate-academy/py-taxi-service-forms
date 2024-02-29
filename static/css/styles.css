@@ -1,3 +1,16 @@
 body {
-    margin-top: 20px;
+  padding-top: 30px;
+  background-color: white;
+  margin-left: 170px;
+}
+
+.col-sm-2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: whitesmoke;
+  width: 170px;
+  height: 100%;
+  text-align: left;
+  padding-top: 25px;
 }
