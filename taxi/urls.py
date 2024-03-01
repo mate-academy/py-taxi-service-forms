@@ -1,3 +1,4 @@
+from django.contrib.auth.views import LogoutView
 from django.urls import path
 
 from .views import (
@@ -12,7 +13,7 @@ from .views import (
     CarUpdateView,
     ManufacturerUpdateView,
     ManufacturerDeleteView,
-    CarDeleteView
+    CarDeleteView,
 )
 
 urlpatterns = [
@@ -37,6 +38,8 @@ urlpatterns = [
          name="manufacturer-update"),
     path("manufacturer/<int:pk>/delete/", ManufacturerDeleteView.as_view(),
          name="manufacturer-delete"),
+    path('logout/', LogoutView.as_view(), name='logout'),
+
 ]
 
 app_name = "taxi"
