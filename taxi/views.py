@@ -32,7 +32,6 @@ def index(request):
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
     context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
@@ -40,20 +39,17 @@ class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
     fields = ["name", "country"]
-    template_name = "taxi/manufacturer_form.html"
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
     fields = ["name", "country"]
-    template_name = "taxi/manufacturer_form.html"
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template_name = "taxi/manufacturer_confirm_delete.html"
 
 
 class CarListView(LoginRequiredMixin, generic.ListView):
@@ -70,20 +66,17 @@ class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
     fields = ["model", "manufacturer", "drivers"]
-    template_name = "taxi/car_form.html"
 
 
 class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
     fields = ["model", "manufacturer", "drivers"]
-    template_name = "taxi/car_form.html"
 
 
 class CarDeleteView(LoginRequiredMixin, DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
-    template_name = "taxi/car_confirm_delete.html"
 
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
