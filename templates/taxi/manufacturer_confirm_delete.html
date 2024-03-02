@@ -5,7 +5,7 @@
   <p>Are you sure to delete manufacturer: {{ manufacturer }}</p>
   <p><i>All cars with this manufacturer will be also deleted</i></p>
   <form action="" method="post">
-  {% csrf_token %}
+    {% csrf_token %}
     <input type="submit" value="Yes" class="btn btn-danger">
   </form>
 {% endblock %}
