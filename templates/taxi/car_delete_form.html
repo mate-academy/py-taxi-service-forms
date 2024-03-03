@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+<div>
+  <h1>Are you sure to delete this car?</h1>
+  <i>be care, this car will be deleted from related Driver</i>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="Yes, delete">
+    <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+
+{% endblock %}
