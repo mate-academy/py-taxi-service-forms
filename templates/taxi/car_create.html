@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <form action="" method="POST">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <input type="submit" value="Submit">
+  </form>
+{% endblock %}
