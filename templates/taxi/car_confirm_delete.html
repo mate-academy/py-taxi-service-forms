@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1> Delete</h1>
+  <form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    {{ form|crispy }}
+    <input class="btn btn-danger" type="submit" value="Confirm">
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-primary">Cancel</a>
+  </form>
+{% endblock %}
