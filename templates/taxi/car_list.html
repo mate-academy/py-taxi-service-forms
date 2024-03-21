@@ -20,10 +20,10 @@
             {{ car.model }}
           </td>
           <td>
-            <a href="{% url "taxi:car-update" pk=car.id %}">UPDATE</a>
+            <a href="{% url "taxi:car-update" pk=car.id %}" class="btn btn-primary">UPDATE</a>
           </td>
           <td>
-            <a href="{% url "taxi:car-delete" pk=car.id %}">DELETE</a>
+            <a href="{% url "taxi:car-delete" pk=car.id %}" class="btn btn-danger">DELETE</a>
           </td>
         </tr>
       {% endfor %}
