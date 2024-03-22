@@ -1,5 +1,6 @@
 from django import forms
-from .models import Car
+
+from taxi.models import Car
 
 
 class CarForm(forms.ModelForm):
