@@ -8,8 +8,13 @@
   
   <form action="" method="post">
     {% csrf_token %}
-    <button class="btn btn-danger d-flex justify-content-center align-items-center addBtn" type="submit">
-      Yes, delete
-    </button>
+    <div class="d-flex">
+      <button class="btn btn-danger d-flex justify-content-center align-items-center mr-3 addBtn" type="submit">
+        Yes, delete
+      </button>
+      <a href="{% url 'taxi:car-list' %}" class="btn btn-outline-primary d-flex justify-content-center align-items-center addBtn" type="button">
+        Cancel
+      </a>
+    </div>
   </form>
 {% endblock %}
