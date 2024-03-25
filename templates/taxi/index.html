@@ -1,18 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Taxi Service Home</h1>
+  <div class="d-flex justify-content-between align-items-center subtitle">
+    <h2 class="m-0">Taxi Service Home</h2>
+    <span>Num visits: {{ num_visits }}</span>
+  </div>
   <p>Welcome to Best Taxi Ever!</p>
-  <h2>Dynamic content</h2>
+  <h3>Dynamic content</h3>
   <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Cars:</strong> {{ num_cars }}</li>
-    <li><strong>Drivers:</strong> {{ num_drivers }}</li>
-    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item border-0"><strong>Cars:</strong> {{ num_cars }}</li>
+    <li class="list-group-item border-0"><strong>Drivers:</strong> {{ num_drivers }}</li>
+    <li class="list-group-item border-0"><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
   </ul>
-
-  <p>You have visited this page
-    {{ num_visits }} time{{ num_visits|pluralize }}.
-  </p>
-
 {% endblock %}

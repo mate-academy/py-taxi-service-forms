@@ -1,33 +1,33 @@
 {% extends "base.html" %}
+{% load bootstrap_icons %}
 
 {% block content %}
-    <h1>Manufacturer List
-    </h1>
-
-    {% if manufacturer_list %}
-      <table class="table">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
-        </tr>
-
-        {% for manufacturer in manufacturer_list %}
-            <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
-          </tr>
-        {% endfor %}
-      </table>
-
+  <div class="d-flex justify-content-between align-items-center subtitle">
+    <h2>Manufacturer List</h2>
+      
+    <a class="btn btn-primary d-flex align-items-center addBtn" href="{% url "taxi:manufacturer-create" %}" role="button">
+      {% bs_icon "plus" size='1.2em' extra_classes="mr-1" %}
+      Add New Manufacturer
+    </a>
+  </div>
+  
+  {% if manufacturer_list %}
+    <ul class="list-group list-group-flush">
+      {% for manufacturer in manufacturer_list %}   
+        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          <span>{{ manufacturer.name }}</span>
+          <div class="d-flex">
+            <a class="icon-link" href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">
+              {% bs_icon "pencil-fill" size='1.1em' extra_classes="mr-2" %}
+            </a>
+            <a class="text-danger icon-link ml-3" href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">
+              {% bs_icon "trash3-fill" size='1.1em' extra_classes="mr-2" %}
+            </a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
     {% else %}
-        <p>There are no manufacturers in the service.</p>
-    {% endif %}
+    <p>No data</p>
+  {% endif %}
 {% endblock %}

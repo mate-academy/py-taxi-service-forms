@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h2 class="subtitle">Delete Manufacturer</h2>
+  
+  <p>Are you sure you would like to delete this manufacturer {{ manufacturer }}?</p>
+  
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="d-flex">
+      <button class="btn btn-danger d-flex justify-content-center align-items-center mr-3 addBtn" type="submit">
+        Yes, delete
+      </button>
+      <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-outline-primary d-flex justify-content-center align-items-center addBtn" type="button">
+        Cancel
+      </a>
+    </div>
+  </form>
+{% endblock %}

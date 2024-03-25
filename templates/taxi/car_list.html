@@ -1,17 +1,35 @@
 {% extends "base.html" %}
+{% load bootstrap_icons %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <div class="d-flex justify-content-between align-items-center subtitle">
+    <h2>Car List</h2>
+      
+    <a class="btn btn-primary d-flex align-items-center addBtn" href="{% url "taxi:car-create" %}" role="button">
+      {% bs_icon "plus" size='1.2em' extra_classes="mr-1" %}
+      Add New Car
+    </a>
+  </div>
+  
   {% if car_list %}
-    <ul>
+    <ul class="list-group list-group-flush">
       {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
+        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          <a href="{{ car.get_absolute_url }}" class="list-group-item-action">
+            {{ car.model }}
+          </a>
+          <div class="d-flex">
+            <a class="icon-link" href="{% url 'taxi:car-update' pk=car.id %}">
+              {% bs_icon "pencil-fill" size='1.1em' extra_classes="mr-2" %}
+            </a>
+            <a class="text-danger icon-link ml-3" href="{% url 'taxi:car-delete' pk=car.id %}">
+              {% bs_icon "trash3-fill" size='1.1em' extra_classes="mr-2" %}
+            </a>
+          </div>
         </li>
       {% endfor %}
     </ul>
-  {% else %}
-    <p>There are no cars in taxi</p>
+    {% else %}
+    <p>No data</p>
   {% endif %}
 {% endblock %}
