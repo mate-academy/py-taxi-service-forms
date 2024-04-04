@@ -33,7 +33,6 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Application definition
 
@@ -50,6 +49,7 @@ INSTALLED_APPS = [
     "crispy_forms",
 ]
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -141,6 +141,7 @@ STATICFILES_DIRS = (BASE_DIR / "static",)
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
