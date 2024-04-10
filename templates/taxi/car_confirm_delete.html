@@ -2,10 +2,11 @@
 
 {% block content %}
   <h1>Delete car</h1>
-  
+
   <p>Are you sure you want to delete <strong>{{ car.model }}</strong>?</p>
   <form action="" method="post"></form>
   {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" value="Yes, delete">
+  <a href="{% url 'taxi:car-detail' pk=car.id %}">Cancel</a>
 {% endblock %}

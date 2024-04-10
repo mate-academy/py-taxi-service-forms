@@ -8,4 +8,5 @@
   {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" value="Yes, delete">
+  <a href="{% url 'taxi:manufacturer-list' %}">Cancel</a>
 {% endblock %}
