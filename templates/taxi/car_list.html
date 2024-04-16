@@ -1,17 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <h1>Cars List</h1>
+
   {% if car_list %}
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
+          <a href="{{ car.get_absolute_url }}">{{ car.model }}</a>
         </li>
       {% endfor %}
     </ul>
   {% else %}
-    <p>There are no cars in taxi</p>
+    <p>No cars</p>
   {% endif %}
+
+{% endblock %}
+
+{% block after_pagination %}
+  <a href="{% url 'taxi:car-create' %}">
+      <button class="btn_stl">Add new car</button>
+  </a>
 {% endblock %}
