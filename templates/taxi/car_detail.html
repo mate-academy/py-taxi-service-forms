@@ -1,12 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
-  </ul>
+  <h1>
+    Car: {{ car.model }}
+
+    {% load static %}
+    <a href="{% url 'taxi:car-update' pk=car.pk %}">
+      <img class="tools_stl" src="{% static "img/update.png" %}"
+           alt="update button">
+    </a>
+
+    <a href="{% url 'taxi:car-delete' pk=car.pk %}">
+      <img class="tools_stl" src="{% static "img/delete.png" %}"
+           alt="delete button">
+    </a>
+
+  </h1>
+
+  <p><strong>Manufacturer:</strong>
+    {{ car.manufacturer.name }}
+    (from {{ car.manufacturer.country }})</p>
+  <div class="ml-3">
+    <h3>Drivers:</h3>
+    {% for driver in car.drivers.all %}
+      <hr>
+      <p class="text-muted">license_number: {{ driver.license_number }}</p>
+      <p>
+        <a href="{{ driver.get_absolute_url }}">
+            {{ driver.first_name }} {{ driver.last_name }}
+        </a>
+      </p>
+    {% empty %}
+      <p>No drivers for this car </p>
+    {% endfor %}
+
+  </div>
 {% endblock %}
