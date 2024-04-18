@@ -108,7 +108,9 @@ class ManufacturerTest(TestCase):
             country="USA",
         )
         response = self.client.post(
-            reverse("taxi:manufacturer-delete", kwargs={"pk": manufacturer.id})
+            reverse(
+                "taxi:manufacturer-delete", kwargs={"pk": manufacturer.id}
+            )
         )
         self.assertEqual(response.status_code, 302)
         self.assertFalse(
