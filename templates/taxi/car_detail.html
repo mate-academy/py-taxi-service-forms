@@ -9,4 +9,16 @@
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
+  <div class="container mt-5">
+    <div class="row">
+      <div>
+        <a class="btn btn-primary" href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
+      </div>
+      <div class="col-1">
+      </div>
+      <div>
+        <a class="btn btn-danger" href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
 {% endblock %}
