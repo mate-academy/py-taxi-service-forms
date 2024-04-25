@@ -3,6 +3,7 @@
 {% block content %}
     <h1>Manufacturer List
     </h1>
+    <a href="{% url 'taxi:manufacturer-create' %}">Add</a>
 
     {% if manufacturer_list %}
       <table class="table">
@@ -10,6 +11,7 @@
           <th>ID</th>
           <th>Name</th>
           <th>Country</th>
+          <th>Options</th>
         </tr>
 
         {% for manufacturer in manufacturer_list %}
@@ -23,7 +25,11 @@
               <td>
                   {{ manufacturer.country }}
               </td>
-          </tr>
+              <td>
+                <a href="{{ manufacturer.id }}/update/">Update</a>
+                <a href="{{ manufacturer.id }}/delete/">Delete</a>
+              </td>
+            </tr>
         {% endfor %}
       </table>
 

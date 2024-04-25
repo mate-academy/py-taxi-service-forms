@@ -52,3 +52,45 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+class CarCreateView(generic.CreateView):
+    model = Car
+    fields = "__all__"
+    template_name = "taxi/car_create.html"
+    success_url = "../"
+
+
+class CarDeleteView(generic.DeleteView):
+    model = Car
+    fields = "__all__"
+    template_name = "taxi/car_delete.html"
+    success_url = "../../"
+
+
+class CarUpdateView(generic.UpdateView):
+    model = Car
+    fields = "__all__"
+    template_name = "taxi/car_update.html"
+    success_url = "../"
+
+
+class ManufacturerCreateView(generic.CreateView):
+    model = Manufacturer
+    fields = "__all__"
+    template_name = "taxi/manufacturer_create.html"
+    success_url = "../"
+
+
+class ManufacturerUpdateView(generic.UpdateView):
+    model = Manufacturer
+    fields = "__all__"
+    template_name = "taxi/manufacturer_update.html"
+    success_url = "../../"
+
+
+class ManufacturerDeleteView(generic.DeleteView):
+    model = Manufacturer
+    fields = "__all__"
+    template_name = "taxi/manufacturer_delete.html"
+    success_url = "../../"
