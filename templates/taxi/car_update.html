@@ -4,7 +4,7 @@
 {% block content %}
   <h1>Update</h1>
 
-  <a href="../">Back</a>
+  <a href="{% url 'taxi:car-detail' pk=car.id %}">Back</a>
 
   <form action="" method="post">
     {%  csrf_token  %}
