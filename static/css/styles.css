@@ -1,3 +1,49 @@
+html{
+    background-color: lightgray;
+}
+
 body {
     margin-top: 20px;
+    background-color: lightgray;
 }
+
+a{
+    color: darkcyan;
+}
+
+th{
+    border: 1px solid gray;
+}
+
+tr{
+    border: 1px solid gray;
+}
+
+table{
+    border: 1px solid gray;
+}
+
+/* sidebar.html */
+.list-group-item{
+    background-color: darkgrey;
+}
+
+.ist-group-item:hover{
+    background-color: grey;
+}
+
+.add-new-item{
+    float: right;
+    padding-right: 100px;
+}
+
+/*car_list.html*/
+.car-list-hypertext{
+    margin-left: 20px;
+}
+
+.danger{
+    color: red;
+}
+
+
