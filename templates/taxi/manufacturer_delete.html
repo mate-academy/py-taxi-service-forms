@@ -7,5 +7,6 @@
     {% csrf_token %}
     {{ form|crispy }}
     <input type="submit" value="Yes, delete">
+    <a href="{% url 'taxi:manufacturer-list' %}">Cancel</a>
   </form>
 {% endblock %}
