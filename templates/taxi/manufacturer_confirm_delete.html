@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Delete Manufacturer</title>
+{% endblock %}
+
+{% block content %}
+	<h1>Delete Manufacturer</h1>
+  <p>Are you sure you want to <b>delete manufacturer:</b> {{ manufacturer }}?</p>
+  <p><i>All cars of this manufacturer will also be removed</i></p>
+  {% include "includes/delete_form.html" %}
+{% endblock %}
