@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>{{ object|yesno:"Update, Create" }} Manufacturer</title>
+{% endblock %}
+
+{% block content %}
+	<h1>{{ object|yesno:"Update, Create" }} Manufacturer</h1>
+  {% include "includes/create_form.html" %}
+{% endblock %}

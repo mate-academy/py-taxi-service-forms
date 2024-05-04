@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "debug_toolbar",
+    "crispy_forms",
+    "crispy_bootstrap4",
     "taxi",
 ]
 
@@ -140,3 +142,11 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Django-crispy-forms
+# https://django-crispy-forms.readthedocs.io/en/latest/
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+# End Django-crispy-forms
