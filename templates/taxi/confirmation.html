@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <p class="alert alert-warning">Are you sure want to delete this field from a lists(DB)?</p>
+  <form action="" method="post">
+  {% csrf_token %}
+    <input type="submit" value="Yes, I agree" class="btn btn-danger">
+  </form>
+{% endblock %}
