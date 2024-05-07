@@ -2,11 +2,19 @@
 
 {% block content %}
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
+  <h3>Drivers</h3>
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
+  <div class="inline inline-group">
+    <a href="{% url 'taxi:car-update' car.id %}" class="btn btn-primary">
+      <i class="bi bi-plus"></i>Update
+    </a>
+    <a href="{% url 'taxi:car-delete' car.id %}" class="btn btn-primary">
+      <i class="bi bi-plus"></i>Delete
+    </a>
+  </div>
 {% endblock %}
