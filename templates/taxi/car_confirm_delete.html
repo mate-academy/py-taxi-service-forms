@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div class="alert alert-danger" role="alert">
+    <h1>Delete car</h1>
+    Are you sure that you want to delete {{ car.model }} ({{ car.manufacturer }})?
+  </div>
+  {% include 'includes/confirm_delete_form.html' %}
+{% endblock %}
