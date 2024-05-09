@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Driver List
-    </h1>
+  <h1>
+    Driver list
+    <a href="{% url 'taxi:driver-create' %}" class="btn btn-primary"
+       style="margin-left: 10px">Add</a>
+  </h1>
 
     {% if driver_list %}
     <table class="table">
@@ -12,6 +15,8 @@
         <th>First name</th>
         <th>Last name</th>
         <th>License number</th>
+        <th>Update</th>
+        <th>Delete</th>
       </tr>
     {% for driver in driver_list %}
       <tr>
@@ -20,9 +25,18 @@
         <td>{{ driver.first_name }}</td>
         <td>{{ driver.last_name }}</td>
         <td>{{ driver.license_number }}</td>
+        <td>
+          <a style="font-size:14px;" class="btn btn-primary" href="{% url 'taxi:driver-update' pk=driver.pk%}">
+            UPDATE
+          </a>
+        </td>
+        <td>
+          <a style="font-size:14px;" class="btn btn-primary" href="{% url 'taxi:driver-delete' pk=driver.pk%}">
+            DELETE
+          </a>
+        </td>
       </tr>
     {% endfor %}
-
     </table>
     {% else %}
       <p>There are no drivers in the service.</p>

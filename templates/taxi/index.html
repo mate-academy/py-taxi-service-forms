@@ -1,18 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
-  <h2>Dynamic content</h2>
-  <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Cars:</strong> {{ num_cars }}</li>
-    <li><strong>Drivers:</strong> {{ num_drivers }}</li>
-    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
-  </ul>
+  <div class="container" style="padding: 20px; background-color:lightcyan;
+  border-radius:5px; border:1px solid lightgray">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Taxi Service Home</h2>
+      <p class="ml-4" >Welcome to Best Taxi Ever!</p>
+    </div>
+  </div>
 
-  <p>You have visited this page
-    {{ num_visits }} time{{ num_visits|pluralize }}.
-  </p>
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h4>Dynamic Content</h4>
+      <p class="mt-3">The Taxi service has the following record counts:</p>
+      <ul class="list-group">
+        <li class="list-group-item">Cars: {{ num_cars }}</li>
+        <li class="list-group-item">Drivers: {{ num_drivers }}</li>
+        <li class="list-group-item">Manufacturers: {{ num_manufacturers }}</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h4>Page Visits</h4>
+      <p>You have visited this page
+        {{ num_visits }} time{{ num_visits|pluralize }}.
+      </p>
+    </div>
+  </div>
+</div>
+{#  <h1>Taxi Service Home</h1>#}
+{#  <p>Welcome to Best Taxi Ever!</p>#}
+{#  <h2>Dynamic content</h2>#}
+{#  <p>The Taxi service has the following record counts:</p>#}
+{#  <ul>#}
+{#    <li><strong>Cars:</strong> {{ num_cars }}</li>#}
+{#    <li><strong>Drivers:</strong> {{ num_drivers }}</li>#}
+{#    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>#}
+{#  </ul>#}
+{##}
+{#  <p>You have visited this page#}
+{#    {{ num_visits }} time{{ num_visits|pluralize }}.#}
+{#  </p>#}
 
 {% endblock %}
