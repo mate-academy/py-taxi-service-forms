@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="alert alert-danger" role="alert">
+    <h1>Delete manufacturer</h1>
+    Are you sure that you want to delete {{ manufacturer.name }} ({{ manufacturer.country }})?
+  </div>
+  {% include 'includes/confirm_delete_form.html' %}
+{% endblock %}
