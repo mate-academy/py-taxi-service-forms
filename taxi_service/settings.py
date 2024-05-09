@@ -28,7 +28,6 @@ SECRET_KEY = (
 DEBUG = True
 
 ALLOWED_HOSTS = []
-CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -143,3 +142,5 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
