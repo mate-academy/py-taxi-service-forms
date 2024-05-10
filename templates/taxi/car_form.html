@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block title %}
+  <title>Car Form</title>
+{% endblock %}
+
+{% block content %}
+  <h1>{{ object|yesno:"Update,Create" }} Car</h1>
+
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn btn-primary" type="submit" value="Submit">
+    <a class="btn btn-danger" href="javascript:history.go(-1)">Cancel</a>
+  </form>
+{% endblock %}
