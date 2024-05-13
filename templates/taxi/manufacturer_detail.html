@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Manufacturer: {{ manufacturer.name }}</h1>
+  <p><strong>Country:</strong> {{ manufacturer.country }}</p>
+  <div class="ml-3">
+    <h3>Cars</h3>
+    {% for car in manufacturer.cars.all %}
+      <p class="p-1 bg-success">
+        Model: {{ car.model }} <br>
+      </p>
+    {% endfor %}
+  </div>
+{% endblock %}
