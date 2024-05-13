@@ -36,7 +36,7 @@ urlpatterns = [
         "cars/<int:pk>/delete/", CarDeleteView.as_view(), name="car-delete"
     ),
     path(
-        "manufacturers/create", ManufacturerCreateView.as_view(),
+        "manufacturers/create/", ManufacturerCreateView.as_view(),
         name="manufacturer-create"
     ),
     path(
