@@ -3,8 +3,14 @@
   <h1>Delete Car</h1>
   <p>Are you sure you want to delete this car: {{ car }}?</p>
   <p><i>Connections between this car and drivers and manufacturers will be also deleted!</i></p>
+<div class="button-container">
   <form action="" method="post">
     {% csrf_token %}
     <input type="submit" value="Yes, delete" class="btn btn-danger">
   </form>
+  <form action="{% url 'taxi:car-list' %}" class="cancel-form">
+    {% csrf_token %}
+    <input type="submit" value="Cancel" class="btn btn-secondary">
+  </form>
+</div>
 {% endblock %}
