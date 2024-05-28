@@ -25,7 +25,7 @@ urlpatterns = [
     path(
         "manufacturers/create/",
         ManufacturerCreateView.as_view(),
-        name="manufacturer-form",
+        name="manufacturer-create",
     ),
     path(
         "manufacturers/<int:pk>/update/",
