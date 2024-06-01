@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete {{ current_model }}</h1>
+  <p>Are you sure you want to delete the {{ current_model|lower }}?</p>
+  {% if dependent_model %}
+    <p>
+      <i>All {{ dependent_model }}s with this {{ current_model|lower }} will be also deleted!</i>
+    </p>
+  {% endif %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <a href="javascript:history.go(-1)">Cancel</a>
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+  </form>
+{% endblock %}
