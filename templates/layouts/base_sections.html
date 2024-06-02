@@ -1,0 +1,64 @@
+<!--
+=========================================================
+* Soft UI Design System - v1.0.9
+=========================================================
+
+* Product Page:  https://www.creative-tim.com/product/soft-ui-design-system 
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-icon.png' %}">
+<link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+
+<title>
+  Soft UI Design System by Creative Tim
+</title>
+<!--     Fonts and icons     -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+<!-- Nucleo Icons -->
+<link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet" />
+<link href="{% static 'css/nucleo-svg.css' %}" rel="stylesheet" />
+
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+<link href="{% static 'css/nucleo-svg.css' %}" rel="stylesheet" />
+
+<!-- CSS Files -->
+<link id="pagestyle" href="{% static 'css/soft-design-system.css' %}" rel="stylesheet" />
+</head>
+
+<body {% block body %}{% endblock body %} >
+
+  {% block header %}
+
+    {% include 'includes/navigation.html' %}
+
+  {% endblock header %}
+
+  {% block content %}{% endblock content %}
+
+  {% block footer %}
+  
+    {% include 'includes/footer_background.html' %}
+
+  {% endblock footer %}
+
+  {% include 'includes/scripts.html' %}
+
+  {% block javascripts %}{% endblock javascripts %}
+
+</body>
+</html>
