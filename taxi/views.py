@@ -28,7 +28,6 @@ def index(request):
     return render(request, "taxi/index.html", context=context)
 
 
-# region Manufacturer
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
     context_object_name = "manufacturer_list"
@@ -57,10 +56,6 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = "taxi/manufacturer/manufacturer_confirm_delete.html"
 
 
-# endregion
-
-
-# region Car
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
@@ -94,10 +89,6 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = "taxi/car/car_confirm_delete.html"
 
 
-# endregion Car
-
-
-# region Driver
 class DriverListView(LoginRequiredMixin, generic.ListView):
     model = Driver
     paginate_by = 5
@@ -108,4 +99,3 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
     template_name = "taxi/driver/driver_detail.html"
-# endregion
