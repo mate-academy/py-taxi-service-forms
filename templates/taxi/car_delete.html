@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Attention your next step you are trying to delete {{ car }} and all information related to him </h1>
+    <strong style="color: #990000">Are you sure that you wanna delete: {{ car }}?</strong>
+    <br>
+    <br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="yes, delete">
+    </form>
+{% endblock %}
