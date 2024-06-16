@@ -15,50 +15,57 @@
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
+  <script src="../../static/js/color-modes.js"></script>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.122.0">
 
-<link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-icon.png' %}">
-<link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
 
-<title>
-  Soft UI Design System by Creative Tim
-</title>
-<!--     Fonts and icons     -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
 
-<!-- Nucleo Icons -->
-<link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet" />
-<link href="{% static 'css/nucleo-svg.css' %}" rel="stylesheet" />
+  <title>
+    Best rent car
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
 
-<!-- Font Awesome Icons -->
-<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-<link href="{% static 'css/nucleo-svg.css' %}" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet"/>
+  <link href="{% static 'css/nucleo-svg.css' %}" rel="stylesheet"/>
 
-<!-- CSS Files -->
-<link id="pagestyle" href="{% static 'css/soft-design-system.css' %}" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="{% static 'css/nucleo-svg.css' %}" rel="stylesheet"/>
+
+  <!-- CSS Files -->
+
+  <link id="pagestyle" href="{% static 'css/soft-design-system.css' %}" rel="stylesheet"/>
+  
+
 </head>
 
 <body {% block body %}{% endblock body %} >
 
-  {% block header %}
+{% block header %}
 
-    {% include 'includes/navigation.html' %}
+  {% include 'includes/navigation.html' %}
 
-  {% endblock header %}
+{% endblock header %}
 
-  {% block content %}{% endblock content %}
+{% block content %}{% endblock content %}
 
-  {% block footer %}
-  
-    {% include 'includes/footer_background.html' %}
+{% block footer %}
 
-  {% endblock footer %}
+  {% include 'includes/footer_background.html' %}
 
-  {% include 'includes/scripts.html' %}
+{% endblock footer %}
 
-  {% block javascripts %}{% endblock javascripts %}
+{% include 'includes/scripts.html' %}
+
+{% block javascripts %}{% endblock javascripts %}
 
 </body>
 </html>

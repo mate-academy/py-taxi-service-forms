@@ -8,7 +8,7 @@
 		"../scss//_variables.scss",
 		"../scss//variables/_animations.scss",
 		"../scss//variables/_avatars.scss",
-		"../scss//variables/_cards.scss",
+		"../scss//variables/_frames.scss",
 		"../scss//variables/_dark-version.scss",
 		"../scss//variables/_dropdowns.scss",
 		"../scss//variables/_header.scss",

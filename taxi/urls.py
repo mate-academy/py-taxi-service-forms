@@ -1,24 +1,13 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
-import taxi.views
 from . import views
 from .views import (
     index,
-    CarListView,
-    CarDetailView,
-    DriverListView,
-    DriverDetailView,
-    ManufacturerListView,
-    ManufacturerCreateView,
-    CarCreateView,
-    ManufacturerUpdateView,
-    CarUpdateView,
-    ManufacturerDeleteView,
-    CarDeleteView,
     about_us,
     contact_us,
     author,
+    presentation,
 )
 
 urlpatterns = [
@@ -45,7 +34,7 @@ urlpatterns = [
     ), name='password_reset_complete'),
 
     # Sections
-    path('presentation/', views.presentation, name='presentation'),
+    path('presentation/', presentation, name='presentation'),
     path('page-header/', views.page_header, name='page_header'),
     path('features/', views.features, name='features'),
     path('navbars/', views.navbars, name='navbars'),
@@ -64,35 +53,7 @@ urlpatterns = [
     path('progress-bars/', views.progress_bars, name='progress_bars'),
     path('toggles/', views.toggles, name='toggles'),
     path('typography/', views.typography, name='typography'),
-    path(
-        "manufacturers",
-        ManufacturerListView.as_view(),
-        name="manufacturer-list",
-    ),
-    path(
-        "manufacturers/create/",
-        ManufacturerCreateView.as_view(),
-        name="manufacturer-create",
-    ),
-    path(
-        "manufacturers/<int:pk>/update/",
-        ManufacturerUpdateView.as_view(),
-        name="manufacturer-update",
-    ),
-    path(
-        "manufacturers/<int:pk>/delete/",
-        ManufacturerDeleteView.as_view(),
-        name="manufacturer-delete",
-    ),
-    path("cars/", CarListView.as_view(), name="car-list"),
-    path("cars/create/", CarCreateView.as_view(), name="car-create"),
-    path("cars/<int:pk>/update/", CarUpdateView.as_view(), name="car-update"),
-    path("cars/<int:pk>/delete/", CarDeleteView.as_view(), name="car-delete"),
-    path("cars/<int:pk>/", CarDetailView.as_view(), name="car-detail"),
-    path("drivers/", DriverListView.as_view(), name="driver-list"),
-    path(
-        "drivers/<int:pk>/", DriverDetailView.as_view(), name="driver-detail"
-    ),
+
 ]
 
 app_name = "taxi"
