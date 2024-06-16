@@ -1,0 +1,55 @@
+{% load static %}
+<!-- Navbar -->
+<div class="container position-sticky z-index-sticky top-0">
+  <div class="row">
+    <div class="col-12">
+      <nav
+          class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-sticky my-3 py-2 start-0 end-0 mx-4">
+        <div class="container-fluid px-0">
+
+          
+          <a href="/" class="dropdown-item border-radius-md">
+            <span class="ps-3">Home</span>
+          </a>
+          <a href="{% url 'taxi:about-us' %}" class="dropdown-item border-radius-md">
+            <span class="ps-3">About Us</span>
+          </a>
+          <a href="{% url 'taxi:contact-us' %}" class="dropdown-item border-radius-md">
+            <span class="ps-3">Contact Us</span>
+          </a>
+
+          {% if request.user.is_authenticated %}
+            <li class="nav-item ms-lg-auto border-radius-md">
+              <a class="nav-link nav-link-icon me-2"
+                 href="{% url 'logout' %}">
+                <i class="fa fa-sign-out me-1"></i>
+                <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
+                   data-bs-placement="bottom" title="Logout">Logout</p>
+              </a>
+            </li>
+          {% else %}
+            <li class="nav-item ms-lg-auto position: relative right">
+              <a class="nav-link nav-link-icon me-2"
+                 href="{% url 'login' %}">
+                <i class="fa fa-sign-in me-1"></i>
+                <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
+                   data-bs-placement="bottom" title="Login">Login</p>
+              </a>
+            </li>
+          {% endif %}
+          {% if request.user.is_authenticated %}
+            <a href="{% url 'taxi:password_change' %}" class="dropdown-item border-radius-md">
+              <span class="ps-3">Change Password</span>
+            </a>
+            <a href="{% url 'taxi:logout' %}" class="dropdown-item border-radius-md">
+              <span class="ps-3">Logout</span>
+            </a>
+          {% else %}
+
+          {% endif %}
+        </div>
+      </nav>
+      <!-- End Navbar -->
+    </div>
+  </div>
+</div>

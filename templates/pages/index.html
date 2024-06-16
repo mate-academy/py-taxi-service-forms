@@ -1,0 +1,302 @@
+{% extends 'layouts/base_sections.html' %}
+{% load static %}
+
+{% block title %} Best rent car company {% endblock title %}
+
+{% block body %} class="index-page bg-gray-200" {% endblock body %}
+
+{% block content %}
+
+  <header class="header-2" xmlns="http://www.w3.org/2000/svg">
+    <div class="page-header min-vh-75 relative"
+         style="background-image: url('{% static 'img/curved-images/curved.jpg' %}')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto">
+            <h1 class="text-white pt-3 mt-n5">Rent car</h1>
+            <p class="lead text-white mt-3">The best rent car in world <br/> Join over 1.4 million people. </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="position-absolute w-100 z-index-1 bottom-0">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="moving-waves">
+            <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40"/>
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"/>
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"/>
+            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"/>
+            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"/>
+            <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="pt-3 pb-4" id="count-stats">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 z-index-2 border-radius-xl mt-n10 mx-auto py-3 blur shadow-blur">
+          <div class="row">
+            <div class="col-md-4 position-relative">
+              <div class="p-3 text-center">
+                <h1 class="text-gradient text-primary"><span id="state1" countTo="{{ num_cars }}">0</span>+</h1>
+                <h5 class="mt-3">Different car models</h5>
+                <p class="text-sm">Here you can find a car that exactly suits you</p>
+              </div>
+              <hr class="vertical dark">
+            </div>
+            <div class="col-md-4 position-relative">
+              <div class="p-3 text-center">
+                <h1 class="text-gradient text-primary"><span id="state2" countTo="{{ num_drivers }}">0</span>+</h1>
+                <h5 class="mt-3">Countries</h5>
+                <p class="text-sm">We cover more and more countries around the world</p>
+              </div>
+              <hr class="vertical dark">
+            </div>
+            <div class="col-md-4">
+              <div class="p-3 text-center">
+                <h1 class="text-gradient text-primary" id="state3" countTo="{{ num_visits }}">0</h1>
+                <h5 class="mt-3">Views today</h5>
+                <p class="text-sm">Hurry up, choose your car and hit the road</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <image href="/../../static/img/cars/lincoln.jpg" width="100%" height="225"
+                     preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+
+            <div class="card-body">
+              <p class="card-text">Lincoln Continental</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Rent this car</button>
+                </div>
+                <small class="text-body-secondary">120 usd/per day</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <image href="/../../static/img/cars/yaris.jpg" width="100%" height="225"
+                     preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+
+            <div class="card-body">
+              <p class="card-text">Toyota Yaris</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Rent this car</button>
+
+                </div>
+                <small class="text-body-secondary">110 usd/per day</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <image href="/../../static/img/cars/Suzuki_Vitara.jpg" width="100%" height="225"
+                     preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+
+            <div class="card-body">
+              <p class="card-text">Suzuki Vitara</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Rent this car</button>
+
+                </div>
+                <small class="text-body-secondary">130 usd/per day</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <image href="/../../static/img/cars/Mitsubishi_Eclipse.jpg" width="100%" height="225"
+                     preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Mitsubishi Eclipse</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Rent this car</button>
+
+                </div>
+                <small class="text-body-secondary">150 usd/per day</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <image href="/../../static/img/cars/lancer.jpg" width="100%" height="225"
+                     preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Mitsubishi Lancer</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Rent this car</button>
+
+                </div>
+                <small class="text-body-secondary">100 usd/per day</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <image href="/../../static/img/cars/focus.jpg" width="100%" height="225"
+                     preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Ford Focus</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Rent this car</button>
+
+                </div>
+                <small class="text-body-secondary">135 usd/per day</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <image href="/../../static/img/cars/escalade.jpg" width="100%" height="225"
+                     preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Cadillac Escalade</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Rent this car</button>
+
+                </div>
+                <small class="text-body-secondary">550 usd/per day</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <image href="/../../static/img/cars/arcfox.jpg" width="100%" height="225"
+                     preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Arcfox Alpha-S</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Rent this car</button>
+
+                </div>
+                <small class="text-body-secondary">120 usd/per day</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <image href="/../../static/img/cars/Bei.jpg" width="100%" height="225"
+                     preserveAspectRatio="xMidYMid slice"/></image>
+            </svg>
+            <div class="card-body">
+              <p class="card-text">Beijing EX5</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Rent this car</button>
+
+                </div>
+                <small class="text-body-secondary">120 usd/per day</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+{% block javascripts %}
+
+  <script type="text/javascript">
+
+      if (document.getElementById('state1')) {
+          const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+          if (!countUp.error) {
+              countUp.start();
+          } else {
+              console.error(countUp.error);
+          }
+      }
+      if (document.getElementById('state2')) {
+          const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+          if (!countUp1.error) {
+              countUp1.start();
+          } else {
+              console.error(countUp1.error);
+          }
+      }
+      if (document.getElementById('state3')) {
+          const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+          if (!countUp2.error) {
+              countUp2.start();
+          } else {
+              console.error(countUp2.error);
+          }
+          ;
+      }
+  </script>
+
+{% endblock javascripts %}

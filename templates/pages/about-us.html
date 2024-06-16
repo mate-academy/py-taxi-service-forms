@@ -1,0 +1,39 @@
+{% extends 'layouts/base_sections.html' %}
+{% load static %}
+
+{% block title %} Best rent car {% endblock title %}
+
+{% block body %} class="about-us" {% endblock body %}
+
+
+{% block content %}
+
+  <!-- -------- START HEADER 7 w/ text and video ------- -->
+  <header class="bg-gradient-dark">
+    <div class="page-header min-vh-75" style="background-image: url('{% static 'img/office-dark.jpg' %}');">
+      <span class="mask bg-gradient-info opacity-8"></span>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center mx-auto my-auto">
+            <h1 class="text-white">Learn more about Rent cars' story</h1>
+            <p class="lead mb-4 text-white opacity-8">Rent cars is the largest online car rental platform in Latin
+              America and one of the global leaders in the industry. Through the website or app, we provide mobility
+              solutions in more than 160 countries and compare prices from over 300 rental companies, bringing together
+              the best options in one place.
+              Founded in 2009, Rent cars aims to connect people to the best car options worldwide and provide the best
+              service so that each customer can have an incredible and satisfying experience from the beginning to the
+              end of their journey.</p>
+            <button type="submit" class="btn bg-white text-dark">Create Account</button>
+            <h6 class="text-white mb-2 mt-5">Find us on</h6>
+            <div class="d-flex justify-content-center">
+              <a href="javascript:;"><i class="fab fa-facebook text-lg text-white me-4"></i></a>
+              <a href="javascript:;"><i class="fab fa-instagram text-lg text-white me-4"></i></a>
+              <a href="javascript:;"><i class="fab fa-twitter text-lg text-white me-4"></i></a>
+              <a href="javascript:;"><i class="fab fa-google-plus text-lg text-white"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </header>
+{% endblock content %}
+
