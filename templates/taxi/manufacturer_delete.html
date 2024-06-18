@@ -6,6 +6,7 @@
   <p><i>All cars with this manufacturer will be also deleted!</i></p>
   <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Yes, delete" class="btn-danger" />
+    <input type="submit" value="Yes, delete" class="btn btn-danger" />
+    <button onclick="history.back()" class="btn btn-info">Cancel</button>
   </form>
 {% endblock %}
