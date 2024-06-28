@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+{% if manufacturer.id %}
+  <h1>Update manufacturer</h1>
+{% else %}
+  <h1>Create manufacturer</h1>
+{% endif %}
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" class="btn btn-primary" value="Submit">
+  </form>
+{% endblock %}
