@@ -7,7 +7,7 @@
   <form action="" method="post">
     {% csrf_token %}
     {{ form|crispy }}
-    <a class="btn btn-primary" href="{% url 'taxi:car-detail' car.id %}">Go back</a>
+    <a class="btn btn-primary" onclick="window.history.back()">Go back</a>
     <input type="submit" class="btn btn-danger" value="Confirm">
   </form>
 {% endblock %}
