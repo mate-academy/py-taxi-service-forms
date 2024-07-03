@@ -1,0 +1,45 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+  {% block title %}
+    <title>Taxi Service</title>
+  {% endblock %}
+
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <section>
+    <header class="header">
+      <a href="{% url 'taxi:index' %}">
+        <img class="header_img" src="{% static 'taxi/images/g81.png' %}">
+      </a>
+    </header>
+
+    <div class="main">
+
+
+      <div class="navigate">
+        {% block sidebar %}
+          {% include 'includes/sidebar.html' %}
+        {% endblock %}
+      </div>
+
+
+
+      {% block content %}
+      <div class="content">
+      </div>
+      {% endblock %}
+
+    </div>
+
+    <footer>
+    some text
+    </footer>
+  </section>
+
+</body>
+</html>
