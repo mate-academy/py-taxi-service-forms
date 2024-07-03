@@ -1,3 +1,223 @@
+section {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  min-width: 1000px;
+}
+
 body {
-    margin-top: 20px;
+    margin: 0;
+    height: 100%;
+    font-family: "Barlow Condensed", Arial, sans-serif;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    background-color: #fdd405;
+    min-width: 1000px;
+    display: flex;
+
+    border-bottom-style: solid;
+    border-bottom-color: lightgrey;
+    border-bottom-width: 5px;
+    padding-top: 5px;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-bottom-style: solid;
+    border-bottom-color: lightgrey;
+    border-bottom-width: 5px;
+    padding-top: 5px;
+}
+
+.login_label {
+    position: absolute;
+    display: flex;
+    left: 20px;
+    bottom: 5px;
+    width: 200px;
+    height: 100%;
+    color: saddlebrown;
+    font-size: 20px;
+    align-items: flex-end;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(300px);
+
+}
+
+.header_img {
+    max-height: 75px;
+}
+
+.main {
+    display: flex;
+    flex: 1;
+  overflow: auto;
+    font-size: 24px;
+
+}
+
+.navigate {
+    width: 200px;
+    height: 100%;
+    display: inline-block;
+    border-right-style: solid;
+    border-right-color: lightgrey;
+    border-right-width: 5px;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+.navigate ul {
+  list-style-type: none;
+    margin: 0;
+  padding: 0;
+    font-size: 28px;
+}
+
+.navigate ul li {
+    display: block;
+    position: relative;
+}
+
+.navigate ul li a {
+    display: block;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.navigate a:link {
+    text-decoration: none;
+}
+
+.navigate a:visited{
+    color: saddlebrown;
+    text-decoration: none;
+}
+.navigate a:hover{
+    color: saddlebrown;
+    background-color: burlywood;
+    text-decoration: none;
+}
+.navigate a:active{
+    color: saddlebrown;
+    background-color: burlywood;
+    text-decoration: none;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    float: right;
+    padding-left: 20px;
+    padding-top: 20px;
+
+}
+
+footer {
+    background-color: #fdd405;
+    min-height: 15px;
+    border-top-style: solid;
+    border-top-color: lightgrey;
+    border-top-width: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination {
+    justify-content: center;
+    display: flex;
+    color: saddlebrown;
+}
+
+a {
+    text-decoration: none;
+}
+ a:link {
+    color: saddlebrown;
+}
+a:visited {
+    color: saddlebrown;
+}
+a:hover {
+    color: saddlebrown;
+}
+a:active {
+    color: saddlebrown;
+}
+
+
+.form-container {
+    max-width: 600px;
+    width: 100%;
+    padding: 0;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-container form p {
+    width: 100%;
+    max-width: 600px;
+
+}
+
+.form-container input[type="text"],
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin-bottom: 1px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #79aec8;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #79cfcf;
+}
+
+.delete {
+    background-color: #a41515;
+}
+.delete:hover {
+    background-color: red;
+}
+
+.update-link {
+    font-size: 10px;
+}
+
+.delete-link:link {
+    color: #CC3434;
+    font-size: 10px;
+}
+.delete-link:visited {
+    color: #CC3434;
+    font-size: 10px;
 }

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <div class="content">
+
+        <h2>You want to delete {{ model_verbose_name | capfirst }}:   
+          {% if object.model %}
+            {{ object.model }}.
+          {% elif object.name %}
+            {{ object.name }}.
+          {% endif %}
+          Are you sure?</h2>
+      <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="delete">Delete</button>
+      </form>
+
+      </div>
+{% endblock %}

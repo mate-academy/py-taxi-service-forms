@@ -1,7 +1,27 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-<p>Logged out!</p>
+      <div class="content">
+      <script>
+        function startCountdown(seconds) {
+            const countdownElement = document.getElementById("countdown");
 
-<a href="{% url 'login'%}">Click here to login again.</a>
+            function updateCountdown() {
+                countdownElement.textContent = seconds;
+                if (seconds > 0) {
+                    seconds = seconds - 1;
+                    setTimeout(updateCountdown, 1000);
+                } else {
+                    window.location.href = "/";
+                }
+            }
+            updateCountdown();
+        }
+        window.onload = function() {
+            startCountdown(5);
+        }
+    </script>
+        Good luck! Will redirect on main page with <span id="countdown">5</span> seconds...
+      
+      </div>
 {% endblock %}
