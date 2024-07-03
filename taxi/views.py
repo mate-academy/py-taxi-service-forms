@@ -59,25 +59,33 @@ class CustomModelFormMixin:
     def get_form(self, form_class=None):
         form = super().get_form(form_class=form_class)
         for field_name, field in form.fields.items():
-            field.widget.attrs.update({'class': 'form-control'})
+            field.widget.attrs.update({"class": "form-control"})
         return form
 
 
 class DeleteDialogMixin:
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['model_verbose_name'] = self.model._meta.verbose_name
+        context["model_verbose_name"] = self.model._meta.verbose_name
         return context
 
 
-class CarCreateView(LoginRequiredMixin, CustomModelFormMixin, generic.CreateView):
+class CarCreateView(
+    LoginRequiredMixin,
+    CustomModelFormMixin,
+    generic.CreateView
+):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_from.html"
 
 
-class CarUpdateView(LoginRequiredMixin, CustomModelFormMixin, generic.UpdateView):
+class CarUpdateView(
+    LoginRequiredMixin,
+    CustomModelFormMixin,
+    generic.UpdateView
+):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
@@ -85,7 +93,7 @@ class CarUpdateView(LoginRequiredMixin, CustomModelFormMixin, generic.UpdateView
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['view_type'] = 'update'
+        context["view_type"] = "update"
         return context
 
 
@@ -95,14 +103,22 @@ class CarDeleteView(LoginRequiredMixin, DeleteDialogMixin, generic.DeleteView):
     success_url = reverse_lazy("taxi:car-list")
 
 
-class ManufacturerCreateView(LoginRequiredMixin, CustomModelFormMixin, generic.CreateView):
+class ManufacturerCreateView(
+    LoginRequiredMixin,
+    CustomModelFormMixin,
+    generic.CreateView
+):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_form.html"
 
 
-class ManufacturerUpdateView(LoginRequiredMixin, CustomModelFormMixin, generic.UpdateView):
+class ManufacturerUpdateView(
+    LoginRequiredMixin,
+    CustomModelFormMixin,
+    generic.UpdateView
+):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
@@ -110,11 +126,15 @@ class ManufacturerUpdateView(LoginRequiredMixin, CustomModelFormMixin, generic.U
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['view_type'] = 'update'
+        context["view_type"] = "update"
         return context
 
 
-class ManufacturerDeleteView(LoginRequiredMixin, DeleteDialogMixin, generic.DeleteView):
+class ManufacturerDeleteView(
+    LoginRequiredMixin,
+    DeleteDialogMixin,
+    generic.DeleteView
+):
     model = Manufacturer
     template_name = "taxi/delete_record.html"
     success_url = reverse_lazy("taxi:manufacturer-list")

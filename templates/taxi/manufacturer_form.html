@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_filters %}
 {% block content %}
       <div class="content">
         <div class="form-container">
@@ -10,10 +10,10 @@
           {% endif   %}
           <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form|crispy }}
             <button type="submit">Save</button>
           </form>
-        </div>  
-      
+        </div>
+
       </div>
 {% endblock %}
