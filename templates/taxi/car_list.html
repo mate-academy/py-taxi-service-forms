@@ -2,11 +2,14 @@
 
 {% block content %}
   <h1>Car list</h1>
+  <button style="border-radius: 5px; width: 100px; height: 35px"><a href="{% url 'taxi:car-create' %}">Create car</a></button>
+  <br>
   {% if car_list %}
+    <br>
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+          <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
         </li>
       {% endfor %}
@@ -14,4 +17,5 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+
 {% endblock %}
