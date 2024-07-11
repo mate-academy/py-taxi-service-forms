@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "django.contrib.staticiles",
+    "django.contrib.staticfiles",
     "debug_toolbar",
     "taxi",
     "crispy_bootstrap4",
