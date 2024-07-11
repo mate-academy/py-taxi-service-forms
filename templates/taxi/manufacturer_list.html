@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Manufacturer List
-    <a href="{% url 'taxi:manufacturer-create' %}">Add</a></h1>
+    <a style="float: unset" href="{% url 'taxi:manufacturer-create' %}">
+      <br>
+      Add</a></h1>
   {% if manufacturer_list %}
     <table class="table">
       <tr>
