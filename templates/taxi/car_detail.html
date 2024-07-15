@@ -1,7 +1,14 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
+  <p>Car: {{ car.model}}</p>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+  <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-primary">Update Car</a>
+  <br>
+  <br>
+  <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-secondary">Delete Car</a>
+  <br>
   <h1>Drivers</h1>
   <hr>
   <ul>
