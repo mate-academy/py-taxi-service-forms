@@ -21,8 +21,8 @@
         <td>{{ driver.first_name }}</td>
         <td>{{ driver.last_name }}</td>
         <td>
-          <a href="{% url 'taxi:car-update' car.id %}" class="btn btn-primary btn-sm">Update</a>
-          <a href="{% url 'taxi:car-delete' car.id %}" class="btn btn-danger btn-sm">Delete</a>
+          <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-primary btn-sm">Update</a>
+          <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-danger btn-sm">Delete</a>
         </td>
       </tr>
     {% endfor %}

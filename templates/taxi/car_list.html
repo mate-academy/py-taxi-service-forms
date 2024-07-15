@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1>Car list
-    <a href="{% url 'taxi:car-create' %}" style="color: blue"> + </a>
+    <a href="{% url 'taxi:car-create' pk=car.id %}" style="color: blue"> + </a>
   </h1>
   {% if car_list %}
     <ul>
