@@ -23,10 +23,10 @@
             {{ manufacturer.country }}
           </td>
           <td>
-            <a style="text-decoration: none" class="btn btn-primary" href="{% url 'taxi:manufacturer-update' manufacturer.id %}">Update</a>
+            <a style="text-decoration: none" class="btn btn-primary" href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">Update</a>
           </td>
           <td>
-            <a style="text-decoration: none" class="btn btn-danger" href="{% url 'taxi:manufacturer-delete' manufacturer.id %}">Delete</a>
+            <a style="text-decoration: none" class="btn btn-danger" href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">Delete</a>
           </td>
         </tr>
       {% endfor %}

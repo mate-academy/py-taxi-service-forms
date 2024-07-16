@@ -14,7 +14,7 @@
       {% for car in car_list %}
         <tr>
           <td>
-            <a href="{% url "taxi:car-detail" pk=car.id %}">{{ car.id }}</a>
+            <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>
           </td>
           <td>
             {{ car.model }}
@@ -23,10 +23,10 @@
             {{ car.manufacturer.name }}
           </td>
           <td>
-            <a style="text-decoration: none" class="btn btn-primary" href="{% url 'taxi:car-update' car.id %}">Update</a>
+            <a style="text-decoration: none" class="btn btn-primary" href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
           </td>
           <td>
-            <a style="text-decoration: none" class="btn btn-danger" href="{% url 'taxi:car-delete' car.id %}">Delete</a>
+            <a style="text-decoration: none" class="btn btn-danger" href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
           </td>
         </tr>
       {% endfor %}
