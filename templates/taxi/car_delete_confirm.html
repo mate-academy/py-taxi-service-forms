@@ -2,14 +2,22 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
+  <h1>Delete Car</h1>
+  <p>Are you sure you want to delete the car:</p>
+    <hr>
+  <p>Model: {{ car.model }}</p>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
+  <p><strong>Drivers</strong></p>
   <ul>
   {% for driver in car.drivers.all %}
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
-  <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-primary">Update</a>
-  <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-danger">Delete</a>
+  <hr>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn btn-danger" type="submit" value="Yes, delete">
+  </form>
 {% endblock %}
+
