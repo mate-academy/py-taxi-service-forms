@@ -6,6 +6,6 @@
   <form action="" method="post">
     {% csrf_token %}
     <input type="submit" value="Yes, delete" class="btn btn-danger" />
-    <input type="submit" value="No, keep" name="cancel" class="btn btn-success" />
+    <input type="submit" value="No, keep" onclick="location.href = '/manufacturers/;'" class="btn btn-success" />
   </form>
 {% endblock %}
