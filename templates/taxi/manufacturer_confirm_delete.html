@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-	<h1>Delete Manufacture</h1>
-  <p>Are you sure you want to delete the literary format: {{ manufacture }}</p>
+	<h1>Manufacturer Delete</h1>
+  <p>Are you sure you want to delete the manufacturer: {{ manufacturer.name }}</p>
 
-  <p><i>All Books with this literary format will be also delete</i></p>
   <form action="" method="post">
     {% csrf_token %}
     <input type="submit" value="Yes, delete" class="btn btn-danger">
