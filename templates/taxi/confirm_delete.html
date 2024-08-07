@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h3>Do you really want to delete {{ object_type }}: {{ object }}?</h3>
+  <h3>Do you really want to delete {{ object_type }} {{ object }}?</h3>
   <p style="color: red">All related data will be erased as well</p>
   <form action="" method="post" >
     {% csrf_token %}

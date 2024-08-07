@@ -60,7 +60,7 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.edit.DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['object_type'] = 'Manufacturer'
+        context["object_type"] = "manufacturer"
         return context
 
 
@@ -95,7 +95,7 @@ class CarDeleteView(LoginRequiredMixin, generic.edit.DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['object_type'] = 'Car'
+        context["object_type"] = "car"
         return context
 
 
