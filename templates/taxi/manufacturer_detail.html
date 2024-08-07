@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Name: {{ manufacturer.name }}</h3><br>
+  <p>Country of origin: {{ manufacturer.country }}</p>
+  <p><a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">Update</a> or
+    <a href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">Delete</a> this manufacturer.
+  </p>
+{% endblock %}
