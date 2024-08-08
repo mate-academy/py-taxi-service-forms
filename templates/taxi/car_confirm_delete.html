@@ -9,7 +9,7 @@
 
     <br>
     <input type="submit" class="btn btn-danger" value="Yes">
-    <button onclick="{% url "taxi:car-list" %}"
-            class="btn btn-primary">No</button>
+    <a href="{% url "taxi:car-detail" pk=car.id %}"
+            class="btn btn-primary">No</a>
   </form>
 {% endblock %}
