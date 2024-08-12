@@ -34,6 +34,8 @@ INTERNAL_IPS = [
 ]
 
 # Application definition
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -61,7 +63,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "taxi_service.urls"
 
-CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 TEMPLATES = [
     {
