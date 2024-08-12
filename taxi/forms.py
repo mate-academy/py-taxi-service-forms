@@ -1,11 +1,12 @@
+from django import forms
+from django.forms import ModelForm
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
-from django.forms import forms
 
-from taxi.models import Car, Manufacturer
+from .models import Car, Manufacturer
 
 
-class CarForm(forms.ModelForm):
+class CarForm(ModelForm):
     class Meta:
         model = Car
         fields = "__all__"
@@ -16,7 +17,7 @@ class CarForm(forms.ModelForm):
         self.helper.add_input(Submit("submit", "Save"))
 
 
-class ManufacturerForm(forms.ModelForm):
+class ManufacturerForm(ModelForm):
     class Meta:
         model = Manufacturer
         fields = "__all__"
