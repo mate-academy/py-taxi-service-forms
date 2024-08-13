@@ -1,30 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
-    </h1>
+    <h1>Manufacturer List</h1>
+
+    <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary">Create New Manufacturer</a>
 
     {% if manufacturer_list %}
       <table class="table">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
-        </tr>
-
-        {% for manufacturer in manufacturer_list %}
-            <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
           </tr>
-        {% endfor %}
+        </thead>
+        <tbody>
+          {% for manufacturer in manufacturer_list %}
+              <tr>
+                <td>{{ manufacturer.id }}</td>
+                <td>{{ manufacturer.name }}</td>
+                <td>
+                    <a href="{% url 'taxi:manufacturer-update' manufacturer.pk %}" class="btn btn-warning btn-sm">Update</a>
+                    <a href="{% url 'taxi:manufacturer-delete' manufacturer.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+              </tr>
+          {% endfor %}
+        </tbody>
       </table>
 
     {% else %}
