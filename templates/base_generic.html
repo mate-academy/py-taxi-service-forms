@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Taxi Service{% endblock %}</title>
+    {% load static %}
+    <!-- Подключение CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'taxi:index' %}">Home</a></li>
+                <li><a href="{% url 'taxi:manufacturer-list' %}">Manufacturers</a></li>
+                <li><a href="{% url 'taxi:car-list' %}">Cars</a></li>
+                <li><a href="{% url 'taxi:driver-list' %}">Drivers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Taxi Service</p>
+    </footer>
+</body>
+</html>
