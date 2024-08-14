@@ -73,7 +73,9 @@ class CarUpdateView(CarCreateView, LoginRequiredMixin, generic.UpdateView):
     pass
 
 
-class ManufacturerUpdateView(ManufacturerCreateView, LoginRequiredMixin, generic.UpdateView):
+class ManufacturerUpdateView(ManufacturerCreateView,
+                             LoginRequiredMixin,
+                             generic.UpdateView):
     pass
 
 
