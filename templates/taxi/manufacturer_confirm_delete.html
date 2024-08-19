@@ -3,7 +3,8 @@
   <h1>Delete Car</h1>
   <p> You sure you want to delete the Manufacturer: {{ manufacturer }}?</p>
   <form action="" method="post">
-  {% csrf_token %}
-  <input class="btn btn-danger" type="submit" value="Delete">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="Delete">
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary" style="margin-left: 10px;">Cancel</a>
   </form>
-{% endblock%}
+{% endblock %}
