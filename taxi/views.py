@@ -90,24 +90,6 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
-class DriverCreateView(LoginRequiredMixin, generic.CreateView):
-    model = Driver
-    success_url = reverse_lazy("taxi:driver-list")
-    template_name = "taxi/driver_form.html"
-
-
-class DriverUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = Driver
-    success_url = reverse_lazy("taxi:driver-list")
-    template_name = "taxi/driver_form.html"
-
-
-class DriverDeleteView(LoginRequiredMixin, generic.DeleteView):
-    model = Driver
-    success_url = reverse_lazy("taxi:driver-list")
-    template_name = "taxi/driver_delete_confirm.html"
-
-
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
