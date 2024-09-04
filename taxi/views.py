@@ -55,7 +55,7 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     queryset = Driver.objects.prefetch_related("cars__manufacturer")
 
 
-class CarsCreateView(generic.edit.CreateView):
+class CarsCreateView(LoginRequiredMixin, generic.edit.CreateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
