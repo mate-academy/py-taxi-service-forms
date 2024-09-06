@@ -4,7 +4,7 @@
   <h1> Car information </h1>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h3>Drivers</h3>
-  <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-primary link-to-page">Update information about car</a>
+  <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-primary link-to-page">Update</a>
   <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-danger link-to-page">Delete car</a>
   <hr>
 
