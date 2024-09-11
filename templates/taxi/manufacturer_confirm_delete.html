@@ -7,4 +7,7 @@
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">Delete</button>
   </form>
+  <br>
+  <a href="{% url "taxi:manufacturer-list" %}"
+     class="btn btn-primary">Cancel</a>
 {% endblock %}
