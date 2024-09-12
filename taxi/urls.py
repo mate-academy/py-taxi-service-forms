@@ -42,10 +42,10 @@ urlpatterns = [
         name="manufacturer-update"
     ),
     path(
-         "manufacturers/delete/<int:pk>/",
-         ManufacturerDeleteView.as_view(),
-         name="manufacturer-delete"
-         ),
+        "manufacturers/delete/<int:pk>/",
+        ManufacturerDeleteView.as_view(),
+        name="manufacturer-delete"
+    ),
 ]
 
 app_name = "taxi"
