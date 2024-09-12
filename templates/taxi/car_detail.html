@@ -9,4 +9,11 @@
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
+  <hr>
+  <button class="btn btn-success">
+    <a style="color:white" href="{% url 'taxi:car-update' car.pk %}">UPDATE</a>
+  </button>
+  <button class="btn btn-danger">
+    <a style="color:white" href="{% url 'taxi:car-delete' car.pk %}">DELETE</a>
+  </button>
 {% endblock %}
