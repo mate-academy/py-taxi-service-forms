@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+
+{% block title %}
+	<title>{% if object %}Update{% else %}Create{% endif %}_car</title>
+{% endblock %}
+
+
+{% block content %}
+	<h2>{% if object %}Update this{% else %}Create a{% endif %} car</h2>
+  <br>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit" class="button">
+  </form>
+{% endblock %}
