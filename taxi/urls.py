@@ -7,9 +7,6 @@ from .views import (
     DriverListView,
     DriverDetailView,
     ManufacturerListView,
-)
-
-from taxi.views import (
     ManufacturerCreateView,
     ManufacturerUpdateView,
     ManufactureDeleteView,
@@ -36,10 +33,10 @@ urlpatterns = [
         "cars/create/", CarCreateView.as_view(), name="car-create"
     ),
     path(
-        "cars/update/<int:pk>", CarUpdateView.as_view(), name="car-update"
+        "cars/update/<int:pk>/", CarUpdateView.as_view(), name="car-update"
     ),
     path(
-        "cars/delete/<int:pk>", CarDeleteView.as_view(), name="car-delete"
+        "cars/delete/<int:pk>/", CarDeleteView.as_view(), name="car-delete"
     ),
     path(
         "manufacturers/create/",
@@ -47,12 +44,12 @@ urlpatterns = [
         name="manufacturer-create"
     ),
     path(
-        "manufacturers/update/<int:pk>",
+        "manufacturers/update/<int:pk>/",
         ManufacturerUpdateView.as_view(),
         name="manufacturer-update"
     ),
     path(
-        "manufacturers/delete/<int:pk>",
+        "manufacturers/delete/<int:pk>/",
         ManufactureDeleteView.as_view(),
         name="manufacturer-delete"
     ),
