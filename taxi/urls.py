@@ -48,12 +48,12 @@ urlpatterns = [
     path(
         "cars/<int:pk>/delete/",
         CarDeleteView.as_view(),
-        name="car-confirm-delete"
+        name="car-delete"
     ),
     path(
         "manufacturers/<int:pk>/delete/",
         ManufacturerDeleteView.as_view(),
-        name="manufacturer-confirm-delete"
+        name="manufacturer-delete"
     ),
 ]
 
