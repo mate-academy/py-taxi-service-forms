@@ -4,6 +4,7 @@ from django import forms
 
 from taxi.models import Car, Manufacturer
 
+
 class CarForm(forms.ModelForm):
     class Meta:
         model = Car
@@ -14,6 +15,7 @@ class CarForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = "post"
         self.helper.add_input(Submit("submit", "Save"))
+
 
 class ManufacturerForm(forms.ModelForm):
     class Meta:
