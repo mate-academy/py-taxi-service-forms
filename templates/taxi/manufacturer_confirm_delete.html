@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <form method="post">
+  {% csrf_token %}
+    <p><strong>Confirm manufacturer deletion</strong></p>
+    <input type="submit" value="Confirm" class="btn btn-danger btn-sm">
+    <a onclick="window.history.back()" class="btn btn-secondary btn-sm">Cancel</a>
+  </form>
+{% endblock %}
