@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h2>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Manufacturer</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+</form>
+{% endblock %}
