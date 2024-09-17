@@ -6,4 +6,10 @@
 venv/
 .pytest_cache/
 **__pycache__/
+*.pyc
+/db.sqlite3
+app/db.sqlite3
 db.sqlite3
+.vs/
+.git/
+**__init__.py
