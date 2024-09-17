@@ -30,11 +30,13 @@ urlpatterns = [
     path(
         "manufacturers/<int:pk>/update/",
         ManufacturerUpdateView.as_view(),
-        name="manufacturer-update"),
+        name="manufacturer-update"
+    ),
     path(
         "manufacturers/<int:pk>/delete/",
         ManufacturerDeleteView.as_view(),
-        name="manufacturer-delete"),
+        name="manufacturer-delete"
+    ),
     path("cars/", CarListView.as_view(), name="car-list"),
     path("cars/<int:pk>/", CarDetailView.as_view(), name="car-detail"),
     path("cars/create/", CarCreateView.as_view(), name="car-create"),
