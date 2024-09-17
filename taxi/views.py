@@ -5,11 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-
-from .models import Driver, Car, Manufacturer
-
-
-from .forms import CarForm, ManufacturerForm
+from taxi.models import Driver, Car, Manufacturer
+from taxi.forms import CarForm, ManufacturerForm
 
 
 @login_required
