@@ -12,7 +12,7 @@
     {% for car in car_list %}
       <tr>
         <td>{{ car.id }}</td>
-        <td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}{% if user in car.drivers.all %} (Me){% endif %}</a></td>
+        <td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.model }}</a></td>
         <td>{{ car.manufacturer.name }}</td>
       </tr>
     {% endfor %}
