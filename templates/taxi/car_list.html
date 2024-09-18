@@ -14,4 +14,10 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+  <br>
+  <button type="button" class="btn btn-primary" 
+          style="margin: 10px; padding: 10px 20px;"
+          onclick="window.location.href='{% url "taxi:car-create" %}';">
+    CREATE
+  </button>
 {% endblock %}
