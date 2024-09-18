@@ -38,4 +38,9 @@
     {% else %}
         <p>There are no manufacturers in the service.</p>
     {% endif %}
+  <button type="button" class="btn btn-primary"
+          style="margin: 10px; padding: 10px 20px;"
+          onclick="window.location.href='{% url "taxi:manufacturer-create" %}';">
+    CREATE
+  </button>
 {% endblock %}
