@@ -28,12 +28,12 @@ urlpatterns = [
         name="manufacturer-create",
     ),
     path(
-        "manufacturers/update/<int:pk>",
+        "manufacturers/update/<int:pk>/",
         ManufacturerUpdateView.as_view(),
         name="manufacturer-update",
     ),
     path(
-        "manufacturers/delete/<int:pk>",
+        "manufacturers/delete/<int:pk>/",
         ManufacturerDeleteView.as_view(),
         name="manufacturer-delete",
     ),
