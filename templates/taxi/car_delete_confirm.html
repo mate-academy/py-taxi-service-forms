@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <p>Are you sure you want to delete the <strong>{{ car }}</strong>?</p>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <input
+        type="submit" value="Delete"
+        class="btn btn-primary btn-large btn-danger"
+    >
+    <a 
+        href="{% url 'taxi:car-detail' pk=car.id %}"
+        class="btn btn-primary btn-large"
+    >
+      Cancel
+    </a>
+  </form>
+{% endblock %}
