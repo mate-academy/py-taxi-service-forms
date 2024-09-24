@@ -44,8 +44,7 @@ urlpatterns = [
     path(
         "manufacturers/<int:pk>/delete/",
         ManufacturerDeleteView.as_view(),
-        name="manufacturer-delete"
-    ),
+        name="manufacturer-delete"),
 ]
 
 app_name = "taxi"
