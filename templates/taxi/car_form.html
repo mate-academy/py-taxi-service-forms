@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  {% if "create" in request.path %}
+    <h2>Create car:</h2>
+  {% else %}
+    <h2>Update car:</h2>
+  {% endif %}
+  <form action="" method="post" novalidate>
+  {% csrf_token %}
+  {{ form|crispy }}
+
+  <input class="btn btn-primary" type="submit" value="OK">
+  </form>
+{% endblock %}
