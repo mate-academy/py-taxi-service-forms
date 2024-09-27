@@ -1,13 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <h1>Car list
+    <a style="background-color: #f0f0f0; border-radius: 15px;" href="{% url "taxi:car-create" %}">Add
+    </a>
+  </h1>
+  
   {% if car_list %}
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+          <a style ="display: inline-block;
+           margin-bottom: 5px;" 
+             href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
+          <td>
+            <a style="
+             background-color: #3e3c3c;
+             margin: 5px;
+             border-radius: 5px;
+             padding: 1px;
+             color: white;" 
+               href="{% url "taxi:car-update" car.pk %}">Update</a>
+            
+            <a style="
+            background-color: #e74c3c;
+            border-radius: 5px;
+            padding: 1px;
+            color: white;" 
+               href="{% url "taxi:car-delete" car.pk %}">Delete</a>
+          </td>
         </li>
       {% endfor %}
     </ul>
