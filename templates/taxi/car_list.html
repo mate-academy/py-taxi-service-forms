@@ -11,6 +11,10 @@
         </li>
       {% endfor %}
     </ul>
+  <form action="{% url "taxi:car-create"%}" method="post">
+    {% csrf_token %}
+    <button class="create_car" type="submit">Create</button>
+  </form>    
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
