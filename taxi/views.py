@@ -46,6 +46,11 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
+class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Manufacturer
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
