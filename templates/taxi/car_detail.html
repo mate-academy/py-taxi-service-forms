@@ -5,8 +5,20 @@
   <h1>Drivers</h1>
   <hr>
   <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
+    {% for driver in car.drivers.all %}
+      <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+    {% endfor %}
   </ul>
+
+  {% if car.id %}
+    <form action="{% url "taxi:car-update" car.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Update</button>
+    </form>
+    
+    <form action="{% url "taxi:car-delete" car.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Delete</button>
+    </form>  
+  {% endif %}
 {% endblock %}
