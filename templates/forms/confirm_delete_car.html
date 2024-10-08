@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h2>Delete Car</h2>
+  <p>Are you sure, you want to delete Car: {{ car.model }} ?</p>
+  <p>Car {{ car.model }} will be deleted !</p>
+  <form method="post" action="">
+    {% csrf_token %}
+    <input type="submit" value="Confirm" class="btn btn-danger">
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}
