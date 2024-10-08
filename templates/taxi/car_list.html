@@ -1,17 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
-  {% if car_list %}
-    <ul>
-      {% for car in car_list %}
+<h1>Car List <a class="btn btn-primary" href="{% url 'taxi:car-create' %}">Add car</a></h1>
+<ul>
+    {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
+            {{ car.model }} ({{ car.manufacturer.name }}) 
+            <a href="{% url "taxi:car-detail" pk=car.id %} ">Detail</a>
         </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>There are no cars in taxi</p>
-  {% endif %}
+    {% empty %}
+        <li>No cars available.</li>
+    {% endfor %}
+</ul>
 {% endblock %}
