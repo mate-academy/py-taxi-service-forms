@@ -9,5 +9,8 @@
     {% csrf_token %}
     
     <input type="submit" class="btn btn-danger" value="Yes, delete">
+    
   </form>
+  <br>  
+  <a href="{{ request.META.HTTP_REFERER }}"><button class="btn btn-primary">Cancel</button></a>
 {% endblock %}
