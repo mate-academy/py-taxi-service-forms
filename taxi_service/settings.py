@@ -48,8 +48,6 @@ INSTALLED_APPS = [
     "crispy_bootstrap4",
 ]
 
-
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
