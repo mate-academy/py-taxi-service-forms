@@ -2,6 +2,7 @@
 
 {% block content %}
   <h1>Car list</h1>
+  <p><a class="link" href="{% url 'taxi:car-create' %}">Click here to add a new car</a></p>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
