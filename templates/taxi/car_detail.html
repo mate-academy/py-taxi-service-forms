@@ -1,15 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-    <form action="{% url "taxi:car-update" pk=car.id %}" method="get" style="float: right">
-      {% csrf_token %}
-      <input type="button" value="UPDATE" class="btn button">
-    </form>
-    <form action="{% url 'taxi:car-delete' pk=car.id%}" method="get" style="float: right">
-      {% csrf_token %}
-      <input type="button" value="DELETE" class="btn button">
-    </form>
+  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})
+    <a style="float: right" href="{% url "taxi:car-update" pk=car.id %}">Update</a><a style="float: right" href="{% url 'taxi:car-delete' pk=car.id%}">Delete</a>
+  </p>
   <h1>Drivers</h1>
   <hr>
   <ul>
