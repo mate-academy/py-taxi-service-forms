@@ -8,4 +8,7 @@
     {{ form|crispy }}
     <input class="btn btn-primary" type="submit" value="Submit">
   </form>
+  <form action="{% url 'taxi:car-list' %}">
+    <button class="btn" type="submit">Cancel</button>
+  </form>
 {% endblock %}
