@@ -9,4 +9,33 @@
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
+  <a style="
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+" href="{% url 'taxi:car-update' pk=car.id %}"
+   onmouseover="this.style.backgroundColor='#45a049';"
+   onmouseout="this.style.backgroundColor='#4CAF50';">Update</a>
+
+
+  <a style="
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #af0202;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+" href="{% url 'taxi:car-delete' pk=car.id %}"
+   onmouseover="this.style.backgroundColor='#850000';"
+   onmouseout="this.style.backgroundColor='#af0202';">Delete</a>
+
 {% endblock %}

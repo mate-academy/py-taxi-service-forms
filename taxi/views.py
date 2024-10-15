@@ -1,7 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 
 from .models import Driver, Car, Manufacturer
 
@@ -34,6 +37,26 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
+class ManufacturerCreateView(LoginRequiredMixin, generic.edit.CreateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer_list")
+    template_name = "taxi/manufacturer_form.html"
+
+
+class ManufacturerUpdateView(LoginRequiredMixin, generic.edit.UpdateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer_list")
+    template_name = "taxi/manufacturer_form.html"
+
+
+class ManufacturerDeleteView(LoginRequiredMixin, generic.edit.DeleteView):
+    model = Manufacturer
+    success_url = reverse_lazy("taxi:manufacturer_list")
+    template_name = "taxi/manufacturer_confirm_delete.html"
+
+
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
@@ -42,6 +65,26 @@ class CarListView(LoginRequiredMixin, generic.ListView):
 
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
+
+
+class CarCreateView(LoginRequiredMixin, generic.edit.CreateView):
+    model = Car
+    fields = "__all__"
+    template_name = "taxi/car_form.html"
+    success_url = reverse_lazy("taxi:car_list")
+
+
+class CarUpdateView(LoginRequiredMixin, generic.edit.UpdateView):
+    model = Car
+    fields = "__all__"
+    template_name = "taxi/car_form.html"
+    success_url = reverse_lazy("taxi:car_list")
+
+
+class CarDeleteView(LoginRequiredMixin, generic.edit.DeleteView):
+    model = Car
+    success_url = reverse_lazy("taxi:car_list")
+    template_name = "taxi/car_confirm_delete.html"
 
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
