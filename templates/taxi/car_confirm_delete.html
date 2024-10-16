@@ -8,8 +8,8 @@
   <p><i>All info about this car will be irretrievably deleted</i></p>
   <form action="" method="post">  
     {% csrf_token %}
-    <input type="submit" value="Yes, delete" class="btn btn-secondary">
-    <a href="{% url 'taxi:car-list' %}" class="btn btn-danger">Cancel</a>
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <button type="button" class="btn btn-secondary" onclick="window.history.back();">Cancel</button>
 
   </form>
   
