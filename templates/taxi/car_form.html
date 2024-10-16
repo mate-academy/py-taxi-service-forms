@@ -6,6 +6,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     <input class="btn btn-primary" type="submit" value="Submit">
+    <button type="button" class="btn btn-secondary" onclick="window.history.back();">Cancel</button>
   </form>
   
 {% endblock %}
