@@ -1,9 +1,13 @@
+from audioop import reverse
+
+from asgiref.typing import HTTPRequestEvent
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Driver, Car, Manufacturer
+from .forms import CarForm
 
 
 @login_required
@@ -52,3 +56,31 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
+from django.urls import reverse
+
+def car_create_view(request: HttpRequest) -> HttpResponse:
+    if request.method == "GET":
+        context = {
+            "form": CarForm(),
+            "manufacturers": Manufacturer.objects.all(),
+            "drivers": Driver.objects.all(),
+        }
+        return render(request, "taxi/car_form.html", context=context)
+    elif request.method == "POST":
+        model = request.POST["model"]
+        manufacturer = request.POST["manufacturer"]
+        drivers = request.POST.getlist("drivers")
+        if model and manufacturer:
+            car = Car.objects.create(model=model, manufacturer_id=manufacturer)
+            if drivers:
+                car.drivers.add(*drivers)
+                car.save()
+        else:
+            context = {
+                "error": "fields model and manufacturer are requared"
+            }
+            return render(request, "taxi/car_form.html", context=context)
+        return HttpResponseRedirect(reverse("taxi:car-list"))

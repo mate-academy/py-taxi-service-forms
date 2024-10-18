@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Create Car</h1>
+  {%  if error %}
+    <p>{{ error }}</p>
+  {% endif %}
+  <form action="" method="post">
+  {% csrf_token %}
+    <label>*Model:
+      <input type="text" name="model">
+    </label>
+    <br>    
+    <label for="manufacturer">*Manufacturer</label>
+    <select id="manufacturer" name="manufacturer" size="4">
+      {% for manufacturer in manufacturers %}      
+        <option value="{{ manufacturer.id }}">{{ manufacturer.name }}</option>
+      {% endfor %}
+    </select>
+    <br>
+    <label for="model">Drivers</label>
+    <select id="drivers" name="drivers" size="4" multiple>
+      {% for driver in drivers %}
+        <option value="{{ driver.id }}">{{ driver.first_name }} {{ driver.last_name }}</option>
+      {% endfor %}
+    </select>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+    
+  
+{% endblock %}
