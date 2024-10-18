@@ -1,14 +1,8 @@
 from django import forms
 
-from .models import Manufacturer, Driver
+from .models import Manufacturer, Driver, Car
 
-class CarForm(forms.Form):
-    model = forms.CharField(max_length=255)
-    manufacturer = forms.ModelChoiceField(queryset=Manufacturer.objects.all())  # Поле вибору для існуючих виробників
-    drivers = forms.ModelMultipleChoiceField(
-        queryset=Driver.objects.all(),
-        widget=forms.SelectMultiple,
-        required=False,
-        label="Drivers",
-    )
-
+class CarForm(forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = '__all__'

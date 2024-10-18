@@ -1,4 +1,5 @@
 from audioop import reverse
+from lib2to3.fixes.fix_input import context
 
 from asgiref.typing import HTTPRequestEvent
 from django.contrib.auth.decorators import login_required
@@ -62,23 +63,11 @@ from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from django.urls import reverse
 
 def car_create_view(request: HttpRequest) -> HttpResponse:
-    if request.method == "GET":
-        context = {
-            "form": CarForm(),
-        }
-        return render(request, "taxi/car_form.html", context=context)
-    elif request.method == "POST":
-        form = CarForm(request.POST)
-        if form.is_valid():
-            Car.objects.create(**form.cleaned_data)
-            model = form.cleaned_data.get("model")
-            manufacturer = form.cleaned_data.get("manufacturer")
-            drivers = form.cleaned_data.get("drivers")
-            car = Car.objects.create(model=model, manufacturer=manufacturer)
-            if drivers:
-                car.drivers.add(*drivers)
-            return HttpResponseRedirect(reverse('taxi:car-list'))
-        context = {
-            "form": form
-        }
-        return render(request, "taxi/car_form.html", context=context)
+    context = {}
+    form = CarForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('taxi:car-list'))
+
+    context["form"] = form
+    return render(request, "taxi/car_form.html", context=context)
