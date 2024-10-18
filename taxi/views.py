@@ -65,22 +65,20 @@ def car_create_view(request: HttpRequest) -> HttpResponse:
     if request.method == "GET":
         context = {
             "form": CarForm(),
-            "manufacturers": Manufacturer.objects.all(),
-            "drivers": Driver.objects.all(),
         }
         return render(request, "taxi/car_form.html", context=context)
     elif request.method == "POST":
-        model = request.POST["model"]
-        manufacturer = request.POST["manufacturer"]
-        drivers = request.POST.getlist("drivers")
-        if model and manufacturer:
-            car = Car.objects.create(model=model, manufacturer_id=manufacturer)
+        form = CarForm(request.POST)
+        if form.is_valid():
+            Car.objects.create(**form.cleaned_data)
+            model = form.cleaned_data.get("model")
+            manufacturer = form.cleaned_data.get("manufacturer")
+            drivers = form.cleaned_data.get("drivers")
+            car = Car.objects.create(model=model, manufacturer=manufacturer)
             if drivers:
                 car.drivers.add(*drivers)
-                car.save()
-        else:
-            context = {
-                "error": "fields model and manufacturer are requared"
-            }
-            return render(request, "taxi/car_form.html", context=context)
-        return HttpResponseRedirect(reverse("taxi:car-list"))
+            return HttpResponseRedirect(reverse('taxi:car-list'))
+        context = {
+            "form": form
+        }
+        return render(request, "taxi/car_form.html", context=context)
