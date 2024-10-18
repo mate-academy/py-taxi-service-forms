@@ -4,11 +4,12 @@ from lib2to3.fixes.fix_input import context
 from asgiref.typing import HTTPRequestEvent
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Driver, Car, Manufacturer
-from .forms import CarForm
+
 
 
 @login_required
@@ -49,7 +50,7 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
 
 
-class DriverListView(LoginRequiredMixin, generic.ListView):
+class DriverListView(generic.ListView):
     model = Driver
     paginate_by = 5
 
@@ -59,15 +60,20 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
 
 
-from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
-from django.urls import reverse
+class CarCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy('taxi:car-list')
+    template_name = "taxi/car_form.html"
 
-def car_create_view(request: HttpRequest) -> HttpResponse:
-    context = {}
-    form = CarForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('taxi:car-list'))
+class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    template_name = "taxi/car_form.html"
 
-    context["form"] = form
-    return render(request, "taxi/car_form.html", context=context)
+
+class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Car
+    template_name = "taxi/car_confirm_delete.html"
+    success_url = reverse_lazy("taxi:car-list")
