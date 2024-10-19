@@ -12,4 +12,5 @@
   </ul> 
   <a class="btn btn-primary" href="{% url 'taxi:car-update' pk=car.id %}">Update this car information</a><br><br>
   <a class="btn btn-primary" href="{% url 'taxi:car-delete' pk=car.id %}">Delete this car</a>
+  <a class="btn btn-primary" href="{% url 'taxi:car-list' %}">Cancel</a>
 {% endblock %}
