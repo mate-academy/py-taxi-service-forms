@@ -2,16 +2,17 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-    <h1>{{ object|yesno:"Update, Create" }} a Manufacturer</h1>
-  
+  <h1>{{ object|yesno:"Update, Create" }} a Manufacturer</h1>
+
   {% if error %}
     <p>{{ error }}</p>
-  {% endif %} 
+  {% endif %}
 
   <form action="" method="post">
     {% csrf_token %}
     {{ form|crispy }}
     <br>
     <input class="btn btn-primary" type="submit" value="Submit">
+    <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-primary">Cancel</a>
   </form>
 {% endblock %}
