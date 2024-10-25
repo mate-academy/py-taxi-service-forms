@@ -50,7 +50,7 @@ Create `sidebar.html` there. Inside `sidebar.html`:
 9. Check that you put empty lines at the end of each HTML file.
 10. Run server, open `http://127.0.0.1:8000/`, check if the information is there and if it is correct.
 11. Run `python manage.py test` to check your code results.
-12. Don't push a lot of extra files(`venv`, `pycache`, `.idea`, `db.sqlite3` etc.) and don't forget to add `.gitignore` to your PR.
+12. Avoid adding unnecessary files (like `venv`, `pycache`, `.idea`, `db.sqlite3`) and remember to include a `.gitignore` file in your PR.
 
 ### Note: Attach screenshots of all created or modified pages to pull request. 
 
