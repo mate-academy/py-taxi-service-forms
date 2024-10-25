@@ -40,7 +40,5 @@ Bad example:
 ```python
 from .views import index
 ```
-
-
 ## Clean Code
  Don't forget to delete comments when you are ready to commit and push your code.
