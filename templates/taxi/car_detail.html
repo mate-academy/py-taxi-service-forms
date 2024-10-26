@@ -8,9 +8,6 @@
   <hr>
   <ul>
     {% if car.drivers.all %}
-      {% for driver in car.drivers.all %}
-        <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-      {% endfor %}
     {% else %}
       <li>No drivers assigned to this car.</li>
     {% endif %}

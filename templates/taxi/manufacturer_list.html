@@ -20,8 +20,8 @@
           <td>{{ manufacturer.name }}</td>
           <td>{{ manufacturer.country }}</td>
           <td>
-            <a href="{% url 'manufacturer-update' manufacturer.id %}" class="btn btn-secondary">Update</a>
-            <a href="{% url 'manufacturer-delete' manufacturer.id %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'taxi:manufacturer-update' manufacturer.id %}" class="btn btn-secondary">Update</a>
+            <a href="{% url 'taxi:manufacturer-delete' manufacturer.id %}" class="btn btn-danger">Delete</a>
           </td>
         </tr>
       {% endfor %}
@@ -30,7 +30,7 @@
     <form method="post">
     {% csrf_token %}
     {{ form|crispy }}
-      <a href="{% url 'manufacturer-create' %}" class="btn btn-primary">Create New Manufacturer</a>
+      <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary">Create New Manufacturer</a>
     </form>
 
   {% else %}
