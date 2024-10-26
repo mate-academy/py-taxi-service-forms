@@ -1,33 +1,39 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <h1>Manufacturer List
-    </h1>
+  <h1>Manufacturer List</h1>
 
-    {% if manufacturer_list %}
-      <table class="table">
+  {% if manufacturer_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Actions</th>
+      </tr>
+
+      {% for manufacturer in manufacturer_list %}
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
+          <td>{{ manufacturer.id }}</td>
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+          <td>
+            <a href="{% url 'manufacturer-update' manufacturer.id %}" class="btn btn-secondary">Update</a>
+            <a href="{% url 'manufacturer-delete' manufacturer.id %}" class="btn btn-danger">Delete</a>
+          </td>
         </tr>
+      {% endfor %}
+    </table>
 
-        {% for manufacturer in manufacturer_list %}
-            <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
-          </tr>
-        {% endfor %}
-      </table>
+    <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+      <a href="{% url 'manufacturer-create' %}" class="btn btn-primary">Create New Manufacturer</a>
+    </form>
 
-    {% else %}
-        <p>There are no manufacturers in the service.</p>
-    {% endif %}
+  {% else %}
+    <p>There are no manufacturers in the service.</p>
+  {% endif %}
 {% endblock %}

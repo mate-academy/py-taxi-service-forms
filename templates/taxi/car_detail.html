@@ -1,12 +1,27 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+  <p>Manufacturer: {{ car.manufacturer.name }}, {{ car.manufacturer.country }}</p>
   <h1>Drivers</h1>
   <hr>
   <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
+    {% if car.drivers.all %}
+      {% for driver in car.drivers.all %}
+        <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+      {% endfor %}
+    {% else %}
+      <li>No drivers assigned to this car.</li>
+    {% endif %}
   </ul>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a href="{% url 'taxi:car-update' car.id %}" class="btn btn-secondary">Update</a>
+    <a href="{% url 'taxi:car-delete' car.id %}" class="btn btn-danger">Delete</a>
+    <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
+  </form>
 {% endblock %}
