@@ -26,6 +26,7 @@ Bad example:
 from django.urls import path
 from taxi.views import index
 ```
+
 3. Use absolute imports instead of relative imports 
   
 Good example:
