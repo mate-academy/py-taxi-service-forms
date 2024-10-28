@@ -11,6 +11,7 @@
       crossorigin="anonymous">
   <!-- Add additional CSS in static file -->
   {% load static %}
+  {% load crispy_forms_tags %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
@@ -27,10 +28,6 @@
     <div class="col-sm-10 ">
 
       {% block content %}{% endblock %}
-
-      {% block pagination %}
-        {% include "includes/pagination.html" %}
-      {% endblock %}
 
     </div>
   </div>
