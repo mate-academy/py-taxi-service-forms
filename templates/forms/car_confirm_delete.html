@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_filters %}
+
+{% block content %}
+
+  <h2>Delete Car</h2>
+
+  <p>Are you sure you want to delete the car: {{ car }}?</p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Confirm" class="btn btn-danger">
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">Cancel</a>
+  </form>
+
+{% endblock %}
