@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Do you want to delete {{ manufacturer.name }}?</h1>
+  
+  {% if manufacturer.cars.exists %}
+    <p class="danger"><i>If you delete this manufacturer, this cars delete also:</i></p>
+    <ul>
+      {% for car in manufacturer.cars.all %}
+        <li>{{ car.model }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Delete">
+  </form>
+{% endblock %}
