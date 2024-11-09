@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Do you want to delete {{ car.model }}?</h1>
+  
+  <p class="danger"><i>If you delete this model, it cannot be returned</i></p>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Delete">
+  </form>
+{% endblock %}
