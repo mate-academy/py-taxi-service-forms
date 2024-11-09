@@ -61,7 +61,7 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
 
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
-    fields = ["model", "manufacturer", ]
+    fields = ["model", "manufacturer", "drivers", ]
     template_name = "taxi/car_create_or_update.html"
     success_url = reverse_lazy("taxi:car-list")
 

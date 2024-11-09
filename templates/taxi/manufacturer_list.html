@@ -26,10 +26,10 @@
             {{ manufacturer.country }}
           </td>
         <td>
-          <a href="{% url 'taxi:manufacturers-update' manufacturer.pk %}">Update</a>
+          <a href="{% url 'manufacturer-update' manufacturer.pk %}">Update</a>
         </td>
         <td>
-          <a href="{% url 'taxi:manufacturers-delete' manufacturer.pk %}">Delete</a>
+          <a href="{% url 'manufacturer-delete' manufacturer.pk %}">Delete</a>
         </td>
         </tr>
       {% endfor %}
@@ -42,5 +42,5 @@
     {% include "includes/pagination.html" %}
   {% endblock %}
 
-  <a href="{% url 'taxi:manufacturers-create' %}" class="btn btn-primary">Create manufacturer</a>
+  <a href="{% url 'manufacturer-create' %}" class="btn btn-primary">Create manufacturer</a>
 {% endblock %}
