@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Delete Car model</h1>
-  <p>Are you want to delete the car models: {{ car }}</p>
+  <p>Do you want to delete the car model: {{ car }}</p>
   <form action="" method="post">
     {% csrf_token %}
     <a href="{% url "taxi:car-list"%}">Cancel</a>
