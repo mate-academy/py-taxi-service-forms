@@ -5,7 +5,7 @@
   
   <a href="{% url 'taxi:car-create' %}" class="btn btn-primary mb-2">Create New Car</a>
   
-  {% if car_list %}
+  {% if object_list %}
     <ul>
       {% for car in object_list %}
         <li>
