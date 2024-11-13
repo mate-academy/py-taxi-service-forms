@@ -1,16 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <h1>Car list <a href="{% url 'taxi:car-create' %}">+</a></h1>
   {% if car_list %}
-    <ul>
-      {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
-      {% endfor %}
-    </ul>
+     <table class="table">
+        <tr>
+          <th>ID</th>
+          <th>Model</th>
+          <th>Manufacturer</th>
+          <th>Drives</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+        {% for car in car_list %}
+        	<tr>
+            <td>{{ car.id }}</td>
+            <td>{{ car.model }}</td>
+            <td>{{ car.manufacturer}}</td>
+            <td>
+              {% if car.drivers.count > 0 %}
+                {% for driver in car.drivers.all %}
+                  {{ driver.username }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+              {% else %}
+                Driver not found
+              {% endif %}
+            </td>
+            <td><a href="{% url 'taxi:car-update' car.id %}">UPDATE</a></td>
+            <td><a href="{% url 'taxi:car-delete' car.id %}">DELETE</a></td>
+          </tr>
+        {% endfor %}
+      </table>
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}

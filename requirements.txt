@@ -1,7 +1,14 @@
-django==4.1
+asgiref==3.8.1
+crispy-bootstrap4==2024.10
+Django==4.2
+django-crispy-forms>=2.3  # Оновлено
+django-debug-toolbar==3.2.4
 flake8==5.0.4
 flake8-quotes==3.3.1
 flake8-variables-names==0.0.5
+mccabe==0.7.0
 pep8-naming==0.13.2
-django-debug-toolbar==3.2.4
-django-crispy-forms==1.14.0
+pycodestyle==2.9.1
+pyflakes==2.5.0
+sqlparse==0.5.1
+tzdata==2024.2
