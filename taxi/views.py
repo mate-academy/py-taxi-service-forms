@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
 from .models import Car, Driver, Manufacturer
@@ -37,20 +38,20 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
     fields = "__all__"
-    template_name = "taxi/manufacturer_form.html"
+    template_name = reverse_lazy("taxi/manufacturer_form.html")
     success_url = "taxi/manufacturer_list.html"
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
-    template_name = "taxi/manufacturer_form.html"
+    template_name = reverse_lazy("taxi/manufacturer_form.html")
     success_url = "taxi/manufacturer_list.html"
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
-    template_name = "taxi/manufacturer_confirm_delete.html"
+    template_name = reverse_lazy("taxi/manufacturer_confirm_delete.html")
     success_url = "taxi/manufacturer_list.html"
 
 
@@ -67,20 +68,20 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     fields = "__all__"
-    template_name = "taxi/car_form.html"
+    template_name = reverse_lazy("taxi/car_form.html")
     success_url = "taxi/car_list.html"
 
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
     fields = "__all__"
-    template_name = "taxi/car_form.html"
+    template_name = reverse_lazy("taxi/car_form.html")
     success_url = "taxi/car_list.html"
 
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
-    template_name = "taxi/car_confirm_delete.html"
+    template_name = reverse_lazy("taxi/car_confirm_delete.html")
     success_url = "taxi/car_list.html"
 
 
