@@ -1,3 +1,316 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #212121;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+a {
+    display: block;
+    color: inherit;
+}
+
+
+h2 {
+    margin-top: 10px;
+}
+
 body {
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    font-size: 14px;
+
+    background-color: #fff;
+    color: #212121
+}
+
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    outline: 1px solid red
+}
+
+aside {
+    padding-left: 20px;
+}
+
+.aside-link {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 16px;
+    color: darkgray;
+}
+
+.aside-link:hover,
+.aside-link:focus {
+    color: blueviolet;
+}
+
+header, footer {
+    background-color: #212121;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 25% auto;
+}
+
+.aside-item {
+    margin-top: 15px;
+}
+
+.username {
+    color: cornflowerblue;
+    font-size: 16px;
+}
+
+.logout-link {
+    width: 70px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.login-link {
+    width: 250px;
+    text-align: center;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: red;
+    border-radius: 15px;
+}
+
+.logout-link:hover,
+.logout-link:focus {
+    color: #212121;
+    background-color: red;
+}
+
+main {
+    padding: 20px;
+}
+
+.taxi-title,.taxi-info {
+    color: darkgray;
+}
+
+.taxi-info {
+    margin-top: 15px;
+}
+
+.data-list,
+.manufacturer-list,
+.driver-list,
+.car-list{
+    font-size: 16px;
+    color: darkgray;
+    margin-top: 15px;
+    margin-left: 30px;
+    width: 250px;
+}
+
+.manufacturer-item,
+.driver-item,
+.car-item{
+    border: 2px solid darkgray;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.driver-item:hover,
+.driver-item:focus,
+.car-item:hover,
+.car-item:focus {
+    border-color: red;
+    background-color: darkgray;
+    color: #ffffff;
+}
+
+.manufacturer-item:not(:first-child) {
+    margin-top: 15px;
+}
+.manufacturer-info:not(:first-child) {
+    margin-top: 10px;
+}
+
+.driver-item:not(:first-child) {
+    margin-top: 15px;
+}
+.driver-info:not(:first-child) {
+    margin-top: 10px;
+}
+
+.car-item:not(:first-child) {
+    margin-top: 15px;
+}
+.car-info:not(:first-child) {
+    margin-top: 10px;
+}
+
+.title-car-block {
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+}
+
+.title-manufacturer-block {
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new_car_btn {
+    text-decoration: none;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    font-size: 26px;
+    margin-left: 20px;
+    background-color: cornflowerblue;
+    border-radius: 50%;
+}
+
+.new_car_btn:hover,
+.new_car_btn:focus {
+    text-decoration: none;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    font-size: 26px;
+    margin-left: 20px;
+    background-color: cornflowerblue;
+    border-radius: 50%;
+}
+
+.car-options {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.car-options--update {
+    padding: 10px;
+    background-color: green;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.car-options--delete {
+    padding: 10px;
+    background-color: red;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.data-item:not(:first-child){
+    margin-top: 15px;
+}
+
+.counter {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    color: cornflowerblue;
+    border: 1px solid green;
+    border-radius: 50%;
+}
+
+.form-button {
+    border-radius: 20px;
+    color: #ffffff;
+    padding: 10px;
+    border-color: transparent;
+}
+
+.form-button.create {
+    background-color: green;
+}
+
+.form-button.delete {
     margin-top: 20px;
+    background-color: red;
+}
+
+.pages {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 250px;
+    justify-content: center;
+}
+
+.page {
+    padding: 10px;
+    background-color: cornflowerblue;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.login-title {
+    margin-bottom: 10px;
+}
+
+.submit-btn {
+    color: #ffff;
+    padding: 5px;
+    background-color: cornflowerblue;
+    margin-top: 10px;
+    border-radius: 15px;
+    border-color: transparent;
+}
+
+.page.current {
+    background-color: darkgray;
+}
+
+.page:not(:first-child) {
+    margin-left: 10px;
+}
+
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
