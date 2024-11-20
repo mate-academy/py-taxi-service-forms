@@ -2,15 +2,17 @@
 
 {% block content %}
   <h1>Car list</h1>
+  <p>
   <a class="btn btn-primary" role="button" href="{% url "taxi:car-create" %}">create car</a>
+  </p>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
         <li>
           <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
-          <a href="{% url "taxi:car-update" pk=car.id %}">update car</a>
-          <a href="{% url "taxi:car-delete" pk=car.id %}">delete car</a>
+          <a href="{% url "taxi:car-update" pk=car.id %}">update</a>
+          <a href="{% url "taxi:car-delete" pk=car.id %}">delete</a>
         </li>
       {% endfor %}
     </ul>
