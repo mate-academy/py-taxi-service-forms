@@ -5,9 +5,9 @@
   {% else %}
     <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
   {% endif %}
-
+</ul>
   <br>
-
+<ul class="sidebar-nav list-group">
   <li class="list-group-item"><a href="{% url 'taxi:index' %}">Home</a></li>
   <li class="list-group-item"><a href="{% url 'taxi:driver-list' %}">All drivers</a></li>
   <li class="list-group-item"><a href="{% url 'taxi:car-list' %}">All cars</a></li>
