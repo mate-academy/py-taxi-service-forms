@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h2>{{ object|yesno:"Update,Create" }} manufacturer</h2>
+  <hr>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit" class="btn btn-primary">
+  </form>
+  <br>
+  <a href="{% url 'taxi:manufacturer-list' %}">Return to manufacturer list</a>
+{% endblock %}
