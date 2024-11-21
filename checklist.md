@@ -1,110 +1,46 @@
-# Сheck Your Code Against the Following Points
-
-## Don't Push db files
-
-Make sure you don't push db files (files with `.sqlite`, `.db3`, etc. extension).
-
-## Don't forget to attach all screenshots of created/modified pages.
-
-## Code Efficiency
-Don't override `template_name`, `context_object_name` and so on if they are the same as default ones.
+# Check Your Code Against the Following Points
 
 ## Code Style
-1. Make sure you've added a blank line at the end to all your files including `.css`, `.html` and `.gitignore`.
-2. Use `()` instead of `backslash — \` in if-statements.
 
-Good example:
+1. Ensure each file ends with a single blank line.
 
-```python
-if (first_condition and second_condition 
-        and third_condition):
-    #  some actions
-```
+2. Add a blank line between different groups of imports and ensure appropriate ordering of imports.
+    
+ Imports should be grouped in the following order:
 
-Also possible one:
+    1.Standard library imports.
+    2.Related third party imports.
+    3.Local application/library specific imports.
 
-```python
-if (first_condition and
-    second_condition):
-    #  some actions
-```
-
-Bad example:
+Good example
 
 ```python
-if first_condition and second_condition \
-    and third_condition:
-    # some actions
-```
+from django.urls import path
 
-3. Group imports using `()` if needed.
-
-Good example:
-
-```python
-from django.contrib.auth.mixins import (
-    LoginRequiredMixin, 
-    UserPassesTestMixin, 
-    PermissionRequiredMixin,
-)
+from taxi.views import index
 ```
 
 Bad example:
 
 ```python
-from django.contrib.auth.mixins import LoginRequiredMixin, \
-    UserPassesTestMixin, PermissionRequiredMixin
+from django.urls import path
+from taxi.views import index
 ```
 
-4. Use correct path names.
-
+3. Use absolute imports instead of relative imports 
+  
 Good example:
 
+
 ```python
-path(
-    "manufacurers/create/", 
-    ManufacturerCreateView.as_view(), 
-    name="manufacturer-create"
-),
+from taxi.views import index
 ```
 
 Bad example:
 
 ```python
-path(
-    "manufacturers/manufacturer_create/", 
-    ManufacturerCreateView.as_view(), 
-    name="manufacturer-create"
-)
+from .views import index
 ```
-
-Another bad example:
-
-```python
-path("create/", ManufacturerCreateView.as_view(), name="manufacturer-create")
-```
-
-5. Add `Cancel` button apart from `Delete` one. The `Cancel` button will lead to the previous page the user was on.
-
-6. Make sure you use 2 whitespaces indentations in your `.html` files.
-7. Use `-` to split words in URL identification parameter `name`, not the `_`.
-
-Good example:
-
-```python
-urlpatterns = [
-    path("buses/", BusListView.as_view(), name="bus-list"),
-]
- ```
-
-Bad example:
-
-```python
-urlpatterns = [
-    path("buses/", BusListView.as_view(), name="bus_list"),
-]
- ```
-
 ## Clean Code
-Add comments, prints, and functions to check your solution when you write your code. 
-Don't forget to delete them when you are ready to commit and push your code.
+
+1. Don't forget to delete comments when you are ready to commit and push your code.
