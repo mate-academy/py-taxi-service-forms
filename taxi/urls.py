@@ -12,7 +12,7 @@ from .views import (
     ManufacturerUpdateView,
     CarUpdateView,
     CarDeleteView,
-    ManufacturerDeleteView,
+    ManufacturerDeleteView
 
 )
 
