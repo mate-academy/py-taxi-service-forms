@@ -78,6 +78,7 @@ class CarUpdateView(LoginRequiredMixin, generic.edit.UpdateView):
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_form.html"
 
+
 class CarDeleteView(LoginRequiredMixin, generic.edit.DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
