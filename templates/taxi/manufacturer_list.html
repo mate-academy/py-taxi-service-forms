@@ -16,13 +16,13 @@
         {% for manufacturer in manufacturer_list %}
             <tr>
               <td>
-								<a href="{% url "taxi:car-detail" pk=manufacturer.id %} ">{{ manufacturer.id }}</a>
+								{{ manufacturer.id }}
               </td>
               <td>
-                  {{ manufacturer.name }}
+								{{ manufacturer.name }}
               </td>
               <td>
-                  {{ manufacturer.country }}
+								{{ manufacturer.country }}
               </td>
 							<td>
 								<a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">UPDATE</a>
