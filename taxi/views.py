@@ -1,8 +1,13 @@
+from http.client import HTTPResponse
 from django.contrib.auth.decorators import login_required
+from django.http import HttpRequest, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse_lazy, reverse
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView, UpdateView, DeleteView
 
+from .forms import CarForm
 from .models import Driver, Car, Manufacturer
 
 
@@ -25,6 +30,52 @@ def index(request):
     }
 
     return render(request, "taxi/index.html", context=context)
+
+
+def car_create_view(
+        request: HttpRequest
+) -> HttpResponseRedirect | HTTPResponse:
+
+    context = {}
+    form = CarForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse("taxi:car-list"))
+    context["form"] = form
+    return render(request, "taxi/car_form.html", context)
+
+
+class CarUpdateView(LoginRequiredMixin, UpdateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    template_name = "taxi/car_form_update.html"
+
+
+class CarDeleteView(LoginRequiredMixin, DeleteView):
+    model = Car
+    template_name = "taxi/confirm_delete_car.html"
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class ManufacturerCreateView(LoginRequiredMixin, CreateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "taxi/manufacturer_form.html"
+
+
+class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "taxi/manufacturer_form.html"
+
+
+class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
+    model = Manufacturer
+    template_name = "taxi/confirm_delete_manufacturer.html"
+    success_url = reverse_lazy("taxi:manufacturer-list")
 
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):

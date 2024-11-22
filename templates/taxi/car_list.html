@@ -6,12 +6,19 @@
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+          <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
+          <a href="{% url 'taxi:car-update' pk=car.id %}">
+            <i class="bi bi-pencil"></i>
+          </a>
+          <a href="{% url 'taxi:car-delete' pk=car.id %}">
+            <i class="bi bi-trash"></i>
+          </a>
         </li>
       {% endfor %}
     </ul>
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+  <a href="{% url 'taxi:car-create' %}" class="btn btn-outline-success">Add new car</a>
 {% endblock %}
