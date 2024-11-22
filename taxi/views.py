@@ -51,7 +51,7 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
-    template_name = "taxi/manufacturer_format_confirm_delete.html"
+    template_name = "taxi/manufacturer_confirm_delete.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
@@ -91,5 +91,5 @@ class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
-    template_name = "taxi/car_format_confirm_delete.html"
+    template_name = "taxi/car_confirm_delete.html"
     success_url = reverse_lazy("taxi:car-list")
