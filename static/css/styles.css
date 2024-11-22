@@ -1,3 +1,67 @@
 body {
     margin-top: 20px;
+    background-color: #f9f7e8;
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+    background-color: #000000;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    z-index: 999;
+}
+
+.sidebar-nav li {
+    padding: 10px;
+    background-color: #000;
+    border-bottom: none;
+}
+
+.sidebar-nav li a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar-nav li a:hover {
+    background-color: #444;
+}
+
+.col-sm-10 {
+    margin-left: 200px;
+    padding-left: 50px;
+}
+
+.pagination .page-link {
+  background-color: #f9f7e8;
+  color: black;
+  border: 1px solid #ddd;
+}
+
+.pagination .page-item:hover .page-link {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.pagination .page-item.active .page-link:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.car-buttons-detail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }

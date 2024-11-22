@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <div class="header-container">
+    <h1>Car list</h1>
+    <form action="{% url 'taxi:car-create' %}" method="get">
+      <input type="submit" value="Add car" class="btn btn-primary">
+    </form>
+  </div>
+  <br>
   {% if car_list %}
     <ul>
       {% for car in car_list %}

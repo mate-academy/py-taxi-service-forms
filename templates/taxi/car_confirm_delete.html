@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h2>Delete car</h2>
+  <hr>
+  <p>
+    Are you sure you want to delete <strong>{{ car.model }}</strong> car?<br>
+    The data cannot be recovered.
+  </p>
+  <div class="car-buttons-detail">
+    <form action="" method="post" novalidate>
+      {% csrf_token %}
+      <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
+    <form action="{% url 'taxi:car-detail' pk=car.pk %}" method="get">
+      <input type="submit" value="Return" class="btn btn-primary">
+    </form>
+  </div>
+  <br>
+  <a href="{% url 'taxi:car-list' %}">Return to car list</a><br>
+{% endblock %}
