@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Username: {{ driver.username }}
-  </h1>
+  <h1>Username: {{ driver.username }}</h1>
 
   <p><strong>First name:</strong> {{ driver.first_name }}</p>
   <p><strong>Last name:</strong> {{ driver.last_name }}</p>
@@ -17,10 +15,13 @@
         <hr>
         <p><strong>Model:</strong> {{ car.model }}</p>
         <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
-
+        <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>
     {% empty %}
       <p>No cars!</p>
     {% endfor %}
+  </div>
+
+  <div>
+    <a href="{% url 'taxi:driver-list' %}" class="btn btn-secondary">Back to Driver List</a>
   </div>
 {% endblock %}

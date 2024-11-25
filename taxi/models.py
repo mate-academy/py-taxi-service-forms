@@ -11,7 +11,10 @@ class Manufacturer(models.Model):
         ordering = ["name"]
 
     def __str__(self):
-        return f"{self.name} {self.country}"
+        return f"{self.name} ({self.country})"
+
+    def get_absolute_url(self):
+        return reverse("taxi:manufacturer-detail", kwargs={"pk": self.pk})
 
 
 class Driver(AbstractUser):
@@ -34,4 +37,7 @@ class Car(models.Model):
     drivers = models.ManyToManyField(Driver, related_name="cars")
 
     def __str__(self):
-        return self.model
+        return f"{self.model} - {self.manufacturer.name}"
+
+    def get_absolute_url(self):
+        return reverse("taxi:car-detail", kwargs={"pk": self.pk})
