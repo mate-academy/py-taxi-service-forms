@@ -25,7 +25,7 @@ urlpatterns = [
     path("manufacturers/create/",
          ManufacturerCreateView.as_view(),
          name="manufacturer-create"),
-    path("manufacturers/<int:pk>/update",
+    path("manufacturers/<int:pk>/update/",
          ManufacturerUpdateView.as_view(),
          name="manufacturer-update"),
     path("manufacturers/<int:pk>/delete/",
