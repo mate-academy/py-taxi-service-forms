@@ -9,14 +9,3 @@ class ManufacturerForm(forms.ModelForm):
         model = Manufacturer
         fields = ("name", "country", )
 
-
-class CarForm(forms.ModelForm):
-    drivers = forms.ModelMultipleChoiceField(
-        queryset=get_user_model().objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=False
-    )
-
-    class Meta:
-        model = Car
-        fields = ("model", "manufacturer", "drivers", )

@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views import generic
 from django.urls import reverse, reverse_lazy
 
-from taxi.forms import ManufacturerForm, CarForm
+from taxi.forms import ManufacturerForm
 from taxi.models import Driver, Car, Manufacturer
 
 
@@ -67,7 +67,7 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
-    form_class = CarForm
+    fields = ("model", "manufacturer", "drivers", )
 
     def get_success_url(self):
         return reverse_lazy("taxi:car-detail", kwargs={"pk": self.object.pk})
@@ -75,7 +75,7 @@ class CarCreateView(LoginRequiredMixin, generic.CreateView):
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
-    form_class = CarForm
+    fields = ("model", "manufacturer", "drivers",)
 
     def get_success_url(self):
         return reverse_lazy("taxi:car-detail", kwargs={"pk": self.object.pk})
