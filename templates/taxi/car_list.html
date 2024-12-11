@@ -23,8 +23,8 @@
           <td><a href="{% url 'taxi:car-detail' car.pk %}"> {{ car.model }} </a></td>
           <td>{{ car.manufacturer }}</td>
           <td>
-            <a href="{% url "taxi:car-update" car.pk %}" class="btn btn-outline-primary change-link">Update</a>
-            <a href="{% url "taxi:car-delete" car.pk %}" class="btn btn-outline-danger change-link">Delete</a>
+            <a href="{% url 'taxi:car-update' car.pk %}" class="btn btn-outline-primary change-link">Update</a>
+            <a href="{% url 'taxi:car-delete' car.pk %}" class="btn btn-outline-danger change-link">Delete</a>
           </td>
         </tr>
       {% endfor %}
