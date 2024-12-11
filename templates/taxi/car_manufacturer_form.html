@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_filters %}
+{% block content %}
+  <h2 class="mb-2">{{ object|yesno:"Update, Create new" }} Manufacturer</h2>
+  <hr class="blue-hr">
+  <div class="mt-5">
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+  </div>
+  <style>.blue-hr{height:3px; background-color:#007bff;}</style>
+{% endblock %}

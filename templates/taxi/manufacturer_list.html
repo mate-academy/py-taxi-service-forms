@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
+    <h1 class="d-flex align-items-stretch mb-5 mt-5">
+      <span>Manufacturer List</span>
+      <a class="alert alert-primary create-link ml-5" href="{% url 'taxi:manufacturer-create' %}" role="button">Add new Manufacturer</a>
     </h1>
-
+ 
     {% if manufacturer_list %}
       <table class="table">
         <tr>
           <th>ID</th>
           <th>Name</th>
           <th>Country</th>
+          <th>Modify</th>
         </tr>
 
         {% for manufacturer in manufacturer_list %}
@@ -23,6 +26,10 @@
               <td>
                   {{ manufacturer.country }}
               </td>
+              <td>
+                <a href="{% url "taxi:manufacturer-update" manufacturer.pk %}" class="btn btn-outline-primary change-link">Update</a>
+                <a href="{% url "taxi:manufacturer-delete" manufacturer.pk %}" class="btn btn-outline-danger change-link">Delete</a>
+              </td>
           </tr>
         {% endfor %}
       </table>
@@ -30,4 +37,8 @@
     {% else %}
         <p>There are no manufacturers in the service.</p>
     {% endif %}
+    <style>
+      body {counter-reset: item;} .c_counter::before{content: counter(item); counter-increment: item}
+      .change-link {opacity:.75} .create-link {font-size:1rem; display: inline-block;}
+    </style>
 {% endblock %}
