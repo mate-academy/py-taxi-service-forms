@@ -1,17 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <h1 class="d-flex align-items-stretch mb-5 mt-5">
+    <span>Cars</span>
+    <a class="alert alert-primary create-link ml-5" href="{% url 'taxi:car-create' %}" role="button">Add new Car</a>
+  </h1>
+  <p>List of our fleet. The best brands, proven and reliable models.</p>
   {% if car_list %}
-    <ul>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Model</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Modify</th>
+          </tr>
+        </thead>
+        <tbody>
       {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
+        <tr>
+          <th scope="row"><span class="c_counter"></span></th>
+          <td><a href="{% url 'taxi:car-detail' car.pk %}"> {{ car.model }} </a></td>
+          <td>{{ car.manufacturer }}</td>
+          <td>
+            <a href="{% url 'taxi:car-update' car.pk %}" class="btn btn-outline-primary change-link">Update</a>
+            <a href="{% url 'taxi:car-delete' car.pk %}" class="btn btn-outline-danger change-link">Delete</a>
+          </td>
+        </tr>
       {% endfor %}
-    </ul>
+        </tbody>
+      </table>
   {% else %}
-    <p>There are no cars in taxi</p>
+    <p>No cars found.</p>
   {% endif %}
+  <div>   </div>
+  <style>
+      body {counter-reset: item;} .c_counter::before{content: counter(item); counter-increment: item}
+      .change-link {opacity:.75} .create-link {font-size:1rem; display: inline-block;}
+  </style>
 {% endblock %}
