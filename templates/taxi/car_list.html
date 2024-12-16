@@ -12,7 +12,8 @@
       {% endfor %}
     </ul>
     <form action="{% url "taxi:car-create" %}" method="get">
-      <input type="submit" value="Submit" class="btn btn-success">
+      {% csrf_token %}
+      <input type="submit" value="Add" class="btn btn-success">
     </form>
     <br>
   {% else %}

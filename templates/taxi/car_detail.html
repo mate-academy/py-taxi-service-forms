@@ -9,11 +9,13 @@
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
-  <form action="{% url 'taxi:car-update' pk=car.id %}">
+  <form action="{% url 'taxi:car-update' pk=car.id %}" method="post">
+    {% csrf_token %}
     <input type="submit" value="UPDATE CAR" class="btn btn-info">
   </form>
   <br>
-  <form action="{% url 'taxi:car-delete' pk=car.id %}">
+  <form action="{% url 'taxi:car-delete' pk=car.id %}" method="post">
+    {% csrf_token %}
     <input type="submit" value="DELETE CAR" class="btn btn-danger">
   </form>
 {% endblock %}
