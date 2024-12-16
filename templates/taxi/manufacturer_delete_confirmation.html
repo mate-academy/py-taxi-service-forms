@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Deleting Manufacturer from the List</h1>
+  <p><strong>WARNING!</strong> You're trying to delete a manufacturer:
+    <strong>{{ manufacturer }}</strong> from the list.</p>
+  <p>This causes a deleting related cars from the cars list too.</p>
+  <p>Are you sure want to delete this manufacturer?
+    Press "Submit" button to confirm.</p>
+  <form action="" method="post">
+    <input type="submit" value="Submit" class="btn btn-danger ">
+  </form>
+{% endblock %}

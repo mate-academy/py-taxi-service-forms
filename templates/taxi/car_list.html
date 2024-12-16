@@ -11,6 +11,10 @@
         </li>
       {% endfor %}
     </ul>
+    <form action="{% url "taxi:car-create" %}" method="get">
+      <input type="submit" value="Submit" class="btn btn-success">
+    </form>
+    <br>
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
