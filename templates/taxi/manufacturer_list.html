@@ -10,6 +10,8 @@
           <th>ID</th>
           <th>Name</th>
           <th>Country</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
 
         {% for manufacturer in manufacturer_list %}
@@ -23,10 +25,23 @@
               <td>
                   {{ manufacturer.country }}
               </td>
+              <td>
+                <a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">Update</a>
+              </td>
+              <td>
+                <a
+                    href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}"
+                    style="color: red;"
+                >Delete</a>
+              </td>
           </tr>
         {% endfor %}
       </table>
-
+      <br>
+      <form action="{% url 'taxi:manufacturer-create' %}">
+        <input type="submit" value="Add" class="btn btn-success">
+      </form>
+      <br>
     {% else %}
         <p>There are no manufacturers in the service.</p>
     {% endif %}
