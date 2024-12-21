@@ -1,12 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
+  <h2>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</h2>
+  <p>Drivers: </p>
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
+  <form action="{% url 'taxi:car-update' pk=car.id %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit">Update Car</button>
+  </form>
+  <form action="{% url 'taxi:car-delete' pk=car.id %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit">Delete Car</button>
+  </form>
 {% endblock %}

@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-  {% block title %}<title>Taxi Service</title>{% endblock %}
+  {% block title %}
+    <title>Taxi Service</title>
+  {% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet"
@@ -18,20 +20,24 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2">
-
       {% block sidebar %}
         {% include "includes/sidebar.html" %}
       {% endblock %}
-
     </div>
-    <div class="col-sm-10 ">
 
-      {% block content %}{% endblock %}
+    <div class="col-sm-10 ">
+      {% block content %}
+        <h1>Car Creation</h1>
+        <form method="POST">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      {% endblock %}
 
       {% block pagination %}
         {% include "includes/pagination.html" %}
       {% endblock %}
-
     </div>
   </div>
 </div>
