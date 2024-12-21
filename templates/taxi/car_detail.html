@@ -13,8 +13,9 @@
     {% csrf_token %}
     <button type="submit">Update Car</button>
   </form>
-  <form action="{% url 'taxi:car-delete' pk=car.id %}" method="delete" style="display: inline;">
+  <form action="{% url 'taxi:car-delete' pk=car.id %}" method="post" style="display: inline;">
     {% csrf_token %}
+    <input type="hidden" name="_method" value="delete">
     <button type="submit">Delete Car</button>
   </form>
 {% endblock %}
