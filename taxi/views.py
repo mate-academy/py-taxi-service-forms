@@ -66,7 +66,6 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     fields = "__all__"
-    pk_url_kwarg = "car_id"
     success_url = reverse_lazy("taxi:car-list")
 
 

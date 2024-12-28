@@ -2,8 +2,8 @@
 
 {% block content %}
   <ul class="float-right btn-group">
-    <a class="btn btn-secondary" href="update">Edit</a>
-    <a class="btn btn-danger" href="delete">Delete</a>
+    <a class="btn btn-secondary" href="{% url "taxi:car-update" car.id %}">Edit</a>
+    <a class="btn btn-danger" href="{% url "taxi:car-delete" car.id %}">Delete</a>
   </ul>
   <h3>Manufacturer:</h3>
   <hr>
