@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Manufacturer List
+    <a class="float-right btn btn-primary" href="{% url "taxi:manufacturer-create" %}">Create</a>
     </h1>
 
     {% if manufacturer_list %}
@@ -10,6 +11,7 @@
           <th>ID</th>
           <th>Name</th>
           <th>Country</th>
+          <th>Edit</th>
         </tr>
 
         {% for manufacturer in manufacturer_list %}
@@ -22,6 +24,12 @@
               </td>
               <td>
                   {{ manufacturer.country }}
+              </td>
+              <td>
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-secondary" href="{{ manufacturer.id }}/update">Update</a>
+                  <a class="btn btn-sm btn-outline-danger" href="{{ manufacturer.id }}/delete">Delete</a>
+                </div>
               </td>
           </tr>
         {% endfor %}

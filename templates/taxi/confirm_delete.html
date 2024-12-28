@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% if object is manufacturer %}
+    <h1>Delete {{ object.name }}?</h1>
+    <h4>
+      <strong>Notice, that all cars made by this manufacturer will be deleted!</strong>
+    </h4>
+
+  {% elif object is car %}
+    <h1>Delete {{ object.model }} ({{ object.manufacturer.name }})</h1>
+    <h4>
+      <strong>Notice, changes can not be restored!</strong>
+    </h4>
+  {% endif %}
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <a style="text-decoration: none" href="javascript:history.back()">
+      <input type="button" value="Cancel" class="btn btn-light">
+    </a>
+
+
+    <input type="submit" value="Delete" class="btn btn-danger">
+  </form>
+
+{% endblock %}
