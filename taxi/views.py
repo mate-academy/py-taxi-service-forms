@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView
 
 from .models import Driver, Car, Manufacturer
 
@@ -89,26 +88,6 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 class DriverListView(LoginRequiredMixin, generic.ListView):
     model = Driver
     paginate_by = 5
-
-
-# class DriverCreateView(LoginRequiredMixin, generic.CreateView):
-#     model = Driver
-#     success_url = reverse_lazy("taxi:driver-list")
-#     fields = "__all__"
-#     template_name = "taxi/driver_form.html"
-#
-#
-# class DriverUpdateView(LoginRequiredMixin, generic.UpdateView):
-#     model = Driver
-#     fields = "__all__"
-#     template_name = "taxi/driver_form.html"
-#     success_url = reverse_lazy("taxi:driver-list")
-#
-#
-# class DriverDeleteView(LoginRequiredMixin, generic.DeleteView):
-#     model = Driver
-#     template_name = "taxi/driver_confirm_delete.html"
-#     success_url = reverse_lazy("taxi:driver-list")
 
 
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
