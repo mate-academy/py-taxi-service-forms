@@ -2,6 +2,14 @@
 
 {% block content %}
   <h1>Car list</h1>
+  <div style="text-align: left; display: inline-block; margin-bottom: 20px;">
+    <a class="btn btn-primary d-block" 
+       style="margin-bottom: 10px; width: auto" 
+       href="{% url "taxi:car-create" %}"
+    >
+      Create Car
+    </a>
+  </div>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
