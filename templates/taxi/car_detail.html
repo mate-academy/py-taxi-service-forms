@@ -3,6 +3,20 @@
 {% block content %}
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
+  <div style="text-align: left; display: inline-block; margin-bottom: 20px;">
+    <a class="btn btn-primary d-block" 
+       style="margin-bottom: 10px; width: auto" 
+       href="{% url "taxi:car-update" car.id %}"
+    >
+      Update
+    </a>
+    <a class="btn btn-primary d-block" 
+       style="width: auto"
+       href="{% url "taxi:car-delete" car.id %}"
+    >
+      Delete
+    </a>
+  </div>
   <hr>
   <ul>
   {% for driver in car.drivers.all %}

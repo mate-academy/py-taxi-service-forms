@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Delete Car</h1>
+  
+  <p>Are you sure you want to delete the car: {{ car }}?</p>
+  <p><i>All details with this car will be also deleted!</i></p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div style="text-align: left; display: inline-block; margin-bottom: 20px;">
+      <div style="text-align: left; display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+        <input type="submit" value="Yes, delete" 
+               class="btn badge-danger b-block"
+               style="margin-bottom: 10px; width: auto"
+        />
+        <a href="{% url 'taxi:car-list' %}" 
+         class="btn btn-primary b-block"
+         style="width: auto">
+         Cancel delete
+        </a>
+      </div>
+    </div>
+
+
+  </form>
+  
+{% endblock %}
