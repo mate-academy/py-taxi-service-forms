@@ -55,41 +55,41 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
 
 
-class ManufacturerListCreateView(LoginRequiredMixin, generic.CreateView):
+class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_form.html"
 
 
-class ManufacturerListUpdateView(LoginRequiredMixin, generic.UpdateView):
+class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_form.html"
 
 
-class ManufacturerListDeleteView(LoginRequiredMixin, generic.DeleteView):
+class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_form_confirm_delete.html"
 
 
-class CarListCreateView(LoginRequiredMixin, generic.CreateView):
+class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_form.html"
 
 
-class CarListUpdateView(LoginRequiredMixin, generic.UpdateView):
+class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_form.html"
 
 
-class CarListDeleteView(LoginRequiredMixin, generic.DeleteView):
+class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_form_confirm_delete.html"
