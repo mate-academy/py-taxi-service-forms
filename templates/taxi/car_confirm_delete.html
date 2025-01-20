@@ -5,6 +5,7 @@
 
 <p>Are you sure you want to delete the car: {{ car }}?</p>
 
+  <a style="float: right" href="{% url 'taxi:car-detail' pk=car.id %}">Cansel</a>
 <form action="" method="post">
     {% csrf_token %}
     <input type="submit" value="Yes, delete" class="btn btn-danger">
