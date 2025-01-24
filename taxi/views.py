@@ -1,9 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Driver, Car, Manufacturer
+from django import forms
 
 
 @login_required
@@ -52,3 +54,57 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+class ManufacturerForm(forms.ModelForm):
+    class Meta:
+        model = Manufacturer
+        fields = "__all__"
+
+
+class CarForm(forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = "__all__"
+
+
+class CarCreateView(generic.CreateView):
+    model = CarForm
+    success_url = reverse_lazy("taxi: car_list")
+    template_name = "taxi/car_form.html"
+    fields = "__all__"
+
+
+class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = CarForm
+    success_url = reverse_lazy("taxi:car-format-list")
+    template_name = "taxi/car_form.html"
+    fields = "__all__"
+
+
+class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = CarForm
+    success_url = reverse_lazy("taxi:car-format-list")
+    template_name = "taxi/car_form.html"
+    fields = "__all__"
+
+
+class ManufacturerCreateView(generic.CreateView):
+    model = ManufacturerForm
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "taxi/manufacturer_form.html"
+    fields = "__all__"
+
+
+class ManufacturerUpdateView(LoginRequiredMixin,generic.UpdateView):
+    model = ManufacturerForm
+    success_url = reverse_lazy("taxi:manufacturer-format-list")
+    template_name = "taxi/manufacturer_form.html"
+    fields = "__all__"
+
+
+class ManufacturerDeleteView(LoginRequiredMixin,generic.DeleteView):
+    model = ManufacturerForm
+    success_url = reverse_lazy("taxi:manufacturer-format-list")
+    template_name = "taxi/manufacturer_form.html"
+    fields = "__all__"
