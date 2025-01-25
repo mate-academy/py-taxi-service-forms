@@ -70,6 +70,7 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
+
     def get_context_data(self, **kwargs) -> dict:
         context = super().get_context_data(**kwargs)
         page = self.request.GET.get("page", 1)
