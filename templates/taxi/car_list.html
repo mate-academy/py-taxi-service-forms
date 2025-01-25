@@ -2,6 +2,8 @@
 
 {% block content %}
   <h1>Car list</h1>
+  <h6><a style="float: left" href='{% url "taxi:car-create" %}'>Add Car</a></h6>
+  <br>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
