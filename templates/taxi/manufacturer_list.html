@@ -3,7 +3,9 @@
 {% block content %}
     <h1>Manufacturer List
     </h1>
-
+    <h6>
+    <a href="{% url "taxi:manufacturer-create" %}">Add manufacturer</a>
+    </h6>
     {% if manufacturer_list %}
       <table class="table">
         <tr>
