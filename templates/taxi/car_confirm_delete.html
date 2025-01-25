@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Delete car {{ car.model }}?</h1>
+    <form action="" method="POST" novalidate>
+      {% csrf_token %}
+      <input class="btn btn-danger" type="submit" value="Submit">
+    </form>
+{% endblock %}
