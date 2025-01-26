@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Manufacturer</h1>
+  <p>
+    Confirm deletion of <strong>{{ manufacturer.name }}</strong> ({{ manufacturer.country }})
+  </p>
+  <hr>
+  <div class="container">
+    {% if manufacturer.cars.exists %}
+        <p class="quote"><strong>Warning!</strong> All Cars of the manufacturer will be deleted</p>
+        {% for car in manufacturer.cars.all %}
+          <p>ID: <a href="{% url "taxi:car-detail" pk=car.id %}">{{ car.id }}</a></p>
+          <p>Model: {{ car.model }}</p>
+          <hr>
+        {% endfor %}
+    {% else %}
+      <p>No related cars. Safe to delete</p>
+    {% endif %}
+  </div>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="form-group d-flex justify-content-start">
+      <input type="submit" value="Delete" class="btn btn-danger mr-2">
+      <a href="{{ view.success_url }}" class="btn btn-primary">Cancel</a>
+    </div>
+  </form>
+{% endblock %}

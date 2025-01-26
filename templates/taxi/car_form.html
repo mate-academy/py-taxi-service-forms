@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>{{ object|yesno:"Modify,Add" }} Car</h1>
+
+  <form action="{{ form.helper.form_action }}" method="{{ form.helper.form_method }}">
+    {% crispy form %}
+    <div class="form-group d-flex justify-content-start">
+      <input type="submit" value="Submit" class="btn btn-primary mr-2">
+      <a href="{{ view.success_url }}" class="btn btn-danger">Cancel</a>
+    </div>
+  </form>
+
+{% endblock %}
