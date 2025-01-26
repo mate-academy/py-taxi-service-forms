@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -6,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from taxi.models import Driver, Car, Manufacturer
 from taxi.forms import ManufacturerForm, CarForm
+from taxi_service.utils.pagination import PaginationMixin, PaginationURLMixin
 
 
 @login_required
@@ -29,16 +31,24 @@ def index(request):
     return render(request, "taxi/index.html", context=context)
 
 
-class ManufacturerListView(LoginRequiredMixin, generic.ListView):
+class ManufacturerListView(
+    LoginRequiredMixin,
+    PaginationMixin,
+    PaginationURLMixin,
+    generic.ListView
+):
     model = Manufacturer
     context_object_name = "manufacturer_list"
     template_name = "taxi/manufacturer_list.html"
-    paginate_by = 5
 
 
-class CarListView(LoginRequiredMixin, generic.ListView):
+class CarListView(
+    LoginRequiredMixin,
+    PaginationMixin,
+    PaginationURLMixin,
+    generic.ListView
+):
     model = Car
-    paginate_by = 5
     queryset = Car.objects.all().select_related("manufacturer")
 
 
@@ -46,9 +56,13 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
 
 
-class DriverListView(LoginRequiredMixin, generic.ListView):
+class DriverListView(
+    LoginRequiredMixin,
+    PaginationMixin,
+    PaginationURLMixin,
+    generic.ListView
+):
     model = Driver
-    paginate_by = 5
 
 
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
