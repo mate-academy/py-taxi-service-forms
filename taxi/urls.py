@@ -29,15 +29,15 @@ urlpatterns = [
         name="manufacturer-create",
     ),
     path(
-            "manufacturers/<int:pk>/update/",
-            ManufacturerUpdateView.as_view(),
-            name="manufacturer-update",
-        ),
+        "manufacturers/<int:pk>/update/",
+        ManufacturerUpdateView.as_view(),
+        name="manufacturer-update",
+    ),
     path(
-            "manufacturers/<int:pk>/delete/",
-            ManufacturerDeleteView.as_view(),
-            name="manufacturer-delete",
-        ),
+        "manufacturers/<int:pk>/delete/",
+        ManufacturerDeleteView.as_view(),
+        name="manufacturer-delete",
+    ),
 
     path("cars/", CarListView.as_view(), name="car-list"),
     path("cars/<int:pk>/", CarDetailView.as_view(), name="car-detail"),
@@ -46,7 +46,11 @@ urlpatterns = [
     path("cars/<int:pk>/delete/", CarDeleteView.as_view(), name="car-delete"),
 
     path("drivers/", DriverListView.as_view(), name="driver-list"),
-    path("drivers/<int:pk>/", DriverDetailView.as_view(), name="driver-detail"),
+    path(
+        "drivers/<int:pk>/",
+        DriverDetailView.as_view(),
+        name="driver-detail"
+    ),
 ]
 
 app_name = "taxi"
