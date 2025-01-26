@@ -10,7 +10,7 @@
     {% if manufacturer.cars.exists %}
         <p class="quote"><strong>Warning!</strong> All Cars of the manufacturer will be deleted</p>
         {% for car in manufacturer.cars.all %}
-          <p>ID: <a href="{% url "taxi:car-detail" pk=car.id %}">{{ car.id }}</a></p>
+          <p>ID: <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></p>
           <p>Model: {{ car.model }}</p>
           <hr>
         {% endfor %}
