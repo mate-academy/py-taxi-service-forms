@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ object|yesno:"Update, Create" }} Manufacture</h1>
+  <h1>{{ object|yesno:"Update, Create" }} Manufacturer</h1>
   {% load crispy_forms_filters %}
   <form action="" method="post">
     {% csrf_token %}
