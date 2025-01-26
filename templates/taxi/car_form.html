@@ -2,7 +2,7 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>{{ object|yesno:"Modify,Add" }} Car #{{ car.id }}</h1>
+  <h1>{{ object|yesno:"Modify,Add" }} Car {{ car.id }}</h1>
 
   <form action="{{ form.helper.form_action }}" method="{{ form.helper.form_method }}">
     {% csrf_token %}
