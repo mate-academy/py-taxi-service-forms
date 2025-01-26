@@ -1,0 +1,12 @@
+{% load crispy_forms_filters %}
+
+<form action="" method="post" style="width: 40%">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <br>
+    <div style="display: flex; gap: 20px;">
+      <input class="btn btn-primary" type="submit" value="Submit">
+      <a class="btn btn-secondary" href="{% url 'taxi:index' %}" role="button">Back</a>
+
+    </div>
+</form>
