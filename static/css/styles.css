@@ -1,3 +1,25 @@
 body {
     margin-top: 20px;
 }
+
+#div_id_drivers {
+    border: solid dimgray 2px;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+#div_id_drivers fieldset div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+}
+
+#div_id_drivers .form-check {
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5); /* Adjust the number to make it bigger or smaller */
+}
