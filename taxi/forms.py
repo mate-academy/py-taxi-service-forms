@@ -4,6 +4,7 @@ from django import forms
 
 from taxi.models import Manufacturer, Car
 
+
 class ManufacturerForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
