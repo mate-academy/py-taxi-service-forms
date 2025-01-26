@@ -1,8 +1,9 @@
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Submit, Layout
 from django import forms
 
 from taxi.models import Manufacturer, Car
+
 
 
 class ManufacturerForm(forms.ModelForm):
@@ -10,7 +11,7 @@ class ManufacturerForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_action = ""
-        self.helper.form_method = "post"
+        self.helper.form_method = "POST"
 
     class Meta:
         model = Manufacturer
@@ -24,7 +25,8 @@ class CarForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_action = ""
-        self.helper.form_method = "post"
+        self.helper.form_method = "POST"
+        self.helper.add_input(Submit(name="submit", value="Submit"))
 
     class Meta:
         model = Car
