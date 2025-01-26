@@ -9,7 +9,7 @@
       {% csrf_token %}
       <input type="submit" value="Yes, delete" class="btn btn-danger">
       <a class="btn btn-secondary"
-         href="{% url 'taxi:car-list' %}"
+         href="{{ previous }}"
          role="button">
         No, back
       </a>
