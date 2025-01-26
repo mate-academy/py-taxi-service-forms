@@ -10,7 +10,7 @@
     {% csrf_token %}
     <div class="form-group d-flex justify-content-start">
       <input type="submit" value="Delete" class="btn btn-danger mr-2">
-      <a href="{{ view.success_url }}" class="btn btn-primary">Cancel</a>
+      <a href="{% url 'taxi:car-detail' pk=car.id %}" class="btn btn-primary">Cancel</a>
     </div>
   </form>
 {% endblock %}
