@@ -1,3 +1,87 @@
-body {
-    margin-top: 20px;
+/* Основний стиль для ртутної кнопки */
+.submit-btn {
+  background: linear-gradient(135deg, #b4b4b4, #ffffff);
+  border: none;
+  border-radius: 50px;
+  color: #000;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.9),
+              inset 4px 4px 10px rgba(0, 0, 0, 0.2),
+              0 8px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+/* Дзеркальний ефект переливу */
+.submit-btn::before {
+  content: "";
+  position: absolute;
+  top: -150%;
+  left: -150%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+  transform: rotate(45deg);
+  opacity: 0.6;
+  animation: shine 3s infinite ease-in-out;
+}
+
+/* Анімація переливу поверхні */
+@keyframes shine {
+  0% {
+    top: -150%;
+    left: -150%;
+  }
+  50% {
+    top: 50%;
+    left: 50%;
+  }
+  100% {
+    top: -150%;
+    left: -150%;
+  }
+}
+
+/* Ефект наведення */
+.submit-btn:hover {
+  background: linear-gradient(135deg, #ffffff, #cfcfcf);
+  transform: scale(1.05);
+  box-shadow: inset -6px -6px 15px rgba(255, 255, 255, 0.95),
+              inset 6px 6px 15px rgba(0, 0, 0, 0.25),
+              0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Натискання кнопки */
+.submit-btn:active {
+  transform: scale(0.95);
+  box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.8),
+              inset 4px 4px 10px rgba(0, 0, 0, 0.2),
+              0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Анімація "живої" поверхні кнопки */
+.submit-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4), transparent 70%);
+  opacity: 0.4;
+  border-radius: 50px;
+  animation: surface 6s infinite linear;
+  z-index: 1;
+}
+
+@keyframes surface {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
 }
