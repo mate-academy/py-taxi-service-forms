@@ -4,9 +4,15 @@ from .views import (
     index,
     CarListView,
     CarDetailView,
+    CarCreateView,
+    CarUpdateView,
+    CarDeleteView,
     DriverListView,
     DriverDetailView,
     ManufacturerListView,
+    ManufacturerCreateView,
+    ManufacturerUpdateView,
+    ManufacturerDeleteView,
 )
 
 urlpatterns = [

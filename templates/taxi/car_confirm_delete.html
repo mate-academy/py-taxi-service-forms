@@ -1,19 +1,12 @@
 {% extends "base.html" %}
+
 {% block content %}
-<h2>Manufacturer List</h2>
-<a href="{% url 'manufacturer-create' %}" class="btn btn-primary">Add New Manufacturer</a>
-<table class="table">
-    <tr>
-        <th>Name</th>
-        <th>Update</th>
-        <th>Delete</th>
-    </tr>
-    {% for manufacturer in manufacturers %}
-    <tr>
-        <td>{{ manufacturer.name }}</td>
-        <td><a href="{% url 'manufacturer-update' manufacturer.id %}" class="btn btn-warning">Update</a></td>
-        <td><a href="{% url 'manufacturer-delete' manufacturer.id %}" class="btn btn-danger">Delete</a></td>
-    </tr>
-    {% endfor %}
-</table>
+  <h1>Delete Car</h1>
+  <p>Are you sure you want to delete <strong>{{ car.model }}</strong> by {{ car.manufacturer.name }}?</p>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Confirm Delete" class="btn btn-danger">
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
 {% endblock %}
