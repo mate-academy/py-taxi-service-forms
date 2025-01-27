@@ -35,6 +35,7 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
+
 class ManufacturerCreateView(LoginRequiredMixin, CreateView):
     model = Manufacturer
     fields = "__all__"
@@ -70,6 +71,7 @@ class CarCreateView(LoginRequiredMixin, CreateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_form.html"
+
 
 class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car
