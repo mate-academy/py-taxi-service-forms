@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Car Create</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" class="btn btn-success">
+    <a href="{% url "taxi:car-list" %}"> <button type="button" class="btn btn-danger">Cancel</button> </a>
+  </form>
+{% endblock %}
