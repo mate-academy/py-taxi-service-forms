@@ -69,14 +69,14 @@ class CarForm(forms.ModelForm):
 
 
 class CarCreateView(generic.CreateView):
-    model = CarForm
-    success_url = reverse_lazy("taxi: car_list")
+    model = Car
+    success_url = reverse_lazy("taxi:car_list")
     template_name = "taxi/car_form.html"
     fields = "__all__"
 
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = CarForm
+    model = Car
     success_url = reverse_lazy("taxi:car-format-list")
     template_name = "taxi/car_form.html"
     fields = "__all__"
