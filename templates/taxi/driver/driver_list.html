@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for object in driver_list %}
+    <div class="col-sm-4 mb-2">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="{% url "taxi:driver-detail" object.id %}">
+            {{ object.first_name }} {{ object.last_name }}
+            {% if user.is_authenticated and user.id == object.id %}
+              (Me)
+            {% endif %}
+          </a>
+        </li>
+      </ul>
+    </div>
+  {% endfor %}
+{% endblock %}

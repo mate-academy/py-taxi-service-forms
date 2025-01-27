@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="d-flex align-items-start">
+    <div class="flex-grow-1">
+      {% for object in car_list %}
+        <div class="col-sm-4 mb-2">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <a href="{% url 'taxi:car-detail' object.id %}">{{ object.model }}</a>
+            </li>
+          </ul>
+        </div>
+      {% endfor %}
+
+      <div class="col-sm-4 mb-2">
+        <a href="{% url 'manufacturer-create' %}" class="btn btn-outline-primary">
+          Add car
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
