@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <p>Are you sure you want to delete the car: {{ car.model }}?</p>
+	<form method="post" action="">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <a class="btn btn-primary" href="{{ car.get_absolute_url }}">Cancel</a>
+  </form>
+{% endblock %}
