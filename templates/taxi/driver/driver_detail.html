@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">
+        <strong>
+          {{ driver.first_name }} {{ driver.last_name }}</strong>
+        <br>
+        License number: {{ driver.license_number }}
+      </h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{ driver.username }}
+      </h6>
+      <hr style="border: 0.01cm solid black;">
+      <p class="card-text">
+        Cars: <br>
+        {% for car in driver.cars.all %}
+          {{ car.model }}<br>
+        {% endfor %}
+      </p>
+    </div>
+  </div>
+{% endblock %}

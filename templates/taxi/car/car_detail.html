@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="col mb-2">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ car.model }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ car.manufacturer.name }}</h6>
+        <hr style="border: 0.01cm solid black;">
+        <p class="card-text">
+          Drivers: <br>
+          {% for driver in car.drivers.all %}
+            {{ driver.first_name }} {{ driver.last_name }} <br>
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4 mb-2">
+
+      <a href="{% url "taxi:car-update" car.id %}"
+         class="btn btn-outline-primary">
+        Update Car
+      </a>
+
+      <a href="{% url "taxi:car-delete" car.id %}"
+         class="btn btn-outline-primary">
+        Delete Car
+      </a>
+  </div>
+
+{% endblock %}

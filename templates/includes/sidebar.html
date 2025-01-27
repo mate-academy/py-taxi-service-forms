@@ -1,15 +1,36 @@
-<ul class="sidebar-nav list-group">
-  {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-  {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-  {% endif %}
-
-  <br>
-
-  <li class="list-group-item"><a href="{% url 'taxi:index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:driver-list' %}">All drivers</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:car-list' %}">All cars</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:manufacturer-list' %}">All manufacturers</a></li>
-</ul>
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a href="/" class="nav-link {% if request.path == '/' %}active{% else %}link-dark{% endif %}" aria-current="page">
+        <svg class="bi me-2" width="16" height="16">
+          <use href="#home"></use>
+        </svg>
+        Home page
+      </a>
+    </li>
+    <li>
+      <a href="{% url "taxi:manufacturer-list" %}" class="nav-link {% if request.path == '/manufacturers/' %}active{% else %}link-dark{% endif %}">
+        <svg class="bi me-2" width="16" height="16">
+          <use href="#speedometer2"></use>
+        </svg>
+        Manufacturers
+      </a>
+    </li>
+    <li>
+      <a href="{% url "taxi:car-list" %}" class="nav-link {% if request.path == '/cars/' %}active{% else %}link-dark{% endif %}">
+        <svg class="bi me-2" width="16" height="16">
+          <use href="#table"></use>
+        </svg>
+        Cars
+      </a>
+    </li>
+    <li>
+      <a href="{% url "taxi:driver-list" %}" class="nav-link {% if request.path == '/drivers/' %}active{% else %}link-dark{% endif %}">
+        <svg class="bi me-2" width="16" height="16">
+          <use href="#grid"></use>
+        </svg>
+        Drivers
+      </a>
+    </li>
+  </ul>
+</div>
