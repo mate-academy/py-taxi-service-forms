@@ -73,6 +73,7 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/confirm_delete.html"
+
     def post(self, request, *args, **kwargs):
         if "no" in request.POST:
             return redirect(self.success_url)
@@ -97,6 +98,7 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/confirm_manufacturer_delete.html"
+
     def post(self, request, *args, **kwargs):
         if "no" in request.POST:
             return redirect(self.success_url)
