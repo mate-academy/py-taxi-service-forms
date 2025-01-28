@@ -1,3 +1,4 @@
+from django import forms
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
@@ -35,3 +36,15 @@ class Car(models.Model):
 
     def __str__(self):
         return self.model
+
+
+class CarForm(forms.ModelForm):
+    class Meta:
+        model = Car
+        fields = ["model", "manufacturer"]
+
+
+class ManufacturerForm(forms.ModelForm):
+    class Meta:
+        model = Manufacturer
+        fields = ["name", "country"]
