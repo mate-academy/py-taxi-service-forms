@@ -10,6 +10,6 @@
   <form action="" method="post">
     {% csrf_token %}
     <input type="submit" value="Delete" class="btn btn-danger">
+    <a href="{% url 'taxi:car-list' %}">Cancel</a>
   </form>
-  <a href="{% url 'taxi:car-list' %}">Back to list</a>
 {% endblock %}
