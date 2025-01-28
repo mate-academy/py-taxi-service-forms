@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -71,9 +71,12 @@ class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
-    fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/confirm_delete.html"
+    def post(self, request, *args, **kwargs):
+        if "no" in request.POST:
+            return redirect(self.success_url)
+        return super().post(request, *args, **kwargs)
 
 
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
@@ -92,6 +95,9 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
-    fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/confirm_manufacturer_delete.html"
+    def post(self, request, *args, **kwargs):
+        if "no" in request.POST:
+            return redirect(self.success_url)
+        return super().post(request, *args, **kwargs)
