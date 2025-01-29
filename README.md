@@ -32,7 +32,7 @@ NOTE: Attach screenshots of all created or modified pages to pull request. It's 
 # Note
 Follow these steps if you need to use `crispy_forms` v2.0 with Python 3.11:
 
-1. Add `CRISPY_TEMPLATE_PACK` to `settings.py`.
+1. Add `CRISPY_TEMPLATE_PACK` to `settings.py`.source
 
 ```python
 CRISPY_TEMPLATE_PACK="bootstrap4"
