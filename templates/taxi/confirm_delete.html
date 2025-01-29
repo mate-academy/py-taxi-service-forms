@@ -4,7 +4,6 @@
   <p>Are you sure you want to delete {{ car.make }} {{ car.model }}?</p>
   <form method="post">
     {% csrf_token %}
-    <p>Are you sure you want to delete {{ object }}?</p>
     <button type="submit" name="yes">Yes</button>
     <button type="submit" name="no">No</button>
   </form>
