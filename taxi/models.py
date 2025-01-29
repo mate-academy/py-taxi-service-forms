@@ -36,15 +36,3 @@ class Car(models.Model):
 
     def __str__(self):
         return self.model
-
-
-class CarForm(forms.ModelForm):
-    class Meta:
-        model = Car
-        fields = ["model", "manufacturer"]
-
-
-class ManufacturerForm(forms.ModelForm):
-    class Meta:
-        model = Manufacturer
-        fields = ["name", "country"]

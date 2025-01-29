@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Driver, Car, Manufacturer, CarForm, ManufacturerForm
+from .models import Driver, Car, Manufacturer
 
 
 @login_required
@@ -37,16 +37,16 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
 
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
-    form_class = ManufacturerForm
-    template_name = "form.html"
+    template_name = "taxi/form.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
+    fields = "__all__"
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
-    form_class = ManufacturerForm
-    template_name = "form.html"
+    template_name = "taxi/form.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
+    fields = "__all__"
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -67,16 +67,16 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
-    form_class = CarForm
-    template_name = "form.html"
+    template_name = "taxi/form.html"
     success_url = reverse_lazy("taxi:car-list")
+    fields = "__all__"
 
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
-    form_class = CarForm
-    template_name = "form.html"
+    template_name = "taxi/form.html"
     success_url = reverse_lazy("taxi:car-list")
+    fields = "__all__"
 
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
