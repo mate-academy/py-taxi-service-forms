@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Delete Car</h1>
   
-  <p>Are you sure you want to delete the literary format: {{ car }}?</p>
+  <p>Are you sure you want to delete the car: {{ car }}?</p>
   <form action="" method="post">
     {% csrf_token %}
     <input type="submit" value="Yes, delete" class="btn btn-danger">
