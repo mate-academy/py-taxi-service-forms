@@ -10,10 +10,6 @@
   {% endfor %}
 {#  <p><a href="{% url 'taxi:car-delete' pk=car.id %}">DELETE</a></p>#}
   </ul>
-  <button class="btn">
-    <a href="{% url 'taxi:car-update' pk=car.id %}">UPDATE</a>
-  </button>
-  <button class="btn btn-danger">
-    <a href="{% url 'taxi:car-delete' pk=car.id %}">DELETE</a>
-  </button>
+  <a class="btn btn-info" href="{% url 'taxi:car-update' pk=car.id %}">UPDATE</a>
+  <a class="btn btn-danger" href="{% url 'taxi:car-delete' pk=car.id %}">DELETE</a>
 {% endblock %}
