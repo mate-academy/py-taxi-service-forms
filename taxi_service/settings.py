@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "taxi",  # Taxi app
-    "crispy_forms",
+    "taxi",
     "crispy_bootstrap4",
+    "crispy_forms",
     "debug_toolbar",  # Debug Toolbar at the bottom
 ]
 
