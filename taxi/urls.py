@@ -28,7 +28,7 @@ urlpatterns = [
          ManufacturerCreateView.as_view(), name="manufacturer-create"),
     path("manufacturer/<int:pk>/update/",
          ManufacturerUpdateView.as_view(), name="manufacturer-update"),
-    path("manufacturer/<int:pk>/detele/",
+    path("manufacturer/<int:pk>/delete/",
          ManufacturerDeleteView.as_view(), name="manufacturer-delete"),
     path("drivers/", DriverListView.as_view(), name="driver-list"),
     path(
