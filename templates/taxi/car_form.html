@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1>{{ object|yesno:"Update,Create" }} Car</h1>
-  <form action="" metod="post">
+  <form action="" method="post">
   {% csrf_token %}
   {{ form|crispy }}
     <input type="submit" value="Submit">
