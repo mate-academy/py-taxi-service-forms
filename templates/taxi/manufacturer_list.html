@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Manufacturer List</h1>
   <a href="{% url 'taxi:manufacturer-create' %}">
-    <button class="btn btn-primary">Add a new Manufacturer</button>
+    <button class="btn btn-primary mb-3">Add a new Manufacturer</button>
   </a>
     {% if manufacturer_list %}
       <table class="table">
