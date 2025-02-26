@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete a car</h1>
+  <p>Are you sure you want to delete a car: {{ car.model }}?</p>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete!" class="btn btn-danger ml-1 mb-2">
+  </form>
+  <button class="btn btn-secondary ml-1" onclick="window.history.back();">Back</button>
+
+{% endblock %}
