@@ -2,9 +2,11 @@
 
 {%  block content %}
   <h1>Delete Manufacturer</h1>
-  <p>Are you sure that want to delete Manufacturer {{ car }}?</p>
+  <p>Are you sure that want to delete Manufacturer {{ manufacturer }}?</p>
   <form action="" method="post">
     {% csrf_token %}
     <input type="submit" value="Yes, delete" class="btn btn-danger">
   </form>
+  <br>
+  <button type="button"><a href="{% url 'taxi:manufacturer-list' %}">Cancel</a></button>
 {% endblock %}
