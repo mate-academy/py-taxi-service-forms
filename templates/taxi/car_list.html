@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1>Car list</h1>
-  <a href="{% url "taxi:car-create" %}"><button class="btn btn-primary mb-3">Add new car</button></a>
+  <a href="{% url 'taxi:car-create' %}"><button class="btn btn-primary mb-3">Add new car</button></a>
   {% if car_list %}
   <table class="table">
     <tr>
@@ -15,7 +15,7 @@
   {% for car in car_list %}
     <tr>
       <td>{{car.id}}</td>
-      <td><a href="{% url "taxi:car-detail" pk=car.id %}">{{car.model}}</a></td>
+      <td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{car.model}}</a></td>
       <td>{{car.manufacturer}}</td>
       <td><a href="{% url 'taxi:car-update' pk=car.id %}">Edit</a></td>
       <td><a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a></td>
