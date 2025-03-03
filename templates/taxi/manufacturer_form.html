@@ -8,6 +8,6 @@
     {% csrf_token %}
     {{ form|crispy }}
     <input class="btn btn-primary" type="submit" value="Submit">
-    <a class="btn btn-secondary ml-3 href={% url 'taxi:manufacturer-list' %}">Cancel</a>
+    <a class="btn btn-secondary ml-3" href="{% url 'taxi:manufacturer-list' %}">Cancel</a>
   </form>
 {% endblock%}
