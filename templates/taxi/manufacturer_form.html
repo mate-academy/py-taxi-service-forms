@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+
+{% block title %}
+  <title>{{ object|yesno:"Update,Create" }} manufacturer</title>
+{% endblock %}
+
+
+{% block content %}
+  {% with action=object|yesno:"Update,Create" %}
+    <h2>{{ action }} new manufacturer</h2>
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input
+          class="btn btn-primary"
+          type="submit"
+          value="{{ action }}"
+      >
+    </form>
+  {% endwith %}
+{% endblock %}
