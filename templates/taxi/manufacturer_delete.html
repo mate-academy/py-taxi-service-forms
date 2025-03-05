@@ -7,7 +7,6 @@
   <p><i>Everything connected with {{ manufacturer }} will be deleted</i></p>
   <form action="" method="post" novalidate>
   {% csrf_token %}
-    {{ form|crispy }}
   <input type="submit" value="Delete" class="btn btn-danger">
   </form>
 {% endblock %}
