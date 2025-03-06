@@ -18,7 +18,7 @@ from .views import (
 urlpatterns = [
     path("", index, name="index"),
     path(
-        "manufacturers/",
+        "manufacturer/",
         ManufacturerListView.as_view(),
         name="manufacturer-list",
     ),
