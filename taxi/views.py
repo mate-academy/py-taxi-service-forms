@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from .forms import CarForm
 
 
@@ -62,37 +62,37 @@ class CarCreateView(LoginRequiredMixin, CreateView):
     model = Car
     form_class = CarForm
     template_name = "taxi/car_form.html"
-    success_url = reverse_lazy('taxi:car-list')
+    success_url = reverse_lazy("taxi:car-list")
 
 
 class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car
     form_class = CarForm
     template_name = "taxi/car_form.html"
-    success_url = reverse_lazy('taxi:car-list')
+    success_url = reverse_lazy("taxi:car-list")
 
 
 class CarDeleteView(LoginRequiredMixin, DeleteView):
     model = Car
     template_name = "taxi/car_confirm_delete.html"
-    success_url = reverse_lazy('taxi:car-list')
+    success_url = reverse_lazy("taxi:car-list")
 
 
 class ManufacturerCreateView(LoginRequiredMixin, CreateView):
     model = Manufacturer
     fields = "__all__"
     template_name = "taxi/manufacturer_form.html"
-    success_url = reverse_lazy('taxi:manufacturer-list')
+    success_url = reverse_lazy("taxi:manufacturer-list")
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
     model = Manufacturer
     fields = "__all__"
     template_name = "taxi/manufacturer_form.html"
-    success_url = reverse_lazy('taxi:manufacturer-list')
+    success_url = reverse_lazy("taxi:manufacturer-list")
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
     model = Manufacturer
     template_name = "taxi/manufacturer_confirm_delete.html"
-    success_url = reverse_lazy('taxi:manufacturer-list')
+    success_url = reverse_lazy("taxi:manufacturer-list")
