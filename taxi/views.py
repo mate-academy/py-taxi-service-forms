@@ -28,13 +28,6 @@ def index(request):
     return render(request, "taxi/index.html", context=context)
 
 
-class ManufacturerListView(LoginRequiredMixin, generic.ListView):
-    model = Manufacturer
-    context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
-    paginate_by = 5
-
-
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
@@ -65,14 +58,11 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = "taxi/car_confirm_delete.html"
 
 
-class DriverListView(LoginRequiredMixin, generic.ListView):
-    model = Driver
+class ManufacturerListView(LoginRequiredMixin, generic.ListView):
+    model = Manufacturer
+    context_object_name = "manufacturer_list"
+    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
-
-
-class DriverDetailView(LoginRequiredMixin, generic.DetailView):
-    model = Driver
-    queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
 
 
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
@@ -93,3 +83,13 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_confirm_delete.html"
+
+
+class DriverListView(LoginRequiredMixin, generic.ListView):
+    model = Driver
+    paginate_by = 5
+
+
+class DriverDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Driver
+    queryset = Driver.objects.all().prefetch_related("cars__manufacturer")

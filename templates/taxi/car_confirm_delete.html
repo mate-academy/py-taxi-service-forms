@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Delete car</h1>
   <h3>Are you sure you want to delete car {{ car }}?</h3>
-  <form action="" method="post">
+  <form action="{% url 'taxi:car-delete' pk=car.id %}" method="post">
     {% csrf_token %}
     <input type="submit" value="Delete" class="btn btn-danger">
     <a href="{% url 'taxi:car-detail' pk=car.id %}" class="btn btn-primary">Cancel</a>
