@@ -6,8 +6,10 @@
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+          <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
+          <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-primary btn-sm">Update</a>
+          <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this car?')">Delete</a>
         </li>
       {% endfor %}
     </ul>
