@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Create Driver</p>
+  <p>{% if form.instance.pk %}Update Manufacturer{% else %}Create Manufacturer{% endif %}</p>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Create Driver</button>
+    <button type="submit">Submit</button>
   </form>
 {% endblock %}
