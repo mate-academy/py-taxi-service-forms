@@ -30,4 +30,6 @@
     {% else %}
         <p>There are no manufacturers in the service.</p>
     {% endif %}
+
+    <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-secondary">Додати нову мануфактуру</a>
 {% endblock %}
