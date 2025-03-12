@@ -5,6 +5,7 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     color: #007bff; /* Цвет текста и границы */
+    text-decoration: none;
     background-color: transparent; /* Прозрачный фон */
     border: 2px solid #007bff; /* Линия (контур) */
     border-radius: 5px; /* Закругленные края */
@@ -13,6 +14,5 @@ body {
   }
 
   .line-button:hover {
-    background-color: #007bff; /* При наведении закрашивается */
-    color: white; /* Меняется цвет текста */
+    color: white;
   }
