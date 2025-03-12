@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -52,3 +53,39 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+class CarBaseView(LoginRequiredMixin, generic.View):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class CarCreateView(CarBaseView, generic.CreateView):
+    pass
+
+
+class CarUpdateView(CarBaseView, generic.UpdateView):
+    pass
+
+
+class CarDeleteView(CarBaseView, generic.DeleteView):
+    pass
+
+
+class ManufacturerBaseView(LoginRequiredMixin):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerCreateView(ManufacturerBaseView, generic.CreateView):
+    pass
+
+
+class ManufacturerUpdateView(ManufacturerBaseView, generic.UpdateView):
+    pass
+
+
+class ManufacturerDeleteView(ManufacturerBaseView, generic.DeleteView):
+    pass
