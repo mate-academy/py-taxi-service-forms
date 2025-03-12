@@ -73,7 +73,7 @@ class CarDeleteView(CarBaseView, generic.DeleteView):
     pass
 
 
-class ManufacturerBaseView(LoginRequiredMixin):
+class ManufacturerBaseView(LoginRequiredMixin, generic.View):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
