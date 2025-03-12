@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1> {{ object|yesno:"Update, Create" }} car</h1>
+  {% load crispy_forms_tags %}
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit" class="line-button">
+  </form>
+{% endblock %}
