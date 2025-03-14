@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>{% if object %}
+    Update
+  {% else %}
+    Create
+  {% endif %} {{ model_name }}</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+{% endblock %}
