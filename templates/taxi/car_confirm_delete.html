@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Delete car</h1>
+  <p>Are you sure you want to delete car <b>{{ car.model }}</b>?</p>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <a class="btn btn-primary"
+       href="{{ request.META.HTTP_REFERER }}">Cancel</a>
+  </form>
+{% endblock %}
