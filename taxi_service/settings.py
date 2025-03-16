@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "taxi",
     "crispy_forms",
     "crispy_bootstrap4",
+
 ]
 
 MIDDLEWARE = [
