@@ -76,19 +76,22 @@ class CarDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("taxi:car-list")
 
 
-class ManufacturerCreateView(LoginRequiredMixin, CreateView):
+class ManufacturerCreateView(LoginRequiredMixin,
+                             CreateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-format_form.html")
 
 
-class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
+class ManufacturerUpdateView(LoginRequiredMixin,
+                             UpdateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-format_form.html")
 
 
-class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
+class ManufacturerDeleteView(LoginRequiredMixin,
+                             DeleteView):
     model = Manufacturer
     template_name = "taxi/manufacturer_format_confirm_delete.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
