@@ -70,7 +70,8 @@ class CarUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "taxi/car_format_form.html"
 
 
-class CarDeleteView(LoginRequiredMixin, DeleteView):
+class CarDeleteView(LoginRequiredMixin,
+                    DeleteView):
     model = Car
     template_name = "taxi/car_format_confirm_delete.html"
     success_url = reverse_lazy("taxi:car-list")
