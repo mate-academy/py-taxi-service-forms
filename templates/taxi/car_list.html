@@ -14,4 +14,7 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+  <label>Add a new car
+    <input > <a href="{% url "taxi:car-create" %}">Add a car</a>
+  </label>
 {% endblock %}
