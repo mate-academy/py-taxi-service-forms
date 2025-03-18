@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container-fluid">
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete the car <strong>{{ manufacturer.name }}</strong> manufacturer?</p>
+    <p><i>Please note that all cars associated with this manufacturer will be <strong>deleted</strong>!</i></p>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Yes, Delete</button>
+      <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+{% endblock %}
