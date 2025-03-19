@@ -23,6 +23,12 @@
               <td>
                   {{ manufacturer.country }}
               </td>
+              <td>
+                  <a href="{% url 'taxi:manufacturer-list-update' pk=manufacturer.id %}" class="btn btn-primary">Update</a>
+              </td>
+              <td>
+                  <a href="{% url 'taxi:manufacturer-list-delete' pk=manufacturer.id %}" class="btn btn-danger">Delete</a>
+              </td>
           </tr>
         {% endfor %}
       </table>
@@ -30,4 +36,5 @@
     {% else %}
         <p>There are no manufacturers in the service.</p>
     {% endif %}
+    <a href="{% url 'taxi:manufacturer-list-create' %}" class="btn btn-primary">Create</a>
 {% endblock %}
