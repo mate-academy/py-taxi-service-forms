@@ -2,11 +2,11 @@
 
 {% block content %}
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-    <a href="{% url 'car_update' car.id %}">
+    <a href="{% url 'taxi:car-update' car.id %}">
       <button>Edit</button>
     </a>
 
-    <a href="{% url 'car_delete' car.id %}">
+    <a href="{% url 'taxi:car-delete' car.id %}">
       <button>Delete</button>
     </a>
 
