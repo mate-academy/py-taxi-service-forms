@@ -23,6 +23,16 @@
               <td>
                   {{ manufacturer.country }}
               </td>
+              <td>
+                  <a href="{% url 'manufacturer_update' manufacturer.id%}">
+                      <button>Edit</button>
+                  </a>
+              </td>
+              <td>
+                  <a href="{% url 'manufacturer_delete' manufacturer.id%}">
+                      <button>Delete</button>
+                  </a>
+              </td>
           </tr>
         {% endfor %}
       </table>

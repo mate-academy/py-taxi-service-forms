@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>WARNING</h1>
+    <br>
+    <p>Are you sure to delete: {{ manufacturer.name }} </p>
+    <p>All cars of this manufacture will be deleted also </p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Yes, delete"  class="btn btn_danger">
+    </form>
+{% endblock %}
