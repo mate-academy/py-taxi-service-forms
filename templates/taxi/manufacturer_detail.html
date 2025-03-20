@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %} Manufacturer Details | Taxi Service {% endblock %}
+
+{% block content %}
+  <div class="manufacturer-details">
+    <h2 class="manufacturer-title">🏭 Manufacturer Details</h2>
+
+    <ul class="manufacturer-info">
+      <li><strong>Name:</strong> {{ manufacturer.name }}</li>
+      <li><strong>Country:</strong> {{ manufacturer.country }}</li>
+    </ul>
+  </div>
+{% endblock %}

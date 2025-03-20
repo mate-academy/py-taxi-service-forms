@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Car | Taxi Service{% endblock %}
+
+{% block content %}
+  <div class="container text-center">
+    <h1 class="text-danger">🚗 Delete Car</h1>
+    <p>Are you sure you want to <strong>delete</strong> the car <strong>{{ car.model }}</strong> ({{ car.manufacturer.name }})?</p>
+    <p><strong>Warning:</strong> All assigned drivers will be removed as well.</p>
+
+    <form action="" method="post" class="mt-4">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Yes, delete</button>
+      <a href="{{ car.get_absolute_url }}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

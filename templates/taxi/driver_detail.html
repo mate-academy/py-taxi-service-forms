@@ -1,26 +1,29 @@
 {% extends "base.html" %}
+{% block title %} Driver details | Taxi Service {% endblock %}
 
 {% block content %}
-  <h1>
-    Username: {{ driver.username }}
-  </h1>
+  <div class="driver-details-container">
+    <h1 class="driver-title">👨‍✈️ Driver Details</h1>
 
-  <p><strong>First name:</strong> {{ driver.first_name }}</p>
-  <p><strong>Last name:</strong> {{ driver.last_name }}</p>
-  <p><strong>License number:</strong> {{ driver.license_number }}</p>
-  <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
+    <div class="driver-info">
+      <p><strong>Username:</strong> {{ driver.username }}</p>
+      <p><strong>First name:</strong> {{ driver.first_name }}</p>
+      <p><strong>Last name:</strong> {{ driver.last_name }}</p>
+      <p><strong>License number:</strong> {{ driver.license_number }}</p>
+      <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
+    </div>
 
-  <div class="ml-3">
-    <h4>Cars</h4>
-
-    {% for car in driver.cars.all %}
-        <hr>
-        <p><strong>Model:</strong> {{ car.model }}</p>
-        <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
-
-    {% empty %}
-      <p>No cars!</p>
-    {% endfor %}
+    <h2 class="driver-section-title">🚗 Cars</h2>
+    <div class="driver-cars">
+      {% for car in driver.cars.all %}
+        <div class="car-item">
+          <p class="text-muted"><strong>ID:</strong> {{ car.id }}</p>
+          <p><strong>Model:</strong> <a href="{{ car.get_absolute_url }}">{{ car.model }}</a></p>
+          <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
+        </div>
+      {% empty %}
+        <p class="empty-list">🚫 No cars!</p>
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}
