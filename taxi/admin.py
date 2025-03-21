@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import Driver, Car, Manufacturer
+
+from taxi.models import Car, Driver, Manufacturer
 
 
 @admin.register(Driver)
 class DriverAdmin(UserAdmin):
-    list_display = UserAdmin.list_display + ("license_number",)
+    list_display = UserAdmin.list_display + ("license_number", "show_groups")
     fieldsets = UserAdmin.fieldsets + (
         (("Additional info", {"fields": ("license_number",)}),)
     )
@@ -24,11 +25,26 @@ class DriverAdmin(UserAdmin):
         )
     )
 
+    @staticmethod
+    @admin.display(description="Groups")
+    def show_groups(obj: Driver) -> str:
+        return ", ".join([group.name for group in obj.groups.all()]) or "-"
+
 
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
-    search_fields = ("model",)
-    list_filter = ("manufacturer",)
+    list_display = ("model", "manufacturer", "display_drivers")
+    search_fields = ("model", "manufacturer__name",)
+    list_filter = ("model", "manufacturer",)
+    ordering = ("model",)
+
+    @staticmethod
+    @admin.display(description="Drivers")
+    def display_drivers(obj: Car) -> str:
+        return ", ".join([driver.username for driver in obj.drivers.all()]) or "-"  # noqa :E501
 
 
-admin.site.register(Manufacturer)
+@admin.register(Manufacturer)
+class ManufacturerAdmin(admin.ModelAdmin):
+    list_display = ("name", "country",)
+    ordering = ("name",)

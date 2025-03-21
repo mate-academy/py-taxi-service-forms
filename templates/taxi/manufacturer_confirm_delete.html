@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Manufacturer Car | Taxi Service{% endblock %}
+
+{% block content %}
+  <div class="container text-center">
+    <h1 class="text-danger">Manufacturer Car</h1>
+    <p>Are you sure you want to <strong>delete</strong> the car <strong>{{ manufacturer.name }}</strong> ({{ manufacturer.country }})?</p>
+    <p><strong>Warning:</strong> All assigned things will be removed as well.</p>
+
+    <form action="" method="post" class="mt-4">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Yes, delete</button>
+      <a href="{% url "taxi:manufacturer-list" %}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+{% endblock %}
