@@ -30,6 +30,7 @@ class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_form.html"
 
+
 class ManufacturersListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
     paginate_by = 5
@@ -38,19 +39,24 @@ class ManufacturersListView(LoginRequiredMixin, generic.ListView):
 class ManufacturerDetailView(LoginRequiredMixin, generic.DetailView):
     model = Manufacturer
 
+
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     form_class = ManufacturerForm
     success_url = reverse_lazy("taxi:manufacturer-list")
 
+
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
 
-class CarCreateView(LoginRequiredMixin,generic.CreateView):
+
+class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
+
+
 class CarsListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
@@ -58,17 +64,22 @@ class CarsListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self) -> QuerySet:
         return self.model.objects.select_related("manufacturer")
 
+
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
+
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
 
+
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
+
+
 class DriversListView(LoginRequiredMixin, generic.ListView):
     model = Driver
     paginate_by = 5
@@ -79,5 +90,3 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
 
     def get_queryset(self) -> QuerySet:
         return self.model.objects.prefetch_related("cars__manufacturer")
-
-

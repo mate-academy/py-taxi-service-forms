@@ -40,7 +40,6 @@ AUTH_USER_MODEL = "taxi.Driver"
 LOGIN_REDIRECT_URL = reverse_lazy("taxi:index")
 
 
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",

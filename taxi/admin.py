@@ -6,7 +6,7 @@ from taxi.models import Car, Driver, Manufacturer
 
 @admin.register(Driver)
 class DriverAdmin(UserAdmin):
-    list_display = UserAdmin.list_display + ("license_number",)
+    list_display = UserAdmin.list_display + ("license_number", "show_groups")
     fieldsets = UserAdmin.fieldsets + (
         (("Additional info", {"fields": ("license_number",)}),)
     )
@@ -25,8 +25,9 @@ class DriverAdmin(UserAdmin):
         )
     )
 
+    @staticmethod
     @admin.display(description="Groups")
-    def display_groups(self, obj: Driver) -> str:
+    def show_groups(obj: Driver) -> str:
         return ", ".join([group.name for group in obj.groups.all()]) or "-"
 
 
@@ -37,8 +38,9 @@ class CarAdmin(admin.ModelAdmin):
     list_filter = ("model", "manufacturer",)
     ordering = ("model",)
 
+    @staticmethod
     @admin.display(description="Drivers")
-    def display_drivers(self, obj: Car) -> str:
+    def display_drivers(obj: Car) -> str:
         return ", ".join([driver.username for driver in obj.drivers.all()]) or "-"  # noqa :E501
 
 
