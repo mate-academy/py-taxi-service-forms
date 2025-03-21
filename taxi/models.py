@@ -28,10 +28,13 @@ class Driver(AbstractUser):
 class Car(models.Model):
     model = models.CharField(max_length=55)
     manufacturer = models.ForeignKey(
-        to=Manufacturer, on_delete=models.CASCADE, related_name="cars"
+        to=Manufacturer,
+        on_delete=models.CASCADE,
+        related_name="cars"
     )
     drivers = models.ManyToManyField(
-        to=settings.AUTH_USER_MODEL, related_name="cars"
+        to=settings.AUTH_USER_MODEL,
+        related_name="cars"
     )
 
     def get_absolute_url(self):
