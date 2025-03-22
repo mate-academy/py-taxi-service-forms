@@ -2,12 +2,12 @@
   {% if user.is_authenticated %}
     <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
 
-     <li class="list-group-item">
-        <form action="{% url 'logout' %}" method="post">
-          {% csrf_token %}
-          <button type="submit" class="btn btn-danger btn-sm">Logout</button>
-        </form>
-      </li>
+    <li class="list-group-item">
+      <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger btn-sm">Logout</button>
+      </form>
+    </li>
 
   {% else %}
     <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
