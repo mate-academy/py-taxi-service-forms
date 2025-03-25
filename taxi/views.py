@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import (
     ListView,
@@ -55,12 +55,22 @@ class CarCreateView(LoginRequiredMixin, CreateView):
     template_name = "taxi/car_form.html"
     success_url = reverse_lazy("taxi:car-list")
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["is_create"] = True
+        return context
+
 
 class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car
     form_class = CarForm
     template_name = "taxi/car_form.html"
     success_url = reverse_lazy("taxi:car-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["is_create"] = False
+        return context
 
 
 class CarDeleteView(LoginRequiredMixin, DeleteView):
@@ -81,12 +91,22 @@ class ManufacturerCreateView(LoginRequiredMixin, CreateView):
     template_name = "taxi/manufacturer_form.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["is_create"] = True
+        return context
+
 
 class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
     model = Manufacturer
     form_class = ManufacturerForm
     template_name = "taxi/manufacturer_form.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["is_create"] = False
+        return context
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
@@ -101,12 +121,22 @@ class DriverCreateView(LoginRequiredMixin, CreateView):
     template_name = "taxi/driver_form.html"
     success_url = reverse_lazy("taxi:driver-list")
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["is_create"] = True
+        return context
+
 
 class DriverUpdateView(LoginRequiredMixin, UpdateView):
     model = Driver
     form_class = DriverUpdateForm
     template_name = "taxi/driver_form.html"
     success_url = reverse_lazy("taxi:driver-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["is_create"] = False
+        return context
 
 
 class DriverDeleteView(LoginRequiredMixin, DeleteView):

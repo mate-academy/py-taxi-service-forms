@@ -3,8 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>{% if request.resolver_match.url_name == 'taxi:car-create' %}Create
-    Car{% else %}Update Car{% endif %}</h1>
+  <h1>{{ is_create|yesno:"Create,Update" }} Car</h1>
   <form method="post">
     {% csrf_token %}
     {{ form|crispy }}

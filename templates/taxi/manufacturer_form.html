@@ -1,29 +1,11 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>Manufacturers</h1>
-  <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary">Create
-    New Manufacturer</a>
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Country</th>
-      <th>Update</th>
-      <th>Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for manufacturer in manufacturers %}
-      <tr>
-        <td>{{ manufacturer.name }}</td>
-        <td>{{ manufacturer.country }}</td>
-        <td><a href="{% url 'taxi:manufacturer-update' manufacturer.pk %}">Update</a>
-        </td>
-        <td><a href="{% url 'taxi:manufacturer-delete' manufacturer.pk %}">Delete</a>
-        </td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
+  <h1>{{ is_create|yesno:"Create,Update" }} Manufacturer</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
 {% endblock %}

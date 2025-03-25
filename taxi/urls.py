@@ -47,4 +47,19 @@ urlpatterns = [
         "drivers/<int:pk>/", views.DriverDetailView.as_view(),
         name="driver-detail"
     ),
+    path(
+        "drivers/create/",
+        views.DriverCreateView.as_view(),
+        name="driver-create",
+    ),
+    path(
+        "drivers/<int:pk>/update/",
+        views.DriverUpdateView.as_view(),
+        name="driver-update",
+    ),
+    path(
+        "drivers/<int:pk>/delete/",
+        views.DriverDeleteView.as_view(),
+        name="driver-delete",
+    ),
 ]
