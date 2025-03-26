@@ -4,7 +4,6 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
-
 from .models import Driver, Car, Manufacturer
 
 
@@ -85,7 +84,6 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
     template_name = "taxi/car_detail.html"
-
 
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
