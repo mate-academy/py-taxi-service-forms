@@ -34,7 +34,7 @@ urlpatterns = [
     ),
     path(
         "drivers/",
-         DriverListView.as_view(),
+        DriverListView.as_view(),
         name="driver-list"
     ),
     path(
