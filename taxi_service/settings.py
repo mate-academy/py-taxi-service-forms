@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "taxi",
     "crispy_forms",
-    "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [
@@ -142,7 +141,5 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
