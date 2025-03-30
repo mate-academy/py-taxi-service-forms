@@ -35,12 +35,12 @@ urlpatterns = [
          name="manufacturer-update"),
     path("manufacturers/<int:pk>/delete/", ManufacturerDeleteFormView.as_view(),
          name="manufacturer-delete"),
-    path("cars/create/", CarFormCreateView.as_view(), name="car-create"),
+    path("cars/create/", CarFormCreateView.as_view(),
+         name="car-create"),
     path("cars/<int:pk>/update/", CarFormUpdateView.as_view(),
          name="car-update"),
     path("cars/<int:pk>/delete/", CarFormDeleteView.as_view(),
          name="car-delete"),
-
 ]
 
 app_name = "taxi"
