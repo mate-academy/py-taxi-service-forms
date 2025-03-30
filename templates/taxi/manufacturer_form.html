@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ object.pk|yesno:"Update,Create" }} Manufacturer</h1>   
+
+  <form method="post" style="width: 400px">
+    {% csrf_token %}
+    {% load crispy_forms_filters %}
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-primary mt-3">
+      {{ object.pk|yesno:"Update,Create" }}
+    </button>
+  </form>
+{% endblock %}
