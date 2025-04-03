@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Are you sure you want to delete {{ car.name }}?</h2>
+  <hr>
+  <p>This action cannot be undone. Once deleted, the car will be permanently removed from the system.</p>
+
+  <div class="confirmation-buttons">
+    <form action="" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    </form>
+    <br>
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Cancel</a>
+  </div>
+{% endblock %}
