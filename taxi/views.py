@@ -54,6 +54,11 @@ class ManufacturerDeleteView(generic.DeleteView):
     template_name = "taxi/confirm_delete_page.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cancel_url"] = reverse_lazy("taxi:manufacturer-list")
+        return context
+
 
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
@@ -79,6 +84,11 @@ class CarDeleteView(generic.DeleteView):
     model = Car
     template_name = "taxi/confirm_delete_page.html"
     success_url = reverse_lazy("taxi:car-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cancel_url"] = reverse_lazy("taxi:car-list")
+        return context
 
 
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
