@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Delete car</h1>
+  <p>
+    Are you sure you want to delete the car <b>{{ car.model }}</b>?<br>
+    This action is irreversible and will permanently remove all associated data, including service history, documents,
+    and other related information.
+  </p>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <a class="btn btn-primary"
+       href="{{ request.META.HTTP_REFERER }}">Cancel</a>
+  </form>
+{% endblock %}
