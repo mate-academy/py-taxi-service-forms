@@ -1,12 +1,48 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
-  </ul>
+  <div class="card mb-4">
+  <div class="card-header">
+    <h1>
+    {{ car.model }}
+    <div style="float: right;">
+      <a href="{% url 'taxi:car-update' car.id %}" class="btn btn-warning">Update</a>
+      <a href="{% url 'taxi:car-delete' car.id %}" class="btn btn-danger">Delete</a>
+    </div>
+    </h1>
+  </div>
+  <div class="card-body">
+    <p><strong>ID:</strong> {{ car.id }}</p>
+    <p><strong>Model:</strong> {{ car.model }}</p>
+    <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}, {{ car.manufacturer.country }}</p>
+  </div>
+  </div>
+
+  <div class="card">
+  <div class="card-header">
+    <h2>Drivers</h2>
+  </div>
+  <div class="card-body">
+    {% if car.drivers.all %}
+    <table class="table">
+      <tr>
+      <th>Username</th>
+      <th>Full Name</th>
+      <th>License Number</th>
+      </tr>
+      {% for driver in car.drivers.all %}
+      <tr>
+        <td>
+        <a href="{% url 'taxi:driver-detail' pk=driver.id %}">{{ driver.username }}</a>
+        </td>
+        <td>{{ driver.first_name }} {{ driver.last_name }}</td>
+        <td>{{ driver.license_number }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>No drivers assigned to this car.</p>
+    {% endif %}
+  </div>
+  </div>
 {% endblock %}
