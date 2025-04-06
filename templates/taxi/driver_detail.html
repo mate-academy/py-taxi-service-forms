@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
 {% block content %}
   <h1>
-    Username: {{ driver.username }}
+  Username: {{ driver.username }}
   </h1>
 
   <p><strong>First name:</strong> {{ driver.first_name }}</p>
@@ -11,16 +11,16 @@
   <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
 
   <div class="ml-3">
-    <h4>Cars</h4>
+  <h4>Cars</h4>
 
-    {% for car in driver.cars.all %}
-        <hr>
-        <p><strong>Model:</strong> {{ car.model }}</p>
-        <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
+  {% for car in driver.cars.all %}
+    <hr>
+    <p><strong>Model:</strong> {{ car.model }}</p>
+    <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
+    <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
 
-    {% empty %}
-      <p>No cars!</p>
-    {% endfor %}
+  {% empty %}
+    <p>No cars!</p>
+  {% endfor %}
   </div>
 {% endblock %}
