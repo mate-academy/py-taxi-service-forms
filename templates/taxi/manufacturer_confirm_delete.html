@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Delete a manufacturer</h1>
+  <p>It will delete literally everything associated
+    with this manufacturer. Be cautious</p>
+  <form method="POST">
+    {% csrf_token %}
+    <p>Are you sure about this bud?</p>
+    <input type="submit" style="color: red" value="Submit">
+  </form>
+{% endblock %}
