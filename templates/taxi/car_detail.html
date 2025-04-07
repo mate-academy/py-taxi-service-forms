@@ -5,8 +5,49 @@
   <h1>Drivers</h1>
   <hr>
   <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
+    {% for driver in car.drivers.all %}
+      <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+    {% endfor %}
   </ul>
+
+  <div class="car-actions">
+    <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-transparent-blue">Update car</a>
+    <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-transparent-red">Delete car</a>
+  </div>
+
+  <style>
+    .car-actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-transparent-blue {
+      background-color: rgba(0, 123, 255, 0.7);
+    }
+
+    .btn-transparent-blue:hover {
+      background-color: rgba(0, 86, 179, 0.8);
+    }
+
+    .btn-transparent-red {
+      background-color: rgba(220, 53, 69, 0.7);
+    }
+
+    .btn-transparent-red:hover {
+      background-color: rgba(200, 35, 51, 0.8);
+    }
+  </style>
 {% endblock %}

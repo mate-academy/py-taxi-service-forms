@@ -2,11 +2,13 @@
 
 {% block content %}
   <h1>Car list</h1>
+  <a href="{% url 'taxi:car-create' %}" class="btn btn-transparent-blue">Create new car</a>
+
   {% if car_list %}
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+          <a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
         </li>
       {% endfor %}
@@ -14,4 +16,25 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+
+  <style>
+    .btn-transparent-blue {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: rgba(0, 123, 255, 0.7);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .btn-transparent-blue:hover {
+      background-color: rgba(0, 86, 179, 0.8);
+      text-decoration: none;
+    }
+  </style>
 {% endblock %}
