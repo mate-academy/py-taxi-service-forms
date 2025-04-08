@@ -4,4 +4,4 @@ flake8-quotes==3.3.1
 flake8-variables-names==0.0.5
 pep8-naming==0.14.0
 django-debug-toolbar==4.4.6
-django-crispy-forms==1.15.0
+django-crispy-forms==1.14.0
