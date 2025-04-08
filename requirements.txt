@@ -1,7 +1,7 @@
-django==5.1.7
-flake8==5.0.4
+django==5.2.0
+flake8==6.1.0
 flake8-quotes==3.3.1
 flake8-variables-names==0.0.5
-pep8-naming==0.13.2
-django-debug-toolbar==5.1.0
-django-crispy-forms==1.14.0
+pep8-naming==0.14.0
+django-debug-toolbar==5.2
+django-crispy-forms==1.15.0
