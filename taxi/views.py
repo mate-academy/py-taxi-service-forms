@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from .forms import CarForm, ManufacturerForm
 from .models import Driver, Car, Manufacturer
 
 
@@ -52,3 +52,69 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+def car_create(request):
+    if request.method == "POST":
+        form = CarForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("taxi:car-list")
+    else:
+        form = CarForm()
+    return render(request, "taxi/car_form.html", {"form": form})
+
+
+def car_update(request, pk):
+    car = get_object_or_404(Car, pk=pk)
+    if request.method == "POST":
+        form = CarForm(request.POST, instance=car)
+        if form.is_valid():
+            form.save()
+            return redirect("taxi:car-list")
+    else:
+        form = CarForm(instance=car)
+    return render(request, "car_form.html", {"form": form})
+
+
+def car_delete(request, pk):
+    car = get_object_or_404(Car, pk=pk)
+    if request.method == "POST":
+        car.delete()
+        return redirect("taxi:car-list")
+    return render(request, "car_confirm_delete.html", {"car": car})
+
+
+def manufacturer_create(request):
+    if request.method == "POST":
+        form = ManufacturerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("taxi:manufacturer-list")
+    else:
+        form = ManufacturerForm()
+    return render(request, "manufacturer_form.html", {"form": form})
+
+
+def manufacturer_update(request, pk):
+    manufacturer = get_object_or_404(Manufacturer, pk=pk)
+    if request.method == "POST":
+        form = ManufacturerForm(request.POST, instance=manufacturer)
+        if form.is_valid():
+            form.save()
+            return redirect("taxi:manufacturer-list")
+    else:
+        form = ManufacturerForm(instance=manufacturer)
+    return render(request, "taxi/manufacturer_form.html", {"form": form})
+
+
+def manufacturer_delete(request, pk):
+    manufacturer = get_object_or_404(Manufacturer, pk=pk)
+    if request.method == "POST":
+        manufacturer.delete()
+        return redirect("taxi:manufacturer-list")
+    return render(
+        request,
+        "taxi/manufacturer_confirm_delete.html",
+        {"manufacturer": manufacturer}
+    )
