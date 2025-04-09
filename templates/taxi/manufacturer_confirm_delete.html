@@ -9,6 +9,7 @@
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Yes" class="brn btn-danger">
+    <button onclick="window.location.href='{% url 'taxi:manufacturer-list' %}'">Cancel</button>
   </form>
 
 {% endblock %}
