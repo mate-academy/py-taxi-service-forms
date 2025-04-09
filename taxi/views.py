@@ -74,7 +74,7 @@ def car_update(request, pk):
             return redirect("taxi:car-list")
     else:
         form = CarForm(instance=car)
-    return render(request, "car_form.html", {"form": form})
+    return render(request, "taxi/car_form.html", {"form": form})
 
 
 def car_delete(request, pk):
