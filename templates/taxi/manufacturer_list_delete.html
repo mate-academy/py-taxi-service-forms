@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Delete Manufacturer</h1>
+  <h1>Delete Manufacturer</h1>
   <p>Are you sure you want to delete this manufacturer: {{ manufacturer.name }}</p>
   <p><i>The manufacturer and everything related to it will be deleted!</i></p>
   <form method="post" action="" novalidate>
-  {% csrf_token %}
-  <input type="submit" value="Yes,delete!" class="btn btn-danger">
+    {% csrf_token %}
+    <input type="submit" value="Yes,delete!" class="btn btn-danger">
+    <a href="{% url 'taxi:manufacturer-list'%}" class="btn btn-secondary cancel-button">No, cancel</a>
   </form>
 {% endblock %}

@@ -85,3 +85,7 @@ color: #000000;
   background-color: #e7f1ff;
   text-decoration: underline;
 }
+
+.cancel-button {
+  margin-left: 20px; /* или любое другое подходящее значение */
+}
