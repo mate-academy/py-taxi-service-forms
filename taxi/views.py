@@ -82,7 +82,7 @@ def car_delete(request, pk):
     if request.method == "POST":
         car.delete()
         return redirect("taxi:car-list")
-    return render(request, "car_confirm_delete.html", {"car": car})
+    return render(request, "taxi/car_confirm_delete.html", {"car": car})
 
 
 def manufacturer_create(request):
@@ -93,7 +93,7 @@ def manufacturer_create(request):
             return redirect("taxi:manufacturer-list")
     else:
         form = ManufacturerForm()
-    return render(request, "manufacturer_form.html", {"form": form})
+    return render(request, "taxi/manufacturer_form.html", {"form": form})
 
 
 def manufacturer_update(request, pk):
