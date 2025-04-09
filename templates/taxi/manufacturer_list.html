@@ -3,7 +3,6 @@
 {% block content %}
     <h1>Manufacturer List</h1>
     <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary">Create Manufacturer</a>
-
     {% if manufacturer_list %}
       <table class="table">
         <tr>
