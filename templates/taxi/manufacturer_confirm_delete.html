@@ -7,6 +7,6 @@
   <form method="post" action="">
     {% csrf_token %}
     <input type="submit" value="Yes, delete" class="btn btn-danger">
-    <input type="submit" value="Cancel" class="btn btn-secondary">
+    <button type="button" class="btn btn-secondary" onclick="window.history.back();">Cancel</button>
   </form>
 {% endblock %}
