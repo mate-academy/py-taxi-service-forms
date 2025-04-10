@@ -11,10 +11,10 @@ class MessageForm(forms.ModelForm):
 class CarForm(forms.ModelForm):
     class Meta:
         model = Car
-        fields = ["model", "manufacturer", "drivers"]
+        fields = "__all__"
 
 
 class ManufacturerForm(forms.ModelForm):
     class Meta:
         model = Manufacturer
-        fields = ["name", "country"] 
+        fields = "__all__" 
