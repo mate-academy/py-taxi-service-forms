@@ -15,4 +15,7 @@
     {{ num_visits }} time{{ num_visits|pluralize }}.
   </p>
 
+  {% if user.is_authenticated %}
+    <a href="{% url 'taxi:message-create' %}" class="btn btn-primary">Create Message</a>
+  {% endif %}
 {% endblock %}

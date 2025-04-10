@@ -35,3 +35,20 @@ class Car(models.Model):
 
     def __str__(self):
         return self.model
+
+
+class Message(models.Model):
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(
+        "Driver",
+        on_delete=models.CASCADE,
+        related_name="messages"
+    )
+
+    class Meta:
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.title} by {self.author.username}"
