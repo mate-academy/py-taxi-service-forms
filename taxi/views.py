@@ -47,7 +47,7 @@ class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template_name = "taxi/manufacturer_create.html"
+    template_name = "taxi/manufacturer_update.html"
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
@@ -80,7 +80,7 @@ class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
-    template_name = "taxi/car_create.html"
+    template_name = "taxi/car_update.html"
 
 
 class CarDeleteView(LoginRequiredMixin, DeleteView):
