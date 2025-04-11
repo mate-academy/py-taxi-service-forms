@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="card">
+    <h2>Are you sure you want to delete this manufacturer?</h2>
+    <form action="" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Yes" class="btn btn-danger">
+    </form>
+  </div>
+{% endblock %}
