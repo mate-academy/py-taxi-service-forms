@@ -1,33 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
-    </h1>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Manufacturer list</h1>
+        <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary">Add a new manufacturer</a>
+    </div>
 
     {% if manufacturer_list %}
-      <table class="table">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
-        </tr>
-
-        {% for manufacturer in manufacturer_list %}
+      <table class="table table-striped table-hover table-bordered align-middle text-center">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Country</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for manufacturer in manufacturer_list %}
             <tr>
               <td>
-                  {{ manufacturer.id }}
+                {{ manufacturer.id }}
               </td>
               <td>
-                  {{ manufacturer.name }}
+                {{ manufacturer.name }}
               </td>
               <td>
-                  {{ manufacturer.country }}
+                {{ manufacturer.country }}
               </td>
-          </tr>
-        {% endfor %}
+              <td>
+                <a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}" class="btn btn-sm btn-outline-secondary">Update</a>
+                <a href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
       </table>
-
     {% else %}
-        <p>There are no manufacturers in the service.</p>
+      <p>There are no manufacturers in the service</p>
     {% endif %}
 {% endblock %}
