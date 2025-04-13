@@ -8,5 +8,6 @@
     {{ form|crispy }}
     <a href="{% url 'taxi:manufacturer-list' %}">Exit</a>
     <input type="submit" value="Submit">
+    <button type="button" onclick="history.back()">⬅ Назад</button>
   </form>
 {%  endblock %}
