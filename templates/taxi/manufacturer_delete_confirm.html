@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn badge-danger">
+  </form>
+{% endblock %}
