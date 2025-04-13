@@ -9,7 +9,6 @@ venv/
 db.sqlite3
 .venv
 static/
-taxi/migrations/
 taxi/__init__.py
 taxi/admin.py
 taxi/apps.py
@@ -18,8 +17,8 @@ taxi_service/__init__.py
 taxi_service/asgi.py
 taxi_service/urls.py
 taxi_service/wsgi.py
-templates/includes
-templates/registration
+templates/includes/
+templates/registration/
 templates/base.html
 templates/taxi/driver_detail.html
 templates/taxi/driver_list.html
