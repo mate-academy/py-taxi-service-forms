@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn badge-danger">
+  <a href="{% url "taxi:car-list" %}" class="btn btn-primary">Cencel</a>
+  </form>
+  
+{% endblock %}
