@@ -9,6 +9,7 @@
       <p>Create a manufacturer</p>
     {% endif %}
     {{ form|crispy }}
+    <a href="{% url 'taxi:manufacturer-list' %}">Exit</a>
     <input type="submit" value="Submit">
   </form>
 {% endblock%}

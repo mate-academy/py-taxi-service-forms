@@ -38,21 +38,21 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
     fields = "__all__"
-    success_url = reverse_lazy("taxi:manufacturers-list")
+    success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/create_m.html"
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
-    success_url = reverse_lazy("taxi:manufacturers-update")
+    success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/create_m.html"
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     template_name = "taxi/delete_m.html"
-    success_url = reverse_lazy("taxi:manufacturers-delete")
+    success_url = reverse_lazy("taxi:manufacturer-list")
 
 
 class CarListView(LoginRequiredMixin, generic.ListView):
