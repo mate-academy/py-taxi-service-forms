@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="uniForm">
+
+  <h1>{{ object|yesno:"Update,Create" }} Object</h1>
+
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+
+</div>
+{% endblock %}

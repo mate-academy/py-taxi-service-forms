@@ -1,17 +1,45 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>Car list</h1>
-  {% if car_list %}
-    <ul>
-      {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>There are no cars in taxi</p>
-  {% endif %}
+<div class="uniForm">
+
+    <!-- Header with Add Button -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h1>Car List</h1>
+        <a href="{% url 'taxi:car-create' %}" class="btn btn-primary">Add Car</a>
+    </div>
+
+    <!-- Car Table -->
+    {% if car_list %}
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Model</th>
+                    <th>Manufacturer</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in car_list %}
+                    <tr>
+                        <td><a href="{% url 'taxi:car-detail' pk=car.id %}">{{ car.id }}</a></td>
+                        <td>{{ car.model }}</td>
+                        <td>{{ car.manufacturer.name }}</td>
+                        <td>
+                            <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-warning btn-sm">Update</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-muted">There are no cars in taxi.</p>
+    {% endif %}
+</div>
 {% endblock %}
