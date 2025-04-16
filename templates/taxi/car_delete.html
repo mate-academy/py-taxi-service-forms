@@ -6,7 +6,8 @@
   <p><strong>Warning:</strong> You are trying to delete car: {{ car }}</p>
   <p><i>By deleting the car, you will delete all connections with other instances</i></p>
   <form action="" method="post">
-  {% csrf_token %}
+    {% csrf_token %}
     <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}
