@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <p><strong>Warning!!!</strong>You are trying to delete manufacturer: {{ manufacturer }}</p>
+  <p><i>Deleting will cause some other deletions with connected data</i></p>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    <input type="submit" value="Yes, i understand" class="btn btn-danger">
+    <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}
