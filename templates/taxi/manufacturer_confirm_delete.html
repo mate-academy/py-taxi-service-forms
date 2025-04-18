@@ -9,7 +9,7 @@
     Will be deleted cars:
   </p>
     <ul>
-      {% for car in manufacturer.car_set.all %}
+      {% for car in object.car_set.all %}
         <li>{{ car.name }}</li>
       {% endfor %}
     </ul>
