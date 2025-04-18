@@ -3,13 +3,13 @@
 {% block content %}
   <h1>Delete Manufacturer</h1>
   <p>
-    Are u sure u want to delete Manufacturer {{ manufacturer.name }} ?
+    Are u sure u want to delete Manufacturer {{ object.name }} ?
   </p>
   <p>
     Will be deleted cars:
   </p>
     <ul>
-      {% for car in manufacturer.car.all %}
+      {% for car in manufacturer.car_set.all %}
         <li>{{ car.name }}</li>
       {% endfor %}
     </ul>
