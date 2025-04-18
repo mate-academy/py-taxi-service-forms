@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Manufacturer</h1>
+  <p>
+    Are u sure u want to delete Manufacturer {{ object.name }} ?
+  </p>
+  <p>
+    Will be deleted cars:
+  </p>
+    <ul>
+      {% for car in object.car_set.all %}
+        <li>{{ car.name }}</li>
+      {% endfor %}
+    </ul>
+  <form action="" method="post">
+  {% csrf_token %}
+    <button type="submit" class="btn btn-danger"> Yes, delete</button>
+  </form>
+{% endblock %}
