@@ -5,6 +5,9 @@
     </h1>
 
     {% if manufacturer_list %}
+      <a href="{% url 'taxi:manufacturer-create' %}">
+        +
+      </a>
       <table class="table">
         <tr>
           <th>ID</th>
@@ -22,6 +25,16 @@
               </td>
               <td>
                   {{ manufacturer.country }}
+              </td>
+              <td>
+                <a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">
+                  UPDATE
+                </a>
+              </td>
+              <td>
+                <a href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">
+                  DELETE
+                </a>
               </td>
           </tr>
         {% endfor %}
