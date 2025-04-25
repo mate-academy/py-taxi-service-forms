@@ -61,6 +61,7 @@ class CarCreateView(LoginRequiredMixin, CreateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_form.html"
+    context_object_name = "car"
 
 
 class CarUpdateView(LoginRequiredMixin, UpdateView):
@@ -68,12 +69,14 @@ class CarUpdateView(LoginRequiredMixin, UpdateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_form.html"
+    context_object_name = "car"
 
 
 class CarDeleteView(LoginRequiredMixin, DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_confirm_delete.html"
+    context_object_name = "car"
 
 
 class ManufacturerCreateView(LoginRequiredMixin, CreateView):
@@ -81,6 +84,7 @@ class ManufacturerCreateView(LoginRequiredMixin, CreateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_form.html"
+    context_object_name = "manufacturer"
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
@@ -88,9 +92,11 @@ class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_form.html"
+    context_object_name = "manufacturer"
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_confirm_delete.html"
+    context_object_name = "manufacturer"
