@@ -40,5 +40,3 @@ urlpatterns = [
          ManufacturerDeleteView.as_view(), name="manufacturer-delete"),
 ]
 app_name = "taxi"
-
-
