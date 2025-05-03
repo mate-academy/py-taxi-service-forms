@@ -37,14 +37,14 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
 
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
-    template_name = "taxi/Manufacturer_form.html"
+    template_name = "taxi/manufacturer_form.html"
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
-    template_name = "taxi/Manufacturer_form.html"
+    template_name = "taxi/manufacturer_form.html"
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
