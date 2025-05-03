@@ -8,7 +8,6 @@
   <p><strong>All Information related to this manufacturer will be removed!</strong></p>
   <form method="post" action="">
     {% csrf_token %}
-    {{ form | crispy }}
     <input type="submit" class="btn btn-danger" value="Yes, Delete">
   </form>
 {% endblock %}
