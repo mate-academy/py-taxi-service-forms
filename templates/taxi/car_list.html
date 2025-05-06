@@ -20,8 +20,8 @@
         <td>{{ car.drivers.count }}</td>
         <td><a href="{% url 'taxi:car-update' car.id %}">Update</a></td>
         <td><a href="{% url 'taxi:car-delete' car.id %}">Delete</a></td>
-      {% endfor %}
       </tr>
+      {% endfor %}
     </table>
   {% else %}
     <p>There are no cars in taxi</p>
