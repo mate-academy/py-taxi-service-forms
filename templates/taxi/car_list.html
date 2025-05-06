@@ -9,7 +9,7 @@
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+          <a href="{% url "taxi:car-detail" pk=car.id %}">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
           <div>
             <a class="btn btn-primary" href="{% url 'taxi:car-update' pk=car.id %}" style="margin: 10px">Update</a>
