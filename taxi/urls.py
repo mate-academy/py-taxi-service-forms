@@ -15,6 +15,8 @@ from .views import (
     ManufacturerCreateView,
 )
 
+app_name = "taxi"
+
 urlpatterns = [
     path("", index, name="index"),
     path("manufacturers/", ManufacturerListView.as_view(), name="manufacturer-list",),
@@ -29,5 +31,3 @@ urlpatterns = [
     path("manufacturers/<int:pk>/delete/", ManufacturerDeleteView.as_view(), name="manufacturer-delete"),
     path("manufacturers/create/", ManufacturerCreateView.as_view(), name="manufacturer-create"),
 ]
-
-app_name = "taxi"
