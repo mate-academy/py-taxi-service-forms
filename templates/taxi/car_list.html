@@ -19,8 +19,8 @@
         <td>{{ car.model }}</td>
         <td>{{ car.manufacturer }}</td>
         <td>{{ car.drivers.count }}</td>
-        <td><a href="{% url 'taxi:manufacturer-update' pk=car.id %}">UPDATE</a></td>
-        <td><a href="{% url 'taxi:manufacturer-delete' pk=car.id %}">DELETE</a></td>
+        <td><a href="{% url 'taxi:car-update' pk=car.id %}">UPDATE</a></td>
+        <td><a href="{% url 'taxi:car-delete' pk=car.id %}">DELETE</a></td>
       </tr>
     {% endfor %}
     </table>
