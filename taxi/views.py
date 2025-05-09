@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import CarForm, ManufacturerForm
 from .models import Driver, Car, Manufacturer
@@ -57,37 +57,41 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
 
 
-class CarCreateView(CreateView):
+class CarCreateView(LoginRequiredMixin, CreateView):
     model = Car
     form_class = CarForm
-    template_name = "car_form.html"
+    template_name = "taxi/car_list.html"
     success_url = reverse_lazy("car-list")
 
-class CarUpdateView(UpdateView):
+
+class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car
     form_class = CarForm
-    template_name = "car_form.html"
+    template_name = "taxi/car_list.html"
     success_url = reverse_lazy("car-list")
 
-class CarDeleteView(DeleteView):
+
+class CarDeleteView(LoginRequiredMixin, DeleteView):
     model = Car
     template_name = "car_confirm_delete.html"
     success_url = reverse_lazy("car-list")
 
-# Manufacturer views
-class ManufacturerCreateView(CreateView):
+
+class ManufacturerCreateView(LoginRequiredMixin, CreateView):
     model = Manufacturer
     form_class = ManufacturerForm
     template_name = "manufacturer_form.html"
     success_url = reverse_lazy("manufacturer-list")
 
-class ManufacturerUpdateView(UpdateView):
+
+class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
     model = Manufacturer
     form_class = ManufacturerForm
     template_name = "manufacturer_form.html"
     success_url = reverse_lazy("manufacturer-list")
 
-class ManufacturerDeleteView(DeleteView):
+
+class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
     model = Manufacturer
     template_name = "manufacturer_confirm_delete.html"
     success_url = reverse_lazy("manufacturer-list")

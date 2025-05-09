@@ -1,7 +1,6 @@
-from pyclbr import Class
-
 from django import forms
 from .models import Car, Manufacturer
+
 
 class CarForm(forms.ModelForm):
     class Meta:
@@ -12,6 +11,7 @@ class CarForm(forms.ModelForm):
             "manufacturer": forms.Select(attrs={"class": "form-control"}),
             "year": forms.NumberInput(attrs={"class": "form-control"}),
         }
+
 
 class ManufacturerForm(forms.ModelForm):
     class Meta:
