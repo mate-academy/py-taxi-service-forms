@@ -8,6 +8,8 @@
         <li>
           <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
+          <a href="{% url 'car-create' %}" class="btn btn-success mb-2">Create</a>
+
         </li>
       {% endfor %}
     </ul>
