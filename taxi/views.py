@@ -71,7 +71,6 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/delete_confirmation_form.html"
     model = Car
-    fields = "__all__"
 
     def get_context_data(self, **kwargs) -> dict:
         context = super().get_context_data(**kwargs)
@@ -118,7 +117,6 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = "taxi/delete_confirmation_form.html"
     model = Manufacturer
-    fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
     def get_context_data(self, **kwargs) -> dict:
