@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
+{% load crispy_forms_filters %}
 
 {% block content %}
 
   <form action="" method="post">
   {% csrf_token %}
-  <input type="submit" value="Yes, delete">
+    <p>Are you sure you want to delete {{ model_name|title }}?</p>
+  <input class="btn btn-primary" type="submit" value="Yes, delete">
   </form>
 
 {% endblock %}
