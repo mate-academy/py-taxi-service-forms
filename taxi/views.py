@@ -63,6 +63,7 @@ class CarListView(LoginRequiredMixin, generic.ListView):
 
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
+    context_object_name = "car"
 
 
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
