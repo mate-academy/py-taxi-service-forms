@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
@@ -8,5 +8,13 @@
   {% for driver in car.drivers.all %}
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
-  </ul>
+  <form action="{% url 'taxi:car-update' pk=car.id %}" method="get" style="display: inline-block; padding-top: 20px">
+    {% csrf_token %}
+    <input class="btn btn-primary" type="submit" value="Update">
+  </form>
+
+  <form action="{% url 'taxi:car-delete' pk=car.id %}" method="post" style="display: inline-block;; margin-left: 10px;">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="Delete">
+  </form>
 {% endblock %}
