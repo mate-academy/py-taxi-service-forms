@@ -5,7 +5,7 @@
   <h1> Delete Car</h1>
 
   <p>Are you sure you want to delete the car: <strong>{{ car }}</strong>?</p>
-  <p><i>All manufacturer with this car will be also deleted!</i></p>
+
   <form action="" method="post">
     {% csrf_token %}
     {{ form|crispy }}
