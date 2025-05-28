@@ -4,6 +4,7 @@
 
   <p>Are you sure you want to delete the car: {{ car }}?</p>
   <form action="" method="post">
+    {% csrf_token %}
     <input type="submit" class="btn btn-danger" value="Delete">
   </form>
 {% endblock %}

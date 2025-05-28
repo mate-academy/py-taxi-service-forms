@@ -1,5 +1,3 @@
-from symtable import Class
-
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -60,6 +58,7 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
+    template_name = "taxi/car_list.html"
     queryset = Car.objects.all().select_related("manufacturer")
 
 
