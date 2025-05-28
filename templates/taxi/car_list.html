@@ -14,4 +14,8 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+  <form action="{% url 'taxi:car-create' %}" method="get">
+    <input type="submit" value="Create new car" class="btn btn-primary">
+  </form>
+  <br>
 {% endblock %}
