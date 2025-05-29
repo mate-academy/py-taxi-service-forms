@@ -1,33 +1,26 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-    <h1>Manufacturer List
-    </h1>
-
-    {% if manufacturer_list %}
-      <table class="table">
+<h1>Lista producentów</h1>
+<a href="{% url 'manufacturer_create' %}" class="btn btn-primary">Dodaj nowego producenta</a>
+<table class="table">
+    <thead>
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
+            <th>Nazwa</th>
+            <th>Kraj</th>
+            <th>Aktualizuj</th>
+            <th>Usuń</th>
         </tr>
-
-        {% for manufacturer in manufacturer_list %}
-            <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
-          </tr>
+    </thead>
+    <tbody>
+        {% for manufacturer in manufacturers %}
+        <tr>
+            <td>{{ manufacturer.name }}</td>
+            <td>{{ manufacturer.country }}</td>
+            <td><a href="{% url 'manufacturer_update' manufacturer.pk %}" class="btn btn-warning">Aktualizuj</a></td>
+            <td><a href="{% url 'manufacturer_delete' manufacturer.pk %}" class="btn btn-danger">Usuń</a></td>
+        </tr>
         {% endfor %}
-      </table>
-
-    {% else %}
-        <p>There are no manufacturers in the service.</p>
-    {% endif %}
+    </tbody>
+</table>
 {% endblock %}

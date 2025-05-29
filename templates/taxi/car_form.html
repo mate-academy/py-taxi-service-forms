@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% if form.instance.pk %}Aktualizuj samochód{% else %}Stwórz samochód{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+</form>
+{% endblock %}
