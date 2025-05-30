@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -66,8 +66,10 @@ class CarCreateView(LoginRequiredMixin, generic.CreateView):
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
-    success_url = reverse_lazy("taxi:car-detail")
     fields = "__all__"
+
+    def get_success_url(self):
+        return reverse("taxi:car-detail", kwargs={"pk": self.object.pk})
 
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
