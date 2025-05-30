@@ -60,8 +60,8 @@ class CarListView(LoginRequiredMixin, generic.ListView):
 
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
-    success_url = reverse_lazy("taxi:car-list")
     fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
 
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
