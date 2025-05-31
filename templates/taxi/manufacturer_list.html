@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Manufacturer List</h1>
-<a href="{% url 'cars:manufacturer_create' %}" class="btn btn-primary">Add New Manufacturer</a>
+<a href="{% url 'taxi:manufacturer_create' %}" class="btn btn-primary">Add New Manufacturer</a>
 <table class="table">
     <thead>
         <tr>
@@ -17,8 +17,8 @@
         <tr>
             <td>{{ manufacturer.name }}</td>
             <td>{{ manufacturer.country }}</td>
-            <td><a href="{% url 'cars:manufacturer_update' manufacturer.pk %}" class="btn btn-warning">Update</a></td>
-            <td><a href="{% url 'cars:manufacturer_delete' manufacturer.pk %}" class="btn btn-danger">Delete</a></td>
+            <td><a href="{% url 'taxi:manufacturer_update' manufacturer.pk %}" class="btn btn-warning">Update</a></td>
+            <td><a href="{% url 'taxi:manufacturer_delete' manufacturer.pk %}" class="btn btn-danger">Delete</a></td>
         </tr>
         {% endfor %}
     </tbody>

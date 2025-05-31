@@ -2,10 +2,10 @@
 
 {% block content %}
 <h1>Car List</h1>
-<a href="{% url 'cars:car_create' %}" class="btn btn-primary">Add New Car</a>
+<a href="{% url 'taxi:car_create' %}" class="btn btn-primary">Add New Car</a>
 <ul>
     {% for car in cars %}
-    <li><a href="{% url 'cars:car_detail' car.pk %}">{{ car }}</a></li>
+    <li><a href="{% url 'taxi:car_detail' car.pk %}">{{ car }}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}
