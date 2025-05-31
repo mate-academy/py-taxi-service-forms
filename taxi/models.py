@@ -1,6 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
+from django.core.exceptions import ValidationError
+
+def validate_year(value):
+    if value < 1990 or value > 2100:
+        raise ValidationError('Year must be between 1900 and 2100')
 
 
 class Manufacturer(models.Model):
@@ -32,6 +37,7 @@ class Car(models.Model):
     model = models.CharField(max_length=255)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     drivers = models.ManyToManyField(Driver, related_name="cars")
+    year = models.IntegerField(validators=[validate_year])
 
     def __str__(self):
-        return self.model
+        return f"{self.manufacturer.name} {self.model} ({self.year})"
