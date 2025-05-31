@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Lista producentów</h1>
-<a href="{% url 'manufacturer_create' %}" class="btn btn-primary">Dodaj nowego producenta</a>
+<h1>Manufacturer List</h1>
+<a href="{% url 'cars:manufacturer_create' %}" class="btn btn-primary">Add New Manufacturer</a>
 <table class="table">
     <thead>
         <tr>
-            <th>Nazwa</th>
-            <th>Kraj</th>
-            <th>Aktualizuj</th>
-            <th>Usuń</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -17,8 +17,8 @@
         <tr>
             <td>{{ manufacturer.name }}</td>
             <td>{{ manufacturer.country }}</td>
-            <td><a href="{% url 'manufacturer_update' manufacturer.pk %}" class="btn btn-warning">Aktualizuj</a></td>
-            <td><a href="{% url 'manufacturer_delete' manufacturer.pk %}" class="btn btn-danger">Usuń</a></td>
+            <td><a href="{% url 'cars:manufacturer_update' manufacturer.pk %}" class="btn btn-warning">Update</a></td>
+            <td><a href="{% url 'cars:manufacturer_delete' manufacturer.pk %}" class="btn btn-danger">Delete</a></td>
         </tr>
         {% endfor %}
     </tbody>

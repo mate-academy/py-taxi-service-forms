@@ -2,6 +2,6 @@
 
 {% block content %}
 <h1>{{ car }}</h1>
-<a href="{% url 'car_update' car.pk %}" class="btn btn-warning">Aktualizuj</a>
-<a href="{% url 'car_delete' car.pk %}" class="btn btn-danger">Usuń</a>
+<a href="{% url 'cars:car_update' car.pk %}" class="btn btn-warning">Update</a>
+<a href="{% url 'cars:car_delete' car.pk %}" class="btn btn-danger">Delete</a>
 {% endblock %}

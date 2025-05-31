@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Lista samochodów</h1>
-<a href="{% url 'car_create' %}" class="btn btn-primary">Dodaj nowy samochód</a>
+<h1>Car List</h1>
+<a href="{% url 'cars:car_create' %}" class="btn btn-primary">Add New Car</a>
 <ul>
     {% for car in cars %}
-    <li><a href="{% url 'car_detail' car.pk %}">{{ car }}</a></li>
+    <li><a href="{% url 'cars:car_detail' car.pk %}">{{ car }}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}
