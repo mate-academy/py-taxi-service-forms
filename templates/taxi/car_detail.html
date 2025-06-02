@@ -8,12 +8,8 @@
     {% for driver in car.drivers.all %}
       <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
     {% endfor %}
-    <form action="{% url 'taxi:car-update' pk=car.id %}" method="get">
-      <input type="submit" value="Update" class="btn btn-primary">
-    </form>
-    <form action="{% url 'taxi:car-delete' pk=car.id %}" method="get">
-      <input type="submit" value="Delete" class="btn btn-danger">
-    </form>
+    <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-primary">Update</a>
+    <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-danger">Delete</a>
 
   </ul>
 {% endblock %}
