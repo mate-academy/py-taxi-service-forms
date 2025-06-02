@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <h1>Car list </h1>
+  <form action="{% url 'taxi:car-create'%}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Create" class="btn btn-primary">
+  </form>
+  <br>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
@@ -14,4 +19,5 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+
 {% endblock %}
