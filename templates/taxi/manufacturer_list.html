@@ -2,8 +2,7 @@
 
 {% block content %}
   <h1>Manufacturer List</h1>
-  <form action="{% url 'taxi:manufacturer-create'%}" method="post">
-      {% csrf_token %}
+  <form action="{% url 'taxi:manufacturer-create'%}" method="get">
       <input type="submit" value="Create" class="btn btn-primary">
   </form>
   <br>

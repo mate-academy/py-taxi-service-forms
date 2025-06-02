@@ -2,8 +2,7 @@
 
 {% block content %}
   <h1>Car list </h1>
-  <form action="{% url 'taxi:car-create'%}" method="post">
-      {% csrf_token %}
+  <form action="{% url 'taxi:car-create'%}" method="get">
       <input type="submit" value="Create" class="btn btn-primary">
   </form>
   <br>
