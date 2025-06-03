@@ -53,4 +53,3 @@ urlpatterns += [
         name="manufacturer-delete"
     ),
 ]
-
