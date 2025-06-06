@@ -1,0 +1,10 @@
+{% extends 'taxi/car_detail.html' %}
+
+{% block content %}
+  <p>Are you sure you want to delete {{ car }} car?</p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger">Delete</button>
+  </form>
+{% endblock %}
