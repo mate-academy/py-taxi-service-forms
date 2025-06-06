@@ -36,6 +36,27 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
+class ManufacturerCreateView(LoginRequiredMixin, CreateView):
+    model = Manufacturer
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    fields = "__all__"
+    template_name = "taxi/manufacturer_form.html"
+
+
+class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
+    model = Manufacturer
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    fields = "__all__"
+    template_name = "taxi/manufacturer_form.html"
+
+
+class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
+    model = Manufacturer
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "taxi/manufacturer_confirm_delete.html"
+    context_object_name = "manufacturer"
+
+
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
@@ -63,8 +84,8 @@ class CarUpdateView(LoginRequiredMixin, UpdateView):
 class CarDeleteView(LoginRequiredMixin, DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
-    template_name = "taxi/car_confirm-delete.html"
-    fields = "__all__"
+    template_name = "taxi/car_confirm_delete.html"
+    context_object_name = "car"
 
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
