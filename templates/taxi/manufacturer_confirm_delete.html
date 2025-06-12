@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>Car Delete</h1>
-  <p>Are you sure you want to delete literary format: {{ manufacturer }}?</p>
+	<h1>Manufacturer Delete</h1>
+  <p>Are you sure you want to delete manufacturer: {{ manufacturer }}?</p>
   <p><i>All books with this literary format will be also delete!</i></p>
   <form action="" method="post">
     {% csrf_token %}

@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Car list </h1>
 
-  <a href="{% url 'taxi:car-list-create' %}"><h3>Create new Car</h3></a>
+  <a href="{% url 'taxi:car-create' %}"><h3>Create new Car</h3></a>
   {% if car_list %}
     <table class="table">
       <tr>
@@ -22,10 +22,10 @@
             {{ car.model }} ({{ car.manufacturer.name }})
           </td>
           <td>
-            <a href="{% url 'taxi:car-list-update' pk=car.id %}">UPDATE</a>
+            <a href="{% url 'taxi:car-update' pk=car.id %}">UPDATE</a>
           </td>
           <td>
-            <a href="{% url 'taxi:car-list-delete' pk=car.id %}">DELETE</a>
+            <a href="{% url 'taxi:car-delete' pk=car.id %}">DELETE</a>
           </td>
 
         </tr>
