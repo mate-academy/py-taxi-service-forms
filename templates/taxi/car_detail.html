@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1>
-    {{ car.model }}
+    {{ object.model }}
     <a href="{% url "taxi:car-update" pk=car.id %}">Update</a>
     <a href="{% url "taxi:car-delete" pk=car.id %}">Delete</a>
   </h1>

@@ -2,7 +2,7 @@
 
 {% block content %}
 	<h1>Delete Manufacturer</h1>
-  <p>Are you sure you want to delete {{ manufacturer.name }}?</p>
+  <p>Are you sure you want to delete {{ object.name }}?</p>
   <form method="post">
   {% csrf_token %}
   <input type="submit" value="Yes, delete" class="btn btn-danger">
