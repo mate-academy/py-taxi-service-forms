@@ -1,5 +1,8 @@
+from audioop import reverse
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -34,6 +37,26 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
+class ManufacturerListCreate(LoginRequiredMixin, generic.CreateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer_list")
+    template_name = "taxi/manufacturer_list_create.html"
+
+
+class ManufacturerListUpdate(LoginRequiredMixin, generic.UpdateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer_list")
+    template_name = "taxi/manufacturer_list_create.html"
+
+
+class ManufacturerListDelete(LoginRequiredMixin, generic.DeleteView):
+    model = Manufacturer
+    success_url = reverse_lazy("taxi:manufacturer_list")
+    template_name = "taxi/manufacturer_list_delete.html"
+
+
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
@@ -42,6 +65,26 @@ class CarListView(LoginRequiredMixin, generic.ListView):
 
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
+
+
+class CarListCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car_list")
+    template_name = "taxi/car_list_create.html"
+
+
+class CarListUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car_list")
+    template_name = "taxi/car_list_create.html"
+
+
+class CarListDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Car
+    success_url = reverse_lazy("taxi:car_list")
+    template_name = "taxi/car_list_delete.html"
 
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
