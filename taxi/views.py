@@ -58,6 +58,8 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
 
 class DriverCreateView(LoginRequiredMixin, CreateView):
     model = Driver
+    fields = "__all__"
+    success_url = reverse_lazy("index")
 
 
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
