@@ -1,15 +1,57 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView, UpdateView, DeleteView # Ці імпорти вже є, чудово!
 
+from .forms import CarForm, ManufacturerForm
 from .models import Driver, Car, Manufacturer
+
+
+
+class CarCreateView(LoginRequiredMixin, CreateView): # Додаємо LoginRequiredMixin
+    model = Car
+    form_class = CarForm
+    template_name = 'cars/car_form.html'
+    success_url = reverse_lazy('car-list')
+
+
+class CarUpdateView(LoginRequiredMixin, UpdateView): # Додаємо LoginRequiredMixin
+    model = Car
+    form_class = CarForm
+    template_name = 'cars/car_form.html'
+    success_url = reverse_lazy('car-list')
+
+
+class CarDeleteView(LoginRequiredMixin, DeleteView): # Додаємо LoginRequiredMixin
+    model = Car
+    template_name = 'cars/car_confirm_delete.html'
+    success_url = reverse_lazy('car-list')
+
+
+class ManufacturerCreateView(LoginRequiredMixin, CreateView): # Додаємо LoginRequiredMixin
+    model = Manufacturer
+    form_class = ManufacturerForm
+    template_name = 'manufacturers/manufacturer_form.html'
+    success_url = reverse_lazy('manufacturer-list')
+
+
+class ManufacturerUpdateView(LoginRequiredMixin, UpdateView): # Додаємо LoginRequiredMixin
+    model = Manufacturer
+    form_class = ManufacturerForm
+    template_name = 'manufacturers/manufacturer_form.html'
+    success_url = reverse_lazy('manufacturer-list')
+
+
+class ManufacturerDeleteView(LoginRequiredMixin, DeleteView): # Додаємо LoginRequiredMixin
+    model = Manufacturer
+    template_name = 'manufacturers/manufacturer_confirm_delete.html'
+    success_url = reverse_lazy('manufacturer-list')
 
 
 @login_required
 def index(request):
-    """View function for the home page of the site."""
-
     num_drivers = Driver.objects.count()
     num_cars = Car.objects.count()
     num_manufacturers = Manufacturer.objects.count()
