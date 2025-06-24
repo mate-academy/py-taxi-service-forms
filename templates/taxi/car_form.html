@@ -7,8 +7,8 @@
     {% csrf_token %}
     {{ form|crispy }}
     <input class="btn btn-primary" type="submit" value="Submit">
-    {% if car.id %}
-      <a class="btn btn-secondary" href="{% url 'taxi:car-detail' pk=car.id %}">Cancel</a>
+    {% if object.id %}
+      <a class="btn btn-secondary" href="{% url 'taxi:car-detail' pk=object.id %}">Cancel</a>
     {% else %}
       <a class="btn btn-secondary" href="{% url 'taxi:car-list' %}">Cancel</a>
     {% endif %}
