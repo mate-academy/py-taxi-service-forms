@@ -2,11 +2,11 @@
 
 {% block content %}
   <a class="btn btn-secondary btn-sm" href="{% url 'taxi:car-list' %}"><< Back to Cars</a>
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+  <p>Manufacturer: ({{ object.manufacturer.name }}, {{ object.manufacturer.country }})</p>
   <h1>Drivers</h1>
   <hr>
   <ul>
-  {% for driver in car.drivers.all %}
+  {% for driver in object.drivers.all %}
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
