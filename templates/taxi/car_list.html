@@ -9,12 +9,10 @@
           <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
         </li>
-         <td>
-              <a class="btn btn-warning btn-sm" href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
-            </td>
-            <td>
-              <a class="btn btn-danger btn-sm" href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
-            </td>
+        <td>
+          <a class="btn btn-warning btn-sm" href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
+          <a class="btn btn-danger btn-sm" href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
+        </td>
       {% endfor %}
     </ul>
   {% else %}
