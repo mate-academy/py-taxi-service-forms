@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>Информация о машине</h2>
+    <p><strong>ID:</strong> {{ object.id }}</p>
+    <p><strong>Название:</strong> {{ object.name }}</p>
+    <p><strong>Производитель:</strong> {{ object.manufacturer }}</p>
+
+    <a href="{% url 'car-update' object.id %}" class="btn btn-warning">Редактировать</a>
+    <a href="{% url 'car-delete' object.id %}" class="btn btn-danger">Удалить</a>
+    <a href="{% url 'car-list' %}" class="btn btn-secondary">Назад к списку</a>
+  </div>
+{% endblock %}
