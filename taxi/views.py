@@ -19,6 +19,16 @@ class CarCreateView(LoginRequiredMixin, CreateView):
     template_name = "cars/car_form.html"
     success_url = reverse_lazy("taxi:car-list")
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs["user"] = self.request.user
+        return kwargs
+
+    def form_valid(self, form):
+        car = form.save()
+        car.drivers.add(self.request.user)
+        return super().form_valid(form)
+
 
 class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car

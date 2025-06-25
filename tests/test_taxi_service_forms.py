@@ -26,13 +26,13 @@ class CarTest(TestCase):
             {
                 "model": "Continental",
                 "manufacturer": self.manufacturer.id,
-                "drivers": [self.user.id],
             },
         )
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(
-            Car.objects.get(id=self.user.cars.first().id).model, "Continental"
-        )
+
+        car = Car.objects.get(model="Continental")
+        self.assertTrue(car.drivers.filter(id=self.user.id).exists())
+        self.assertEqual(car.model, "Continental")
 
     def test_update_car(self):
         car = Car.objects.create(
