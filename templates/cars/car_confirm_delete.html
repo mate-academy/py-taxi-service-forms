@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Car - Car Manager{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <h3>Delete Car</h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <strong>Warning!</strong> This action cannot be undone.
+                </div>
+
+                <p>Are you sure you want to delete <strong>"{{ object }}"</strong>?</p>
+
+                <!-- Показати деталі об'єкта -->
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
+                        <h5>Car Details:</h5>
+                        <p><strong>Name:</strong> {{ object.name }}</p>
+                        <p><strong>Manufacturer:</strong> {{ object.manufacturer }}</p>
+                    </div>
+                </div>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Yes, Delete
+                    </button>
+                    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Cancel
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
