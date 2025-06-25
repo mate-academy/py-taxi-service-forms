@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import (
-    ListView, DetailView, CreateView, UpdateView, DeleteView )
+from django.views.generic import (ListView, DetailView,
+                                  CreateView, UpdateView, DeleteView)
 from django.urls import reverse_lazy
 from .forms import CarForm, ManufacturerForm
 
@@ -64,11 +64,6 @@ class CarlistView(LoginRequiredMixin, generic.ListView):
     template_name = "taxi/car_list.html"
 
 
-class CarDetailView(LoginRequiredMixin, generic.DetailView):
-    model = Car
-    template_name = "taxi/car_detail.html"
-
-
 class CarCreateView(LoginRequiredMixin, CreateView):
     model = Car
     form_class = CarForm
@@ -87,11 +82,6 @@ class CarDeleteView(LoginRequiredMixin, DeleteView):
     model = Car
     success_url = reverse_lazy("car-list")
     template_name = "taxi/car_confirm_form.html"
-
-
-class ManufacturerListView(LoginRequiredMixin, generic.ListView):
-    model = Manufacturer
-    template_name = "taxi/manufacturer_list.html"
 
 
 class ManufacturerCreateView(LoginRequiredMixin, CreateView):
