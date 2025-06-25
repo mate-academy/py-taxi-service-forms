@@ -7,7 +7,7 @@ from django.views.generic import (
     CreateView,
     UpdateView,
     DeleteView,
-)  # Ці імпорти вже є, чудово!
+)
 
 from .forms import CarForm, ManufacturerForm
 from .models import Driver, Car, Manufacturer
@@ -17,46 +17,40 @@ class CarCreateView(LoginRequiredMixin, CreateView):
     model = Car
     form_class = CarForm
     template_name = "cars/car_form.html"
-    success_url = reverse_lazy("car-list")
+    success_url = reverse_lazy("taxi:car-list")
 
 
 class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car
     form_class = CarForm
     template_name = "cars/car_form.html"
-    success_url = reverse_lazy("car-list")
+    success_url = reverse_lazy("taxi:car-list")
 
 
 class CarDeleteView(LoginRequiredMixin, DeleteView):
     model = Car
     template_name = "cars/car_confirm_delete.html"
-    success_url = reverse_lazy("car-list")
+    success_url = reverse_lazy("taxi:car-list")
 
 
-class ManufacturerCreateView(
-    LoginRequiredMixin, CreateView
-):  # Додаємо LoginRequiredMixin
+class ManufacturerCreateView(LoginRequiredMixin, CreateView):
     model = Manufacturer
     form_class = ManufacturerForm
     template_name = "manufacturers/manufacturer_form.html"
-    success_url = reverse_lazy("manufacturer-list")
+    success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-class ManufacturerUpdateView(
-    LoginRequiredMixin, UpdateView
-):  # Додаємо LoginRequiredMixin
+class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
     model = Manufacturer
     form_class = ManufacturerForm
     template_name = "manufacturers/manufacturer_form.html"
-    success_url = reverse_lazy("manufacturer-list")
+    success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-class ManufacturerDeleteView(
-    LoginRequiredMixin, DeleteView
-):  # Додаємо LoginRequiredMixin
+class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
     model = Manufacturer
     template_name = "manufacturers/manufacturer_confirm_delete.html"
-    success_url = reverse_lazy("manufacturer-list")
+    success_url = reverse_lazy("taxi:manufacturer-list")
 
 
 @login_required
