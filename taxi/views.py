@@ -1,15 +1,70 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import (
+    CreateView,
+    UpdateView,
+    DeleteView,
+)
 
+from .forms import CarForm, ManufacturerForm
 from .models import Driver, Car, Manufacturer
+
+
+class CarCreateView(LoginRequiredMixin, CreateView):
+    model = Car
+    form_class = CarForm
+    template_name = "cars/car_form.html"
+    success_url = reverse_lazy("taxi:car-list")
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs["user"] = self.request.user
+        return kwargs
+
+    def form_valid(self, form):
+        car = form.save()
+        car.drivers.add(self.request.user)
+        return super().form_valid(form)
+
+
+class CarUpdateView(LoginRequiredMixin, UpdateView):
+    model = Car
+    form_class = CarForm
+    template_name = "cars/car_form.html"
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class CarDeleteView(LoginRequiredMixin, DeleteView):
+    model = Car
+    template_name = "cars/car_confirm_delete.html"
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class ManufacturerCreateView(LoginRequiredMixin, CreateView):
+    model = Manufacturer
+    form_class = ManufacturerForm
+    template_name = "manufacturers/manufacturer_form.html"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
+    model = Manufacturer
+    form_class = ManufacturerForm
+    template_name = "manufacturers/manufacturer_form.html"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
+    model = Manufacturer
+    template_name = "manufacturers/manufacturer_confirm_delete.html"
+    success_url = reverse_lazy("taxi:manufacturer-list")
 
 
 @login_required
 def index(request):
-    """View function for the home page of the site."""
-
     num_drivers = Driver.objects.count()
     num_cars = Car.objects.count()
     num_manufacturers = Manufacturer.objects.count()
