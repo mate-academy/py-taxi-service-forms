@@ -19,13 +19,13 @@
             {{ car.id }}
           </td>
           <td>
-            <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.model }}</a>
+            <a href="{% url "taxi:car-detail" pk=car.id %}">{{ car.model }}</a>
           </td>
           <td>
             {{ car.manufacturer.name }}
           </td>
           <td>
-            <a class="btn btn-primary" href="{% url 'taxi:car-update' pk=car.id %}">UPDATE</a></a>
+            <a class="btn btn-primary" href="{% url 'taxi:car-update' pk=car.id %}">UPDATE</a>
           </td>
           <td>
             <a class="btn btn-primary" href="{% url 'taxi:car-delete' pk=car.id %}">DELETE</a>
