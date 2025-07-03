@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <p>Are you sure that you want to delete {{ car.model }} ({{ car.manufacturer.name }})?</p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" class="btn btn-primary" value="Yes">
+  </form>
+  <br>
+  <a href="{% url "taxi:car-detail" pk=car.id %}"><button class="btn btn-danger">No</button></a>
+{% endblock %}
