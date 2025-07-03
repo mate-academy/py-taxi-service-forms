@@ -5,9 +5,6 @@
    <h3>Create Car</h3>
   <form action="" method="post" novalidate>
     {% csrf_token %}
-    {% if form.errors %}
-    <p style="color: red">{{ error }}</p>
-  {% endif %}
     {{ form|crispy }}
     <input class="btn btn-primary" type="submit" value="Submit">
   </form>
