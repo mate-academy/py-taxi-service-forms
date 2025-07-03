@@ -3,7 +3,7 @@
 
 {% block content %}
   <p>Are you sure that you want to delete {{ manufacturer.name }} ({{ manufacturer.country }})?<br>
-    All cars of this manufacturer will be deleted.</p>
+    All cars made by the manufacturer will be deleted.</p>
   <form method="post">
     {% csrf_token %}
     {{ form|crispy }}
