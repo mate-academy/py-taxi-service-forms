@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>{{ object|yesno:"Update,Create" }} Manufacturer</h1>
+  <h1>Delete Manufacturer</h1>
   <form action="" method="POST">
     {% csrf_token %}
     <p>Do you sure?</p>
     <i>Delete it you also delete all cars by it!</i>
     <br><br>
     <input type="submit" class="btn btn-danger" value="Yes, I am sure!">
+    <a class="text-danger" href="{% url 'taxi:manufacturer-list' %}">Cancel</a>
   </form>
 {% endblock %}

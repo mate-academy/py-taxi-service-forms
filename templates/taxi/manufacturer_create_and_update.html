@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>{{ object|yesno:"Update,Create" }} Manufacturer</h1>
+  <h1>{% if object %}Update{% else %}Create{% endif %} Manufacturer</h1>
   <form action="" method="POST">
     {% csrf_token %}
     {{ form|crispy }}
