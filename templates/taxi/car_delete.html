@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ object|yesno:"Update,Create" }} Car</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <p>Do you sure?</p>
+    <br><br>
+    <input type="submit" class="btn btn-danger" value="Yes, I am sure!">
+  </form>
+{% endblock %}
