@@ -73,6 +73,7 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car-delete.html"
+    context_object_name = "car"
 
 
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
@@ -93,3 +94,4 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_delete.html"
+    context_object_name = "manufacturer"
