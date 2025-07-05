@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <p>Are you sure that you want to delete {{ manufacturer.name }} ({{ manufacturer.country }})?<br>
+    All cars made by the manufacturer will be deleted.</p>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary btn-lg" value="Yes">
+  </form>
+  <br>
+  <a href="{% url "taxi:manufacturer-list" %}"><button class="btn btn-danger btn-lg">No</button></a>
+{% endblock %}
