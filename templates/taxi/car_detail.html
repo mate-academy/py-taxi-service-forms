@@ -1,12 +1,20 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
+  <h1>{{ car.model }}</h1>
+  <br>
+  <h5>Drivers:</h5>
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
+  <br>
+
+  <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn" style="background-color: green; color: white;">update</a>
+  <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn" style="background-color: red; color: white;">delete</a>
+
 {% endblock %}
