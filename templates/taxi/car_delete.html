@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Delete car</h1>
 
-  <p>Are you sure you want to delete the car: {{ car.model }}</p>
+  <p>Are you sure you want to delete the car: {{ object.model }}</p>
   <form action="" method="post" novalidate>
     {% csrf_token %}
     <input type="submit" value="Yes" class="btn btn-danger">
