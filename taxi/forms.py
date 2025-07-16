@@ -12,8 +12,8 @@ class CarForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Save'))
+        self.helper.form_method = "post"
+        self.helper.add_input(Submit("submit", "Save"))
 
 
 class ManufacturerForm(forms.ModelForm):
@@ -24,5 +24,5 @@ class ManufacturerForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Save'))
+        self.helper.form_method = "post"
+        self.helper.add_input(Submit("submit", "Save"))
