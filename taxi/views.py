@@ -31,28 +31,6 @@ def index(request):
     return render(request, "taxi/index.html", context=context)
 
 
-class CarForm(forms.ModelForm):
-    class Meta:
-        model = Car
-        fields = "__all__"
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.add_input(Submit('submit', 'Submit'))
-
-
-class ManufacturerForm(forms.ModelForm):
-    class Meta:
-        model = Manufacturer
-        fields = "__all__"
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.add_input(Submit('submit', 'Submit'))
-
-
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
     context_object_name = "manufacturer_list"
