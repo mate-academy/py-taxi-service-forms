@@ -5,8 +5,10 @@
   <h1>Drivers</h1>
   <hr>
   <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
+    {% for driver in car.drivers.all %}
+      <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+    {% endfor %}
+    <p><a href="{% url 'taxi:car-update' car.id %}">UPDATE</a></p>
+    <p><a href="{% url 'taxi:car-delete' car.id %}">DELETE</a></p>
   </ul>
 {% endblock %}
