@@ -14,7 +14,7 @@
       {% for manufacturer in manufacturer_list %}
         <tr>
           <td>
-            <a href="{% url "taxi:manufacturer-detail" pk=manufacturer.id %} ">{{ manufacturer.id }}</a>
+            <a href="{% url 'taxi:manufacturer-detail' pk=manufacturer.id %}">{{ manufacturer.id }}</a>
           </td>
           <td>
             {{ manufacturer.name }}

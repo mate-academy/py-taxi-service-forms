@@ -6,11 +6,10 @@
   <ul>
     {% for car in manufacturer.car_set.all %}
       <li>{{ car.model }}</li>
-      <br>
-      <p><a href="{% url 'taxi:manufacturer-update' manufacturer.id %}">UPDATE</a></p>
-      <p><a href="{% url 'taxi:manufacturer-delete' manufacturer.id %}">DELETE</a></p>
     {% empty %}
       <li>No cars for this manufacturer.</li>
     {% endfor %}
+    <p><a href="{% url 'taxi:manufacturer-update' manufacturer.id %}">UPDATE</a></p>
+    <p><a href="{% url 'taxi:manufacturer-delete' manufacturer.id %}">DELETE</a></p>
   </ul>
 {% endblock %}
