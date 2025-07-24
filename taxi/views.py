@@ -1,15 +1,18 @@
+from http.client import HTTPResponse
+
 from django.shortcuts import render
 
-from taxi.models import Driver, Car, Manufacturer
+from taxi.models import Driver, Manufacturer, Car
 
 
+# Create your views here.
 def index(request):
-    """View function for the home page of the site."""
-
+    num_drivers = Driver.objects.all().count()
+    num_manufacturers = Manufacturer.objects.all().count()
+    num_cars = Car.objects.all().count()
     context = {
-        "num_drivers": Driver.objects.count(),
-        "num_cars": Car.objects.count(),
-        "num_manufacturers": Manufacturer.objects.count(),
+        "num_drivers": num_drivers,
+        "num_manufacturers": num_manufacturers,
+        "num_cars": num_cars,
     }
-
-    return render(request, "taxi/index.html", context=context)
+    return render(request, "taxi/index.html", context)
