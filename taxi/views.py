@@ -84,11 +84,11 @@ class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
-    success_url = reverse_lazy("taxi:car-detail")
+    success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_confirm_delete.html"
 
     def get_success_url(self):
-        return reverse("taxi:car-detail", kwargs={"pk": self.object.pk})
+        return reverse("taxi:car-list")
 
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
