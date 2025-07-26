@@ -1,11 +1,10 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 
 {% block content %}
   <h1>Create Manufacturer form</h1>
   <form method="post" novalidate>
     {% csrf_token %}
-    {{ form|crispy  }}
+    {{ form }}
   <input type="submit" value="Submit">
   </form>
 {% endblock%}
