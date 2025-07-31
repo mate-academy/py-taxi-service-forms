@@ -1,7 +1,11 @@
-{% extends "base.html" %}
+{% extends "taxi/base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
   <h1>Car list</h1>
+  
+  {% load crispy_forms_tags %}
+  <a class="btn btn-primary" href="{% url 'taxi:car-create' %}">Add Car</a>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
