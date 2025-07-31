@@ -5,10 +5,7 @@
   <h1>Car list</h1>
   
   {% load crispy_forms_tags %}
-  <a href="{% url 'taxi:car-create' %}">
-  <button>Add Car</button>
-  {{ form|crispy }}
-  </a>
+  <a class="btn btn-primary" href="{% url 'taxi:car-create' %}">Add Car</a>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
