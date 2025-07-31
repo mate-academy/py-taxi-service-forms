@@ -3,7 +3,6 @@
 {% block content %}
   <h1>Delete Car</h1>
   <p>Are you sure you want to delete the car: {{ car }}?</p>
-  <p>All drivers with this car will also be deleted</p>
   <form action="" method="post" novalidate>
     {% csrf_token %}
     <input type="submit" value="Yes, delete" class="btn btn-danger" />
