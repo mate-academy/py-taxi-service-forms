@@ -1,9 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+# Virtual environment
+venv/
+env/
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+# IDEs
 .idea/
 .vscode/
-*.iml
-.env
+# OS files
 .DS_Store
-venv/
-.pytest_cache/
-**__pycache__/
-db.sqlite3
+Thumbs.db
