@@ -7,6 +7,7 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Manufacturer</th>
         <th>Update</th>
         <th>Delete</th>
       </tr>
@@ -31,17 +32,6 @@
         </tr>
       {% endfor %}
     </table>
-
-
-
-{#    <ul>#}
-{#      {% for car in car_list %}#}
-{#        <li>#}
-{#          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>#}
-{#          {{ car.model }} ({{ car.manufacturer.name }})#}
-{#        </li>#}
-{#      {% endfor %}#}
-{#    </ul>#}
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
