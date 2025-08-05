@@ -20,6 +20,9 @@
             {{ car.model }}
           </td>
           <td>
+            {{ car.manufacturer.name }}
+          </td>
+          <td>
             <a href="{% url 'taxi:car-update' pk=car.id %}">UPDATE</a>
           </td>
           <td>
