@@ -1,13 +1,14 @@
 {% extends "base.html" %}
-
 {% load crispy_forms_tags %}
+
 {% block content %}
-  <p>Are you sure you want to delete the manufacturer: {{ cars }}?</p>
-  <p><i>This will not affect the manufacturer.</i></p>
-  <form action="" method="post">
-    {% csrf_token %}
-    <input type="submit" value="Yes, delete!" class="btn btn-danger"/>
-  </form>
-
-
+    <h1>Delete Manufacturer</h1>
+    <p>Are you sure you want to delete the manufacturer: {{ manufacturer.name }}?</p>
+    <p><strong>Warning:</strong> This will delete all cars associated with this manufacturer!</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-danger">Confirm</button>
+        <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
 {% endblock %}
