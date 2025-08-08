@@ -1,17 +1,39 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
 {% block content %}
-  <h1>Car list</h1>
-  {% if car_list %}
-    <ul>
-      {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>There are no cars in taxi</p>
-  {% endif %}
+    <h1>Car List
+        <a style="float: right" class="btn btn-primary" href="{% url 'taxi:car-create' %}">+</a>
+    </h1>
+
+    {% if car_list %}
+      <table class="table">
+        <tr>
+          <th>ID</th>
+          <th>Model</th>
+          <th>Manufacturer</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+
+        {% for car in car_list %}
+            <tr>
+              <td>
+                <a href="{% url 'taxi:car-detail' car.id %}">{{ car.id }}</a>
+              </td>
+              <td>{{ car.model }}</td>
+              <td>{{ car.manufacturer.name }}</td>
+              <td>
+                <a href="{% url 'taxi:car-update' car.id %}" class="btn btn-sm btn-warning">Update</a>
+              </td>
+              <td>
+                <a href="{% url 'taxi:car-delete' car.id %}" class="btn btn-sm btn-danger">Delete</a>
+              </td>
+            </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+        <p>There are no cars in the service.</p>
+    {% endif %}
 {% endblock %}
+
