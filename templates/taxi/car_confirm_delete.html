@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+  <p>Are you sure you want to delete the car: {{ cars }}?</p>
+  <p><i>All cars associated with this manufacturer will also be deleted.</i></p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete!" class="btn btn-danger"/>
+  </form>
+
+
+{% endblock %}
