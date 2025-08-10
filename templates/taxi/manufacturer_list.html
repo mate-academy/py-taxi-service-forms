@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Manufacturer List</h1>
+
+  {% if manufacturer_list %}
+    <ul>
+      {% for manufacturer in manufacturer_list %}
+        <li>{{ manufacturer.id }}. {{ manufacturer.name }} ({{ manufacturer.country }})</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There is no Driver in system</p>
+  {% endif %}
+{% endblock %}

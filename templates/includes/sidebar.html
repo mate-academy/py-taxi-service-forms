@@ -3,12 +3,12 @@
       <a href="{%  url 'taxi:index' %}">Home page</a>
     </li>
     <li>
-      <a href="#">Manufacturers</a>
+      <a href="{% url 'taxi:manufacturer-list' %}">Manufacturers</a>
     </li>
     <li>
-      <a href="#">Cars</a>
+      <a href="{% url 'taxi:car-list' %}">Cars</a>
     </li>
     <li>
-      <a href="#">Drivers</a>
+      <a href="{% url 'taxi:driver-list' %}">Drivers</a>
     </li>
 </ul>
