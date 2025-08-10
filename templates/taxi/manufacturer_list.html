@@ -1,16 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-
   <h1>Manufacturer List</h1>
 
   {% if manufacturer_list %}
-    <ul>
-      {% for manufacturer in manufacturer_list %}
-        <li>{{ manufacturer.id }}. {{ manufacturer.name }} ({{ manufacturer.country }})</li>
-      {% endfor %}
-    </ul>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for manufacturer in manufacturer_list %}
+          <tr>
+            <td>{{ manufacturer.id }}</td>
+            <td>{{ manufacturer.name }}</td>
+            <td>{{ manufacturer.country }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   {% else %}
-    <p>There is no Driver in system</p>
+    <p>There is no Manufacturer in system</p>
   {% endif %}
 {% endblock %}

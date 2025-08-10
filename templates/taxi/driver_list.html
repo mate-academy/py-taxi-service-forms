@@ -1,15 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-
   <h1>Driver List</h1>
 
   {% if driver_list %}
-    <ul>
-      {% for driver in driver_list %}
-        <li><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></li>
-      {% endfor %}
-    </ul>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for driver in driver_list %}
+          <tr>
+            <td>{{ driver.id }}</td>
+            <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }}</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   {% else %}
     <p>There is no Driver in system</p>
   {% endif %}
