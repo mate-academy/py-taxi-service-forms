@@ -8,5 +8,6 @@
     {{ form.non_field_errors }}
     {{ form|crispy }}
     <button type="submit" class="btn {{ object|yesno:"btn-outline-primary,btn-success" }}">{{ object|yesno:"Update,Create" }}</button>
+    <button type="button" class="btn btn-secondary" onclick="history.back()">Cancel</button>
   </form>
 {% endblock %}
