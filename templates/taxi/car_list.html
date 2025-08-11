@@ -1,16 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-
   <h1>Car List</h1>
 
   {% if car_list %}
-    <ul>
-      {% for car in car_list %}
-        <li><a href="{{ car.get_absolute_url }}">{{ car.id }}. {{ car.model }}</a></li>
-      {% endfor %}
-    </ul>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Model</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in car_list %}
+          <tr>
+            <td>{{ car.id }}</td>
+            <td><a href="{{ car.get_absolute_url }}">{{ car.model }}</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   {% else %}
-    <p>There is no Driver in system</p>
+    <p>There is no Car in system</p>
   {% endif %}
 {% endblock %}
