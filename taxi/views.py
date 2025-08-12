@@ -1,10 +1,12 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models.fields import return_None
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+from .forms import CarForm, ManufacturerForm, ConfirmDeleteForm
 from .models import Driver, Car, Manufacturer
 
 
@@ -58,39 +60,63 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
 
 class CarCreateView(LoginRequiredMixin, CreateView):
     model = Car
-    fields = ["model", "manufacturer", "drivers"]
-    template_name = "taxi/car_form.html"
+    form_class = CarForm
     success_url = reverse_lazy("taxi:car-list")
 
 
 class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car
-    fields = ["model", "manufacturer", "drivers"]
-    template_name = "taxi/car_form.html"
+    form_class = CarForm
     success_url = reverse_lazy("taxi:car-list")
 
 
 class CarDeleteView(LoginRequiredMixin, DeleteView):
     model = Car
     template_name = "taxi/car_confirm_delete.html"
-    success_url = reverse_lazy("taxi:car-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["previous_url"] = self.request.META.get("HTTP_REFERER")
+        context["form"] = ConfirmDeleteForm()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = ConfirmDeleteForm(request.POST)
+        if form.is_valid():
+            return super().post(request, *args, **kwargs)
+        return self.get(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse_lazy("taxi:car-list")
 
 
 class ManufacturerCreateView(LoginRequiredMixin, CreateView):
     model = Manufacturer
-    fields = ["name", "country"]
-    template_name = "taxi/manufacturer_form.html"
+    form_class = ManufacturerForm
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
     model = Manufacturer
-    fields = ["name", "country"]
-    template_name = "taxi/manufacturer_form.html"
+    form_class = ManufacturerForm
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
     model = Manufacturer
     template_name = "taxi/manufacturer_confirm_delete.html"
-    success_url = reverse_lazy("taxi:manufacturer-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["previous_url"] = self.request.META.get("HTTP_REFERER")
+        context["form"] = ConfirmDeleteForm()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = ConfirmDeleteForm(request.POST)
+        if form.is_valid():
+            return super().post(request, *args, **kwargs)
+        return self.get(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse_lazy("taxi:manufacturer-list")
