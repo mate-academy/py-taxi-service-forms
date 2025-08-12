@@ -2,7 +2,7 @@
 
 {% block content %}
   <a href="{% url 'taxi:car-update' car.id %}">Edit</a> |
-  <a href="{% url 'taxi:car-delete' car.id %}">Delete</a>
+  <a href="{% url 'taxi:car-delete' car.id %}?next={{request.path}}">Delete</a>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
   <hr>

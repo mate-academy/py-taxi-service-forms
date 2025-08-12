@@ -5,6 +5,6 @@
 <form action="" method="post">
   {% csrf_token %}
   <input type="submit" class="btn btn-danger" value="Confirm Delete"/>
-  <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
+  <a href="{{ next }}" class="btn btn-secondary">Cancel</a>
 </form>
 {% endblock %}

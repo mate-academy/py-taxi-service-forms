@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1>Car list
-    <a href="{% url 'taxi:car-create' %}" class="btn btn-primary">+</a>
+    <a href="{% url 'taxi:car-create' %}?next={{request.path}}" class="btn btn-primary">+</a>
   </h1>
   {% if car_list %}
     <ul>
