@@ -1,3 +1,37 @@
 body {
     margin-top: 20px;
 }
+
+.sidebar-card {
+  border-radius: .75rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+.icon {
+  margin-right: .4rem;
+  vertical-align: -2px;
+  opacity: .9;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.list-group-item {
+  border: 0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.list-group-item:last-child {
+  border-bottom: 0;
+}
+
+.list-group-item-action:hover {
+  background: rgba(0,0,0,.04);
+}
+
+@media (max-width: 576px) {
+  .sidebar-link { padding: .55rem .25rem; }
+}
