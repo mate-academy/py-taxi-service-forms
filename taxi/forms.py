@@ -12,5 +12,3 @@ class ManufacturerForm(forms.ModelForm):
     class Meta:
         model = Manufacturer
         fields = "__all__"
-
-
