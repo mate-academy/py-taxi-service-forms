@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="alert alert-warning">
+      <h4 class="alert-heading">Delete Manufacturer</h4>
+      <p>Are you sure you want to delete <strong>{{ manufacturer.name }}</strong> from <em>{{ manufacturer.country }}</em>?</p>
+    </div>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="d-flex justify-content-between">
+        <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-danger">Yes, delete</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}
