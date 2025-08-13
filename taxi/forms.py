@@ -13,7 +13,6 @@ class CarForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = "post"
-        self.helper.add_input(Submit("submit", "Save"))
 
 
 class ManufacturerForm(forms.ModelForm):
@@ -25,7 +24,6 @@ class ManufacturerForm(forms.ModelForm):
             super().__init__(*args, **kwargs)
             self.helper = FormHelper()
             self.helper.form_method = "post"
-            self.helper.add_input(Submit("submit", "Save"))
 
 
 class ConfirmDeleteForm(forms.Form):

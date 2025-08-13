@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 
 {% block content %}
   <h1>Confirm delete Car</h1>
@@ -7,8 +6,7 @@
 
   <form method="post">
     {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-danger">Yes</button>
     <a href="{{ previous_url }}" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-danger">DELETE</button>
   </form>
 {% endblock %}
