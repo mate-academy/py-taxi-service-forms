@@ -56,7 +56,9 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["fallback_url"] = self.request.META.get("HTTP_REFERER", self.success_url)
+        context["fallback_url"] = self.request.META.get(
+            "HTTP_REFERER", self.success_url
+        )
         return context
 
 
@@ -91,7 +93,9 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["fallback_url"] = self.request.META.get("HTTP_REFERER", self.success_url)
+        context["fallback_url"] = self.request.META.get(
+            "HTTP_REFERER", self.success_url
+        )
         return context
 
 
