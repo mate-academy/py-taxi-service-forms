@@ -4,8 +4,7 @@
   <p>Are you sure you want to delete a Car?</p>
   <form action="" method="post">
     {% csrf_token %}
-    <button {% url 'taxi:car-list' %} class="btn btn-primary">Cancel</button>
+    <a href="{{ fallback_url }}" class="btn btn-primary">Cancel</a>
     <button type="submit" class="btn btn-danger">DELETE</button>
   </form>
-
 {% endblock %}
