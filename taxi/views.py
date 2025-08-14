@@ -62,12 +62,12 @@ class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "taxi/car_create_form.html"
 
 
-
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     fields = ["model", "manufacturer"]
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_create_form.html"
+
     def form_valid(self, form):
         response = super().form_valid(form)
         form.instance.drivers.add(self.request.user)
