@@ -64,7 +64,7 @@ Good example:
 path(
     "manufacurers/create/", 
     ManufacturerCreateView.as_view(), 
-    name="manufacturer-create"
+    name="manufacturer_form.html"
 ),
 ```
 
@@ -74,14 +74,14 @@ Bad example:
 path(
     "manufacturers/manufacturer_create/", 
     ManufacturerCreateView.as_view(), 
-    name="manufacturer-create"
+    name="manufacturer_form.html"
 )
 ```
 
 Another bad example:
 
 ```python
-path("create/", ManufacturerCreateView.as_view(), name="manufacturer-create")
+path("create/", ManufacturerCreateView.as_view(), name="manufacturer_form.html")
 ```
 
 5. Add `Cancel` button apart from `Delete` one. The `Cancel` button will lead to the previous page the user was on.
