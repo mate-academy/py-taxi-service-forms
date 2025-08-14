@@ -1,15 +1,55 @@
-<ul class="sidebar-nav list-group">
-  {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-  {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-  {% endif %}
+<aside id="sidebar" class="bg-dark">
+  <ul class="sidebar-nav list-group mt-3">
+    {% if user.is_authenticated %}
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ user.get_absolute_url }}">
+          <i class="bi bi-person-bounding-box"></i>
+          <span>{{ user.get_username }}</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <form method="post" action="{% url 'logout' %}?next={{ request.path }}">
+          {% csrf_token %}
+          <button type="submit" class="sidebar-bth btn border-0 text-white">
+            <i class="bi bi-door-closed-fill"></i>
+            <span>Logout</span>
+          </button>
+        </form>
+      </li>
+    {% else %}
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{% url 'login'%}?next={{request.path}}">
+          <i class="bi bi-door-open-fill"></i>
+          <span>Login</span>
+        </a>
+      </li>
+    {% endif %}
 
-  <br>
+    <br>
 
-  <li class="list-group-item"><a href="{% url 'taxi:index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:driver-list' %}">All drivers</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:car-list' %}">All cars</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:manufacturer-list' %}">All manufacturers</a></li>
-</ul>
+    <li class="sidebar-item">
+        <a class="sidebar-link" href="{% url 'taxi:index' %}">
+          <i class="bi bi-house-door-fill"></i>
+          <span>Home page</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{% url 'taxi:manufacturer-list' %}">
+          <i class="bi bi-building-fill-gear"></i>
+          <span>Manufacturers</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{% url 'taxi:car-list' %}">
+          <i class="bi bi-car-front-fill"></i>
+          <span>Cars</span>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{% url 'taxi:driver-list' %}">
+          <i class="bi bi-person-fill"></i>
+          <span>Drivers</span>
+        </a>
+      </li>
+  </ul>
+</aside>

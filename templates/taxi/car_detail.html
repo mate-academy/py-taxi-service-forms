@@ -1,12 +1,53 @@
 {% extends "base.html" %}
 
+
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
-  </ul>
+
+<div class="container-fluid mt-4">
+
+  <div class="row align-items-center mb-3">
+    <div class="col-auto">
+      <h2>Car Information</h2>
+    </div>
+    <div class="col-auto">
+      <a href="{% url 'taxi:car-update' object.pk %}">
+        <i class="bi bi-arrow-through-heart-fill"></i>
+        <span>Update</span>
+      </a>
+    </div>
+    <div class="col-auto">
+      <a href="{% url 'taxi:car-delete' object.pk %}">
+        <i class="bi bi-trash-fill"></i>
+        <span>Delete</span>
+      </a>
+    </div>
+  </div>
+  <div class="card mb-3 col-4 p-0">
+    <div class="card-body">
+      <h5 class="card-title">{{ car.model }}</h5>
+      <p class="card-text"><strong>Manufacturer:</strong> {{ car.manufacturer.name }} ({{ car.manufacturer.country }})</p>
+    </div>
+  </div>
+  <h3 class="mt-4">Drivers of {{ car.model }}:</h3>
+  <div class="row">
+    {% for driver in car.drivers.all %}
+      <div class="col-4 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ driver.username }}</h5>
+            <p class="card-text"><strong>Full name:</strong> {{ driver.first_name }} {{ driver.last_name }}</p>
+            <p class="card-text"><strong>Email:</strong> {{ driver.email }}</p>
+            <p class="card-text"><strong>License number:</strong> {{ driver.license_number }}</p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col-12">
+        <p>No drivers assigned to this car.</p>
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
+
 {% endblock %}

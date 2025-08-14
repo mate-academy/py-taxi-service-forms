@@ -1,33 +1,55 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
-    </h1>
 
-    {% if manufacturer_list %}
-      <table class="table">
+<div class="container-fluid mt-4">
+
+  <div class="row">
+    <div class="col-11">
+      <h2>Manufacturers:</h2>
+    </div>
+    <div class="col-1">
+      <a class="create-link p-5" href="{% url 'taxi:manufacturer-create' %}">
+        <i class="bi bi-plus-circle-fill"></i>
+      </a>
+    </div>
+  </div>
+
+  {% if manufacturer_list %}
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <th>ID</th>
           <th>Name</th>
           <th>Country</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
-
+      </thead>
+      <tbody>
         {% for manufacturer in manufacturer_list %}
-            <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
+          <tr>
+            <td>{{ manufacturer.name }}</td>
+            <td>{{ manufacturer.country }}</td>
+            <td> 
+              <a href="{% url 'taxi:manufacturer-update' manufacturer.pk %}">
+                <i class="bi bi-arrow-through-heart-fill"></i>
+                <span>Update</span>
+              </a>
+            </td>
+            <td> 
+              <a href="{% url 'taxi:manufacturer-delete' manufacturer.pk %}">
+                <i class="bi bi-trash-fill"></i>
+                <span>Delete</span>
+              </a>
+            </td>
           </tr>
         {% endfor %}
-      </table>
+      </tbody>
+    </table>
+  {% else %}
+    <p>No manufacturers available.</p>
+  {% endif %}
 
-    {% else %}
-        <p>There are no manufacturers in the service.</p>
-    {% endif %}
+</div>
+
 {% endblock %}

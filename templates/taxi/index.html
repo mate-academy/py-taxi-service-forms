@@ -1,18 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<div class="container-fluid mt-4">
+
   <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
+  <p class="ml-4">Welcome to Best Taxi Ever!</p>
   <h2>Dynamic content</h2>
-  <p>The Taxi service has the following record counts:</p>
-  <ul>
+  <p class="ml-4">The Taxi service has the following record counts:</p>
+  <ul class="ml-4">
     <li><strong>Cars:</strong> {{ num_cars }}</li>
     <li><strong>Drivers:</strong> {{ num_drivers }}</li>
     <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
   </ul>
-
-  <p>You have visited this page
-    {{ num_visits }} time{{ num_visits|pluralize }}.
-  </p>
+  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}</p>
+</div>
 
 {% endblock %}
