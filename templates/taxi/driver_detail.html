@@ -1,26 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Username: {{ driver.username }}
-  </h1>
+  <div class="mb-3">
+    <h1 class="h4 mb-1">{{ driver.first_name }} {{ driver.last_name }}</h1>
+    <div class="text-muted">License number: <span class="font-weight-medium">{{ driver.license_number }}</span></div>
+  </div>
 
-  <p><strong>First name:</strong> {{ driver.first_name }}</p>
-  <p><strong>Last name:</strong> {{ driver.last_name }}</p>
-  <p><strong>License number:</strong> {{ driver.license_number }}</p>
-  <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
-
-  <div class="ml-3">
-    <h4>Cars</h4>
-
+  <div class="bg-white rounded shadow-sm p-3">
+    <h2 class="h6 text-uppercase text-muted">Cars</h2>
     {% for car in driver.cars.all %}
-        <hr>
-        <p><strong>Model:</strong> {{ car.model }}</p>
-        <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
-
+      <div class="border rounded p-2 mb-2">
+        <div><span class="small text-muted">ID</span> <span class="font-weight-medium mb-1">#{{ car.id }}</span></div>
+        <div><span class="text-muted">Car model:</span> {{ car.model }}</div>
+      </div>
     {% empty %}
-      <p>No cars!</p>
+      <div class="alert alert-light mb-0">No cars assigned.</div>
     {% endfor %}
   </div>
 {% endblock %}

@@ -1,15 +1,24 @@
-<ul class="sidebar-nav list-group">
-  {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-  {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-  {% endif %}
+<div class="sticky-sidebar">
+  <div class="sidebar-user mb-4">
+    {% if user.is_authenticated %}
+      <div class="small text-muted mb-2">User</div>
 
-  <br>
+      <a href="{% url 'taxi:driver-detail' user.id %}" class="username-badge mb-2">{{ user.username }}</a>
 
-  <li class="list-group-item"><a href="{% url 'taxi:index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:driver-list' %}">All drivers</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:car-list' %}">All cars</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:manufacturer-list' %}">All manufacturers</a></li>
-</ul>
+      <form action="{% url 'logout' %}" method="post" class="m-0">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger btn-sm">Logout</button>
+      </form>
+
+    {% else %}
+      <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Login</a>
+    {% endif %}
+  </div>
+
+  <div class="list-group list-group-flush">
+    <a class="list-group-item list-group-item-action" href="{% url 'taxi:index' %}">Home page</a>
+    <a class="list-group-item list-group-item-action" href="{% url 'taxi:manufacturer-list' %}">Manufacturers</a>
+    <a class="list-group-item list-group-item-action" href="{% url 'taxi:car-list' %}">Cars</a>
+    <a class="list-group-item list-group-item-action" href="{% url 'taxi:driver-list' %}">Drivers</a>
+  </div>
+</div>

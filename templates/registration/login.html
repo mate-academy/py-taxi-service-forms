@@ -1,23 +1,29 @@
 {% extends "base.html" %}
-
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 {% block content %}
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="h4 mb-0">Sign in</h1>
+  </div>
 
-{% if form.errors %}
-  <p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+  <div class="bg-white rounded shadow-sm p-3 p-md-4 auth-card">
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger" role="alert">
+        {{ form.non_field_errors|striptags }}
+      </div>
+    {% endif %}
 
-<h1>Login</h1>
+    <form action="{% url 'login' %}" method="post" novalidate>
+      {% csrf_token %}
 
-{% if next %}
-  <p>Please login to see this page.</p>
-{% endif %}
+      {{ form|crispy }}
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-{{ form.as_p }}
+      <input type="hidden" name="next" value="{{ next }}">
 
-<input type="submit" value="Login" class="btn btn-primary" />
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
-
+      <div class="d-flex align-items-center justify-content-between">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        <a href="{% url 'taxi:index' %}" class="btn btn-link">Back to Home</a>
+      </div>
+    </form>
+  </div>
 {% endblock %}

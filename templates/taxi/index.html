@@ -1,18 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
-  <h2>Dynamic content</h2>
-  <p>The Taxi service has the following record counts:</p>
-  <ul>
-    <li><strong>Cars:</strong> {{ num_cars }}</li>
-    <li><strong>Drivers:</strong> {{ num_drivers }}</li>
-    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
-  </ul>
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="h4 mb-0">Taxi Service</h1>
+  </div>
 
-  <p>You have visited this page
-    {{ num_visits }} time{{ num_visits|pluralize }}.
-  </p>
+  <div class="bg-white rounded shadow-sm p-3">
+    <p class="text-muted mb-3">Welcome to Best Taxi Ever!</p>
 
+    <h2 class="h6 text-uppercase text-muted mb-2">Stats</h2>
+    <div class="row">
+      <div class="col-sm-4 mb-3">
+        <div class="border rounded p-3 h-100">
+          <div class="small text-muted">Cars</div>
+          <div class="h4 mb-0">{{ num_cars }}</div>
+        </div>
+      </div>
+      <div class="col-sm-4 mb-3">
+        <div class="border rounded p-3 h-100">
+          <div class="small text-muted">Drivers</div>
+          <div class="h4 mb-0">{{ num_drivers }}</div>
+        </div>
+      </div>
+      <div class="col-sm-4 mb-3">
+        <div class="border rounded p-3 h-100">
+          <div class="small text-muted">Manufacturers</div>
+          <div class="h4 mb-0">{{ num_manufacturers }}</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-3 mb-0 text-muted">
+      You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.
+    </p>
+  </div>
 {% endblock %}

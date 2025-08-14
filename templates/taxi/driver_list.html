@@ -1,30 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Driver List
-    </h1>
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="h4 mb-0">Drivers</h1>
+  </div>
 
-    {% if driver_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>License number</th>
-      </tr>
-    {% for driver in driver_list %}
-      <tr>
-        <td>{{ driver.id }}</td>
-        <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a></td>
-        <td>{{ driver.first_name }}</td>
-        <td>{{ driver.last_name }}</td>
-        <td>{{ driver.license_number }}</td>
-      </tr>
-    {% endfor %}
-
-    </table>
-    {% else %}
-      <p>There are no drivers in the service.</p>
-    {% endif %}
+  {% if driver_list %}
+    <div class="list-group">
+      {% for driver in driver_list %}
+        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+           href="{% url 'taxi:driver-detail' pk=driver.id %}">
+          <div>
+            <div class="font-weight-bold">{{ driver.username }}</div>
+            <div class="text-muted">{{ driver.first_name }} {{ driver.last_name }}</div>
+          </div>
+          {% if driver.username == user.username %}
+            <span class="badge badge-primary">Me</span>
+          {% endif %}
+        </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-info mb-0">There are no drivers yet.</div>
+  {% endif %}
 {% endblock %}
