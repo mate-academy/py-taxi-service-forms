@@ -6,6 +6,9 @@
   <p>Are you sure you want to delete the manufacturer: {{ manufacturer }}?</p>
   <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <div>
+      <input type="submit" value="Delete" class="btn btn-danger">
+      <a href="{{ cancel_url }}" class="btn btn-primary">Cancel</a>
+    </div>
   </form>
 {% endblock %}

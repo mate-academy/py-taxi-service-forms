@@ -51,9 +51,15 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
-    success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_confirm_delete.html"
 
+    def get_success_url(self):
+        return reverse_lazy("taxi:manufacturer-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cancel_url"] = reverse_lazy("taxi:manufacturer-list")
+        return context
 
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
@@ -77,8 +83,15 @@ class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
-    success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_confirm_delete.html"
+
+    def get_success_url(self):
+        return reverse_lazy("taxi:car-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cancel_url"] = reverse_lazy("taxi:car-detail", kwargs={"pk": self.object.pk})
+        return context
 
 
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
