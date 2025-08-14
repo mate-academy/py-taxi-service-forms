@@ -3,10 +3,11 @@
   <h1>Delete Manufacturer</h1>
 
   <p>Are you sure you want to delete the manufacturer: {{ object }}?</p>
-  <p><i>All Cars with this manufacturer will be also deleted!</i></p>
+  <p><i>All Cars with this manufacturer will also be deleted!</i></p>
+
   <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Yes,delete" class="btn btn-danger" />
-
+    <input type="submit" value="Yes, delete" class="btn btn-danger" />
+    <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}
