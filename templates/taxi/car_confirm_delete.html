@@ -2,11 +2,20 @@
 
 {% block content %}
   <div class="container-fluid mt-4">
-    <h3>Are you sure you want to remove this machine from the list?</h3>
-    <p>Consider your decision.</p>
-    <form action="" method="post">
-      {% csrf_token %}
-      <button type="submit">Yes, delete</button>
-    </form>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-12">
+        <div class="card">
+          <div class="card-body text-center">
+            <h3 class="mb-3">Are you sure you want to remove this car?</h3>
+            <p class="mb-4">Consider your decision.</p>
+            <form action="" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Yes, delete</button>
+              <a href="javascript:history.back()" class="btn btn-secondary ms-2">Cancel</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 {% endblock %}

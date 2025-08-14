@@ -64,7 +64,7 @@ class CarCreateView(LoginRequiredMixin, generic.CreateView):
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
     fields = "__all__"
-    
+
     def get_success_url(self):
         car_id = self.kwargs["pk"]
         return reverse("taxi:car-detail", args=[car_id])
@@ -90,4 +90,3 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
-
