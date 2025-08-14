@@ -1,15 +1,29 @@
-<ul class="sidebar-nav list-group">
+<nav class="bg-light h-100 custom">
   {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+    <p style="margin: 20px;">Hi,
+      <a href="{% url 'taxi:driver-detail' user.id %}">{{ user.username }}!</a></p>
+    <form method="post" action="{% url 'logout' %}" style="text-align:center; margin-top: 20px;">
+      {% csrf_token %}
+      <button type="submit" style="background:none; border:none; padding:0; cursor:pointer; justify-content: center">
+        Logout
+      </button>
+    </form>
   {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+    <a style="margin: 20px;" href="{% url 'login' %}">Login</a>
   {% endif %}
-
-  <br>
-
-  <li class="list-group-item"><a href="{% url 'taxi:index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:driver-list' %}">All drivers</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:car-list' %}">All cars</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:manufacturer-list' %}">All manufacturers</a></li>
-</ul>
+  <hr>
+  <ul class="nav flex-column">
+      <li class="nav-item mb-2">
+          <a href="{% url 'taxi:index' %}" class="nav-link active d-block px-3 py-2">Home page</a>
+      </li>
+      <li class="nav-item mb-2">
+          <a href="{% url 'taxi:manufacturer-list' %}" class="nav-link d-block px-3 py-2">Manufacturers</a>
+      </li>
+      <li class="nav-item mb-2">
+          <a href="{% url 'taxi:car-list' %}" class="nav-link d-block px-3 py-2">Cars</a>
+      </li>
+      <li class="nav-item mb-2">
+          <a href="{% url 'taxi:driver-list' %}" class="nav-link d-block px-3 py-2">Drivers</a>
+      </li>
+  </ul>
+</nav>
