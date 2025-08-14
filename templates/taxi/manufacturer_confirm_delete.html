@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Are you sure?</h1>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes">
+    <a href="{% url 'taxi:manufacturer-list' %}">No</a>
+  </form>
+{% endblock %}

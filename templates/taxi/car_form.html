@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  {% if object.pk %}
+    <h1>Update car</h1>
+  {% else %}
+    <h1>Create car</h1>
+  {% endif %}
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit" class="btn btn-primary">
+  </form>
+{% endblock %}
