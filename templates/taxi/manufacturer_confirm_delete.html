@@ -4,7 +4,6 @@
   <h1>Are you sure?</h1>
   <form method="post">
     {% csrf_token %}
-    <input type="submit" value="Yes">
-    <a href="{% url 'taxi:manufacturer-list' %}">No</a>
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
   </form>
 {% endblock %}
