@@ -6,3 +6,4 @@ pep8-naming==0.13.2
 django-debug-toolbar==4.4.4
 django-crispy-forms>=2.3
 crispy-bootstrap4
+jinja2
