@@ -61,6 +61,7 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
         context["cancel_url"] = reverse_lazy("taxi:manufacturer-list")
         return context
 
+
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
@@ -90,7 +91,10 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["cancel_url"] = reverse_lazy("taxi:car-detail", kwargs={"pk": self.object.pk})
+        context["cancel_url"] = reverse_lazy(
+            "taxi:car-detail",
+            kwargs={"pk": self.object.pk}
+        )
         return context
 
 
