@@ -5,6 +5,7 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Driver, Car, Manufacturer
+from .forms import ManufacturerForm, CarForm  # <-- додано
 
 
 @login_required
@@ -37,14 +38,14 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
 
 class ManufacturerCreate(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
-    fields = "__all__"
+    form_class = ManufacturerForm  # <-- заміна fields на form_class
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_list_form.html"
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
-    fields = "__all__"
+    form_class = ManufacturerForm  # <-- заміна fields на form_class
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_list_form.html"
 
@@ -63,14 +64,14 @@ class CarListView(LoginRequiredMixin, generic.ListView):
 
 class CarCreate(LoginRequiredMixin, generic.CreateView):
     model = Car
-    fields = "__all__"
+    form_class = CarForm  # <-- заміна fields на form_class
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_list_form.html"
 
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
-    fields = "__all__"
+    form_class = CarForm  # <-- заміна fields на form_class
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_list_form.html"
 

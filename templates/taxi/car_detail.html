@@ -1,27 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="mb-3">
-    <h1 class="h4 mb-1">{{ car.model }}</h1>
-    <div class="text-muted">
-      Manufacturer:
-      <span class="font-weight-medium">{{ car.manufacturer.name }}</span>
-      <span class="badge badge-secondary ml-1">{{ car.manufacturer.country }}</span>
-    </div>
-  </div>
+  <h1>Car: {{ object.model }}</h1>
 
-  <div class="bg-white rounded shadow-sm p-3">
-    <h2 class="h6 text-uppercase text-muted">Drivers</h2>
-    {% if car.drivers.all %}
-      <ul class="list-group list-group-flush">
-        {% for driver in car.drivers.all %}
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span>{{ driver.first_name }} {{ driver.last_name }}</span>
-          </li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <div class="alert alert-light mb-0">No drivers assigned to this car.</div>
-    {% endif %}
+  <p>
+    <strong>Manufacturer:</strong> {{ object.manufacturer }}
+  </p>
+
+  {% if object.drivers.all %}
+    <p><strong>Drivers:</strong></p>
+    <ul>
+      {% for driver in object.drivers.all %}
+        <li>{{ driver }}</li>
+      {% empty %}
+        <li>No drivers assigned</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <div class="car-actions">
+    <a href="{% url 'taxi:car-update' pk=object.pk %}" class="btn btn-outline-warning">Update</a>
+    <a href="{% url 'taxi:car-delete' pk=object.pk %}" class="btn btn-outline-danger">Delete</a>
   </div>
 {% endblock %}
