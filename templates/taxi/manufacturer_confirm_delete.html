@@ -4,8 +4,13 @@
   <hr>
   <p>Are you sure you want to delete the manufacturer {{ manufacturer }}?</p>
   <p><i>All Cars with this manufacturer will be also deleted!</i></p>
-  <form action="" method="post">
-  {% csrf_token %}
-    <input type="submit" value="Yes, delete" class="btn btn-danger">
-  </form>
+    <form action="" method="post">
+    {% csrf_token %}
+      <input type="submit" value="Yes, delete" class="btn btn-danger">
+    </form>
+  <hr>
+    <form action="{% url 'taxi:manufacturer-list' %}" method="get">
+    {% csrf_token %}
+      <input type="submit" value="Cancel" class="btn btn-warning">
+    </form>
 {% endblock %}
