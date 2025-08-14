@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block content %}
   <h1>Car list <a style="float: right" href="{% url 'taxi:car-create' %}">+</a></h1>
   {% if car_list %}

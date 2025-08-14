@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>Delete Car</h1>
-  <p>Are you sure you want to delete the car: {{ car }}?</p>
-  <p><i>All models with this car will be also deleted!</i></p>
+  <h1>Delete Manufacturer</h1>
+  <p>Are you sure you want to delete the manufacturer: {{ manufacturer }}?</p>
+  <p><i>All manufacturer with this manufacturer list will be also deleted!</i></p>
   <form action="" method="post">
     {% csrf_token %}
     <input type="submit" value="Yes, delete" class="btn btn-danger"/>
