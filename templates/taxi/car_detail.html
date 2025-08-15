@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Model: {{ car.model }}</h2>
+  <h1>Model: {{ car.model }}</h1>
   <a class="btn btn-primary" href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
   <a class="btn btn-danger" href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
