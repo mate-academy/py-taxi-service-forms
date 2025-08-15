@@ -1,12 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
+  <h1>
+    {{ car.model }}
+    <a href="{% url 'taxi:car-update' car.id %}"><i class="bi bi-pencil-square"></i></a>
+    <a href="{% url 'taxi:car-delete' car.id %}"><i class="bi bi-trash-fill"></i></a>
+  </h1>
   <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
+    <li><i class="bi bi-globe"></i> Country:  {{ car.manufacturer.country }}</li>
+    <li><i class="bi bi-tools"></i> Manufacturer:  {{ car.manufacturer.name }}</li>
   </ul>
+  <hr>
+  <h3>Drivers on this car</h3>
+  <hr>
+  {% if car.drivers.all %}
+    <ul>
+      {% for driver in car.drivers.all %}
+        <li>
+          <i class="bi bi-person-check"></i>
+          ({{ driver.username }}) {{ driver.first_name }} {{ driver.last_name }} &nbsp;&nbsp;&nbsp;&nbsp;
+          <i class="bi bi-file-earmark-break"></i> License Number: {{ driver.license_number }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 {% endblock %}
