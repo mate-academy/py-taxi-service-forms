@@ -1,26 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Username: {{ driver.username }}
-  </h1>
 
-  <p><strong>First name:</strong> {{ driver.first_name }}</p>
-  <p><strong>Last name:</strong> {{ driver.last_name }}</p>
-  <p><strong>License number:</strong> {{ driver.license_number }}</p>
-  <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
+<div class="container-fluid mt-4">
 
-  <div class="ml-3">
-    <h4>Cars</h4>
+  <h2 class="mb-4">Driver Information</h2>
+  <div class="card mb-3 col-md-4 p-0">
+    <div class="card-body">
+      <h5 class="card-title">{{ driver.username }}</h5>
+      <p class="card-text"><strong>Full name:</strong> {{ driver.first_name }} {{ driver.last_name }}</p>
+      <p class="card-text"><strong>Email:</strong> {{ driver.email }}</p>
+      <p class="card-text"><strong>License number:</strong> {{ driver.license_number }}</p>
+    </div>
+  </div>
 
+  <h3 class="mt-4">Cars driven by {{ driver.username }}:</h3>
+  <div class="row">
     {% for car in driver.cars.all %}
-        <hr>
-        <p><strong>Model:</strong> {{ car.model }}</p>
-        <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
-
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ car.model }}</h5>
+            <p class="card-text"><strong>Manufacturer:</strong> {{ car.manufacturer.name }} ({{ car.manufacturer.country }})</p>
+          </div>
+        </div>
+      </div>
     {% empty %}
-      <p>No cars!</p>
+      <div class="col-12">
+        <p>No cars assigned to this driver.</p>
+      </div>
     {% endfor %}
   </div>
+
+</div>
+
 {% endblock %}

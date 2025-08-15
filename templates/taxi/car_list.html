@@ -1,17 +1,49 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+
+<div class="container-fluid mt-4">
+
+  <div class="row align-items-center justify-content-between mb-3">
+    <div class="col-auto">
+      <h2>Cars</h2>
+    </div>
+    <div class="col-auto align-end">
+      <a class="btn btn-success" href="{% url 'taxi:car-create' %}">
+        <i class="bi bi-plus-circle-fill"></i> Create
+      </a>
+    </div>
+  </div>
   {% if car_list %}
-    <ul>
-      {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
-      {% endfor %}
-    </ul>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Manufacturer</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for car in car_list %}
+            <tr>
+              <td>
+                <a href="{% url 'taxi:car-detail' car.pk %}"
+                   class="list-link link-opacity-40-hover">
+                  {{ car.pk }}
+                </a>
+              </td>
+              <td>{{ car.model }}</td>
+              <td>{{ car.manufacturer.name }}</td>
+              <td>{{ car.manufacturer.country }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
   {% else %}
-    <p>There are no cars in taxi</p>
+    <p>cars does not exist</p>
   {% endif %}
+
+</div>
+
 {% endblock %}

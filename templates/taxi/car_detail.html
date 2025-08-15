@@ -1,12 +1,54 @@
 {% extends "base.html" %}
 
+
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
-  </ul>
+
+
+<div class="container-fluid mt-4">
+  <div class="row align-items-center mb-3">
+    <div class="col-auto">
+      <h2 class="mb-0">Car Information</h2>
+    </div>
+    <div class="col-auto text-end">
+      <a class="btn btn-primary me-2" href="{% url 'taxi:car-update' object.pk %}">
+        <i class="bi bi-arrow-through-heart-fill"></i> Update
+      </a>
+    </div>
+    <div class="col-auto text-end">
+      <a class="btn btn-danger" href="{% url 'taxi:car-delete' object.pk %}">
+        <i class="bi bi-trash-fill"></i> Delete
+      </a>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-md-6 col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ car.model }}</h5>
+          <p class="card-text"><strong>Manufacturer:</strong> {{ car.manufacturer.name }} ({{ car.manufacturer.country }})</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="mt-4">Drivers of {{ car.model }}:</h3>
+  <div class="row">
+    {% for driver in car.drivers.all %}
+      <div class="col-md-4 col-12 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ driver.username }}</h5>
+            <p class="card-text"><strong>Full name:</strong> {{ driver.first_name }} {{ driver.last_name }}</p>
+            <p class="card-text"><strong>Email:</strong> {{ driver.email }}</p>
+            <p class="card-text"><strong>License number:</strong> {{ driver.license_number }}</p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col-12">
+        <div class="alert alert-info">No drivers assigned to this car.</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
 {% endblock %}
