@@ -73,6 +73,13 @@ class CarDeleteView(DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cancel_url"] = self.request.META.get(
+            "HTTP_REFERER", self.success_url
+        )
+        return context
+
 
 class ManufacturerCreateView(CreateView):
     model = Manufacturer
@@ -89,3 +96,10 @@ class ManufacturerUpdateView(UpdateView):
 class ManufacturerDeleteView(DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cancel_url"] = self.request.META.get(
+            "HTTP_REFERER", self.success_url
+        )
+        return context
