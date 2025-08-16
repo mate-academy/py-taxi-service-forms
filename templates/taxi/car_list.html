@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% load static %}
 {% block content %}
   <h1>Car list</h1>
   {% if car_list %}
@@ -10,6 +11,7 @@
           {{ car.model }} ({{ car.manufacturer.name }})
         </li>
       {% endfor %}
+      <button onclick="window.location.href='{% url "taxi:cars-create" %}'">Clic to add a new car!</button>
     </ul>
   {% else %}
     <p>There are no cars in taxi</p>
