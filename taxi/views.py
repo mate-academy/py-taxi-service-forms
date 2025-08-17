@@ -40,6 +40,7 @@ class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     form_class = ManufacturerForm
     success_url = reverse_lazy("taxi:manufacturer-list")
 
+
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     form_class = ManufacturerForm
@@ -66,6 +67,7 @@ class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     form_class = CarForm
     success_url = reverse_lazy("taxi:car-list")
+
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
