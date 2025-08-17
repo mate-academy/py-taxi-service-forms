@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h1>Confirm Delete Car</h1>
+
+    <p>Are you sure you want to delete this car?</p>
+
+    <p><i>All cars will be deleted!!</i></p>
+    <form action="" method="post">
+    {% csrf_token %}
+        <input type="submit" value="Delete" class="btn btn-primary">
+        <input type="button" onclick="location.href='{% url "taxi:car-detail" car.id %}'" value="Cancel"  class="btn btn-primary">
+    </form>
+{% endblock %}
