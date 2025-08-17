@@ -1,33 +1,54 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="mb-0">
+      Manufacturers
     </h1>
 
-    {% if manufacturer_list %}
-      <table class="table">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
-        </tr>
+    <a class="btn btn-success" href="{% url 'taxi:manufacturer-create' %}">
+      <span class="oi oi-plus"></span> Create manufacturer
+    </a>
+  </div>
 
-        {% for manufacturer in manufacturer_list %}
-            <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
+  {% if manufacturer_list %}
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-sm mb-0">
+        <thead class="thead-dark">
+          <tr>
+            <th style="width:6rem;">ID</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th style="width:7.5rem;">Update</th>
+            <th style="width:7rem;">Delete</th>
           </tr>
-        {% endfor %}
+        </thead>
+        <tbody>
+          {% for m in manufacturer_list %}
+            <tr>
+              <td>{{ m.pk }}</td>
+              <td>{{ m.name }}</td>
+              <td>{{ m.country }}</td>
+              <td>
+                <a class="btn btn-sm btn-outline-primary"
+                   href="{% url 'taxi:manufacturer-update' pk=m.pk %}">
+                  <span class="oi oi-pencil"></span> Update
+                </a>
+              </td>
+              <td>
+                <a class="btn btn-sm btn-outline-danger"
+                   href="{% url 'taxi:manufacturer-delete' pk=m.pk %}">
+                  <span class="oi oi-trash"></span> Delete
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
       </table>
-
-    {% else %}
-        <p>There are no manufacturers in the service.</p>
-    {% endif %}
+    </div>
+  {% else %}
+    <div class="alert alert-info mb-0">
+      There are no manufacturers in the service.
+    </div>
+  {% endif %}
 {% endblock %}
