@@ -1,5 +1,5 @@
-{% load crispy_forms_filters %}
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
 
@@ -10,12 +10,12 @@
 <h1>Login</h1>
 
 {% if next %}
-  <p>Please login to see this page.</p>
+  <p>Please log in to see this page.</p>
 {% endif %}
 
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
-{{ form.as_p }}
+{{ form|crispy }}
 
 <input type="submit" value="Login" class="btn btn-primary" />
 <input type="hidden" name="next" value="{{ next }}" />

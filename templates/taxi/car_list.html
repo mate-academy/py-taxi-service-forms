@@ -11,7 +11,7 @@
           {{ car.model }} ({{ car.manufacturer.name }})
         </li>
       {% endfor %}
-      <button onclick="window.location.href='{% url "taxi:cars-create" %}'">Clic to add a new car!</button>
+      <button onclick="window.location.href='{% url "taxi:car-create" %}'">Click to add a new car!</button>
     </ul>
   {% else %}
     <p>There are no cars in taxi</p>
