@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Driver List
+    <h1>
+      Driver List
+
     </h1>
 
     {% if driver_list %}
@@ -16,7 +18,11 @@
     {% for driver in driver_list %}
       <tr>
         <td>{{ driver.id }}</td>
-        <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a></td>
+        <td>
+          <a href="{{ driver.get_absolute_url }}">
+            {{ driver.username }} {% if user == driver %} (Me){% endif %}
+          </a>
+        </td>
         <td>{{ driver.first_name }}</td>
         <td>{{ driver.last_name }}</td>
         <td>{{ driver.license_number }}</td>

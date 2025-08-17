@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete manufacturer</h1>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    <input type="submit" value="Delete" class="btn btn-danger">
+  </form>
+{% endblock %}
