@@ -1,17 +1,40 @@
 {% if is_paginated %}
   <ul class="pagination">
+    <!-- First page -->
+    <li class="page-item {% if page_obj.number == 1 %}disabled{% endif %}">
+      <a class="page-link" href="?page=1">First</a>
+    </li>
+
+    <!-- Previous page -->
     {% if page_obj.has_previous %}
       <li class="page-item">
-        <a href="?page= {{ page_obj.previous_page_number }}" class="page-link">prev</a>
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Prev</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <span class="page-link">Prev</span>
       </li>
     {% endif %}
+
+    <!-- Current page -->
     <li class="page-item active">
       <span class="page-link">{{ page_obj.number }} of {{ paginator.num_pages }}</span>
     </li>
+
+    <!-- Next page -->
     {% if page_obj.has_next %}
       <li class="page-item">
-        <a href="?page= {{ page_obj.next_page_number }}" class="page-link">next</a>
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <span class="page-link">Next</span>
       </li>
     {% endif %}
+
+    <!-- Last page -->
+    <li class="page-item {% if page_obj.number == paginator.num_pages %}disabled{% endif %}">
+      <a class="page-link" href="?page={{ paginator.num_pages }}">Last</a>
+    </li>
   </ul>
 {% endif %}
