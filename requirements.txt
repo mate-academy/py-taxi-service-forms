@@ -31,7 +31,7 @@ PyQt6_sip==13.10.2
 python-dateutil==2.9.0.post0
 ruamel.yaml==0.18.14
 ruamel.yaml.clib==0.2.12
-scipy==1.16.1
+scipy==1.15.3
 silx==2.2.2
 six==1.17.0
 SQLAlchemy==2.0.43
