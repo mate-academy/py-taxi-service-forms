@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h1>Confirm Delete Manufacturer</h1>
+
+    <p>Are you sure you want to delete this manufacturer?</p>
+
+    <p><i>All manufacturer will be deleted!!</i></p>
+    <form action="" method="post">
+    {% csrf_token %}
+        <input type="submit" value="Delete" class="btn btn-primary">
+    </form>
+{% endblock %}
