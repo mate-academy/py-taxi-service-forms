@@ -1,3 +1,27 @@
 body {
     margin-top: 20px;
+    background-color: #EBE1CC;
+}
+
+.sidebar {
+    min-height: 100vh;
+    background-color: #343a40;
+    color: #fff;
+}
+
+.sidebar a {
+    color: #f8f9fa;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    color: #ffc107;
+}
+
+.card {
+    border-radius: .5rem;
+}
+
+.table a {
+    font-weight: 500;
 }

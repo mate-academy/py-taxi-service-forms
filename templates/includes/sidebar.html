@@ -1,15 +1,35 @@
-<ul class="sidebar-nav list-group">
+<div class="sidebar p-3 shadow-sm">
+  <h5 class="mb-4"><i class="bi bi-list"></i> Menu</h5>
+
   {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+    <div class="mb-3">
+      <i class="bi bi-person-circle"></i>
+      <strong>{{ user.get_username }}</strong>
+      <form method="post" action="{% url 'logout' %}?next={{request.path}}" class="mt-2">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-sm btn-warning">
+          <i class="bi bi-box-arrow-right"></i> Logout
+        </button>
+      </form>
+    </div>
   {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+    <a class="btn btn-sm btn-primary w-100 mb-3" href="{% url 'login'%}?next={{request.path}}">
+      <i class="bi bi-box-arrow-in-right"></i> Login
+    </a>
   {% endif %}
 
-  <br>
-
-  <li class="list-group-item"><a href="{% url 'taxi:index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:driver-list' %}">All drivers</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:car-list' %}">All cars</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:manufacturer-list' %}">All manufacturers</a></li>
-</ul>
+  <nav class="nav flex-column">
+    <a class="nav-link px-0 mb-2" href="{% url 'taxi:index' %}">
+      <i class="bi bi-house-door-fill"></i> Home
+    </a>
+    <a class="nav-link px-0 mb-2" href="{% url 'taxi:driver-list' %}">
+      <i class="bi bi-people-fill"></i> All drivers
+    </a>
+    <a class="nav-link px-0 mb-2" href="{% url 'taxi:car-list' %}">
+      <i class="bi bi-car-front-fill"></i> All cars
+    </a>
+    <a class="nav-link px-0" href="{% url 'taxi:manufacturer-list' %}">
+      <i class="bi bi-building-gear"></i> All manufacturers
+    </a>
+  </nav>
+</div>
