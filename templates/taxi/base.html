@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Taxi Service{% endblock %}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1 class="mb-4">{% block header %}Taxi Service{% endblock %}</h1>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>
