@@ -7,14 +7,17 @@
     <form action="" method="post">
       {% csrf_token %}
       <button type="submit" class="btn btn-danger">Confirm</button>
+      <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
     </form>
+
   {% endif %}
 
   {% if verbose_name == "Car" %}
     <p> Are you sure you want to delete the {{ object.model }} from {{ verbose_name }}s?</p>
-    <form action="" method="post">
+    <form action="" method="post" style="display:inline;">
       {% csrf_token %}
       <button type="submit" class="btn btn-danger">Confirm</button>
     </form>
+    <a href="{% url 'taxi:car-detail' pk=car.id %}" class="btn btn-secondary">Cancel</a>
   {% endif %}
 {% endblock %}
