@@ -1,0 +1,24 @@
+{% extends "taxi/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}{{ view.object|default:"Create Car" }}{% endblock %}
+
+{% block content %}
+<h1>
+  {% if view.object %}
+    Update Car
+  {% else %}
+    Create Car
+  {% endif %}
+</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button type="submit" class="btn btn-success">
+    {% if view.object %}Update{% else %}Create{% endif %}
+  </button>
+  <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
