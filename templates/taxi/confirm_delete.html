@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1> Delete {{ verbose_name }}</h1>
+  {% if verbose_name == "Manufacturer" %}
+    <p> Are you sure you want to delete the {{ object.name }} from {{ verbose_name }}s?</p>
+    <p><i>All cars made by this Manufacturer will be also deleted!</i></p>
+    <form action="" method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Confirm</button>
+      <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+
+  {% endif %}
+
+  {% if verbose_name == "Car" %}
+    <p> Are you sure you want to delete the {{ object.model }} from {{ verbose_name }}s?</p>
+    <form action="" method="post" style="display:inline;">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Confirm</button>
+    </form>
+    <a href="{% url 'taxi:car-detail' pk=car.id %}" class="btn btn-secondary">Cancel</a>
+  {% endif %}
+{% endblock %}
