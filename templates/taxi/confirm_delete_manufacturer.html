@@ -1,13 +1,15 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
 {% load crispy_forms_filters %}
 
-{% block content%}
+{% block content %}
 <h1>Delete manufacturer</h1>
-	<p>Are you sure you want delete {{ manufacturer }} ?</p>
-	<form action='' method="post" novalidate>
-		{% csrf_token %}
-		{{ form|crispy}}
-		<input type="submit"  value="Yes, delete" class="btn btn-danger">
-	</form>
+<p>Are you sure you want to delete {{ manufacturer }}?</p>
+<form action='' method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div class="d-flex gap-2">
+        <input type="submit" value="Yes, delete" class="btn btn-danger">
+        <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
 {% endblock %}
