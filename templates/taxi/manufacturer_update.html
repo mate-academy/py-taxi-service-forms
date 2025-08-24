@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <h1>Update manufacturer</h1>
+  {% if error %}
+    <p> {{ error }}</p>
+  {% endif %}
+	<form method="POST" action="">
+    {% csrf_token %}
+    {{  form|crispy}}
+    <input type="submit" value="update">
+  </form>
+{% endblock %}
