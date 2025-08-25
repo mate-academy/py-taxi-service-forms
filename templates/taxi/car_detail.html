@@ -6,7 +6,9 @@
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})
+      <a href="{%  url 'taxi:car-update' car.id %}">Update</a>
+      <a href="{% url 'taxi:car-delete' car.id %}">Delete</a></li>
   {% endfor %}
   </ul>
 {% endblock %}

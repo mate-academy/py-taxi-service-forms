@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Delete Car</h1>
+  <p>Are you sure you want to delete car {{ car.model }} ?</p>
+  <form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes, delete" class="btn btn-danger">
+  {% if request.META.HTTP_REFERER %}
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">Cancel</a>
+  {% else %}
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Cancel</a>
+  {% endif %}
+  </form>
+{%  endblock %}
