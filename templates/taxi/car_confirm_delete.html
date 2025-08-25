@@ -5,5 +5,10 @@
   <form action="" method="POST">
   {% csrf_token %}
   <input type="submit" value="Yes, delete" class="btn btn-danger">
+  {% if request.META.HTTP_REFERER %}
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">Cancel</a>
+  {% else %}
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Cancel</a>
+  {% endif %}
   </form>
 {%  endblock %}
