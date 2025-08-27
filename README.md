@@ -10,6 +10,16 @@ https://taxi-service-andriy125.onrender.com
 - Аутентифікація користувачів (Django auth).
 - Охайні форми завдяки **django-crispy-forms** і **crispy-bootstrap4**.
 - Готовий фікстчер з тестовими даними та суперкористувачем.
+## 🧪 Тестовий користувач
+
+Для швидкої перевірки функціоналу можна увійти під тестовим акаунтом:
+
+- **Login:** `user`  
+- **Password:** `user12345`
+
+## Фото
+
+<img width="1855" height="942" alt="image" src="https://github.com/user-attachments/assets/ad210e35-f59b-4bc3-a548-205a57cadfd6" />
 
 ## 🚀 Швидкий старт локально
 ```bash
@@ -26,14 +36,5 @@ python manage.py migrate
 python manage.py loaddata taxi_service_db_data.json
 python manage.py runserver
 
-## 🧪 Тестовий користувач
 
-Для швидкої перевірки функціоналу можна увійти під тестовим акаунтом:
-
-- **Login:** `user`  
-- **Password:** `user12345`
-
-## Фото
-
-<img width="1855" height="942" alt="image" src="https://github.com/user-attachments/assets/ad210e35-f59b-4bc3-a548-205a57cadfd6" />
 
