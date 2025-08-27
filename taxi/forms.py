@@ -19,7 +19,7 @@ class CarForm(forms.ModelForm):
         model = Car
         fields = "__all__"
 
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            self.helper = FormHelper()
-            self.helper.form_method = "post"
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = "post"
