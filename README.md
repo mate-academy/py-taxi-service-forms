@@ -1,49 +1,39 @@
-# Taxi service forms
+# Taxi Service (Forms)
 
-Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before starting.
-- Make sure that you change the settings for [html-files](https://github.com/mate-academy/py-task-guideline/blob/main/html_settings/README.MD).
-- Use the following command to load prepared data from fixture to test and debug your code:
-  
-`python manage.py loaddata taxi_service_db_data.json`
+Невеликий Django-проєкт для керування автопарком таксі: виробники, авто, водії. Форми створені на базі **crispy-forms + Bootstrap 4**. Деплой на **Render**, БД — **PostgreSQL (Neon)**.
 
-- After loading data from fixture you can use following superuser (or create another one by yourself):
-  - Login: `admin.user`
-  - Password: `1qazcde3`
+## 🔗 Live Demo
+https://taxi-service-andriy125.onrender.com
 
-Feel free to add more data using admin panel, if needed.
+## ✨ Основні можливості
+- CRUD для **Manufacturer** та **Car** (кнопки створення/редагування/видалення на списках і деталках).
+- Аутентифікація користувачів (Django auth).
+- Охайні форми завдяки **django-crispy-forms** і **crispy-bootstrap4**.
+- Готовий фікстчер з тестовими даними та суперкористувачем.
 
-In this task, you will implement a custom form and django built-in forms to create,
-update or delete content from the site.
+## 🚀 Швидкий старт локально
+```bash
+git clone https://github.com/Andriy125/py-taxi-service-forms.git
+cd py-taxi-service-forms
+python -m venv .venv && . .venv/bin/activate  # (Windows: .venv\Scripts\activate)
+pip install -r requirements.txt
 
-1. Implement:
-    - `Create`, `Update`, `Delete` views for `Car`, 
-    - `Create`, `Update`, `Delete` views for `Manufacturer`.
-2. On the car list page add button that leads to the car creation page. On the car 
-detail page add buttons that lead to the car update page and car deletion page.
-3. On the manufacturer list page, add the button that leads to the manufacturer creation
-page. Also, add columns `Update`, `Delete`, and add links for the updating page and 
-deletion page for each manufacturer.
-4. Use crispy forms in your forms to make website more beautiful.
+# Змінні оточення (приклад див. .env.sample)
+export SECRET_KEY="change_me_please"
+export DJANGO_SETTINGS_MODULE="taxi_service.settings.dev"
 
-NOTE: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them.
+python manage.py migrate
+python manage.py loaddata taxi_service_db_data.json
+python manage.py runserver
 
-### Note: Check your code using this [checklist](checklist.md) before pushing your solution.
+## 🧪 Тестовий користувач
 
-# Note
-Follow these steps if you need to use `crispy_forms` v2.0 with Python 3.11:
+Для швидкої перевірки функціоналу можна увійти під тестовим акаунтом:
 
-1. Add `CRISPY_TEMPLATE_PACK` to `settings.py`.
+- **Login:** `user`  
+- **Password:** `user12345`
 
-```python
-CRISPY_TEMPLATE_PACK="bootstrap4"
-```
+## Фото
 
-2. Add these apps to `INSTALLED_APPS` and install them corresponding to the `CRISPY_TEMPLATE_PACK` bootstrap version.
+<img width="1855" height="942" alt="image" src="https://github.com/user-attachments/assets/ad210e35-f59b-4bc3-a548-205a57cadfd6" />
 
-```python
-INSTALLED APPS = [
-   ...,
-   "crispy_bootstrap4",
-   "crispy_forms",
-]
-```
