@@ -13,6 +13,3 @@ class ManufacturerForm(ModelForm):
     class Meta:
         model = Manufacturer
         fields = "__all__"
-
-
-
