@@ -7,5 +7,6 @@
     {% csrf_token %}
     <button type="submit">Yes, delete</button>
     <a href="{% url 'taxi:car-detail' car.pk %}">No, go back to the car</a>
+    <button type="button" onclick="window.history.back()">Cancel</button>
 </form>
 {% endblock %}
