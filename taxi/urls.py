@@ -7,12 +7,12 @@ from .views import (
     DriverListView,
     DriverDetailView,
     ManufacturerListView,
-    CarFormatCreateView,
-    CarFormatUpdateView,
-    CarFormatDeleteView,
-    ManufacturerFormatCreateView,
-    ManufacturerFormatUpdateView,
-    ManufacturerFormatDeleteView,
+    CarCreateView,
+    CarUpdateView,
+    CarDeleteView,
+    ManufacturerCreateView,
+    ManufacturerUpdateView,
+    ManufacturerDeleteView,
 )
 
 urlpatterns = [
@@ -24,35 +24,35 @@ urlpatterns = [
     ),
     path(
         "manufacturers/create/",
-        ManufacturerFormatCreateView.as_view(),
-        name="manufacturer-format-create",
+        ManufacturerCreateView.as_view(),
+        name="manufacturer-create",
     ),
     path(
         "manufacturers/<int:pk>/update/",
-        ManufacturerFormatUpdateView.as_view(),
-        name="manufacturer-format-update",
+        ManufacturerUpdateView.as_view(),
+        name="manufacturer-update",
     ),
     path(
         "manufacturers/<int:pk>/delete/",
-        ManufacturerFormatDeleteView.as_view(),
-        name="manufacturer-format-delete",
+        ManufacturerDeleteView.as_view(),
+        name="manufacturer-delete",
     ),
     path("cars/", CarListView.as_view(), name="car-list"),
     path("cars/<int:pk>/", CarDetailView.as_view(), name="car-detail"),
     path(
         "cars/create/",
-        CarFormatCreateView.as_view(),
-        name="car-format-create"
+        CarCreateView.as_view(),
+        name="car-create"
     ),
     path(
         "cars/<int:pk>/update/",
-        CarFormatUpdateView.as_view(),
-        name="car-format-update"
+        CarUpdateView.as_view(),
+        name="car-update"
     ),
     path(
         "cars/<int:pk>/delete/",
-        CarFormatDeleteView.as_view(),
-        name="car-format-delete"
+        CarDeleteView.as_view(),
+        name="car-delete"
     ),
     path("drivers/", DriverListView.as_view(), name="driver-list"),
     path(

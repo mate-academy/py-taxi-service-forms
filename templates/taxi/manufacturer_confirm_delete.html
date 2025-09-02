@@ -7,6 +7,7 @@
   <p><i>All Cars with this Manufacturer will be also deleted!</i></p>
   <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Yes, delete" class="btn btn-danger" />
+    <input type="submit" value="Yes, delete" class="btn btn-danger"/>
+    <input type="submit" value="Go back" class="btn btn-danger" action="{% url 'taxi:manufacturer-list' %}" />
   </form>
 {% endblock %}
