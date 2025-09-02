@@ -77,7 +77,10 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         referer = self.request.META.get("HTTP_REFERER")
-        context["cancel_url"] = referer if referer else reverse("taxi:car-list")
+        context["cancel_url"] = (
+            referer if referer
+            else reverse("taxi:car-list")
+        )
         return context
 
 
@@ -103,5 +106,8 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         referer = self.request.META.get("HTTP_REFERER")
-        context["cancel_url"] = referer if referer else reverse("taxi:manufacturer-list")
+        context["cancel_url"] = (
+            referer if referer
+            else reverse("taxi:manufacturer-list")
+        )
         return context
