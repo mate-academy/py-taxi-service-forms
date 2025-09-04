@@ -7,6 +7,7 @@
   <p><i>All cars this manufacturer will be deleted!</i></p>
   <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Yes, delete" class="btn btn-danger" />
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <input type="submit" value="Cancel" class="btn btn-danger">
   </form>
 {% endblock %}
