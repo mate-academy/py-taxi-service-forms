@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div class="d-flex mb-3">
+    <a class="btn btn-primary me-2" href="{% url 'taxi:car-update' car.pk %}">Update Car</a>
+    <a class="btn btn-danger" href="{% url 'taxi:car-delete' car.pk %}">Delete Car</a>
+  </div>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
   <hr>
