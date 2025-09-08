@@ -1,0 +1,3 @@
+<h1>{{ car.model }}</h1>
+<a href="{% url 'car-update' car.pk %}" class="btn btn-warning">Update Car</a>
+<a href="{% url 'car-delete' car.pk %}" class="btn btn-danger">Delete Car</a>
