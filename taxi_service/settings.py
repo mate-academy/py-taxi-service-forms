@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "taxi",
     "crispy_bootstrap4",
+    "crispy_bootstrap5",
     "crispy_forms",
 ]
 
@@ -145,4 +146,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
