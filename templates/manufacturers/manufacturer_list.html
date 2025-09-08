@@ -1,22 +1,22 @@
 <h1>Manufacturer List</h1>
-<a href="{% url 'manufacturer-create' %}" class="btn btn-primary mb-3">Add Manufacturer</a>
+<a href="{% url "manufacturer-create" %}" class="btn btn-primary mb-3">Add Manufacturer</a>
 <table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Country</th>
-            <th>Update</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for manufacturer in manufacturers %}
-        <tr>
-            <td>{{ manufacturer.name }}</td>
-            <td>{{ manufacturer.country }}</td>
-            <td><a href="{% url 'manufacturer-update' manufacturer.pk %}" class="btn btn-sm btn-warning">Update</a></td>
-            <td><a href="{% url 'manufacturer-delete' manufacturer.pk %}" class="btn btn-sm btn-danger">Delete</a></td>
-        </tr>
-        {% endfor %}
-    </tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for manufacturer in manufacturers %}
+      <tr>
+        <td>{{ manufacturer.name }}</td>
+        <td>{{ manufacturer.country }}</td>
+        <td><a href="{% url "manufacturer-update" manufacturer.pk %}" class="btn btn-sm btn-warning">Update</a></td>
+        <td><a href="{% url "manufacturer-delete" manufacturer.pk %}" class="btn btn-sm btn-danger">Delete</a></td>
+      </tr>
+      {% endfor %}
+  </tbody>
 </table>

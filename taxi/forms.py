@@ -15,9 +15,9 @@ class CarForm(forms.ModelForm):
         self.helper.layout = Layout(
             Fieldset(
                 "Car Details",
-                "make",
                 "model",
-                "year",
+                "manufacturer",
+                "drivers",
             ),
             Submit("submit", "Save Car")
         )
