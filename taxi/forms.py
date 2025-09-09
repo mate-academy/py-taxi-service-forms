@@ -6,4 +6,4 @@ from taxi.models import Car
 class CarForm(forms.ModelForm):
     class Meta:
         model = Car
-        exclude = ("drivers",) # drivers assigned automatically in view
+        exclude = ("drivers",)
