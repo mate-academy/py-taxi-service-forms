@@ -7,6 +7,10 @@
   <form method="post">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">Yes, delete</button>
-    <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
+    <a href="{% url 'taxi:manufacturer-list' %}"
+       class="btn btn-secondary"
+       onclick="event.preventDefault(); if (history.length > 1) { history.back(); } else { window.location.href='{% url 'taxi:manufacturer-list' %}'; }">
+       Cancel
+    </a>
   </form>
 {% endblock %}
