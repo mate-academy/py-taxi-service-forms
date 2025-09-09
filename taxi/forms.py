@@ -8,6 +8,7 @@ class CarForm(forms.ModelForm):
         model = Car
         exclude = ("drivers",)
 
+
 class ManufacturerForm(forms.ModelForm):
     class Meta:
         model = Manufacturer
