@@ -1,5 +1,5 @@
 <h1>Car List</h1>
-<a href="{% url "car-create" %}" class="btn btn-primary mb-3">Add Car</a>
+<a href="{% url 'taxi:car-create' %}" class="btn btn-primary mb-3">Add Car</a>
 <table class="table">
   <thead>
     <tr>
@@ -10,12 +10,12 @@
     </tr>
   </thead>
   <tbody>
-    {% for manufacturer in manufacturers %}
+    {% for car in cars %}
       <tr>
-        <td>{{ car.name }}</td>
-        <td>{{ car.country }}</td>
-        <td><a href="{% url 'car-update' car.pk %}" class="btn btn-sm btn-warning">Update</a></td>
-        <td><a href="{% url 'car-delete' car.pk %}" class="btn btn-sm btn-danger">Delete</a></td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.manufacturer }}</td>
+        <td><a href="{% url 'taxi:car-update' car.pk %}" class="btn btn-sm btn-warning">Update</a></td>
+        <td><a href="{% url 'taxi:car-delete' car.pk %}" class="btn btn-sm btn-danger">Delete</a></td>
       </tr>
       {% endfor %}
   </tbody>
