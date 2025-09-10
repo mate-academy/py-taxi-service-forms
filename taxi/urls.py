@@ -22,8 +22,16 @@ urlpatterns = [
     path("cars/<int:pk>/update/", CarUpdateView.as_view(), name="car-update"),
     path("cars/<int:pk>/delete/", CarDeleteView.as_view(), name="car-delete"),
     path("drivers/", DriverListView.as_view(), name="driver-list"),
-    path("drivers/<int:pk>/", DriverDetailView.as_view(), name="driver-detail"),
-    path("manufacturers/", ManufacturerListView.as_view(), name="manufacturer-list"),
+    path(
+        "drivers/<int:pk>/",
+        DriverDetailView.as_view(),
+        name="driver-detail"
+    ),
+    path(
+        "manufacturers/",
+        ManufacturerListView.as_view(),
+        name="manufacturer-list"
+    ),
     path(
         "manufacturers/create/",
         ManufacturerCreateView.as_view(),
@@ -40,7 +48,11 @@ urlpatterns = [
         name="manufacturer-delete"
     ),
     path("test-session/", test_session_view, name="test-session"),
-    path("customer/create/", CustomerCreateView.as_view(), name="customer-create"),
+    path(
+        "customer/create/",
+        CustomerCreateView.as_view(),
+        name="customer-create"
+    ),
     path("customers/", CustomerListView.as_view(), name="customer-list"),
 ]
 

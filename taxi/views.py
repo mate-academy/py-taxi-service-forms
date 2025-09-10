@@ -48,6 +48,7 @@ class CarListView(LoginRequiredMixin, generic.ListView):
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
 
+
 class DriverListView(LoginRequiredMixin, generic.ListView):
     model = Driver
     template_name = "taxi/driver_list.html"
