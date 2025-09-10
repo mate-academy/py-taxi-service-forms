@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "taxi",
+    "crispy_forms",
+    "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [
@@ -129,5 +131,8 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = "/taxi/"
 LOGOUT_REDIRECT_URL = "/taxi/"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"

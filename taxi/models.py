@@ -41,3 +41,15 @@ class Car(models.Model):
 
     def get_absolute_url(self):
         return reverse("taxi:car-detail", kwargs={"pk": self.pk})
+
+
+class Customer(models.Model):
+    full_name = models.CharField(max_length=255)
+    birth_year = models.IntegerField()
+    hobby = models.CharField(max_length=255, null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural= "customers"
+
+    def __set__(self):
+        return self.full_name
