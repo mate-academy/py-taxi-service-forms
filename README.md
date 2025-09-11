@@ -1,49 +1,60 @@
-# Taxi service forms
+# Taxi service home page
 
-Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before starting.
-- Make sure that you change the settings for [html-files](https://github.com/mate-academy/py-task-guideline/blob/main/html_settings/README.MD).
+- Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before start
 - Use the following command to load prepared data from fixture to test and debug your code:
-  
-`python manage.py loaddata taxi_service_db_data.json`
 
-- After loading data from fixture you can use following superuser (or create another one by yourself):
-  - Login: `admin.user`
-  - Password: `1qazcde3`
+  ```python manage.py loaddata taxi_service_db_data.json```.
 
 Feel free to add more data using admin panel, if needed.
 
-In this task, you will implement a custom form and django built-in forms to create,
-update or delete content from the site.
+In this task, you should implement the home page of the site.
 
-1. Implement:
-    - `Create`, `Update`, `Delete` views for `Car`, 
-    - `Create`, `Update`, `Delete` views for `Manufacturer`.
-2. On the car list page add button that leads to the car creation page. On the car 
-detail page add buttons that lead to the car update page and car deletion page.
-3. On the manufacturer list page, add the button that leads to the manufacturer creation
-page. Also, add columns `Update`, `Delete`, and add links for the updating page and 
-deletion page for each manufacturer.
-4. Use crispy forms in your forms to make website more beautiful.
+1. Inside `taxi_service.urls` add path to the `taxi.urls`. Don't forget to specify `namespace`.
+2. Inside `taxi.urls` create a path for the home page. This
+page should open when you are accessing `http://127.0.0.1:8000/`. Give this
+path the name `index`.
+3. Inside `taxi.views` create function `index`. In this function:
+    - count the number of all drivers with `num_drivers` variable
+    - count the number of all manufacturers with `num_manufacturers` variable
+    - count the number of all cars with `num_cars` variable 
+    - return `HttpResponse` with rendered template. Pass received data to this template (don't import `HttpResponse` if you use `render`, this import is unnecessary).
+4. Before you create a template you have to create styles for the 
+template. Create directory `static` next to the directory `taxi`. Inside this 
+directory create a file with the following path `css/styles.css`. Don't forget to do all necessary steps so that Django can serve these static files.
+5. Create directory `templates` next to the directory `taxi`. There you will
+store templates for pages. Edit settings so that engine knows where to look for template source files.
+6. Inside directory `templates` create template `base.html`, it is a parent 
+template, other templates will extend `base.html`. Inside `base.html`:
+   - Inside `<head>`:
+      - Create block `title` with `Taxi Service` title inside
+      - Load static and import `styles.css`
+   - Inside `<body>`:
+      - Create block `sidebar`
+      - Create block `content`
+7. Inside `templates` create a directory `taxi`. There you will store templates
+for the app `taxi`. Create `index.html` there. Inside `index.html`:
+    - Override block `content` and place (as a list) information about:
+        - Number of cars
+        - Number of drivers
+        - Number of manufacturers
+8. Inside `templates` create a directory `includes`. There you will store includes. 
+Create `sidebar.html` there. Inside `sidebar.html`:
+    - Write realization of `sidebar` include that must have a list of empty links:
+        - Home page
+        - Manufacturers
+        - Cars
+        - Drivers
+    - Anchor tags can serve as placeholder links for this task, meaning the actual destination of the link is not a concern.
+      For example, you can use `href="#"` as the link destination.
+    - In `base.html` include `sidebar.html`, so all these links will be accessible on all pages.
+9. Check that you put empty lines at the end of each HTML file.
+10. Run server, open `http://127.0.0.1:8000/`, check if the information is there and if it is correct.
+11. Run `python manage.py test` to check your code results.
+12. Avoid adding unnecessary files (like `venv`, `pycache`, `.idea`, `db.sqlite3`) and remember to include a `.gitignore` file in your PR.
 
-NOTE: Attach screenshots of all created or modified pages to pull request. It's important to attach images not links to them.
+### Note: Attach screenshots of all created or modified pages to pull request. 
 
-### Note: Check your code using this [checklist](checklist.md) before pushing your solution.
+1) Attach screenshots to the comment, NOT in commit. 
+2) It's important to **attach images** not links to them. See example:
 
-# Note
-Follow these steps if you need to use `crispy_forms` v2.0 with Python 3.11:
-
-1. Add `CRISPY_TEMPLATE_PACK` to `settings.py`.
-
-```python
-CRISPY_TEMPLATE_PACK="bootstrap4"
-```
-
-2. Add these apps to `INSTALLED_APPS` and install them corresponding to the `CRISPY_TEMPLATE_PACK` bootstrap version.
-
-```python
-INSTALLED APPS = [
-   ...,
-   "crispy_bootstrap4",
-   "crispy_forms",
-]
-```
+![image](https://mate-academy-images.s3.eu-central-1.amazonaws.com/python_pr_with_images.png)
