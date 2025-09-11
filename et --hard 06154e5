@@ -1,0 +1,13 @@
+[33m15a2836[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31mupstream/master[m[33m)[m HEAD@{0}: reset: moving to upstream/master
+[33m15a2836[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31mupstream/master[m[33m)[m HEAD@{1}: checkout: moving from my-local-version to master
+[33m06154e5[m[33m ([m[1;31morigin/my-local-version[m[33m, [m[1;32mmy-local-version[m[33m)[m HEAD@{2}: rebase (abort): returning to refs/heads/my-local-version
+[33m15a2836[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31mupstream/master[m[33m)[m HEAD@{3}: rebase (start): checkout master
+[33m06154e5[m[33m ([m[1;31morigin/my-local-version[m[33m, [m[1;32mmy-local-version[m[33m)[m HEAD@{4}: checkout: moving from master to my-local-version
+[33m15a2836[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31mupstream/master[m[33m)[m HEAD@{5}: checkout: moving from my-local-version to master
+[33m06154e5[m[33m ([m[1;31morigin/my-local-version[m[33m, [m[1;32mmy-local-version[m[33m)[m HEAD@{6}: reset: moving to 06154e5
+[33m15a2836[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31mupstream/master[m[33m)[m HEAD@{7}: reset: moving to upstream/master
+[33m06154e5[m[33m ([m[1;31morigin/my-local-version[m[33m, [m[1;32mmy-local-version[m[33m)[m HEAD@{8}: commit: New update
+[33m1ee5c4f[m HEAD@{9}: commit (merge): Merge upstream/master, keep local changes
+[33m28e3484[m HEAD@{10}: reset: moving to HEAD
+[33m28e3484[m HEAD@{11}: reset: moving to HEAD
+[33m28e3484[m HEAD@{12}: commit (initial): Initial local commit

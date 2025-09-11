@@ -1,18 +1,15 @@
 {% extends "base.html" %}
-
+{% block title %}
+    <title>Home page</title>
+{% endblock %}
 {% block content %}
-  <h1>Taxi Service Home</h1>
-  <p>Welcome to Best Taxi Ever!</p>
-  <h2>Dynamic content</h2>
-  <p>The Taxi service has the following record counts:</p>
+  <h1>Taxi service Home</h1>
+  <p>Welcome to taxi service!</p>
+  <h3>Taxi service content:</h3>
   <ul>
-    <li><strong>Cars:</strong> {{ num_cars }}</li>
-    <li><strong>Drivers:</strong> {{ num_drivers }}</li>
-    <li><strong>Manufacturers:</strong> {{ num_manufacturers }}</li>
+      <li>Number of cars: {{ num_cars }}</li>
+      <li>Number of drivers: {{ num_drivers }}</li>
+      <li>Number of manufactures: {{ num_manufacturers }}</li>
   </ul>
-
-  <p>You have visited this page
-    {{ num_visits }} time{{ num_visits|pluralize }}.
-  </p>
-
+  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
 {% endblock %}
