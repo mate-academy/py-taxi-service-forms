@@ -57,5 +57,8 @@ class Customer(models.Model):
     class Meta:
         verbose_name_plural = "customers"
 
-    def __set__(self):
+    def __str__(self):
         return self.full_name
+
+    def get_absolute_url(self):
+        return reverse('taxi:customer-detail', kwargs={'pk': self.pk})

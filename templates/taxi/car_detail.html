@@ -4,15 +4,20 @@
   <h1>Model: {{ car.model }}</h1>
   <p><strong>Name: </strong>{{ car.manufacturer.name }}</p>
   <p><strong>Country: </strong>{{ car.manufacturer.country }}</p>
+
   <div class="ml-3">
     <h3>Drivers:</h3>
     {% for driver in car.drivers.all %}
       <hr>
       <p class="text-muted">{{ driver.id }}</p>
-      <p>{{ driver.first_name }} {{ driver.last_name }}
-      </p>
+      <p>{{ driver.first_name }} {{ driver.last_name }}</p>
     {% empty %}
       <p>No driver!</p>
     {% endfor %}
+  </div>
+
+  <div class="mt-3">
+    <a href="{% url 'taxi:car-update' car.pk %}" class="btn btn-primary">Update Car</a>
+    <a href="{% url 'taxi:car-delete' car.pk %}" class="btn btn-danger">Delete Car</a>
   </div>
 {% endblock %}
