@@ -61,4 +61,4 @@ class Customer(models.Model):
         return self.full_name
 
     def get_absolute_url(self):
-        return reverse('taxi:customer-detail', kwargs={'pk': self.pk})
+        return reverse("taxi:customer-detail", kwargs={"pk": self.pk})
