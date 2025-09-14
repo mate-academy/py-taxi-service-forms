@@ -37,23 +37,24 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
-class ManufacturerCreateView(LoginRequiredMixin, CreateView):
+class ManufacturerDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Manufacturer
+
+
+class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
     form_class = ManufacturerForm
-    template_name = "taxi/manufacturer_form.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
+class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     form_class = ManufacturerForm
-    template_name = "taxi/manufacturer_form.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
+class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
-    template_name = "taxi/manufacturer_confirm_delete.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
@@ -68,28 +69,29 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
 
 
-class DriverListView(LoginRequiredMixin, generic.ListView):
-    model = Driver
-    paginate_by = 5
+
 
 class CarCreateView(LoginRequiredMixin, CreateView):
     model = Car
     form_class = CarForm
-    template_name = "taxi/car_form.html"
     success_url = reverse_lazy("taxi:car-list")
 
 
 class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car
     form_class = CarForm
-    template_name = "taxi/car_form.html"
     success_url = reverse_lazy("taxi:car-list")
 
 
 class CarDeleteView(LoginRequiredMixin, DeleteView):
     model = Car
-    template_name = "taxi/car_confirm_delete.html"
     success_url = reverse_lazy("taxi:car-list")
+
+
+
+class DriverListView(LoginRequiredMixin, generic.ListView):
+    model = Driver
+    paginate_by = 5
 
 
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
