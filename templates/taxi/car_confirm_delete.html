@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Car{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Delete Car</h1>
+</div>
+
+<div class="alert alert-danger">
+    <h4>Are you sure?</h4>
+    <p>Do you really want to delete <strong>{{ object.manufacturer.name }} {{ object.model }}</strong>?</p>
+    <p>This action cannot be undone.</p>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
