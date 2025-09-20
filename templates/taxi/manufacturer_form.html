@@ -2,24 +2,24 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    {% if object %}Edit Manufacturer{% else %}Add New Manufacturer{% endif %}
+  {% if object %}Edit Manufacturer{% else %}Add New Manufacturer{% endif %}
 {% endblock %}
 
 {% block content %}
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">
-        {% if object %}Edit Manufacturer: {{ object.name }}{% else %}Add New Manufacturer{% endif %}
-    </h1>
+  <h1 class="h2">
+    {% if object %}Edit Manufacturer: {{ object.name }}{% else %}Add New Manufacturer{% endif %}
+  </h1>
 </div>
 
 <div class="row">
-    <div class="col-md-8">
-        <form method="post">
-            {% csrf_token %}
-            {% crispy form %}
-        </form>
+  <div class="col-md-8">
+    <form method="post">
+      {% csrf_token %}
+      {% crispy form %}
+    </form>
 
-        <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary mt-3">Cancel</a>
-    </div>
+    <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary mt-3">Cancel</a>
+  </div>
 </div>
 {% endblock %}
