@@ -31,8 +31,6 @@ def index(request):
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
-    context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
@@ -54,7 +52,11 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["previous_url"] = self.request.META.get("HTTP_REFERER")
+        context["previous_url"] = (
+            self.request.GET.get("next")
+            or self.request.META.get("HTTP_REFERER")
+            or reverse_lazy("taxi:manufacturer-list")
+        )
         return context
 
 
@@ -86,7 +88,11 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["previous_url"] = self.request.META.get("HTTP_REFERER")
+        context["previous_url"] = (
+            self.request.GET.get("next")
+            or self.request.META.get("HTTP_REFERER")
+            or reverse_lazy("taxi:car-list")
+        )
         return context
 
 

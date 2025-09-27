@@ -12,10 +12,14 @@ class ManufacturerForm(forms.ModelForm):
 
 class CarForm(forms.ModelForm):
     drivers = forms.ModelMultipleChoiceField(
-        queryset=get_user_model().objects.all(),
+        queryset=get_user_model().objects.none(),  # Queryset inicial vazio
         widget=forms.CheckboxSelectMultiple,
         required=False
     )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["drivers"].queryset = get_user_model().objects.all()
 
     class Meta:
         model = Car
