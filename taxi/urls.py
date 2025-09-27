@@ -35,10 +35,6 @@ urlpatterns = [
          ManufacturerDeleteView.as_view(),
          name="manufacturer-delete"
          ),
-    path("manufacturers/create/",
-         ManufacturerCreateView.as_view(),
-         name="manufacturer-create"
-         ),
     path("cars/", CarListView.as_view(), name="car-list"),
     path("cars/create/", CarCreateView.as_view(), name="car-create"),
     path("cars/<int:pk>/update/", CarUpdateView.as_view(), name="car-update"),
