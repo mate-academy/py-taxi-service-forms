@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Condicione a toolbar ao DEBUG se necessário
     "debug_toolbar",
+    # Garanta a ordem recomendada do crispy
+    "crispy_forms",
+    "crispy_bootstrap4",
     "taxi",
 ]
 
@@ -140,3 +144,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Se não estiver usando o pacote crispy-bootstrap4 instalado,
+# não aponte para 'bootstrap4' para evitar buscar templates inexistentes.
+# Você pode usar o template pack padrão 'uni_form' do crispy v1.x.
+CRISPY_TEMPLATE_PACK = "bootstrap4"
