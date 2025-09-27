@@ -7,6 +7,6 @@
 	<form action="" method="post">
 		{% csrf_token %}
 		<input type="submit" value="Yes Delete Manufacturer" class="btn btn-danger"/>
-			<a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-cancel">Cancel</a>
+		<a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-cancel">Cancel</a>
 	</form>
 {% endblock %}

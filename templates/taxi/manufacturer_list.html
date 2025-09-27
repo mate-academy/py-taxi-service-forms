@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>Manufacturer List <a style="float: none " href="{% url 'taxi:manufacturer-create' %}">+</a>
-	</h1>
-
+	<h1>Manufacturer List <a style="float: none " href="{% url 'taxi:manufacturer-create' %}">+</a></h1>
 	{% if manufacturer_list %}
 		<table class="table">
 			<tr>
@@ -13,7 +11,6 @@
 				<th>Update</th>
 				<th>Delete</th>
 			</tr>
-
 			{% for manufacturer in manufacturer_list %}
 				<tr>
 					<td>
@@ -34,7 +31,6 @@
 				</tr>
 			{% endfor %}
 		</table>
-
 	{% else %}
 		<p>There are no manufacturers in the service.</p>
 	{% endif %}
