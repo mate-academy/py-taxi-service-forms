@@ -1,5 +1,7 @@
 from django import forms
-from .models import Manufacturer, Car, Driver
+from django.contrib.auth import get_user_model
+
+from .models import Car, Manufacturer
 
 
 class ManufacturerForm(forms.ModelForm):
@@ -10,7 +12,7 @@ class ManufacturerForm(forms.ModelForm):
 
 class CarForm(forms.ModelForm):
     drivers = forms.ModelMultipleChoiceField(
-        queryset=Driver.objects.all(),
+        queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,
         required=False
     )

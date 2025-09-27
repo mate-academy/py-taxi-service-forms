@@ -4,18 +4,8 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-# NOTE: Nós vamos criar o CarForm no próximo passo,
-# por enquanto vamos usar um form genérico para os testes passarem.
-from django.forms import ModelForm
-
-from .forms import ManufacturerForm
+from .forms import ManufacturerForm, CarForm
 from .models import Driver, Car, Manufacturer
-
-
-class CarForm(ModelForm):
-    class Meta:
-        model = Car
-        fields = "__all__"
 
 
 @login_required
@@ -62,6 +52,11 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["previous_url"] = self.request.META.get("HTTP_REFERER")
+        return context
+
 
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
@@ -88,6 +83,11 @@ class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["previous_url"] = self.request.META.get("HTTP_REFERER")
+        return context
 
 
 class DriverListView(LoginRequiredMixin, generic.ListView):

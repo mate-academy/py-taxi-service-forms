@@ -4,15 +4,20 @@
 
 {% block content %}
   <h1>
-    {{ car.manufacturer.name }} {{ car.model }}
+    Driver: {{ object.username }}
+    ({{ object.first_name }} {{ object.last_name }})
   </h1>
 
-  <h3>Drivers</h3>
+  <p><strong>License number:</strong> {{ object.license_number }}</p>
+
+  <hr>
+
+  <h3>Assigned cars</h3>
   <ul>
-    {% for driver in car.drivers.all %}
-      <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+    {% for car in object.cars.all %}
+      <li>{{ car.manufacturer.name }} {{ car.model }}</li>
     {% empty %}
-      <li>No drivers for this car</li>
+      <li>This driver has no assigned cars.</li>
     {% endfor %}
   </ul>
 {% endblock %}
