@@ -1,18 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Driver List
-    </h1>
+  <h1>Driver List</h1>
 
-    {% if driver_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>License number</th>
-      </tr>
+  {% if driver_list %}
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>License number</th>
+    </tr>
     {% for driver in driver_list %}
       <tr>
         <td>{{ driver.id }}</td>
@@ -22,8 +21,7 @@
         <td>{{ driver.license_number }}</td>
       </tr>
     {% endfor %}
-
-    </table>
+  </table>
     {% else %}
       <p>There are no drivers in the service.</p>
     {% endif %}

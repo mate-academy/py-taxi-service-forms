@@ -4,7 +4,9 @@
 {% block content %}
   <h1>{{ object|yesno:"Update,Create"}} Manufacturer:</h1>
   <form action="" method="post" novalidate>
-  {% csrf_token %}
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
     {{ form|crispy }}
     <input class="btn btn-primary" type="submit" value="Submit">
   </form>
