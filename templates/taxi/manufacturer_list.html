@@ -9,7 +9,7 @@
     <h1>
       Manufacturer List
     </h1>
-    <a href="{% url 'taxi:manufacturer-create-form' %}"
+    <a href="{% url 'taxi:manufacturer-create' %}"
        style="
        text-align: center;
        margin-right: 100px
@@ -37,10 +37,10 @@
             {{ manufacturer.country }}
           </td>
           <td>
-            <a href="{% url 'taxi:manufacturer-update-form' pk=manufacturer.pk %}">UPDATE</a>
+            <a href="{% url 'taxi:manufacturer-update' pk=manufacturer.pk %}">UPDATE</a>
           </td>
           <td>
-            <a href="{% url 'taxi:manufacturer-delete-form' pk=manufacturer.pk %}">DELETE</a>
+            <a href="{% url 'taxi:manufacturer-delete' pk=manufacturer.pk %}">DELETE</a>
           </td>
         </tr>
       {% endfor %}
