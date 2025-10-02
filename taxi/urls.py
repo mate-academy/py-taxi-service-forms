@@ -32,22 +32,22 @@ urlpatterns = [
         name="driver-detail"
     ),
     path(
-        "manufacturer/create/",
+        "manufacturers/create/",
         ManufacturerCreateView.as_view(),
         name="manufacturer-create"
     ),
     path(
-        "manufacturer/<int:pk>/update/",
+        "manufacturers/<int:pk>/update/",
         ManufacturerUpdateView.as_view(),
         name="manufacturer-update"
     ),
     path(
-        "manufacturer/<int:pk>/delete/",
+        "manufacturers/<int:pk>/delete/",
         ManufacturerDeleteView.as_view(),
         name="manufacturer-delete"
     ),
     path(
-        "manufacturer/<int:pk>/",
+        "manufacturers/<int:pk>/",
         ManufacturerDetailView.as_view(),
         name="manufacturer-detail"
     ),
