@@ -2,11 +2,17 @@
 
 {% block content %}
   <h1>Car list</h1>
+  <button style="background-color: #5D8AA8;">
+    <a style="text-decoration: none;
+    color: white;"
+       href="{% url 'taxi:car-create' %}">Add a new car</a>
+  </button>
+
   {% if car_list %}
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+          <a href="{% url 'taxi:car-detail' pk=car.id %} ">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
         </li>
       {% endfor %}
