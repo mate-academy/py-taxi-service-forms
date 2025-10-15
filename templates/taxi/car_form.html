@@ -1,12 +1,21 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-  <div class="container mt-5" style="max-width: 500px;">
-    <h2 class="mb-4 text-center">{{ view.object|yesno:"Update, Create" }} car form</h2>
-    <form method="post" class="border p-4 rounded bg-light shadow-sm">
+  <div class="container mt-4">
+    <h2 class="mb-4">
+      {% if form.instance.pk %}
+        Edit Car
+      {% else %}
+        Add Car
+      {% endif %}
+    </h2>
+
+    <form method="post" novalidate>
       {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit" class="btn btn-primary w-100">Save</button>
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-success mt-3">Save</button>
+      <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary mt-3">Back to list</a>
     </form>
   </div>
 {% endblock %}

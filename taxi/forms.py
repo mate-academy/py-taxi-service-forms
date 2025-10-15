@@ -1,5 +1,5 @@
 from django import forms
-from .models import Car
+from .models import Car, Manufacturer
 
 
 class CarForm(forms.ModelForm):
@@ -22,3 +22,17 @@ class CarForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Model name must have at least 2 characters.")
         return model
+
+
+class ManufacturerForm(forms.ModelForm):
+    class Meta:
+        model = Manufacturer
+        fields = ["name", "country"]
+        widgets = {
+            "name": forms.TextInput(
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Manufacturer name"}),
+            "country": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Country"}),
+        }
