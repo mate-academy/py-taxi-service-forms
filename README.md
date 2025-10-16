@@ -47,3 +47,4 @@ INSTALLED APPS = [
    "crispy_forms",
 ]
 ```
+# all complete
