@@ -4,8 +4,8 @@
   <h1>Confirm manufacturer deletion</h1>
   <p>Are you sure you want to delete: {{ object }}?</p>
   <form method="post">
-      {% csrf_token %}
-      <button type="submit" class="btn btn-danger">Delete</button>
-      <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="{{ cancel_url }}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}
