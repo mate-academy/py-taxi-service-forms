@@ -1,12 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
   <hr>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
-  </ul>
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Username</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+      {% for driver in car.drivers.all %}
+        <tr>
+          <td>{{ car.id }}</td>
+          <td>{{ driver.username }}</td>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td><a href="{% url "taxi:car-update" pk=car.id %}">Update</a></td>>
+          <td><a href="{% url "taxi:car-delete" pk=car.id %}">Delete</a></td>>
+        </tr>
+      {% endfor %}
+    </table>
 {% endblock %}
