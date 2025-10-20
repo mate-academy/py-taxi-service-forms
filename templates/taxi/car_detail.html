@@ -5,7 +5,6 @@
   <hr>
   <table class="table">
     <tr>
-      <th>Car_Id</th>
       <th>Driver_Id</th>
       <th>Username</th>
       <th>First Name</th>
@@ -13,16 +12,19 @@
       <th>Update</th>
       <th>Delete</th>
     </tr>
+      {% for driver in car.drivers.all %}
         <tr>
-          <td>{{ car.id }}</td>
-          {% for driver in car.drivers.all %}
-            <td>{{ driver.id }}</td>
-            <td>{{ driver.username }}</td>
-            <td>{{ driver.first_name }}</td>
-            <td>{{ driver.last_name }}</td>
-          {% endfor %}
-          <td><a href="{% url 'taxi:car-update' pk=car.id %}">Update</a></td>>
-          <td><a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a></td>>
+          <td>{{ driver.id }}</td>
+          <td>{{ driver.username }}</td>
+          <td>{{ driver.first_name }}</td>
+          <td>{{ driver.last_name }}</td>
+          <td>
+            <a href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
+          </td>
+          <td>
+            <a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
+          </td>
         </tr>
+      {% endfor %}
     </table>
 {% endblock %}
