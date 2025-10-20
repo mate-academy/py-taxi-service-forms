@@ -19,12 +19,12 @@
           <td>{{ driver.first_name }}</td>
           <td>{{ driver.last_name }}</td>
           <td>
+      {% endfor %}
             <a href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
           </td>
           <td>
             <a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
           </td>
         </tr>
-      {% endfor %}
     </table>
 {% endblock %}
