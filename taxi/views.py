@@ -61,17 +61,20 @@ class CarCreateView(LoginRequiredMixin, CreateView):
     model = Car
     form_class = CarForm
     success_url = reverse_lazy("taxi:car-list")
+    template_name = "forms/car_form.html"
 
 
 class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car
     form_class = CarForm
     success_url = reverse_lazy("taxi:car-list")
+    template_name = "forms/car_form.html"
 
 
 class CarDeleteView(LoginRequiredMixin, DeleteView):
     model = Car
     success_url = reverse_lazy("taxi:car-list")
+    template_name = "forms/car_confirm_delete.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -85,17 +88,20 @@ class ManufacturerCreateView(LoginRequiredMixin, CreateView):
     model = Manufacturer
     form_class = ManufacturerForm
     success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "forms/manufacturer_form.html"
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
     model = Manufacturer
     form_class = ManufacturerForm
     success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "forms/manufacturer_form.html"
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "forms/manufacturer_confirm_delete.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
