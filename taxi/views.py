@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
+from django.views.generic import (CreateView, UpdateView, DeleteView)
 
 from .models import Driver, Car, Manufacturer
 
