@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<h1>Manufacturer deletion</h1>
+
+	<p>Are you sure you want to delete the Manufacturer: <strong>{{ manufacturer.name }}</strong> ?</p>
+	<p><strong>PLEASE NOTE THAT ALL ASSOCIATED CARS WILL BE DELETED</strong></p>
+	<form action="" method="post" novalidate>
+	{% csrf_token %}
+		<input type="Submit" value="Yes" class="btn btn-danger">
+	</form>
+
+{% endblock %}
