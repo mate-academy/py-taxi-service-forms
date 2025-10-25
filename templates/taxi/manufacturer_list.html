@@ -3,34 +3,39 @@
 {% block content %}
   <h1>
     Manufacturer list
-    <a
-        style="color: blue;
-        text-decoration: none;"
-        href="{% url 'taxi:manufacturer-create' %}">[ + Add Manufacturer ]</a>
+    <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary">+ Add Manufacturer</a>
   </h1>
 
   {% if manufacturer_list %}
-    <ul>
-      {% for manufacturer in manufacturer_list %}
-        <li>
-          {{ manufacturer.name }} ({{ manufacturer.country }})
-
-          <a
-              style="margin-left: 10px;
-              color: green;"
-              href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">
-            [ Edit ]
-          </a>
-          <a
-              style="margin-left: 5px;
-              color: red;"
-              href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">
-            [ Delete ]
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Country</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for manufacturer in manufacturer_list %}
+          <tr>
+            <td>{{ manufacturer.name }}</td>
+            <td>{{ manufacturer.country }}</td>
+            <td>
+              <a class="btn btn-success btn-sm" href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">
+                Edit
+              </a>
+            </td>
+            <td>
+              <a class="btn btn-danger btn-sm" href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">
+                Delete
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   {% else %}
-    <p>There are no manufacturers in the service.</p>
+    <p>No manufacturers found.</p>
   {% endif %}
 {% endblock %}
