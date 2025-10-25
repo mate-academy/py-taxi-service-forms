@@ -31,7 +31,6 @@ def index(request):
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
-    context_object_name = "manufacturer_list"
     paginate_by = 5
 
 
@@ -84,7 +83,8 @@ class CarDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class ManufacturerCreateView(
     LoginRequiredMixin,
     UserPassesTestMixin,
-    CreateView):
+    CreateView
+):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
@@ -96,7 +96,8 @@ class ManufacturerCreateView(
 class ManufacturerUpdateView(
     LoginRequiredMixin,
     UserPassesTestMixin,
-    UpdateView):
+    UpdateView
+):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
@@ -108,7 +109,8 @@ class ManufacturerUpdateView(
 class ManufacturerDeleteView(
     LoginRequiredMixin,
     UserPassesTestMixin,
-    DeleteView):
+    DeleteView
+):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
 
