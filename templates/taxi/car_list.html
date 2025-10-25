@@ -13,13 +13,6 @@
           <a href="{% url 'taxi:car-detail' pk=car.id %}">
             {{ car.model }} ({{ car.manufacturer.name }})
           </a>
-
-          <a style="margin-left: 10px; color: green;" href="{% url 'taxi:car-update' pk=car.id %}">
-            [ Edit ]
-          </a>
-          <a style="margin-left: 5px; color: red;" href="{% url 'taxi:car-delete' pk=car.id %}">
-            [ Delete ]
-          </a>
         </li>
       {% endfor %}
     </ul>
