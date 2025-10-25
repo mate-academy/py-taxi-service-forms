@@ -1,13 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <h1>Car list <a
+      style="color: blue; text-decoration: none;"
+      href="{% url 'taxi:car-create' %}">
+    [ + Add Car ]
+  </a></h1>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
+          <a href="{% url 'taxi:car-detail' pk=car.id %}">
+            {{ car.model }} ({{ car.manufacturer.name }})
+          </a>
+
+          <a style="margin-left: 10px; color: green;" href="{% url 'taxi:car-update' pk=car.id %}">
+            [ Edit ]
+          </a>
+          <a style="margin-left: 5px; color: red;" href="{% url 'taxi:car-delete' pk=car.id %}">
+            [ Delete ]
+          </a>
         </li>
       {% endfor %}
     </ul>
