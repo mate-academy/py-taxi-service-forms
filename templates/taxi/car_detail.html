@@ -4,6 +4,7 @@
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
   <hr>
+  <h3><a href="{% url 'taxi:car-update' car.pk %}">Update</a> <a href="{% url 'taxi:car-delete' car.pk %}">Delete</a></h3>
   <ul>
   {% for driver in car.drivers.all %}
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
