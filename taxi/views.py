@@ -30,7 +30,6 @@ def index(request):
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
-    ordering = "pk"
     context_object_name = "manufacturer_list"
     paginate_by = 20
 
