@@ -7,7 +7,7 @@
     {{ form|crispy }}
     <input class="btn btn-primary" type="submit" value="Submit">
     {% if object %}
-      <a class="btn btn-danger" href="{% url 'taxi:car-detail' car.pk %}">Cancel</a>
+      <a class="btn btn-danger" href="{% url 'taxi:car-detail' car.object %}">Cancel</a>
     {% else %}
       <a class="btn btn-danger" href="{% url 'taxi:car-list' %}"></a>
     {% endif %}
