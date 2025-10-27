@@ -3,5 +3,5 @@
 <form method="post">
   {% csrf_token %}
   <button type="submit">Yes, delete</button>
-  <a href="{% url 'taxi:car-list' %}">Cancel</a>
+  <a href="{% url 'taxi:car-detail' object.pk %}">Cancel</a>
 </form>
