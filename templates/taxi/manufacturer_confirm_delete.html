@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Manufacturer Delete</h1>
+  <p>Are you sure, that you want delete {{ manufacturer }}</p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="Submit">
+    <a class="btn btn-success" href="{% url 'taxi:manufacturer-list' %}">Cancel</a>
+  </form>
+{% endblock %}
