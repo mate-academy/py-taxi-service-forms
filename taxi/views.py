@@ -32,7 +32,6 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
     ordering = "pk"
     context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 20
 
 
@@ -51,7 +50,6 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
-    fields = "__all__"
 
 
 class CarListView(LoginRequiredMixin, generic.ListView):
