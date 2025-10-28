@@ -5,6 +5,7 @@
   <p><em>This change is irreversible. All Cars associated with this Manufacturer will be deleted as well.</em></p>
   <form method="POST" action="" novalidate>
     {% csrf_token %}
-    <input type="submit" class="btn btn-danger" value="Yes">
+    <input type="submit" class="btn btn-danger" value="Delete">
   </form>
+  <button type="button" class="btn btn-primary" onclick="history.back()">Cancel</button>
 {% endblock %}
