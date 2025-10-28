@@ -1,9 +1,13 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.forms.models import ModelForm
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Driver, Car, Manufacturer
+from taxi.models import Driver, Car, Manufacturer
 
 
 @login_required
@@ -29,8 +33,6 @@ def index(request):
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
-    context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
@@ -52,3 +54,81 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+class CarCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+
+    def form_valid(self, form: ModelForm) -> HttpResponse:
+        messages.success(
+            self.request,
+            f"Car {self.request.POST.get("model")} "
+            f"has been added successfully.",
+        )
+        return super().form_valid(form)
+
+
+class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+
+    def form_valid(self, form: ModelForm) -> HttpResponse:
+        messages.success(
+            self.request,
+            f"Car {self.object.model} has been edited successfully.",
+        )
+        return super().form_valid(form)
+
+
+class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Car
+    success_url = reverse_lazy("taxi:car-list")
+
+    def form_valid(self, form: ModelForm) -> HttpResponse:
+        messages.info(
+            self.request,
+            f"Car {self.object.model} has been deleted successfully.",
+        )
+        return super().form_valid(form)
+
+
+class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+    def form_valid(self, form: ModelForm) -> HttpResponse:
+        messages.success(
+            self.request,
+            f"Manufacturer {self.request.POST.get("name")} "
+            f"has been added successfully.",
+        )
+        return super().form_valid(form)
+
+
+class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+    def form_valid(self, form: ModelForm) -> HttpResponse:
+        messages.success(
+            self.request,
+            f"Manufacturer {self.object.name} has been edited successfully.",
+        )
+        return super().form_valid(form)
+
+
+class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Manufacturer
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+    def form_valid(self, form: ModelForm) -> HttpResponse:
+        messages.info(
+            self.request,
+            f"Manufacturer {self.object.name} has been deleted successfully.",
+        )
+        return super().form_valid(form)
