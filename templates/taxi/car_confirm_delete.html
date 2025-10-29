@@ -4,6 +4,7 @@
   <p>Are you sure you want to delete the car: {{ car }}</p>
   <form action="" method="post">
     {% csrf_token %}
+    <input type="button" onclick="history.back()" value="No, cancel" class="btn btn-success">
     <input type="submit" value="Yes, delete" class="btn btn-danger">
   </form>
 {% endblock %}
