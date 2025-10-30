@@ -2,6 +2,7 @@
 
 {% block content %}
 <h1>Manufacturer List
+  <a href="{% url 'taxi:car-create' %}">create new</a>
 </h1>
 
 {% if manufacturer_list %}

@@ -50,7 +50,7 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
-    model = Driver
+    model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "forms/manufacturer_form.html"
