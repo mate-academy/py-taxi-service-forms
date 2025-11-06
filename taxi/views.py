@@ -39,21 +39,17 @@ class ManufacturerListCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template_name = "taxi/manufacturer_form.html"
 
 
 class ManufacturerListUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
-    template_name = "taxi/manufacturer_form.html"
 
 
 class ManufacturerListDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy('taxi:manufacturer-list')
-    template_name = "taxi/manufacturer_confirm_delete.html"
-
 
 
 class CarListView(LoginRequiredMixin, generic.ListView):
@@ -70,19 +66,17 @@ class CarListCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy('taxi:car-list')
-    template_name = "taxi/car_form.html"
 
 
 class CarListUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
     fields = "__all__"
     success_url = reverse_lazy('taxi:car-list')
-    template_name = "taxi/car_form.html"
+
 
 class CarListDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
     success_url = reverse_lazy('taxi:car-list')
-    template_name = "taxi/car_confirm_delete.html"
 
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
@@ -93,5 +87,3 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
-
-
