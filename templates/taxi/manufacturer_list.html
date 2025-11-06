@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List<a style="float: right" href="{% url 'taxi:car-list-create' %}" class="btn btn-primary mb-3">Create new manufacturer</a></h1>
+    <h1>Manufacturer List<a style="float: right" href="{% url 'taxi:manufacturer-list-create' %}" class="btn btn-primary mb-3">Create new manufacturer</a></h1>
     <br><br>
 
     {% if manufacturer_list %}
