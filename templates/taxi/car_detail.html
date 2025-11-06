@@ -1,19 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <a style="float: left" href="{% url 'taxi:car-list-update' pk=car.id %}" class="btn btn-primary mb-3">Update the car</a>
-  <br><br><br>
-  <h1>
+  <div class="d-flex justify-content-start gap-2 mb-4">
+    <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-primary float-start mr-1">Update the car</a>
+    <a href="{% url 'taxi:car-delete' pk=car.id %}" class="btn btn-danger mr-1">Delete the car</a>
+  </div>
+  <h1 class="mb-3">
     Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})
   </h1>
-  <br>
-  <p><strong>Drivers</strong></p>
+  <p class="fw-bold">Drivers</p>
   <hr>
-  <ul>
+  <ul class="mb-4">
   {% for driver in car.drivers.all %}
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
-  <br><br>
-  <a style="float: left" href="{% url 'taxi:car-list-delete' pk=car.id %}" class="btn btn-primary mt-3">Delete the car</a>
-{% endblock %}
+  {% endblock %}
