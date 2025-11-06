@@ -16,7 +16,6 @@ from .views import (
 app_name = "taxi"
 
 urlpatterns = [
-    # Página inicial
     path("", index, name="index"),
 
     # Cars
