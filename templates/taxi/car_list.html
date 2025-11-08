@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Car list
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h1 class="mb-0">Car list</h1>
     <a href="{% url 'taxi:car-create' %}" class="btn btn-success">Add Car</a>
-  </h1>
+  </div>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
