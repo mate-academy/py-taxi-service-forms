@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>{% if form.instance.pk %}Update Manufacturer{% else %}Create Manufacturer{% endif %}</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+    </form>
+  </div>
+{% endblock %}
