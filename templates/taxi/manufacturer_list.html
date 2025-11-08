@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>
-      Manufacturer List
-      <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-success float-right">Create Manufacturer</a>
-    </h1>
-
+    <h1>Manufacturer List</h1>
+    <div class="text-right mb-3">
+      <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-success">Create Manufacturer</a>
+    </div>
     {% if manufacturer_list %}
       <table class="table">
         <tr>

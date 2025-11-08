@@ -2,10 +2,10 @@
 
 {% block content %}
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>
-    Drivers
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h1 class="mb-0">Drivers</h1>
     <a href="{% url 'taxi:car-update' pk=car.id%}" class="btn btn-success">Update Car</a>
-  </h1>
+  </div>
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
