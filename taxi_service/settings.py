@@ -7,7 +7,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
-    # Django padrão
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -15,12 +14,14 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    # Terceiros
+    # Se você usa debug_toolbar, mantenha aqui:
     "debug_toolbar",
+
+    # crispy-forms
     "crispy_forms",
     "crispy_bootstrap4",
 
-    # Apps do projeto
+    # app do projeto
     "taxi",
 ]
 

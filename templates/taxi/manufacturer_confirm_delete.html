@@ -1,12 +1,5 @@
-{% extends "base.html" %}
-
-{% block content %}
-  <h2>Excluir Fabricante</h2>
-  <p>Tem certeza de que deseja excluir "{{ object }}"?</p>
-
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Confirmar</button>
-    <a href="javascript:history.back()" class="btn btn-secondary">Cancelar</a>
-  </form>
-{% endblock %}
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Confirmar</button>
+  <a href="javascript:history.back()" class="btn btn-secondary">Cancelar</a>
+</form>
