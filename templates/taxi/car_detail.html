@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <nav>
+    <ul style="display: flex; padding: 0;">
+      <li style="list-style-type: none"><a href="{% url 'taxi:car-update' pk=car.id %}">UPDATE</a></li>
+      <li style="list-style-type: none; margin: 0 20px;"><a href="{% url 'taxi:car-delete' pk=car.id %}">DELETE</a></li>
+    </ul>
+  </nav>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
   <hr>
