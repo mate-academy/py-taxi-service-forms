@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Driver, Car, Manufacturer
 
 
+# Base page
 @login_required
 def index(request):
     """View function for the home page of the site."""
