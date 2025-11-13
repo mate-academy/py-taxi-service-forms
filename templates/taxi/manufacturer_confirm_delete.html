@@ -4,6 +4,9 @@
   <h1>If you delete manufacture, cars view this manufacturer is deleted</h1>
   <form action="" method="post">
     {% csrf_token %}
+
+    <a class="btn btn-secondary" href="javascript:history.back()">Cancel</a>
+
     <input class="btn btn-danger" type="submit" value="Delete">
   </form>
 {% endblock %}
