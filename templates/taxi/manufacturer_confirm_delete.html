@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>If you delete manufacture, cars view this manufacturer is deleted</h1>
+  <h1>Are you sure you want to delete this manufacturer?</h1>
+  <h3>Deleting it will also remove all associated cars</h3>
   <form action="" method="post">
     {% csrf_token %}
 

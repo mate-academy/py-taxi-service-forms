@@ -9,21 +9,17 @@
         <th>ID</th>
         <th>Model</th>
         <th>Manufacturer country</th>
-        <th>Update</th>
-        <th>Delete</th>
       </tr>
 
       {% for car in car_list %}
         <tr>
-          <td>{{ car.pk }}</td>
+          <td>
+            <strong>
+              <a href="{% url 'taxi:car-detail' car.pk %}">{{ car.pk }}</a>
+            </strong>
+          </td>
           <td>{{ car.model }}</td>
           <td>{{ car.manufacturer.country }}</td>
-          <td>
-            <a href="{% url 'taxi:car-update' car.pk %}">UPDATE</a>
-          </td>
-          <td>
-            <a href="{% url 'taxi:car-delete' car.pk %}">DELETE</a>
-          </td>
         </tr>
       {% endfor %}
     </table>
@@ -31,13 +27,3 @@
     <p>There are no cars in taxi</p>
   {% endif %}
 {% endblock %}
-
-
-   {#    <ul>#}
-    {#      {% for car in car_list %}#}
-    {#        <li>#}
-    {#          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>#}
-    {#          {{ car.model }} ({{ car.manufacturer.name }})#}
-    {#        </li>#}
-    {#      {% endfor %}#}
-    {#    </ul>#}
