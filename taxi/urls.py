@@ -6,7 +6,12 @@ from .views import (
     CarDetailView,
     DriverListView,
     DriverDetailView,
-    ManufacturerListView, CarCreateView, CarUpdateView, CarDeleteView, ManufacturerCreateView, ManufacturerUpdateView,
+    ManufacturerListView,
+    CarCreateView,
+    CarUpdateView,
+    CarDeleteView,
+    ManufacturerCreateView,
+    ManufacturerUpdateView,
     ManufacturerDeleteView,
 )
 
