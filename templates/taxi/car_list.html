@@ -14,4 +14,8 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+  <a href="{% url "taxi:car-create" %}">
+    <input type="button" value="Create" class="page-link">
+  </a>
+  <br>
 {% endblock %}
