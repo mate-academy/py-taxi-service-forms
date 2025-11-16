@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ object|yesno:"Update,Create" }} a car.</h1>
+  <hr>
+  <p>Please, fill in the fields to {{ object|yesno:"update,create" }} a car.</p>
+  <br>
+  <form action="" method="post" novalidate>
+    {% load crispy_forms_filters %}
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="{{ object|yesno:"Update,Create" }}" class="page-link">
+  </form>
+{% endblock %}
