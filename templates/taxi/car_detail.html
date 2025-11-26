@@ -1,12 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
-  <ul>
+<p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+<h1>Drivers</h1>
+<hr>
+<ul>
   {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+  <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
-  </ul>
+</ul>
+<p>
+  <a class="btn btn-primary" href="{% url 'taxi:car-update' pk=car.id %}">Update this car</a>
+</p>
+<p>
+  <a class="btn btn-danger" href="{% url 'taxi:car-delete' pk=car.id %}">Delete this car</a>
+</p>
 {% endblock %}
