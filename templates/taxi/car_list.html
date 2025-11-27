@@ -5,24 +5,12 @@
   {% if car_list %}
     <table class="table">
       <tr>
-        <th>ID</th>
         <th>Name</th>
-        <th>Updete</th>
-        <th>Delete</th>
       </tr>
-      {% for car in car_list %}
+      {% for object in car_list %}
         <tr>
           <td>
-            {{ car.id }}
-          </td>
-          <td>
-            {{ car.model }}
-          </td>
-          <td>
-            <a href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
-          </td>
-          <td>
-            <a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
+            <a href="{% url 'taxi:car-detail' object.pk %}">{{ object.model }}</a>
           </td>
         </tr>
       {% endfor %}
