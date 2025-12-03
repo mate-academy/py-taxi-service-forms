@@ -27,6 +27,7 @@ def index(request):
 
     return render(request, "taxi/index.html", context=context)
 
+
 # region Manufacturer
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
@@ -54,6 +55,7 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     success_url = reverse_lazy("taxi:manufacturer-list")
 # endregion
+
 
 # region Car
 class CarListView(LoginRequiredMixin, generic.ListView):
