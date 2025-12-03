@@ -6,7 +6,7 @@
   <div>Manufacturer: <h4>{{ car.manufacturer.name }} ({{ car.manufacturer.country }})</h4></div>
   <hr>
   <h5>Drivers:</h5>
-  {% if car.drivers %}
+  {% if car.drivers.all %}
     <table>
       <thead>
       <tr>

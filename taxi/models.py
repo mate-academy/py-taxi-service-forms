@@ -14,9 +14,9 @@ class Manufacturer(models.Model):
     def __str__(self):
         return f"{self.name} {self.country}"
 
-    # def delete(self, using=None, keep_parents=False):
-    #     self.is_active = False
-    #     self.save()
+    def delete(self, using=None, keep_parents=False):
+        self.is_active = False
+        self.save()
 
 
 class Driver(AbstractUser):
@@ -42,6 +42,6 @@ class Car(models.Model):
     def __str__(self):
         return self.model
 
-    # def delete(self, using=None, keep_parents=False):
-    #     self.is_active = False
-    #     self.save()
+    def delete(self, using=None, keep_parents=False):
+        self.is_active = False
+        self.save()
