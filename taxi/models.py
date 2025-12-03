@@ -14,10 +14,6 @@ class Manufacturer(models.Model):
     def __str__(self):
         return f"{self.name} {self.country}"
 
-    def delete(self, using=None, keep_parents=False):
-        self.is_active = False
-        self.save()
-
 
 class Driver(AbstractUser):
     license_number = models.CharField(max_length=255, unique=True)
@@ -41,7 +37,3 @@ class Car(models.Model):
 
     def __str__(self):
         return self.model
-
-    def delete(self, using=None, keep_parents=False):
-        self.is_active = False
-        self.save()
