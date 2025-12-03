@@ -20,8 +20,8 @@
           <td class="col-1"><a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a></td>
           <td class="col-4">{{ car.model }}</td>
           <td class="col-3">{{ car.manufacturer.name }}</td>
-          <td class="col-1"><a href="{% url "taxi:car-update" pk=car.id %} " class="btn btn-primary">Update</a></td>
-          <td class="col-1"><a href="{% url "taxi:car-delete" pk=car.id %} " class="btn btn-primary">Delete</a></td>
+          <td class="col-1"><a href="{% url "taxi:car-update" pk=car.id %}" class="btn btn-primary">Update</a></td>
+          <td class="col-1"><a href="{% url "taxi:car-delete" pk=car.id %}" class="btn btn-primary">Delete</a></td>
         </tr>
 
       {% endfor %}
