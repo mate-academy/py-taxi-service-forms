@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Delete Car</h1>
+
+<p>Are you sure you want to delete this car?</p>
+
+<ul>
+  <li><strong>Model:</strong> {{ object.model }}</li>
+  <li><strong>Manufacturer:</strong> {{ object.manufacturer }}</li>
+</ul>
+
+<form method="post">
+  {% csrf_token %}
+  <button class="btn btn-danger" type="submit">Confirm Delete</button>
+  <a class="btn btn-secondary" onclick="history.back()">Cancel</a>
+</form>
+
+{% endblock %}

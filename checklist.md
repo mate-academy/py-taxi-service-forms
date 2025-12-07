@@ -72,7 +72,7 @@ Bad example:
 
 ```python
 path(
-    "manufacturers/manufacturer_create/", 
+    "manufacturers/manufacturer_create.html/", 
     ManufacturerCreateView.as_view(), 
     name="manufacturer-create"
 )
