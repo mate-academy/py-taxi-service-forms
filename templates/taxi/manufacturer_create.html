@@ -2,11 +2,11 @@
 {%load crispy_forms_tags %}
 {% block content %}
 <h2>
-    {% if object %}
-        Update Manufacturer: {{ object.model }}
-    {% else %}
-        Create New Manufacturer
-    {% endif %}
+  {% if object %}
+  Update Manufacturer: {{ object.name }}
+  {% else %}
+  Create New Manufacturer
+  {% endif %}
 </h2>
 
 <form action="" method="post">
