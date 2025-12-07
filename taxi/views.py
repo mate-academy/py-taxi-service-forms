@@ -56,19 +56,6 @@ class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = Car
-    form_class = CarForm
-    template_name = "taxi/car_create.html"
-    success_url = reverse_lazy("taxi:car-list")
-
-
-class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
-    model = Car
-    template_name = "taxi/car_delete.html"
-    success_url = reverse_lazy("taxi:car-list")
-
-
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
