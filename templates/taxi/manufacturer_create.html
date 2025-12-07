@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+<h2>
+    {% if object %}
+        Update Manufacturer: {{ object.model }}
+    {% else %}
+        Create New Manufacturer
+    {% endif %}
+</h2>
+
+<form action="" method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <input class="btn btn-primary" type="submit" value="{% if object %}Update{% else %}Create{% endif %}">
+</form>
+{% endblock content%}
