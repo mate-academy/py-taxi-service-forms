@@ -22,7 +22,7 @@ class CarTest(TestCase):
 
     def test_create_car(self):
         response = self.client.post(
-            reverse("taxi:car-create"),
+            reverse("taxi:car-form"),
             {
                 "model": "Continental",
                 "manufacturer": self.manufacturer.id,
@@ -78,7 +78,7 @@ class ManufacturerTest(TestCase):
     def test_create_manufacturer(self):
         response = self.client.post(
             reverse(
-                "taxi:manufacturer-create",
+                "taxi:manufacturer-form",
             ),
             {"name": "Lincoln", "country": "USA"},
         )

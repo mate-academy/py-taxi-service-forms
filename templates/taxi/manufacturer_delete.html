@@ -5,15 +5,17 @@
   <h1>Delete manufacturer</h1>
   <p>Are you sure you want to delete the manufacturer: {{ manufacturer }}?</p>
   <p>
-    <i>All information about country and name will be also deleted!</i>
+    <i>
+      All related information with manufacturer
+      (like name of car) will be also deleted!
+    </i>
   </p>
   <form action="" method="post">
     {% csrf_token %}
 
     <input type="submit" value="Yes, delete" class="btn btn-danger" />
-    <a href="{% url "taxi:manufacturer-list" %}" class="btn btn-secondary">
-      Cancel
-    </a>
+    <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
+
   </form>
 
 {% endblock %}
