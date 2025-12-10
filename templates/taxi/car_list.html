@@ -2,6 +2,9 @@
 
 {% block content %}
   <h1>Car list</h1>
+  <a href="{% url 'taxi:car-create'%}" class="btn btn-primary" style="margin-bottom: 20px;">
+    Create Car
+  </a>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
@@ -15,3 +18,4 @@
     <p>There are no cars in taxi</p>
   {% endif %}
 {% endblock %}
+
