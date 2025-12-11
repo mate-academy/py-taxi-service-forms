@@ -6,8 +6,9 @@
 <p>Are you sure you want to delete: {{ manufacturer }}?</p>
 
 <form method="post">
-  {% csrf_token %}
-  <button type="submit" class="btn btn-danger">Yes, delete</button>
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, delete</button>
+    <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
 </form>
 
 {% endblock %}
