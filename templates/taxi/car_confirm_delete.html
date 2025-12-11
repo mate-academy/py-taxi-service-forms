@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Car</h1>
+  <p>Are you sure you want to delete the car: {{ car }}?</p>
+  <p><i>After deleting, the value cannot be restored!</i></p>
+  <form action="" method="post">
+    {% csrf_token %}
+
+    <input class="btn btn-outline-danger" type="submit" value="Yes, i'm sure">
+  </form>
+{% endblock %}
