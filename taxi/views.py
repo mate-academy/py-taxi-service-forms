@@ -102,6 +102,7 @@ class ManufacturersUpdateView(LoginRequiredMixin, generic.UpdateView):
         context["title"] = "Update"
         return context
 
+
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
     template_name = "taxi/car_confirm_delete.html"
