@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ object|yesno: "Update, Create" }} Car</h1>
+  <h1>{% if object %} Update {% else %} Create {% endif %} Car</h1>
 
   <form action="" method="post" novalidate>
     {% csrf_token %}
