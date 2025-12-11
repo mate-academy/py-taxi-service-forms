@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>{{ view.object|default:"Create Manufacturer" }}</h1>
+
+  {% load crispy_forms_tags %}
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <a href="{{ request.META.HTTP_REFERER }}">Cancel</a>
+  </form>
+
+{% endblock %}
