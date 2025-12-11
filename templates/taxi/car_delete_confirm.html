@@ -7,6 +7,7 @@
     - {{ car.id }}</p>
   <form method="post" action="">
     {% csrf_token %}
+    <a href="{% url "taxi:car-list" %}" class="btn btn-secondary">Cancel</a>
     <input type="submit" value="Delete car" class="btn btn-danger">
   </form>
 {% endblock %}
