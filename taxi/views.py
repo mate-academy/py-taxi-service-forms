@@ -30,7 +30,6 @@ def index(request):
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
