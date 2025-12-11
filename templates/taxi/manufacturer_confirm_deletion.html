@@ -1,0 +1,24 @@
+{%  extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Manufacturer</h1>
+  <p>Are you sure you want to delete the manufacturer: {{ manufacturer.name }}?</p>
+  <div style="font-style: italic" class="text text-danger">
+      <strong>Deleting the manufacturer will also delete all cars of this manufacturer:</strong>
+      <ul>
+        {% for car in manufacturer.car_set.all %}
+          <li style="list-style: none">
+            {{ car.model }}
+          </li>
+        {% endfor %}
+      </ul>
+  </div>
+  <div style="display: flex; gap: 10px">
+    <form action="" method="post">
+      {% csrf_token %}
+      <input type="submit" value="DELETE" class="btn btn-danger">
+    </form>
+    <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary"> CANCEL </a>
+  </div>
+
+{% endblock %}

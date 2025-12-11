@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
+  <h1>
+      Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})
+      <div style="float: right">
+        <a class="btn btn-info" href="{% url 'taxi:car-update' pk=car.id %}"> UPDATE </a>
+        <a class="btn btn-danger" href="{% url 'taxi:car-delete' pk=car.id %}"> DELETE </a>
+      </div>
+  </h1>
+  <br>
+  <h3>Drivers</h3>
   <hr>
   <ul>
   {% for driver in car.drivers.all %}
