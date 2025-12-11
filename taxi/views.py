@@ -61,12 +61,22 @@ class CarCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_form.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Create"
+        return context
+
 
 class ManufacturersCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_form.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Create"
+        return context
 
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
@@ -75,6 +85,11 @@ class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_form.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Update"
+        return context
+
 
 class ManufacturersUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
@@ -82,6 +97,10 @@ class ManufacturersUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_form.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Update"
+        return context
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car

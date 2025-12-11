@@ -11,6 +11,6 @@
       </li>
     {% endfor %}
   </ul>
-  <a class="btn btn-outline-primary btn-sm" href="{% url 'taxi:cars-update' car.id %}">Update</a>
-  <a class="btn btn-outline-danger btn-sm" href="{% url 'taxi:cars-delete' car.id %}">Delete</a>
+  <a class="btn btn-outline-primary btn-sm" href="{% url 'taxi:car-update' car.id %}">Update</a>
+  <a class="btn btn-outline-danger btn-sm" href="{% url 'taxi:car-delete' car.id %}">Delete</a>
 {% endblock %}

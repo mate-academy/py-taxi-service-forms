@@ -2,7 +2,11 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>Create car</h1>
+  {% if title == "Create" %}
+    <h1>Create car</h1>
+  {% else %}
+    <h1>Update car</h1>
+  {% endif %}
   <form action="" method="post" novalidate>
     {% csrf_token %}
     {{ form|crispy }}
