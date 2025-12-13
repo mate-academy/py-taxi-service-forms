@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Are u sure?</h1>
+  <form action="" method="post">
+  {% csrf_token %}
+  <input type="submit" value="DELETE">
+  </form>
+  <a href="{% url 'taxi:manufacturer-list' %}">Cancel</a>
+{% endblock %}
