@@ -56,8 +56,7 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["model_name"] = "Manufacturer"
-        context["cancel_url"] = reverse("taxi:manufacturer-detail",
-                                        kwargs={"pk": self.object.pk})
+        context["cancel_url"] = reverse("taxi:manufacturer-list")
         return context
 
 
