@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
-    </h1>
+    <div class="d-flex justify-content-between align-items-center">
+      <h1>Manufacturer List</h1>
+      <a class="btn btn-primary" href="{% url 'taxi:manufacturer-create' %}">Create manufacturer</a>
+    </div>
 
     {% if manufacturer_list %}
       <table class="table">
@@ -10,6 +12,8 @@
           <th>ID</th>
           <th>Name</th>
           <th>Country</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
 
         {% for manufacturer in manufacturer_list %}
@@ -22,6 +26,12 @@
               </td>
               <td>
                   {{ manufacturer.country }}
+              </td>
+              <td>
+                <a class="btn btn-sm btn-secondary" href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">Update</a>
+              </td>
+              <td>
+                <a class="btn btn-sm btn-danger" href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">Delete</a>
               </td>
           </tr>
         {% endfor %}
