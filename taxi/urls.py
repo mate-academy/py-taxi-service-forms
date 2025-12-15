@@ -3,12 +3,16 @@ from django.urls import path
 from taxi.views import (
     index,
     CarListView,
-    CarDetailView, CarCreateView,
-    CarUpdateView, CarDeleteView,
+    CarDetailView,
+    CarCreateView,
+    CarUpdateView,
+    CarDeleteView,
     DriverListView,
     DriverDetailView,
-    ManufacturerListView, ManufacturerCreateView,
-    ManufacturerUpdateView, ManufacturerDeleteView,
+    ManufacturerListView,
+    ManufacturerCreateView,
+    ManufacturerUpdateView,
+    ManufacturerDeleteView,
 
 )
 
