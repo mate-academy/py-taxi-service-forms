@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "crispy_bootstrap4",
+    "crispy_forms",
     "debug_toolbar",
     "taxi",
 ]
@@ -56,6 +58,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 ROOT_URLCONF = "taxi_service.urls"
 
