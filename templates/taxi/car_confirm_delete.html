@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete car?</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+
+    <p>Are you sure you want to delete the car: <strong>{{ car.model }}</strong> ({{ car.manufacturer.name }})?</p>
+
+    <input type="submit" value="Yes, delete." class="btn btn-danger">
+    <a href="{% url 'taxi:car-detail' pk=car.id %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}
