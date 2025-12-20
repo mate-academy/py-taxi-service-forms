@@ -4,4 +4,5 @@ flake8-quotes
 flake8-variables-names
 pep8-naming
 django-debug-toolbar
+crispy-bootstrap4
 django-crispy-forms
