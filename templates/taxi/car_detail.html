@@ -27,6 +27,7 @@
           {% endfor %}
         </td>
         <td><a href="{% url "taxi:car-update" pk=car.id %}">UPDATE</a></td>
+        <td><a href="{% url "taxi:car-delete" pk=car.id %}">DELETE</a></td>
       </tr>
     </tbody>
   </table>
