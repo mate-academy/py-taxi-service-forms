@@ -10,6 +10,8 @@
         <th scope="col">Manufacturer</th>
         <th scope="col">Country</th>
         <th scope="col">Drivers</th>
+        <th scope="col">UPDATE</th>
+        <th scope="col">DELETE</th>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +26,7 @@
             No drivers assigned
           {% endfor %}
         </td>
+        <td><a href="{% url "taxi:car-update" pk=car.id %}">UPDATE</a></td>
       </tr>
     </tbody>
   </table>
