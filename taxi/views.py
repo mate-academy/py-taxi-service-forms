@@ -60,6 +60,13 @@ class CarListView(LoginRequiredMixin, generic.ListView):
     queryset = Car.objects.all().select_related("manufacturer")
 
 
+class CarCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    template_name = "taxi/car_form.html"
+
+
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
 
