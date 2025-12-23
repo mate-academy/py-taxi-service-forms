@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <h1>Delete manufacturer from database</h1>
+  <p>Are you sure, you want to delete <strong>{{ manufacturer.name }}</strong>?</p>
+  <p>In that case, the manufacturer will burn in hell  <strong>until the end of time</strong>!!!</p>
+  <form action="" method="POST">
+  {% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn btn-danger" value="Yeah, let's burn it. ">
+    <input class="btn btn-success" type="button" value="Oh, not this time." onclick="history.back()">
+  </form>
+{% endblock %}
