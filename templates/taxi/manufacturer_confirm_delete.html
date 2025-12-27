@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete manufacturer</h1>
+  <p>Are you sure you want to delete "{{ object }}"?</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+    <button type="button" onclick="history.back()">Cancel</button>
+  </form>
+{% endblock %}
