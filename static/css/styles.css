@@ -1,3 +1,14 @@
 body {
     margin-top: 20px;
+    background-image: url(https://images.pexels.com/photos/5409363/pexels-photo-5409363.jpeg?auto=compress&cs=tinysrgb&w=1600);
+    background-size: cover;
+    color: red;
+}
+
+.fono {
+    color: yellow;
+}
+
+.img {
+    background: lightpink;
 }
