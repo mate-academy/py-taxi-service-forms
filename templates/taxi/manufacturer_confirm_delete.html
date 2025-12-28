@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturer Delete</h1>
+  <p>Do you confirm deletion of {{ manufacturer.name }} ?</p>
+  <p>All cars will be removed!</p>
+  <p><strong>Removed data can't be restored!</strong></p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, I agree" class="btn btn-danger">
+    <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-primary">No, I changed my mind</a>
+  </form>
+{% endblock %}
