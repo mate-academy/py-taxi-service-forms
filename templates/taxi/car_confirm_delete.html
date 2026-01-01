@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container text-center mt-5">
+        <h1 class="display-4 text-danger">Delete Car</h1>
+        <p class="mt-4">Are you sure you want to delete the following car?</p>
+        <div class="alert alert-warning" role="alert">
+            {{ car }}
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger btn-lg mt-4">Confirm Delete</button>
+        </form>
+        <a href="{% url 'taxi:car-list' %}" class="btn btn-primary btn-lg mt-4">Cancel</a>
+    </div>
+{% endblock %}
