@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form action="" method="post">
+      {% csrf_token %}
+        <h3>You're gonna delete {{object}}</h3>
+        <button type="submit" class="btn btn-danger">Confirm</button>
+        <button
+            type="button"
+            class="btn btn-success"
+            onClick="history.go(-1);"
+        >
+          Cancell
+        </button>
+    </form>
+
+{% endblock content %}
