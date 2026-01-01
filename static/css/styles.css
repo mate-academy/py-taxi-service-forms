@@ -1,3 +1,11 @@
 body {
     margin-top: 20px;
 }
+
+.float-right {
+    float: right;
+}
+
+.del-color{
+    background-color: crimson;
+}
