@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if manufacturer %}
+    <h2>Delete Manufacturer</h2>
+    <p>Are you sure, you want to delete manufacturer {{ manufacturer.name }}?</p>
+    <p style="color: red; font-style: italic">All cars related with this manufacturer will be also deleted!</p>
+  {% endif %}
+
+  {% if car %}  
+    <h2>Delete Car</h2>
+    <p>Are you sure, you want to delete car: {{ car.model }}?</p>
+  {% endif %}
+
+  <form method="post" action="">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>
+          <button type="submit" value="submit" class="btn btn-danger rounded-pill px-2 py-0">
+            Confirm
+          </button>
+        </td>
+        <td>
+          <button type="button" onclick="history.back()" class="btn btn-secondary rounded-pill px-2 py-0">
+            Cancel
+          </button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+{% endblock %}

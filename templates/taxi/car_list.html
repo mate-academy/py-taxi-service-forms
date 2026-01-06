@@ -6,7 +6,7 @@
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+          <a href="{% url 'taxi:car-detail' pk=car.id %} ">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
         </li>
       {% endfor %}
@@ -14,4 +14,12 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
+
+    <form action="{% url 'taxi:car-create' %}">
+      <button type="submit" class="btn btn-primary rounded-pill px-2 py-0">
+        Add Car
+      </button>
+    </form>
+    <br>
+
 {% endblock %}

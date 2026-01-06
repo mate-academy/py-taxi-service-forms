@@ -1,3 +1,9 @@
 body {
     margin-top: 20px;
 }
+
+.invalid {
+    color: red;
+    font-size: 12px;
+    font-style: italic;
+}

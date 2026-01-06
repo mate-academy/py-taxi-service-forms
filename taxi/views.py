@@ -1,13 +1,23 @@
 from django.contrib.auth.decorators import login_required
+from django.http import (
+    HttpRequest,
+    HttpResponse,
+)
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Driver, Car, Manufacturer
+from taxi.forms import CarForm
+from taxi.models import (
+    Driver,
+    Car,
+    Manufacturer,
+)
 
 
 @login_required
-def index(request):
+def index(request: HttpRequest) -> HttpResponse:
     """View function for the home page of the site."""
 
     num_drivers = Driver.objects.count()
@@ -34,6 +44,24 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
+class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Manufacturer
+    template_name = "taxi/confirm_delete.html"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
@@ -42,6 +70,28 @@ class CarListView(LoginRequiredMixin, generic.ListView):
 
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
+
+
+class CarCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Car
+    form_class = CarForm
+
+    def get_success_url(self):
+        return reverse_lazy("taxi:car-detail", args=[self.object.pk])
+
+
+class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Car
+    form_class = CarForm
+
+    def get_success_url(self):
+        return reverse_lazy("taxi:car-detail", args=[self.object.pk])
+
+
+class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Car
+    template_name = "taxi/confirm_delete.html"
+    success_url = reverse_lazy("taxi:car-list")
 
 
 class DriverListView(LoginRequiredMixin, generic.ListView):
