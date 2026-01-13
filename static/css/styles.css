@@ -1,3 +1,18 @@
 body {
     margin-top: 20px;
 }
+.line-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #007bff; /* Цвет текста и границы */
+    text-decoration: none;
+    background-color: transparent; /* Прозрачный фон */
+    border: 2px solid #007bff; /* Линия (контур) */
+    border-radius: 5px; /* Закругленные края */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .line-button:hover {
+    color: white;
+  }
