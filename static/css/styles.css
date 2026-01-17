@@ -1,3 +1,10 @@
 body {
     margin-top: 20px;
+
+}
+.create_object {
+    position: absolute;
+    font-size: 40px;
+    right: 3%;
+    top: -10px;
 }
