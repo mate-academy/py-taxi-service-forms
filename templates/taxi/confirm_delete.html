@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h2 class="mb-2">Delete {{ car|yesno:"Car, Manufacturer" }}</h2>
+  <hr class="blue-hr">
+  <div class="mt-5">
+    <p class="text-are-delete">Are you sure you want to delete "{{ object }}"?</p>
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" value="Confirm" class="btn btn-danger">
+    </form>
+  </div>
+  <style>.blue-hr{height:3px; background-color:#dc3545;} .text-are-delete {font-size:1.5em}</style>
+{% endblock %}
