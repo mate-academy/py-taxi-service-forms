@@ -1,3 +1,16 @@
 body {
     margin-top: 20px;
 }
+
+.form_link {
+    float: right;
+    margin-left: 20px;
+}
+
+.delete_link {
+    color: red;
+}
+
+.delete_link:hover {
+    color: #db0909;
+}
