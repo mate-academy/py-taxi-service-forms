@@ -24,7 +24,7 @@ class Driver(AbstractUser):
     def __str__(self):
         return f"{self.username} ({self.first_name} {self.last_name})"
 
-    def get_absolute_url(self):
+    def get_absolute_url(self) -> str:
         return reverse("taxi:driver-detail", kwargs={"pk": self.pk})
 
 
@@ -32,6 +32,9 @@ class Car(models.Model):
     model = models.CharField(max_length=255)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     drivers = models.ManyToManyField(Driver, related_name="cars")
+
+    def get_absolute_url(self) -> str:
+        return reverse("taxi:car-detail", kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.model
