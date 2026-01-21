@@ -1,3 +1,12 @@
 body {
     margin-top: 20px;
 }
+
+.btn-container {
+  display: flex;
+}
+
+.btn-create {
+    display: flex;
+    justify-content: flex-end;
+}

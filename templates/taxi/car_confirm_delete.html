@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Delete Car</h1>
+  <p>{{ car }} will be deleted</p>
+  <p>Are you sure?</p>
+
+  <div class="btn-container">
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-primary mr-5">Cansel</a>
+
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input class="btn btn-danger" type="submit" value="Submit">
+    </form>
+
+  </div>
+{% endblock %}
