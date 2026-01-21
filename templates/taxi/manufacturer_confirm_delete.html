@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1>Manufacturer Deleting Page</h1>
+
+  <p>Are you sure? Manufacturer: {{ manufacturer.name }} will be deleted</p>
+
+  <form action="" method="POST">
+  {% csrf_token %}
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}
