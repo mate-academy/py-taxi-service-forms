@@ -11,7 +11,9 @@
         </li>
       {% endfor %}
     </ul>
+    <a href="{% url "taxi:car-create" %} ">Create</a>
   {% else %}
     <p>There are no cars in taxi</p>
+     <a href="{% url "taxi:car-create" %} ">Create</a>
   {% endif %}
 {% endblock %}
