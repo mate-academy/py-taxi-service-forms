@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "debug_toolbar",
+    "crispy_forms",
     "taxi",
 ]
 
@@ -112,6 +113,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = "taxi.Driver"
+
+CRISPY_TEMPLATE_PACK = "bootstrap"
 
 LOGIN_REDIRECT_URL = "/"
 
