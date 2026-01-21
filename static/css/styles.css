@@ -1,3 +1,14 @@
 body {
     margin-top: 20px;
 }
+
+.btn-outline-primary,
+.btn-outline-danger {
+    float: right;
+    margin-right: 5px;
+}
+
+.btn a {
+  color: inherit;
+  text-decoration: inherit;
+}
