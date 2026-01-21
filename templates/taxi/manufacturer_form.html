@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>{{ object|yesno:"Update,Create" }} Manufacturer</h1>
+  <form action="" method="post" novalidate>
+
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <div class="d-flex gap-3 mt-4">
+      <button type="submit" class="btn btn-danger mr-3">
+        <i class="bi bi-trash mr-1"></i> Submit
+      </button>
+
+      <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-outline-primary">
+        <i class="bi bi-x-circle mr-1"></i> Cancel
+      </a>
+    </div>
+  </form>
+{% endblock %}
