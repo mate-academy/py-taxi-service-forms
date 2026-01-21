@@ -1,7 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
+
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 from .models import Driver, Car, Manufacturer
 
@@ -40,6 +43,25 @@ class CarListView(LoginRequiredMixin, generic.ListView):
     queryset = Car.objects.all().select_related("manufacturer")
 
 
+class CarCreateView(LoginRequiredMixin, CreateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    template_name = "taxi/car_format_form.html"
+
+
+class CarUpdateView(LoginRequiredMixin, UpdateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    template_name = "taxi/car_format_form.html"
+
+
+class CarDeleteView(LoginRequiredMixin, DeleteView):
+    model = Car
+    template_name = "taxi/car_format_confirm_delete.html"
+    success_url = reverse_lazy("taxi:car-list")
+
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
 
@@ -52,3 +74,37 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+class CarCreateView(generic.CreateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class CarUpdateView(generic.UpdateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class CarDeleteView(generic.DeleteView):
+    model = Car
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class ManufacturerCreateView(generic.CreateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerUpdateView(generic.UpdateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerDeleteView(generic.DeleteView):
+    model = Manufacturer
+    success_url = reverse_lazy("taxi:manufacturer-list")
