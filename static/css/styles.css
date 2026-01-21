@@ -1,3 +1,15 @@
 body {
     margin-top: 20px;
 }
+
+button.btn.btn-success{
+     margin: 20px;
+}
+
+#link_color{
+    color:white;
+    text-decoration: none;
+}
+input.btn.btn-success {
+    margin: 20px;
+}
