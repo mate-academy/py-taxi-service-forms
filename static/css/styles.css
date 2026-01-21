@@ -1,3 +1,22 @@
 body {
-    margin-top: 20px;
+    background-color: #fffce3;
+}
+
+
+.content {
+    padding-top: 30px;
+    width: 50%;
+    min-height: 100vh;
+    background-color: white;
+    border: lightgray solid;
+    border-width: 0 1px;
+}
+
+.sidebar-nav {
+    list-style: none;
+}
+
+.modify-icon {
+    color: black;
+    text-decoration: none;
 }

@@ -1,0 +1,9 @@
+{% extends "base_delete.html" %}
+
+{% block delete-title %}
+  <h1>Delete Car <strong>{{ object.model }}</strong></h1>
+{% endblock %}
+
+{% block text-warning %}
+  <p>Are you sure you want to delete this car?</p>
+{% endblock %}
