@@ -1,3 +1,91 @@
 body {
     margin-top: 20px;
 }
+
+.create_car_text    {
+    font-size: 1.2rem;
+    color: #007bff;
+    font-weight: 500;
+    margin-left: 15px;
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 2px solid #007bff;
+    border-radius: 6px;
+    transition: 0.2s ease-in-out;
+}
+
+.create_car_text a:hover {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;}
+
+.action-update {
+    color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.action-update:hover {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+.action-delete {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.action-delete:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.link-box {
+    font-size: 1rem;
+    padding: 4px 10px;
+    border: 1.5px solid #0d6efd;
+    border-radius: 6px;
+    color: #0d6efd;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.link-box:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.link-box.delete {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.link-box.delete:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.or {
+        font-size: 1.2rem;
+color: #000000;
+}
+
+.create_manufacturer {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 0.9rem; /* меньше обычного */
+  border: 1px solid #007bff; /* синий контур */
+  border-radius: 4px;
+  color: #007bff;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.create_manufacturer:hover {
+  background-color: #e7f1ff;
+  text-decoration: underline;
+}
+
+.cancel-button {
+  margin-left: 20px; /* или любое другое подходящее значение */
+}
