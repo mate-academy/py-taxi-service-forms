@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Delete Car</title>
+{% endblock %}
+
+{% block content %}
+  <h3>Are you sure you want to delete Car "{{ car.model }}"?</h3>
+  <br>
+  <h5 style="color: red">
+    WARNING! This action can not be undone
+  </h5>
+  <br>
+  <form action="" method="post">
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <a href="{% url 'taxi:car-detail' pk=car.pk %}" class="btn btn-primary">
+      Cancel, back to the list
+    </a>
+  </form>
+{% endblock %}
