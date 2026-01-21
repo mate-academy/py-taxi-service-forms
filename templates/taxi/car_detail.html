@@ -1,12 +1,44 @@
-{% extends "base.html" %}
-
+{% extends "base.html"%}
+{% block title %}
+  <title>Car detail</title>
+{% endblock %}
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
-  </ul>
+  <div class="col-sm-9">
+  <h1>Taxi Service</h1>
+  <p>Welcome to Best Taxi Ever!</p>
+  <h2>Detailed info about {{ car.model }} car:</h2>
+    <div class="stylised" style="padding-right: 20px">
+      <p><b>manufactured by: </b>{{ car.manufacturer.name }}</p><hr>
+      <p><b>manufactured in: </b>{{ car.manufacturer.country }}</p>
+      <h4>Car's drivers:</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">full name</th>
+            <th scope="col">licence number</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for driver in car.drivers.all %}
+            <tr>
+              <td>
+                <a href="{% url 'taxi:driver-detail' pk=driver.id%}">
+                  {{ driver.last_name }} {{ driver.first_name }}
+                </a>
+              </td>
+              <td>{{ driver.license_number }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p>
+      <a href="{% url 'taxi:car-update' pk=car.id %}">
+        <button class="btn btn-primary" style="margin-top: 30px">UPDATE CAR</button>
+      </a>
+      <a href="{% url 'taxi:car-delete' pk=car.id %}">
+        <button class="btn btn-danger" style="margin-top: 30px">DELETE CAR</button>
+      </a>
+    </p>
+  </div>
 {% endblock %}
