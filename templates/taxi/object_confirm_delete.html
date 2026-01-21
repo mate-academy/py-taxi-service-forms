@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Confirmation delete</h1>
+  <p>Are you sure, that you want to delete object {{ object }}?</p>
+  <p><i>All records, witch consists references to the current object will be to delete from the database<i></p>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+
+
+    <input type="submit" class="btn btn-danger" value="Yes, i'm sure">
+  </form>
+{% endblock %}
