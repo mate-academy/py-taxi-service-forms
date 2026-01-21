@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+  <h1>Car {{ object|yesno:"Update,Create" }}</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="{{ object|yesno:"Update,Create" }}" class="btn btn-primary" />
+  </form>
+{% endblock %}
