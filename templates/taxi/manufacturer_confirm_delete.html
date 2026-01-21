@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <p>Are you sure to delete: {{ manufacturer }}</p>
+  <p><i>All cars also to be deleted!</i></p>
+
+  <form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes" class="btn btn-danger">
+  <a href="{{ view.get_success_url }}" class="btn btn-secondary">Cancel</a>
+  </form>
+
+{% endblock %}
