@@ -8,5 +8,7 @@
   {% for driver in car.drivers.all %}
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
+  <a href="{% url 'taxi:car-update' car.id %}" class="btn btn-primary">Update Car</a>
+  <a href="{% url 'taxi:car-delete' car.id %}" class="btn btn-danger">Delete Car</a>
   </ul>
 {% endblock %}
