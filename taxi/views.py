@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 from .models import Driver, Car, Manufacturer
 
@@ -29,8 +31,6 @@ def index(request):
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
-    context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
@@ -52,3 +52,67 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+class CarCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+
+    def test_func(self):
+        return True
+
+
+class CarUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+
+    def test_func(self):
+        return True
+
+
+class CarDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Car
+    success_url = reverse_lazy("taxi:car-list")
+
+    def test_func(self):
+        return True
+
+
+class ManufacturerCreateView(
+    LoginRequiredMixin,
+    UserPassesTestMixin,
+    CreateView
+):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+    def test_func(self):
+        return True
+
+
+class ManufacturerUpdateView(
+    LoginRequiredMixin,
+    UserPassesTestMixin,
+    UpdateView
+):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+    def test_func(self):
+        return True
+
+
+class ManufacturerDeleteView(
+    LoginRequiredMixin,
+    UserPassesTestMixin,
+    DeleteView
+):
+    model = Manufacturer
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+    def test_func(self):
+        return True
