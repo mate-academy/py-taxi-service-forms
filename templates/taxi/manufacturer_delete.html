@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Manufacturer</h1>
+  <h4 class="alert alert-danger">
+    Are you sure you want to delete manufacturer {{ manufacturer.id }}?
+  </h4>
+  <form method="post" action="">
+    {% csrf_token %}
+    <input type="submit" value="Yes, I want to delete">
+  </form>
+  <a href="{{ request.META.HTTP_REFERER }}" class="badge badge-danger">
+    No, go back
+  </a>
+{% endblock %}
