@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "debug_toolbar",
     "taxi",
+    "crispy_forms"
 ]
 
 MIDDLEWARE = [
@@ -114,6 +115,8 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = "taxi.Driver"
 
 LOGIN_REDIRECT_URL = "/"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
