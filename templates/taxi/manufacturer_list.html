@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
-    </h1>
+
+    <h1>Manufacturer List</h1>
+    <h2 style="float: right">
+      <a class="btn btn-primary" href="{% url "taxi:manufacturer-create" %}">Create Manufacturer</a>
+    </h2>
+
 
     {% if manufacturer_list %}
       <table class="table">
@@ -22,6 +26,16 @@
               </td>
               <td>
                   {{ manufacturer.country }}
+              </td>
+              <td>
+                  <strong>
+                    <a class="btn btn-primary" href="{% url "taxi:manufacturer-update" pk=manufacturer.id %}">Update</a>
+                  </strong>
+              </td>
+              <td>
+                  <strong>
+                    <a class="btn btn-danger" href="{% url "taxi:manufacturer-delete" pk=manufacturer.id %}">Delete</a>
+                  </strong>
               </td>
           </tr>
         {% endfor %}

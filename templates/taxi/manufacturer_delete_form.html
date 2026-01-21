@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+
+{% block content %}
+  <form action="" method="post" novalidate>
+    <h1>
+      Are you sure you want to delete: <br>Name: {{ manufacturer.name }}, Country: {{ manufacturer.country }}
+    </h1>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Yes Delete" class="btn btn-danger">
+    <a href="{% url "taxi:manufacturer-list" %}" class="btn"><button type="button" class="btn btn-primary">No! Return</button></a>
+  </form>
+{% endblock %}
