@@ -1,3 +1,21 @@
 body {
     margin-top: 20px;
+    background-color: #f8f9fa;
+}
+
+.container-fluid {
+    padding: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.table thead th {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.action-buttons .btn {
+    margin: 2px;
 }
