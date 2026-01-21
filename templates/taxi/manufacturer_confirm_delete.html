@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <h3>Attention</h3>
+  You realy wonna delete <strong>{{ manufacturer.name }}</strong> from db ?<br>
+  <form method="POST" action="">
+    {% csrf_token %}
+    <input type="submit" value="Confirm" class="btn btn-danger">
+    <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-warning">Cancel</a>
+  </form>
+{% endblock %}
