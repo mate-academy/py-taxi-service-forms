@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>{% if object %}Update{% else %}Create{% endif %} Car</h1>
+  <form action="" method="post" novalidate>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="Submit" class="btn btn-primary" value="Submit">
+  </form>
+{% endblock %}

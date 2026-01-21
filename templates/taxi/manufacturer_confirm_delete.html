@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="card shadow-sm p-4">
+      <h1 class="mb-3">Delete Manufacturer</h1>
+      <p>Are you sure you want to delete manufacturer <strong>{{ manufacturer.name }}</strong>?</p>
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-danger">Yes, delete</button>
+        <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}
