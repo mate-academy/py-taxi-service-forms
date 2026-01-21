@@ -1,13 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <div style="display: flex;">
   <h1>Car list</h1>
+  <a href="{% url 'taxi:car-create' %}" style = "font-size: 32px; margin-left: 10px">+</a>
+  </div>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
         <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
+          <a href="{% url "taxi:car-detail" pk=car.id %}">{{ car.id }}</a>
           {{ car.model }} ({{ car.manufacturer.name }})
+          <div>
+            <a class="btn btn-primary" href="{% url 'taxi:car-update' pk=car.id %}" style="margin: 10px">Update</a>
+            <a class="btn btn-danger" href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
+          </div>
+
         </li>
       {% endfor %}
     </ul>
