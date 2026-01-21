@@ -1,15 +1,97 @@
-<ul class="sidebar-nav list-group">
+<ul class="sidebar-nav">
   {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+    <li>
+      <a type="button" class="btn btn-outline-warning btn-lg btn-block"
+         href="{% url 'taxi:driver-detail' pk=user.id %}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+             class="bi bi-person-fill image" viewBox="0 0 16 16">
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+        </svg>
+        <strong>User:</strong> {{ user.username }}
+      </a>
+    </li>
+    <li>
+      <a type="button" class="btn btn-outline-warning btn-lg btn-block" href="{% url 'logout' %}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+             class="bi bi-box-arrow-left image" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0
+          0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0
+          1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+          <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1
+          0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+        </svg>
+        Logout
+      </a>
+    </li>
   {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+    <a type="button" class="btn btn-outline-warning btn-lg btn-block" href="{% url 'login' %}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+         class="bi bi-box-arrow-in-right image" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0
+      1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0
+      5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+      <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0
+      1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+    </svg>
+      Login
+    </a>
+  {% endif %}
+  <br>
+  <li>
+    <a type="button" class="btn btn-outline-warning btn-lg btn-block" href="{% url 'taxi:index' %}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+           class="bi bi-house-door-fill image" viewBox="0 0 16 16">
+        <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0
+        .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0
+        0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+      </svg>
+      Home page
+    </a>
+  </li>
+  {% if user.is_authenticated %}
+    <li>
+      <a type="button" class="btn btn-outline-warning btn-lg btn-block" href="{% url 'taxi:manufacturer-list' %}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+             class="bi bi-gear-fill image" viewBox="0 0 16 16">
+          <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0
+          1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023
+          1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698
+          1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81
+          0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1
+          .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0
+          1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8
+          10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+        </svg>
+        Manufacturers
+      </a>
+    </li>
+    <li>
+      <a type="button" class="btn btn-outline-warning btn-lg btn-block" href="{% url 'taxi:car-list' %}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+             class="bi bi-car-front-fill image" viewBox="0 0 16 16">
+          <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792
+          1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0
+          .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4
+          .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5
+           0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0
+           0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189a.51.51
+           0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17 1.247 0 3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5
+            0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"/>
+        </svg>
+        <span class="btn-text">Cars</span>
+      </a>
+    </li>
+    <li>
+      <a type="button" class="btn btn-outline-warning btn-lg btn-block" href="{% url 'taxi:driver-list' %}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+             class="bi bi-people-fill image" viewBox="0 0 16 16">
+          <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0
+          1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5
+          2.5 2.5 0 0 0 0 5Z"/>
+        </svg>
+        Drivers
+      </a>
+    </li>
   {% endif %}
 
-  <br>
-
-  <li class="list-group-item"><a href="{% url 'taxi:index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:driver-list' %}">All drivers</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:car-list' %}">All cars</a></li>
-  <li class="list-group-item"><a href="{% url 'taxi:manufacturer-list' %}">All manufacturers</a></li>
 </ul>

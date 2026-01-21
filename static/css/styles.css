@@ -1,3 +1,65 @@
 body {
+    background-color: #000000;
     margin-top: 20px;
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+.current {
+    color: whitesmoke;
+}
+
+.driver-list {
+    height: 455px;
+}
+
+.car-list {
+    height: 330px;
+}
+
+.manufacturer-list {
+    height: 330px;
+}
+
+svg {
+    float: left;
+}
+
+.btn {
+    margin-bottom: 5px;
+    border-radius: 0.7rem;
+}
+
+.me {
+    color: coral;
+}
+
+.textinput, .select, .selectmultiple {
+    background-color: whitesmoke;
+    /*width: auto;*/
+    border-radius: 0.7rem;
+}
+
+.submit {
+    width: 550px;
+    margin-top: 10px;
+}
+
+.delete:hover {
+    background-color: #dc3545;
+}
+
+.table {
+    color: whitesmoke;
+}
+
+.back {
+    width: 550px;
+    margin-top: 10px;
+    float: right;
 }
