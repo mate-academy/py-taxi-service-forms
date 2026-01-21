@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <form action="" method="post">
+    {% csrf_token %}
+    {% if object %}
+      <p>Update a manufacturer</p>
+    {% else %}
+      <p>Create a manufacturer</p>
+    {% endif %}
+    {{ form|crispy }}
+    <a href="{% url 'taxi:manufacturer-list' %}">Exit</a>
+    <input type="submit" value="Submit">
+  </form>
+{% endblock%}
