@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Удалить {{ manufacturer.name }}?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Подтвердить удаление</button>
+        <a href="{% url 'taxi:manufacturer-list' %}">Отмена</a>
+    </form>
+{% endblock %}
