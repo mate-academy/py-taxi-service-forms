@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Car</h1>
+
+  <p>Are you sure you want to delete {{ car }}?</p>
+  <div style="display: flex; gap: 20px;">
+    <form action="" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Yes, delete" class="btn btn-danger">
+      <a class="btn btn-secondary"
+         href="{{ previous }}"
+         role="button">
+        No, back
+      </a>
+    </form>
+  </div>
+{% endblock %}
