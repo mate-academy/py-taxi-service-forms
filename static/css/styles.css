@@ -1,3 +1,31 @@
 body {
     margin-top: 20px;
+    background-color: cornsilk;
+}
+
+.list-group-item {
+    background-color: beige;
+}
+
+.sidebar-nav {
+    padding: 20px;
+    list-style: none;
+}
+
+h1, h2, h3 {
+    color: navy;
+}
+
+.errorlist.nonfield{
+    padding: 0;
+    color: darkred;
+    list-style: none;
+}
+
+.delete_item {
+    color: #570808;
+}
+
+.table {
+    width: auto;
 }
