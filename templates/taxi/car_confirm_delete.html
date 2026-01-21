@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Delete car</h1>
+  <p>Are you sure you want to delete car: {{ car.model }} {{ car.manufacturer }}?</p>
+  <p>Deletion can not be undone!</p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <a class="btn btn-secondary" href="{{ request.META.HTTP_REFERER }}">Cancel</a>
+  </form>
+
+{% endblock %}
