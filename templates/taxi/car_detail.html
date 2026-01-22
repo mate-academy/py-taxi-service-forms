@@ -1,9 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <br>
+  <a href="{% url "taxi:car-update" pk=car.id %}">
+    <input class="btn btn-primary" type="submit" value="Update car">
+  </a>
+  <a href="{% url "taxi:car-delete" pk=car.id %}">
+    <input class="btn btn-danger" type="submit" value="Delete car">
+  </a>
+
+  <button type="submit" class="btn btn-secondary" value="Cancel" onclick="history.go(-1)">Cancel</button>
+  <br>
+  <br>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
-  <hr>
+ <hr>
   <ul>
   {% for driver in car.drivers.all %}
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
