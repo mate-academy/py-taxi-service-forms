@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-header bg-danger text-white">
+          <h4 class="mb-0">Confirm Manufacturer Deletion</h4>
+        </div>
+        <div class="card-body">
+          <p class="lead">Are you sure you want to delete the following manufacturer?</p>
+          <ul class="list-group mb-3">
+            <li class="list-group-item"><strong>Name:</strong> {{ manufacturer.name }}</li>
+            <li class="list-group-item"><strong>Country:</strong> {{ manufacturer.country }}</li>
+          </ul>
+          <div class="alert alert-warning" role="alert">
+            This action cannot be undone and will also delete any associated cars.
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">
+              <i class="fas fa-trash-alt"></i> Delete
+            </button>
+          </form>
+          <a href="javascript:history.back()" class="btn btn-secondary">
+            <i class="fas fa-times"></i> Cancel
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

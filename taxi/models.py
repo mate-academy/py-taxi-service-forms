@@ -35,3 +35,11 @@ class Car(models.Model):
 
     def __str__(self):
         return self.model
+
+
+class Customer(models.Model):
+    full_name = models.CharField(max_length=255)
+    birth_year = models.IntegerField()
+
+    def __str__(self):
+        return self.full_name
