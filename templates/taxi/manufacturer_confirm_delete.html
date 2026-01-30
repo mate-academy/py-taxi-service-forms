@@ -1,0 +1,14 @@
+{% extends "taxi/base.html" %}
+
+{% block title %}Deletar Carro{% endblock %}
+
+{% block content %}
+    <h1>Confirmar Exclusão do Carro</h1>
+    <p>Você tem certeza que deseja excluir o carro: **{{ object.model }}**?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sim, Excluir</button>
+        <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

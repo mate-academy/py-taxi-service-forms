@@ -1,0 +1,13 @@
+{% extends "taxi/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% if form.instance.pk %}Atualizar Carro{% else %}Criar Carro{% endif %}{% endblock %}
+
+{% block content %}
+    <h1>{% if form.instance.pk %}Atualizar Carro: {{ form.instance.model }}{% else %}Criar Novo Carro{% endif %}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {% crispy form %}
+    </form>
+{% endblock %}
