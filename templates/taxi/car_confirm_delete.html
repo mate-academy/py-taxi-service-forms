@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete car</h1>
+
+  <p>Are you sure you want to delete car "{{ car }}"?</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+    <a href="javascript:history.back()">Cancel</a>
+  </form>
+{% endblock %}
+
