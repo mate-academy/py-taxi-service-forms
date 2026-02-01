@@ -3,10 +3,12 @@
 {% block content %}
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
+  <a href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
+  <a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
   <hr>
   <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
+    {% for driver in car.drivers.all %}
+      <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+    {% endfor %}
   </ul>
 {% endblock %}

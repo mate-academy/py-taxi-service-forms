@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <p>
+    Are you sure you want to delete this <strong>"{{ object }}"</strong> ?
+  </p>
+  <div class="row" style="gap: 20px">
+    <form action="" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Yes, Delete" class="btn btn-danger">
+    </form>
+    <a href="{{ cancel_url }}" class="btn btn-secondary" style="display: inline-block">Cancel</a>
+  </div>
+{% endblock %}

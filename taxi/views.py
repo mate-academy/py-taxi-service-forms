@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -29,9 +30,58 @@ def index(request):
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
-    context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
+
+
+class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class BaseDeleteView(LoginRequiredMixin, generic.DeleteView):
+    template_name = "taxi/confirm_delete.html"
+    cancel_url = reverse_lazy("taxi:index")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cancel_url"] = self.cancel_url
+        return context
+
+
+class ManufacturerDeleteView(BaseDeleteView):
+    model = Manufacturer
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    cancel_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class CarCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class CarDeleteView(BaseDeleteView):
+    model = Car
+    success_url = reverse_lazy("taxi:car-list")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        car = self.get_object()
+        context["cancel_url"] = car.get_absolute_url()
+        return context
 
 
 class CarListView(LoginRequiredMixin, generic.ListView):
