@@ -6,6 +6,8 @@
   <form method="post">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">Yes, delete</button>
-    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Cancel</a>
+    <button type="button" class="btn btn-secondary" onclick="history.back()">
+      Cancel
+    </button>
   </form>
 {% endblock %}
