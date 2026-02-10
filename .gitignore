@@ -1,9 +1,25 @@
+# Virtual environments
+.venv/
+venv/
+
+# IDE and editor files
 .idea/
 .vscode/
 *.iml
+
+# Environment and system files
 .env
 .DS_Store
-venv/
+
+# Python cache
+__pycache__/
+**/__pycache__/
+
+# Test cache
 .pytest_cache/
-**__pycache__/
+
+# Database
 db.sqlite3
+
+# Static files
+staticfiles/
