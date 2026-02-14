@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Delete {% block title_del %}{% endblock %}</h1>
+
+  <p>Are you sure you want to delete the {% block p_question %}{% endblock %}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" value="Delete" class="btn btn-danger">
+      Delete
+    </button>
+  </form>
+  <button class="btn btn-secondary" onclick="window.history.back()">
+    Cancel
+  </button>
+{% endblock %}
