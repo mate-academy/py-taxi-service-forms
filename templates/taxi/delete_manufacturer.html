@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    <h2>Are you sure that you want to delete: {{ object }}</h2>
+    <input type="submit">
+    <a href="javascript:history.back()">
+      <input
+          type="button"
+          value="Cancel"
+      >
+    </a>
+
+  </form>
+{% endblock %}
