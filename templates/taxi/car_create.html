@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post">
+  <h3>{{form|yesno:"Create,Update"}} car</h3>
+  {% csrf_token %}
+  {{ form|crispy }}
+  <a href="{% url 'taxi:car-list' %}" class="btn btn-primary">Cancel</a>
+  <input type="submit" value="Submit" class="btn btn-primary">
+</form>
+
+{% endblock %}
