@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <h1>Delete Car</h1>
+  <p>Are you sure, you want to delete Car {{ car.model }} {{ car.manufacturer }}?</p>
+  <a href="javascript:history.back()"> CANCEL </a>
+  <br>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Yes, delete">
+  </form>
+{% endblock %}
