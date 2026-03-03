@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <a class="btn btn-primary"
+   href="{% url 'taxi:car-update' pk=car.pk %}"
+   style="float: right; font-weight: 500; padding: 8px 16px; font-size: 30px">
+   Edit
+</a>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
   <h1>Drivers</h1>
   <hr>
@@ -9,4 +14,6 @@
     <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
   {% endfor %}
   </ul>
+  <br><br><br>
+  <a class="btn btn-danger" href="{% url 'taxi:car-delete' pk=car.pk %}">Delete</a>
 {% endblock %}
