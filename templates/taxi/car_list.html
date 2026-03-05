@@ -11,8 +11,9 @@
           <th>DELETE</th>
         </tr>
   {% if car_list %}
-      <tr>
+
       {% for car in car_list %}
+       <tr>
         <td>
           <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
         </td>
