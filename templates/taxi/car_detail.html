@@ -1,12 +1,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <hr>
-  <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
-  </ul>
+<div class="container mt-4">
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+
+      <!-- Manufacturer -->
+      <h5 class="card-title mb-3">Manufacturer</h5>
+      <p class="card-text">
+        <strong>{{ car.manufacturer.name }}</strong>
+        <span class="text-muted">
+          ({{ car.manufacturer.country }})
+        </span>
+      </p>
+
+      <hr>
+
+      <!-- Drivers -->
+      <h5 class="card-title">Drivers</h5>
+
+      {% if car.drivers.all %}
+        <div class="table-responsive">
+          <table class="table table-sm table-hover align-middle mt-3">
+            <thead class="table-light">
+              <tr>
+                <th>Username</th>
+                <th>Full name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for driver in car.drivers.all %}
+                <tr>
+                  <td>{{ driver.username }}</td>
+                  <td>{{ driver.first_name }} {{ driver.last_name }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="text-muted mt-2">No drivers assigned</p>
+      {% endif %}
+
+      <hr>
+
+      <!-- Actions -->
+      <div class="d-flex gap-2 justify-content-end">
+        <a href="{% url 'taxi:car-delete' pk=car.id %}"
+           class="btn btn-outline-danger btn-sm">
+          Delete
+        </a>
+        <a href="{% url 'taxi:car-update' pk=car.id %}"
+           class="btn btn-primary btn-sm">
+          Update
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 {% endblock %}
