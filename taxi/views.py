@@ -4,8 +4,15 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import CarForm, ManufacturerForm
-from .models import Car, Driver, Manufacturer
+from .forms import (
+    CarForm,
+    ManufacturerForm,
+)
+from .models import (
+    Car,
+    Driver,
+    Manufacturer,
+)
 
 
 @login_required
