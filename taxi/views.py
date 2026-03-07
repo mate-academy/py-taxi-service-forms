@@ -11,7 +11,6 @@ from .models import Car, Driver, Manufacturer
 @login_required
 def index(request):
     """View function for the home page of the site."""
-
     num_drivers = Driver.objects.count()
     num_cars = Car.objects.count()
     num_manufacturers = Manufacturer.objects.count()
@@ -31,8 +30,6 @@ def index(request):
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
-    context_object_name = "manufacturer_list"
-    template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
 
 
@@ -90,4 +87,4 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
-    queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+    queryset = Driver.objects.prefetch_related("cars__manufacturer")
