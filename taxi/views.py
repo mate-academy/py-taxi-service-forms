@@ -56,6 +56,7 @@ class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
     queryset = Car.objects.all().select_related("manufacturer")
+    context_object_name = "car_list"
 
 
 class CarListCreateView(LoginRequiredMixin, generic.CreateView):
