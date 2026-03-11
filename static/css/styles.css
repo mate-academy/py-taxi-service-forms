@@ -1,3 +1,9 @@
 body {
     margin-top: 20px;
 }
+ul li{
+    list-style: none;
+}
+.button:hover{
+    text-decoration: none;
+}
