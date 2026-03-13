@@ -3,9 +3,10 @@
 {% block content %}
 
   <h1>Create Car</h1>
+  {% load crispy_forms_filters %}
   <form action="" method="post" novalidate>
     {%  csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <input type="submit" value="Submit">
   </form>
 {% endblock %}
