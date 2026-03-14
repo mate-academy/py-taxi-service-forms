@@ -6,7 +6,7 @@
   <p>Are you sure?</p>
 
   <form action="" method="post" novalidate>
-    {%  csrf_token %}
-    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, delete</button>
   </form>
 {% endblock %}
