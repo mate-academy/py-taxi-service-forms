@@ -2,13 +2,15 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 
 from .models import Driver, Car, Manufacturer
+from .forms import CarForm, ManufacturerForm
 
 
 @login_required
 def index(request):
-    """View function for the home page of the site."""
+    """Home page"""
 
     num_drivers = Driver.objects.count()
     num_cars = Car.objects.count()
@@ -26,6 +28,10 @@ def index(request):
 
     return render(request, "taxi/index.html", context=context)
 
+
+# =========================
+# LIST + DETAIL (вже були)
+# =========================
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
@@ -52,3 +58,45 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+# =========================
+# CRUD — CAR
+# =========================
+
+class CarCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Car
+    form_class = CarForm
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Car
+    form_class = CarForm
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Car
+    success_url = reverse_lazy("taxi:car-list")
+
+
+# =========================
+# CRUD — MANUFACTURER
+# =========================
+
+class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Manufacturer
+    form_class = ManufacturerForm
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Manufacturer
+    form_class = ManufacturerForm
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Manufacturer
+    success_url = reverse_lazy("taxi:manufacturer-list")
