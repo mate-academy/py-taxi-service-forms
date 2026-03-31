@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    {% load crispy_forms_tags %}
+    <h1> {{ car|yesno:"Update,Create" }} car</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">
+            {{ car|yesno:"Update,Create" }}
+        </button>
+    </form>
+{% endblock %}
