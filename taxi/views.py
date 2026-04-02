@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView
 
 from .models import Driver, Car, Manufacturer
 
@@ -58,22 +59,10 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
 
 
-def car_create_view(request: HttpRequest) -> HttpResponse:
-    if request.method == "GET":
-        context = {
-            "form": CarForm()
-        }
-        return render(request, "taxi/car_form.html", context=context)
-    if request.method == "POST":
-        form = CarForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("taxi:car-list"))
-        context = {
-            "form": form
-        }
-
-    return render(request, "taxi/car_form.html", context=context)
+class CarCreateView(CreateView):
+    model = Car
+    form_class = CarForm
+    success_url = reverse_lazy("taxi:car-list")
 
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
@@ -84,13 +73,11 @@ class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
-    template_name = "taxi/manufacturer_confirm_delete.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
-    template_name = "taxi/car_confirm_delete.html"
     success_url = reverse_lazy("taxi:car-list")
 
 
@@ -100,20 +87,7 @@ class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-def manufacturer_create_view(request: HttpRequest) -> HttpResponse:
-    if request.method == "GET":
-        context = {
-            "form": ManufacturerForm()
-        }
-        return render(request, "taxi/manufacturer_form.html", context=context)
-
-    if request.method == "POST":
-        form = ManufacturerForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("taxi:manufacturer-list"))
-        context = {
-            "form": form
-        }
-
-    return render(request, "taxi/manufacturer_form.html", context=context)
+class ManufacturerCreateView(CreateView):
+    model = Manufacturer
+    form_class = ManufacturerForm
+    success_url = reverse_lazy("taxi:manufacturer-list")
