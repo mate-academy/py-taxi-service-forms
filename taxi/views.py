@@ -1,9 +1,13 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Driver, Car, Manufacturer
+
+from .forms import CarForm, ManufacturerForm
 
 
 @login_required
@@ -52,3 +56,72 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+
+def car_create_view(request: HttpRequest) -> HttpResponse:
+    if request.method == "GET":
+        context = {
+            "form": CarForm()
+        }
+        return render(request, "taxi/car_form.html", context=context)
+    if request.method == "POST":
+        form = CarForm(request.POST)
+        if form.is_valid():
+            car = Car.objects.create(
+                model=form.cleaned_data['model'],
+                manufacturer=form.cleaned_data['manufacturer']
+            )
+            car.drivers.set(form.cleaned_data['drivers'])
+            return HttpResponseRedirect(reverse("taxi:car-list"))
+        context = {
+            "form": form
+        }
+
+    return render(request, "taxi/car_form.html", context=context)
+
+
+class Car_Update_View(LoginRequiredMixin, generic.UpdateView):
+    model = Car
+    fields = ["model", "manufacturer", "drivers"]
+    template_name = "taxi/car_form.html"
+    success_url = reverse_lazy("car-list")
+
+
+class Manufacturer_Delete_View(LoginRequiredMixin, generic.DeleteView):
+    model = Manufacturer
+    template_name = "taxi/manufacturer_confrim_delete.html"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+class Car_Delete_View(LoginRequiredMixin, generic.DeleteView):
+    model = Car
+    template_name = "taxi/car_confrim_delete.html"
+    success_url = reverse_lazy("taxi:car-list")
+
+
+class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Manufacturer
+    fields = ["name", "country"]
+    template_name = "taxi/manufacturer_form.html"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+
+
+def manufacturer_create_view(request: HttpRequest) -> HttpResponse:
+    if request.method == "GET":
+        context = {
+            "form": ManufacturerForm()
+        }
+        return render(request, "taxi/manufacturer_form.html", context=context)
+
+    if request.method == "POST":
+        form = ManufacturerForm(request.POST)
+        if form.is_valid():
+            (Manufacturer.objects.create
+             (country=form.cleaned_data["country"],
+              name=form.cleaned_data["name"]))
+            return HttpResponseRedirect(reverse("taxi:manufacturer-list"))
+        context = {
+            "form": form
+        }
+
+    return render(request, "taxi/manufacturer_form.html", context=context)
