@@ -68,10 +68,10 @@ def car_create_view(request: HttpRequest) -> HttpResponse:
         form = CarForm(request.POST)
         if form.is_valid():
             car = Car.objects.create(
-                model=form.cleaned_data['model'],
-                manufacturer=form.cleaned_data['manufacturer']
+                model=form.cleaned_data["model"],
+                manufacturer=form.cleaned_data["manufacturer"]
             )
-            car.drivers.set(form.cleaned_data['drivers'])
+            car.drivers.set(form.cleaned_data["drivers"])
             return HttpResponseRedirect(reverse("taxi:car-list"))
         context = {
             "form": form
@@ -80,19 +80,19 @@ def car_create_view(request: HttpRequest) -> HttpResponse:
     return render(request, "taxi/car_form.html", context=context)
 
 
-class Car_Update_View(LoginRequiredMixin, generic.UpdateView):
+class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
     fields = ["model", "manufacturer", "drivers"]
     success_url = reverse_lazy("taxi:car-list")
 
 
-class Manufacturer_Delete_View(LoginRequiredMixin, generic.DeleteView):
+class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
     template_name = "taxi/manufacturer_confrim_delete.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-class Car_Delete_View(LoginRequiredMixin, generic.DeleteView):
+class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
     template_name = "taxi/car_confrim_delete.html"
     success_url = reverse_lazy("taxi:car-list")
