@@ -83,8 +83,7 @@ def car_create_view(request: HttpRequest) -> HttpResponse:
 class Car_Update_View(LoginRequiredMixin, generic.UpdateView):
     model = Car
     fields = ["model", "manufacturer", "drivers"]
-    template_name = "taxi/car_form.html"
-    success_url = reverse_lazy("car-list")
+    success_url = reverse_lazy("taxi:car-list")
 
 
 class Manufacturer_Delete_View(LoginRequiredMixin, generic.DeleteView):
@@ -102,7 +101,6 @@ class Car_Delete_View(LoginRequiredMixin, generic.DeleteView):
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
     fields = ["name", "country"]
-    template_name = "taxi/manufacturer_form.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 

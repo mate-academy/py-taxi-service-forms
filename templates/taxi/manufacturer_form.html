@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
-  <h1>Are you sure you want to delete "{{ object.name }}"?</h1>
+  <<h1>{% if object %}Update Manufacturer{% else %}Create Manufacturer{% endif %}</h1>
 
-  <form method="post">
+  <form action="" method="post" novalidate>
     {% csrf_token %}
-    <button type="submit">Yes, delete</button>
-    <a href="{% url 'manufacturer-list' %}">Cancel</a>
+    {{ form|crispy }}
+    <input type="submit" class="btn btn-primary" value="Submit">
   </form>
 {% endblock %}

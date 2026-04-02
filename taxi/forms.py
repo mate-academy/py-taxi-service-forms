@@ -1,22 +1,20 @@
 from django import forms
-
 from .models import Manufacturer, Driver, Car
 
 
-class CarForm(forms.Form):
-    model = forms.CharField(max_length=255)
-    manufacturer = forms.ModelChoiceField(
-        queryset=Manufacturer.objects.all(),
-        empty_label="Select a manufacturer",
-        to_field_name="id"
-    )
+class CarForm(forms.ModelForm):
     drivers = forms.ModelMultipleChoiceField(
-        queryset=Driver.objects.exclude
-        (license_number__isnull=True).exclude(license_number__exact=""),
+        queryset=Driver.objects.exclude(license_number__isnull=True)
+                               .exclude(license_number__exact=""),
         widget=forms.CheckboxSelectMultiple
     )
 
+    class Meta:
+        model = Car
+        fields = ["model", "manufacturer", "drivers"]
 
-class ManufacturerForm(forms.Form):
-    name = forms.CharField(max_length=255)
-    country = forms.CharField(max_length=255)
+
+class ManufacturerForm(forms.ModelForm):
+    class Meta:
+        model = Manufacturer
+        fields = ["name", "country"]
