@@ -67,11 +67,7 @@ def car_create_view(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         form = CarForm(request.POST)
         if form.is_valid():
-            car = Car.objects.create(
-                model=form.cleaned_data["model"],
-                manufacturer=form.cleaned_data["manufacturer"]
-            )
-            car.drivers.set(form.cleaned_data["drivers"])
+            form.save()
             return HttpResponseRedirect(reverse("taxi:car-list"))
         context = {
             "form": form
@@ -82,25 +78,25 @@ def car_create_view(request: HttpRequest) -> HttpResponse:
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
-    fields = ["model", "manufacturer", "drivers"]
+    form_class = CarForm
     success_url = reverse_lazy("taxi:car-list")
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Manufacturer
-    template_name = "taxi/manufacturer_confrim_delete.html"
+    template_name = "taxi/manufacturer_confirm_delete.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
-    template_name = "taxi/car_confrim_delete.html"
+    template_name = "taxi/car_confirm_delete.html"
     success_url = reverse_lazy("taxi:car-list")
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
-    fields = ["name", "country"]
+    form_class = ManufacturerForm
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
@@ -114,9 +110,7 @@ def manufacturer_create_view(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         form = ManufacturerForm(request.POST)
         if form.is_valid():
-            (Manufacturer.objects.create
-             (country=form.cleaned_data["country"],
-              name=form.cleaned_data["name"]))
+            form.save()
             return HttpResponseRedirect(reverse("taxi:manufacturer-list"))
         context = {
             "form": form
