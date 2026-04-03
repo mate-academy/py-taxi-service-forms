@@ -1,33 +1,73 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Manufacturer List
-    </h1>
+<h1>Manufacturers</h1>
 
-    {% if manufacturer_list %}
-      <table class="table">
+
+<a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-success mb-3">Add Manufacturer</a>
+
+<table class="table table-bordered">
+    <thead>
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Country</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
-
+    </thead>
+    <tbody>
         {% for manufacturer in manufacturer_list %}
-            <tr>
-              <td>
-                  {{ manufacturer.id }}
-              </td>
-              <td>
-                  {{ manufacturer.name }}
-              </td>
-              <td>
-                  {{ manufacturer.country }}
-              </td>
-          </tr>
-        {% endfor %}
-      </table>
+        <tr>
+            <td>{{ manufacturer.id }}</td>
+            <td>{{ manufacturer.name }}</td>
+            <td>{{ manufacturer.country }}</td>
 
-    {% else %}
-        <p>There are no manufacturers in the service.</p>
+            <td>
+                <a href="{% url 'taxi:manufacturer-update' manufacturer.id %}" class="btn btn-primary">
+                    Update
+                </a>
+            </td>
+
+            <td>
+                <a href="{% url 'taxi:manufacturer-delete' manufacturer.id %}" class="btn btn-danger">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No manufacturers found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+          &laquo;
+        </a>
+      </li>
     {% endif %}
+    {% for num in paginator.page_range %}
+      <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+      </li>
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+          &raquo;
+        </a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+
 {% endblock %}
