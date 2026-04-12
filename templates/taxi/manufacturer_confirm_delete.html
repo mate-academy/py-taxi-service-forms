@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Delete manufacturer</h1>
+  <p>Are you sure that you want to delete the manufacturer: {{ manufacturer.name }}</p>
+  <p><i>It also will be deleted all cars from this manufacturer</i></p>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">
+      Cancel
+    </a>  </form>
+{% endblock %}
