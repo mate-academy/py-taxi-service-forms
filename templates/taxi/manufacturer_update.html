@@ -1,7 +1,0 @@
-{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
-<h2>Update Manufacturer</h2>
-<form method="post">
-  {% csrf_token %} {{ form|crispy }} <input type="submit" value="Update" />
-  <a href="{% url 'taxi:manufacturer-list' %}">Cancel</a>
-</form>
-{% endblock %}

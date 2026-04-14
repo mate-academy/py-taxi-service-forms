@@ -1,9 +1,0 @@
-{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
-<h2>Create Manufacturer</h2>
-
-<form method="post">
-  {% csrf_token %} {{ form|crispy }}
-  <input type="submit" value="Create" class="btn btn-primary" />
-  <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
-</form>
-{% endblock %}

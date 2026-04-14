@@ -1,7 +1,0 @@
-{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
-<h2>Create Car</h2>
-<form method="post">
-  {% csrf_token %} {{ form|crispy }} <input type="submit" value="Create" />
-  <a href="{% url 'taxi:car-list' %}">Cancel</a>
-</form>
-{% endblock %}
