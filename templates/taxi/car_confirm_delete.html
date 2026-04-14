@@ -2,7 +2,9 @@
 <h2>Confirm Delete Car</h2>
 <p>Are you sure you want to delete the car "{{ car.model }}"?</p>
 <form method="post">
-  {% csrf_token %} {{ form|crispy }} <input type="submit" value="Yes, delete" />
-  <a href="{% url 'taxi:car_list' %}">Cancel</a>
+  {% csrf_token %}
+  <p>Are you sure you want to delete "{{ object }}"?</p>
+  <button type="submit" class="btn btn-danger">Confirm Delete</button>
+  <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
 </form>
 {% endblock %}
