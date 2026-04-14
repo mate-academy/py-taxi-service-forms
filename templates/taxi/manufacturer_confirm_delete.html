@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
+<h2>Confirm Delete Manufacturer</h2>
+<p>
+  Are you sure you want to delete the manufacturer "{{ manufacturer.name }}"?
+</p>
+<form method="post">
+  {% csrf_token %}
+  <p>Are you sure you want to delete "{{ object }}"?</p>
+  <button type="submit" class="btn btn-danger">Confirm Delete</button>
+  <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
