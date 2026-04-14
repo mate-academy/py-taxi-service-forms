@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db import models
 from django.urls import reverse
 
 
@@ -12,6 +12,9 @@ class Manufacturer(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.country}"
+
+    def get_absolute_url(self):
+        return reverse("taxi:manufacturer-list")
 
 
 class Driver(AbstractUser):
@@ -35,3 +38,6 @@ class Car(models.Model):
 
     def __str__(self):
         return self.model
+
+    def get_absolute_url(self):
+        return reverse("taxi:car-detail", kwargs={"pk": self.pk})
