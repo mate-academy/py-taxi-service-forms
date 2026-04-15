@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h2>{{ object|yesno:"Update,Create"}} Car</h2>
+<form
+  action=""
+  novalidate
+  method="post"
+>
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button type="submit">Save</button>
+  {% if object %}
+    <a href="{{next|default:"/"}}">Cancel</a>
+  {% endif %}
+</form>
+{% endblock %}
