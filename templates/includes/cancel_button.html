@@ -1,0 +1,5 @@
+{% if request.META.HTTP_REFERER %}
+  <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">Cancel</a>
+{% else %}
+  <a href="{{ fallback_url }}" class="btn btn-secondary">Cancel</a>
+{% endif %}

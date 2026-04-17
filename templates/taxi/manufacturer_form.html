@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>
+    {% if object %}
+      Update {{ manufacturer.name }}
+    {% else %}
+      Create Manufacturer
+    {% endif %}
+  </h1>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {% crispy form %}
+    <input type="submit" value="Submit" class="btn btn-primary">
+    {% url 'taxi:manufacturer-list' as manufacturer_list_url %}
+    {% include "includes/cancel_button.html" with fallback_url=manufacturer_list_url %}
+  </form>
+{% endblock %}
