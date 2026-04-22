@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>Delete Car</h1>
+    <div class="alert alert-secondary">
+      <p>Are you sure you want to delete <strong>{{ car }}</strong>?</p>
+    </div>
+    <form action="" method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger me-2">
+        Yes, delete
+      </button>
+      <a href="javascript:history.back()" class="btn btn-secondary">
+        Cancel
+      </a>
+    </form>
+  </div>
+{% endblock %}

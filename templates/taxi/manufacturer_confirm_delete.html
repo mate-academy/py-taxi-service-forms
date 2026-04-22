@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>Delete Manufacturer</h1>
+    <div class="alert alert-warning">
+      <p>Are you sure you want to delete the manufacturer: <strong>{{ manufacturer }}</strong>?</p>
+      <p><i class="bi bi-exclamation-triangle"></i> <strong>Warning:</strong> All Cars associated with this manufacturer
+        will also be deleted!</p>
+    </div>
+    <form action="" method="post" class="mt-3">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger me-2">
+        Yes, delete
+      </button>
+      <a href="javascript:history.back()" class="btn btn-secondary">
+        Cancel
+      </a>
+    </form>
+  </div>
+{% endblock %}
