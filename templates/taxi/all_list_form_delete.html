@@ -6,8 +6,10 @@
 	<p><i>All information about the car will be deleted</i></p>
 
 	<form action="" method="post">
-	{% csrf_token %}
-	<input type="submit" value="Submit">
+		{% csrf_token %}
+		<input type="submit" value="Submit" class="btn btn-light">
 	</form>
+	<a href="{% url 'taxi:index' %}" class="btn btn-secondary">Cancel</a>
+
 
 {% endblock %}
