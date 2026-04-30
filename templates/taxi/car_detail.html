@@ -1,12 +1,19 @@
 {% extends "base.html" %}
-
 {% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="mb-0">{{ car.model }}</h1>
+    <div>
+      <a class="btn btn-danger me-2" href="{% url 'taxi:car-delete' pk=car.id %}">DELETE</a>
+      <a class="btn btn-success" href="{% url 'taxi:car-update' pk=car.id %}">UPDATE</a>
+    </div>
+  </div>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
+  <hr>
   <h1>Drivers</h1>
   <hr>
   <ul>
-  {% for driver in car.drivers.all %}
-    <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
-  {% endfor %}
+    {% for driver in car.drivers.all %}
+      <li>{{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})</li>
+    {% endfor %}
   </ul>
 {% endblock %}
