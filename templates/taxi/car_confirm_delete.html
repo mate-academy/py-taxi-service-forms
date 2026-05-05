@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Delete Car</h1>
+  <p>Are you sure you delete the car: {{ car.model }} ?</p>
+  {% if car.drivers.all %}
+    <p>Drivers that will lose access to this car:
+      {% for driver in car.drivers.all %}
+        {{ driver.username }}{% if not forloop.last %}, {% endif %}
+      {% endfor %}
+    </p>
+  {% endif %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger"/>
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}
