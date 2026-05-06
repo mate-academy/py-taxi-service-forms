@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+  <p>Are you sure you want to delete this manufacturer: {{ manufacturer }}?</p>
+  <p>You also will delete all cars related to this manufacturer:</p>
+  <ul>
+    {% for car in manufacturer.car_set.all %}
+      <li>{{ car.model }}</li>
+      {% empty %}
+      <li>No cars found</li>
+    {% endfor %}
+  </ul>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">
+      Yes, delete
+    </button>
+  </form>
+  <br>
+  <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-primary">
+    Cancel
+  </a>
+{% endblock %}
