@@ -1,3 +1,21 @@
 body {
     margin-top: 20px;
 }
+
+.logout-form {
+  margin: 0;
+}
+
+.logout-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: #0d6efd;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logout-link:hover {
+  text-decoration: underline;
+}
