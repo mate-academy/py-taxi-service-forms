@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load crispy_forms_filters %}
+{% load django_bootstrap5 %}
 
 {% block content %}
   <h1>Delete car</h1>
@@ -7,7 +7,7 @@
   <p><i>All information about this car will be deleted!</i></p>
   <form method="post">
     {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" value="Yes, I'm sure"/>
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-danger" value="Yes, I'm sure"/>
   </form>
 {% endblock %}
