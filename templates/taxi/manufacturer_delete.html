@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load django_bootstrap5 %}
+{% load crispy_forms_filters %}
 
 {% block content %}
   <h1>Delete manufacturer</h1>
@@ -7,6 +7,8 @@
   <p><i>All information about this manufacturer will be deleted!</i></p>
   <form method="post">
     {% csrf_token %}
+    {{ form|crispy }}
     <input type="submit" class="btn btn-danger" value="Yes, I'm sure"/>
+    <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}

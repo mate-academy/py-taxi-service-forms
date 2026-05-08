@@ -13,6 +13,7 @@
   <div>
     <a href="{% url 'taxi:car-update' pk=car.id %}"><input type="button" class="btn btn-primary" value="Update"/></a>
     <a href="{% url 'taxi:car-delete' pk=car.id %}"><input type="button" class="btn btn-danger" value="Delete"/></a>
+    <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
   </div>
 
 {% endblock %}
