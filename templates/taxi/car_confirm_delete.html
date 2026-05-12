@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete car</h1>
+
+  <p>
+    Are you sure you want to delete "{{ car }}"?
+  </p>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <input
+      type="submit"
+      value="Delete"
+      class="btn btn-danger"
+    >
+
+    <a
+      href="{{ request.META.HTTP_REFERER|default:'/cars/' }}"
+      class="btn btn-secondary"
+    >
+      Cancel
+    </a>
+  </form>
+{% endblock %}
