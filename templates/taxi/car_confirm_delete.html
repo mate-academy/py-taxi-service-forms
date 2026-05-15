@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    <p>
+      Are you sure you want to delete "{{ object.model }}"?
+    </p>
+    <button type="submit" class="btn btn-danger">Confirm</button>
+    <a href="#" onclick="window.history.back(); return false;">Cancel</a>
+  </form>
+{% endblock %}

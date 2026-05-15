@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{% if object %}Update{% else %}Create{% endif %} Car</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
+
+      {{ form|crispy }}
+
+      <div class="mt-3">
+        <button type="submit" class="btn btn-success">Save</button>
+        <a href="#" onclick="window.history.back(); return false;" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+</div>
+{% endblock %}
