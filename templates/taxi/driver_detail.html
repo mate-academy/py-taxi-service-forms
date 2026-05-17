@@ -3,24 +3,22 @@
 {% block content %}
   <h1>
     Username: {{ driver.username }}
+    <a href="{% url 'taxi:driver-update' pk=driver.id %}" class="btn btn-secondary link-to-page">Update license</a>
   </h1>
+  <p>First name: {{ driver.first_name }}</p>
+  <p>Last name: {{ driver.last_name }}</p>
+  <p>License number: {{ driver.license_number }}</p>
 
-  <p><strong>First name:</strong> {{ driver.first_name }}</p>
-  <p><strong>Last name:</strong> {{ driver.last_name }}</p>
-  <p><strong>License number:</strong> {{ driver.license_number }}</p>
-  <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
-
-  <div class="ml-3">
-    <h4>Cars</h4>
-
+  <h2>Cars</h2>
+  <hr>
+  <ul>
     {% for car in driver.cars.all %}
-        <hr>
-        <p><strong>Model:</strong> {{ car.model }}</p>
-        <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
-
+      <li>
+        {{ car.model }} ({{ car.manufacturer.name }})
+        <a href="{% url 'taxi:car-detail' pk=car.id %}">View details</a>
+      </li>
     {% empty %}
-      <p>No cars!</p>
+      <li>No cars assigned to this driver.</li>
     {% endfor %}
-  </div>
+  </ul>
 {% endblock %}
