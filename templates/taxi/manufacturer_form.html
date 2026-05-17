@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>
+    {% if object %}
+      Update Manufacturer
+    {% else %}
+      Create Manufacturer
+    {% endif %}
+  </h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <a href="{% url "taxi:manufacturer-list" %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}
+
