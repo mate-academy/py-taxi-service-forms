@@ -1,0 +1,9 @@
+{% extends "base_confirm_delete.html" %}
+
+{% block model_name %}
+  Car
+{% endblock %}
+
+{% block cancel_url %}
+  {% url "taxi:car-detail" pk=object.id %}
+{% endblock %}

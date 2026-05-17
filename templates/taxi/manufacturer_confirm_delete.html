@@ -1,0 +1,15 @@
+{% extends "base_confirm_delete.html" %}
+
+{% block model_name %}
+  Manufacturer
+{% endblock %}
+
+{% block optional_deletion_warning %}
+  <i>
+    All Cars from this manufacturer will be also deleted!
+  </i>
+{% endblock %}
+
+{% block cancel_url %}
+  {% url "taxi:manufacturer-list" %}
+{% endblock %}

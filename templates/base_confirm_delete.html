@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Delete
+    {% block model_name %}{% endblock %}
+  </h1>
+
+  <br>
+  <form method="post">
+    {% csrf_token %}
+
+    <p class="text-danger">
+      This action cannot be undone.
+      Are you sure you want to delete
+      <strong>{{ object }}</strong>?
+
+      <br>
+      {% block optional_deletion_warning %}
+      {% endblock %}
+    </p>
+    <br>
+
+
+    <input type="submit" class="btn btn-danger" value="Yes, delete">
+
+    <a href="{% block cancel_url %}{% endblock %}" class="btn btn-primary">
+      Cancel
+    </a>
+
+  </form>
+{% endblock %}
