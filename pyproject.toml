@@ -1,0 +1,11 @@
+[project]
+name = "taxi-service-forms"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "crispy-bootstrap4>=2026.2",
+    "django-crispy-forms>=2.6",
+    "django-debug-toolbar>=6.3.0",
+]
