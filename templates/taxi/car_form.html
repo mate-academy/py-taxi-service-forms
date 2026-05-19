@@ -11,7 +11,7 @@
     <div class="border-top pt-3 d-flex gap-2">
       <input type="submit" value="{{ object|yesno:"Update,Create" }}" class="btn btn-success">
       {% if object %}
-        <a href="{% url "taxi:car-detail" pk=car.pk %}" class="btn btn-outline-secondary ml-3">Cancel</a>
+        <a href="{% url "taxi:car-detail" pk=object %}" class="btn btn-outline-secondary ml-3">Cancel</a>
       {% else %}
         <a href="{% url "taxi:car-list" %}" class="btn btn-outline-secondary ml-3">Cancel</a>
       {% endif %}
