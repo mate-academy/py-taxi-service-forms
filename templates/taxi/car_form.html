@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <h1>{{ object|yesno:"Update,Create" }} Car</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn btn-primary" type="submit" value="Submit">
+    {% url 'taxi:car-list' as car_list_url %}
+    <a href="{{ request.GET.next|default:car_list_url }}">Cancel</a>
+  </form>
+{% endblock %}
