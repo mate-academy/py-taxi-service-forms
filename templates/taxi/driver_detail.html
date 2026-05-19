@@ -18,7 +18,10 @@
         <p><strong>Model:</strong> {{ car.model }}</p>
         <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
         <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
-
+        <div class="mt-3">
+          <a href="{% url 'taxi:car-update' pk=car.pk %}" class="btn btn-warning">Update</a>
+          <a href="{% url 'taxi:car-delete' pk=car.pk %}" class="btn btn-danger">Delete</a>
+        </div>
     {% empty %}
       <p>No cars!</p>
     {% endfor %}
