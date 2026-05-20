@@ -2,10 +2,10 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
+  <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
   <form action="" method="post" novalidate>
   {% csrf_token %}
   {{form|crispy }}
-    <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
     <input type="submit" value="Submit">
   </form>
 {% endblock %}
