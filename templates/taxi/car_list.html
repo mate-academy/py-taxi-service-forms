@@ -1,17 +1,22 @@
-{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cars</title>
+</head>
+<body>
+    <h1>Cars</h1>
 
-{% block content %}
-  <h1>Car list</h1>
-  {% if car_list %}
+    <a href="{% url 'taxi:car-create' %}">Create Car</a>
+
     <ul>
-      {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
-      {% endfor %}
+        {% for car in car_list %}
+            <li>
+                <a href="{% url 'taxi:car-detail' car.id %}">
+                    {{ car.model }}
+                </a>
+            </li>
+        {% endfor %}
     </ul>
-  {% else %}
-    <p>There are no cars in taxi</p>
-  {% endif %}
-{% endblock %}
+</body>
+</html>
