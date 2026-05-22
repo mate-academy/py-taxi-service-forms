@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete Manufacturer</title>
+</head>
+<body>
+  <h1>Delete Manufacturer</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete this manufacturer?</p>
+    <button type="submit">Delete</button>
+    <a href="{% url 'taxi:manufacturer-list' %}">Cancel</a>
+  </form>
+</body>
+</html>
