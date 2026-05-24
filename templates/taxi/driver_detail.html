@@ -10,6 +10,11 @@
   <p><strong>License number:</strong> {{ driver.license_number }}</p>
   <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
 
+  <div class="mb-3">
+    <a href="{% url 'taxi:driver-update' pk=driver.id %}" class="btn btn-primary">Update</a>
+    <a href="{% url 'taxi:driver-delete' pk=driver.id %}" class="btn btn-danger">Delete</a>
+  </div>
+
   <div class="ml-3">
     <h4>Cars</h4>
 
@@ -17,8 +22,7 @@
         <hr>
         <p><strong>Model:</strong> {{ car.model }}</p>
         <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
-
+        <p class="text-muted"><strong>Id:</strong> {{ car.id }}</p>
     {% empty %}
       <p>No cars!</p>
     {% endfor %}
