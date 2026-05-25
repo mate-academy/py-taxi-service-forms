@@ -1,31 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Manufacturers</title>
-</head>
-<body>
-    <h1>Manufacturers</h1>
+{% extends "base.html" %}
 
-    <a href="{% url 'taxi:manufacturer-create' %}">Create Manufacturer</a>
+{% block content %}
+  <h1>Manufacturer List</h1>
 
+  <a href="{% url 'taxi:manufacturer-create' %}">
+    Create Manufacturer
+  </a>
+
+  {% if manufacturer_list %}
     <table>
-        <tr>
-            <th>Name</th>
-            <th>Update</th>
-            <th>Delete</th>
-        </tr>
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
 
-        {% for manufacturer in manufacturer_list %}
+      {% for manufacturer in manufacturer_list %}
         <tr>
-            <td>{{ manufacturer.name }}</td>
-            <td>
-                <a href="{% url 'taxi:manufacturer-update' manufacturer.id %}">Update</a>
-            </td>
-            <td>
-                <a href="{% url 'taxi:manufacturer-delete' manufacturer.id %}">Delete</a>
-            </td>
+          <td>{{ manufacturer.name }}</td>
+          <td>{{ manufacturer.country }}</td>
+          <td>
+            <a href="{% url 'taxi:manufacturer-update' manufacturer.id %}">
+              Update
+            </a>
+          </td>
+          <td>
+            <a href="{% url 'taxi:manufacturer-delete' manufacturer.id %}">
+              Delete
+            </a>
+          </td>
         </tr>
-        {% endfor %}
+      {% endfor %}
     </table>
-</body>
-</html>
+  {% else %}
+    <p>There are no manufacturers in the service.</p>
+  {% endif %}
+{% endblock %}
