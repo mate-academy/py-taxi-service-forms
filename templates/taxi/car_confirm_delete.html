@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Car</h1>
+
+  <p>Are you sure you want to delete "{{ object }}"?</p>
+
+  <form action="{% url 'taxi:car-delete' object.pk %}" method="post">
+    <input type="submit" value="Confirm">
+    <input type="button" value="Cancel" onclick="history.back()">
+  </form>
+{% endblock %}
