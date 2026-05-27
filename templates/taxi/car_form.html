@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title_suffix %} | {% if object %}Update Car{% else %}Add Car{% endif %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-7">
+    <div class="card shadow-sm">
+      <div class="card-header bg-dark text-white">
+        <h4 class="mb-0">
+          {% if object %}✏️ Update Car{% else %}➕ New Car{% endif %}
+        </h4>
+      </div>
+      <div class="card-body">
+        {% crispy form %}
+        <a href="{{ request.META.HTTP_REFERER|default:'/' }}"
+           class="btn btn-secondary mt-2">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

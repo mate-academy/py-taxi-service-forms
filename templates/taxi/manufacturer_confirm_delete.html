@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title_suffix %} | Delete Manufacturer{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card border-danger shadow-sm">
+      <div class="card-header bg-danger text-white">
+        <h4 class="mb-0">🗑️ Delete Manufacturer</h4>
+      </div>
+      <div class="card-body text-center">
+        <p class="lead">
+          Are you sure you want to delete
+          <strong>{{ object.name }}</strong>?
+        </p>
+        <p class="text-muted">This action cannot be undone.</p>
+        <form method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger mr-2">
+            Confirm Delete
+          </button>
+          <a href="{{ request.META.HTTP_REFERER|default:'/' }}"
+             class="btn btn-secondary">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
