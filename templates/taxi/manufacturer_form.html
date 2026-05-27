@@ -1,12 +1,18 @@
-{% extends "base.html" %}
-{% load crispy_forms_tags %}
-
 {% block content %}
-  <h1>{% if object %}Update{% else %}Create{% endif %} {{ view.model.__name__ }}</h1>
-
-  <form method="post" novalidate>
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-success">Save</button>
-  </form>
+<div class="row justify-content-center">
+  <div class="col-md-7">
+    <div class="card shadow-sm">
+      <div class="card-header bg-dark text-white">
+        <h4 class="mb-0">
+          {% if object %}✏️ Update Manufacturer{% else %}➕ New Manufacturer{% endif %}
+        </h4>
+      </div>
+      <div class="card-body">
+        {% crispy form %}
+        <a href="{{ request.META.HTTP_REFERER|default:'/' }}"
+           class="btn btn-secondary mt-2">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
