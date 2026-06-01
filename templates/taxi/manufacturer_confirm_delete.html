@@ -5,13 +5,13 @@
   <h1>Delete Manufacturer</h1>
 
   <p>
-    Are you sure you want to delete the car:
-    {{ car }}?
+    Are you sure you want to delete the manufacturer:
+    {{ manufacturer }}?
   </p>
 
   <form action="" method="post">
     {% csrf_token %}
-
+	<a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
     <input
       type="submit"
       value="Yes, delete"
