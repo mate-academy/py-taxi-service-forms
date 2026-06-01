@@ -61,6 +61,9 @@ class CarCreateView(LoginRequiredMixin, CreateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_create.html"
+    extra_context = {
+        "title": "Create Car"
+    }
 
 
 class CarUpdateView(LoginRequiredMixin, UpdateView):
@@ -68,6 +71,9 @@ class CarUpdateView(LoginRequiredMixin, UpdateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:car-list")
     template_name = "taxi/car_create.html"
+    extra_context = {
+        "title": "Update Car"
+    }
 
 
 class CarDeleteView(LoginRequiredMixin, DeleteView):
@@ -81,6 +87,9 @@ class ManufacturerCreateView(LoginRequiredMixin, CreateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_create.html"
+    extra_context = {
+        "title": "Create Manufacturer",
+    }
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
@@ -88,6 +97,9 @@ class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
     fields = "__all__"
     success_url = reverse_lazy("taxi:manufacturer-list")
     template_name = "taxi/manufacturer_create.html"
+    extra_context = {
+        "title": "Update Manufacturer"
+    }
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
