@@ -2,7 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.views.generic import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 from .models import Driver, Car, Manufacturer
 
 
@@ -52,3 +53,53 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver
     queryset = Driver.objects.all().prefetch_related("cars__manufacturer")
+
+class CarCreateView(LoginRequiredMixin, CreateView):
+    model = Car
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:car-list")
+    template_name = "taxi/car_create.html"
+    extra_context = {
+        "title": "Create Car"
+    }
+
+
+class CarUpdate(LoginRequiredMixin, UpdateView):
+ model = Car
+ fields = "__all__"
+ success_url = reverse_lazy("taxi: acr-list")
+ template_name = "tax:car_create.html"
+ extra_context = {
+     "title":"UpdateCar"
+ }
+
+class CarDelete(LoginRequiredMixin, DeleteView):
+    model = Car
+    template_name = "taxi/car_confirm_delete.html"
+    success_url = reverse_lazy ("taxi: caar-list")
+
+
+class ManufacturerCreateView(LoginRequiredMixin, CreateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "taxi/manufacturer_create.html"
+    extra_context = {
+        "title": "Create Manufacturer",
+    }
+
+
+class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
+    model = Manufacturer
+    fields = "__all__"
+    success_url = reverse_lazy("taxi:manufacturer-list")
+    template_name = "taxi/manufacturer_create.html"
+    extra_context = {
+        "title": "Update Manufacturer"
+    }
+
+
+class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
+    model = Manufacturer
+    template_name = "taxi/manufacturer_confirm_delete.html"
+    success_url = reverse_lazy("taxi:manufacturer-list")
