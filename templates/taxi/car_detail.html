@@ -1,26 +1,55 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
-  <table class="table">
-    <tr>
-      <td>Driver</td>
-    </tr>
-    {% for driver in car.drivers.all %}
-      <tr>
-        <td>
-          {{ driver.username }} ({{ driver.first_name }} {{ driver.last_name }})
-        </td>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>{{ car.model }}</h1>
 
-        <td>
-          <a href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
-        </td>
-        <td>
-          <a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
-        </td>
+    <div>
+      <a
+        href="{% url 'taxi:car-update' pk=car.id %}"
+        class="btn btn-warning"
+      >
+        Update
+      </a>
+
+      <a
+        href="{% url 'taxi:car-delete' pk=car.id %}"
+        class="btn btn-danger"
+      >
+        Delete
+      </a>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Manufacturer</h5>
+      <p class="card-text">
+        {{ car.manufacturer.name }}
+        ({{ car.manufacturer.country }})
+      </p>
+    </div>
+  </div>
+
+  <h2 class="mb-3">Drivers</h2>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Driver</th>
       </tr>
-    {% endfor %}
+    </thead>
+
+    <tbody>
+      {% for driver in car.drivers.all %}
+        <tr>
+          <td>
+            {{ driver.username }}
+            ({{ driver.first_name }} {{ driver.last_name }})
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
   </table>
 
 {% endblock %}
