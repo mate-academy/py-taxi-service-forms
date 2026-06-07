@@ -1,3 +1,18 @@
 body {
     margin-top: 20px;
 }
+
+.button {
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5959c4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: darkblue;
+    text-decoration: none;
+}
