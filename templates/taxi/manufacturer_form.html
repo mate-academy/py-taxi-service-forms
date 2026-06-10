@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>
+    {% if object %}Update Manufacturer{% else %}Create Manufacturer{% endif %}
+  </h1>
+  {% crispy form %}
+  <a href="#" onclick="history.back(); return false;" class="btn btn-secondary mt-2">
+    Cancel
+  </a>
+{% endblock %}
