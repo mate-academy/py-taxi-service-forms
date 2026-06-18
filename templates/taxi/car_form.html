@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  {% if object %}
+    <h1>Update car</h1>
+  {% else %}
+    <h1>Create car</h1>
+  {% endif %}
+
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-primary">
+      Submit
+    </button>
+
+    <a href="javascript:history.back()" class="btn btn-secondary">
+      Cancel
+    </a>
+  </form>
+{% endblock %}
