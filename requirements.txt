@@ -1,6 +1,6 @@
 asgiref==3.11.1
 crispy-bootstrap4==2026.2
-Django==6.0.6
+Django==5.2.15
 django-crispy-forms==2.6
 django-debug-toolbar==7.0.0
 flake8==7.3.0
