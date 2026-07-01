@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>Create a manufacturer</h1>
+
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Save" class="btn btn-primary" />
+  </form>
+{% endblock %}
