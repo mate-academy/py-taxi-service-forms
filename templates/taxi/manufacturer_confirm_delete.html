@@ -10,6 +10,6 @@
 
     <input type="submit" value="Yes, delete" class="btn btn-danger" />
 
-    <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Cancel</a>
+    <a href="{% if next_url %}{{ next_url }}{% else %}{% url 'taxi:manufacturer-list' %}{% endif %}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}
