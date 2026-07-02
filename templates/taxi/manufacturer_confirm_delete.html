@@ -8,6 +8,6 @@
     <input class="btn btn-danger" type="submit" value="Delete">
   </form>
   <br>
-  <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-primary">Cancel</a>
+  <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-primary">Cancel</a>
 
 {% endblock %}
