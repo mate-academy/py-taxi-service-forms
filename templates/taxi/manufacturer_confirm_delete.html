@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <p>Are you sure you want to delete manufacturer: <br>{{ manufacturer.name }}</p>
+  <p><i>You will also lose all cars related to this manufacturer</i></p>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="Delete">
+  </form>
+  <br>
+  <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-primary">Cancel</a>
+
+{% endblock %}
