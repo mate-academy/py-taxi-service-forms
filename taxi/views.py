@@ -86,7 +86,6 @@ class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = "taxi/car_confirm_delete.html"
 
 
-
 class DriverListView(LoginRequiredMixin, generic.ListView):
     model = Driver
     paginate_by = 5

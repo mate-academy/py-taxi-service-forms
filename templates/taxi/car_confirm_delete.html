@@ -8,5 +8,5 @@
     <input class="btn btn-danger" type="submit" value="Delete">
   </form>
   <br>
-  <a class="btn btn-primary" href="{% url 'taxi:car-list' %}">Cancel</a>
+  <a class="btn btn-primary" href="{% url 'taxi:car-detail' car.id %}">Cancel</a>
 {% endblock %}

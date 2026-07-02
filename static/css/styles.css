@@ -2,6 +2,10 @@ body {
     margin-top: 20px;
 }
 
-.create {
+.right-side {
     float: right;
+}
+
+.space-between {
+    margin-right: 10px;
 }
