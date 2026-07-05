@@ -1,4 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-
+  <p>Are you sure, that you want to delete the {{ car.model }}?</p>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes, Delete">
+    <button type="button" onclick="history.back()">Cancel</button>
+  </form>
 {% endblock %}
