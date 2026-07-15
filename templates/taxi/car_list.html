@@ -25,7 +25,7 @@
             <a href="{% url 'taxi:car-update' pk=car.id %}">Update</a>
           </td>
           <td>
-            <a href="{% url 'taxi:car-delete' pk=car.id %}">Delete</a>
+            <a href="{% url 'taxi:car-delete' pk=car.id %}?next={{ request.get_full_path|urlencode }}">Delete</a>
           </td>
         </tr>
       {% endfor %}
