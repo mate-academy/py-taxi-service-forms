@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <h1>{% if form.instance.pk %}Update car{% else %}Add car{% endif %}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Save</button>
+    <button type="button" class="btn btn-secondary" onclick="window.history.back(); return false;">Cancel</button>
+  </form>
+{% endblock %}
