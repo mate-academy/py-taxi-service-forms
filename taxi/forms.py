@@ -27,5 +27,6 @@ class CarForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = "post"
-        self.helper.add_input(Submit("submit",
-                                     "Save Car", css_class="btn btn-primary"))
+        self.helper.add_input(Submit(
+            "submit", "Save Car", css_class="btn btn-primary"
+        ))

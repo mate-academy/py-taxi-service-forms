@@ -40,24 +40,23 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     model = Manufacturer
     template_name = "taxi/manufacturer_list.html"
     paginate_by = 5
-    success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-class ManufacturerCreateView(CreateView):
+class ManufacturerCreateView(LoginRequiredMixin, CreateView):
     model = Manufacturer
     form_class = ManufacturerForm
     template_name = "taxi/manufacturer_form.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-class ManufacturerUpdateView(UpdateView):
+class ManufacturerUpdateView(LoginRequiredMixin, UpdateView):
     model = Manufacturer
     form_class = ManufacturerForm
     template_name = "taxi/manufacturer_form.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
 
-class ManufacturerDeleteView(DeleteView):
+class ManufacturerDeleteView(LoginRequiredMixin, DeleteView):
     model = Manufacturer
     template_name = "taxi/manufacturer_confirm_delete.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
@@ -67,29 +66,27 @@ class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
     queryset = Car.objects.all().select_related("manufacturer")
-    success_url = reverse_lazy("taxi:car-list")
 
 
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
     model = Car
-    success_url = reverse_lazy("taxi:car-list")
 
 
-class CarCreateView(CreateView):
+class CarCreateView(LoginRequiredMixin, CreateView):
     model = Car
     form_class = CarForm
     template_name = "taxi/car_form.html"
     success_url = reverse_lazy("taxi:car-list")
 
 
-class CarUpdateView(UpdateView):
+class CarUpdateView(LoginRequiredMixin, UpdateView):
     model = Car
     form_class = CarForm
     template_name = "taxi/car_form.html"
     success_url = reverse_lazy("taxi:car-list")
 
 
-class CarDeleteView(DeleteView):
+class CarDeleteView(LoginRequiredMixin, DeleteView):
     model = Car
     template_name = "taxi/car_confirm_delete.html"
     success_url = reverse_lazy("taxi:car-list")
