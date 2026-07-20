@@ -18,14 +18,13 @@
         <p><strong>Model:</strong> {{ car.model }}</p>
         <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
         <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
+        <div>
+          <a href="{% url 'taxi:car-update' car.pk %}" class="btn btn-sm btn-warning">Update</a>
+          <a href="{% url 'taxi:car-delete' car.pk %}" class="btn btn-sm btn-danger">Delete</a>
+        </div>
 
     {% empty %}
       <p>No cars!</p>
     {% endfor %}
-  </div>
-  <div class="mt-4">
-    <a href="{% url 'taxi:car-update' car.pk %}" class="btn btn-warning">Update Car</a>
-    <a href="{% url 'taxi:car-delete' car.pk %}" class="btn btn-danger">Delete Car</a>
-    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary ml-2">Back to List</a>
   </div>
 {% endblock %}
