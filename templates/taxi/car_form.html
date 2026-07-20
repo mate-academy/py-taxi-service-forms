@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>{% if filter.instance.pk %}Update{% else %}Create{% endif %} Car</h2>
+{% crispy form %}
+<div class="mt-2">
+    <a href="{% url 'taxi:car-list' %}" class="btn btn-link">Cancel</a>
+</div>
+{% endblock %}
