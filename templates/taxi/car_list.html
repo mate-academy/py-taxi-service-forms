@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <div>
+    <div>
+      <h1>Car list</h1>
+    </div>
+    <div>
+      <a href="{% url 'taxi:car-create' %}">+</a>
+    </div>
+  </div>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
