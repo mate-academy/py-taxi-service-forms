@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturer removing</h1>
+  <p>Are you sure you want to delete manufacturer: {{ manufacturer }}?</p>
+  <p><strong>All cars of this manufacturer will be also deleted!</strong></p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="button" class="btn btn-secondary" onclick="history.back()">Cancel</button>
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+{% endblock %}
