@@ -34,7 +34,7 @@
         Delete
       </a>
 
-      <a href="{% url 'taxi:car-list' %}"
+      <a href="{{ request.META.HTTP_REFERER|default:'/cars/' }}"
          class="btn btn-secondary">
         Back to Cars
       </a>
