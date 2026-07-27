@@ -1,17 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Car list</h1>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>Car List </h1>
+    <h2><a href="{% url 'taxi:car-create' %}">Create New</a></h2>
+  </div>
+
   {% if car_list %}
-    <ul>
+    <table class="table">
+
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
       {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
+        <tr>
+          <td>{{ car.id }}</td>
+          <td>{{ car.model }}</td>
+          <td><a href="{% url "taxi:car-update" pk=car.id %}">Updete</a></td>
+          <td><a href="{% url "taxi:car-delete" pk=car.id %}">Delete</a></td>
+        </tr>
       {% endfor %}
-    </ul>
+    </table>
   {% else %}
-    <p>There are no cars in taxi</p>
+    <p>There are no Car in List</p>
   {% endif %}
 {% endblock %}
