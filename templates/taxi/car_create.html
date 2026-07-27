@@ -3,11 +3,9 @@
 
 {% block content %}
   <div class="container mt-4">
-    <h1 class="mb-4">
-      {{ object|yesno:"Update Past,Create New" }} Car
-    </h1>
+    <h1>Create Car</h1>
 
-    <form method="post" novalidate>
+    <form method="post">
       {% csrf_token %}
 
       {{ form|crispy }}
@@ -15,6 +13,11 @@
       <button type="submit" class="btn btn-primary">
         Submit
       </button>
+
+      <a href="{{ request.META.HTTP_REFERER|default:'/cars/' }}"
+         class="btn btn-secondary">
+        Cancel
+      </a>
     </form>
   </div>
 {% endblock %}
