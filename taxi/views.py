@@ -64,6 +64,7 @@ class CarCreateView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         car = form.save()
         car.drivers.add(self.request.user)
+        self.object = car
         return HttpResponseRedirect(self.get_success_url())
 
 
