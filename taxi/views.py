@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -59,6 +60,11 @@ class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
     fields = ["model", "manufacturer"]
     success_url = reverse_lazy("taxi:car-list")
+
+    def form_valid(self, form):
+        car = form.save()
+        car.drivers.add(self.request.user)
+        return HttpResponseRedirect(self.get_success_url())
 
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
