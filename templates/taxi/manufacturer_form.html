@@ -4,15 +4,15 @@
 
 {% block content %}
 
-{% if manufacturer %}
-<h1>Update Manufacturer</h1>
-{% else %}
-<h1>Create Manufacturer</h1>
-{% endif %}
+  {% if manufacturer %}
+    <h1>Update Manufacturer</h1>
+  {% else %}
+    <h1>Create Manufacturer</h1>
+  {% endif %}
   <form method="post">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <button type="submit" value="Submit">Submit</button>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" value="Submit">Submit</button>
   </form>
 
 {% endblock %}

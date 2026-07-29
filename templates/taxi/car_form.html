@@ -4,15 +4,15 @@
 
 {% block content %}
 
-{% if car %}
-<h1>Update Car</h1>
-{% else %}
-<h1>Create Car</h1>
-{% endif %}
+  {% if car %}
+    <h1>Update Car</h1>
+  {% else %}
+    <h1>Create Car</h1>
+  {% endif %}
   <form method="post">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <button type="submit" value="Submit">Submit</button>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" value="Submit">Submit</button>
   </form>
 
 {% endblock %}
