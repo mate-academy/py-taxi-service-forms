@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <h1>
+  {% if form_type == 'car update' %}💾 Update Car
+  {% elif form_type == 'manufacturer update' %}💾 Update Manufacturer
+  {% elif form_type == 'car create' %} Create Car
+  {% elif form_type == 'manufacturer create' %} Create Manufacturer
+  {% endif %}
+  </h1>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-success flex-grow-1">Confirm</button>
+      <a href="{{ cancel_url }}" class="btn btn-outline-secondary flex-grow-1">
+          Cancel
+      </a>
+    </div>
+
+  </form>
+
+{% endblock %}
