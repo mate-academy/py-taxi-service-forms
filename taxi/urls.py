@@ -15,7 +15,6 @@ from .views import (
     CarDeleteView,
 )
 
-
 urlpatterns = [
     path("", index, name="index"),
     path(
