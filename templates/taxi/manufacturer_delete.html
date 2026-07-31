@@ -1,10 +1,17 @@
-{% extends 'base.html' %}
-{% block content %}
-    <p>Are you sure you want to delete {{ manufacturer.name }}</p>
-    <form action="" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Yes, sure">
-    
+{% extends "base.html" %}
 
-    </form>
+{% block content %}
+  <p>
+    Are you sure you want to delete {{ manufacturer.name }}?
+  </p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+
+    <input type="submit" value="Yes, sure">
+
+    <button type="button" onclick="history.back()">
+      Cancel
+    </button>
+  </form>
 {% endblock %}

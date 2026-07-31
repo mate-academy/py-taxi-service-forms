@@ -1,10 +1,13 @@
-{% extends 'base.html' %}
-{% block content %}
-    <h1>{{ object|yesno:"Update,Create" }} Manufacturer</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit">
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
 
-    </form>
+{% block content %}
+  <h1>{{ object|yesno:"Update,Create" }} Manufacturer</h1>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <input type="submit" value="Submit">
+  </form>
 {% endblock %}
