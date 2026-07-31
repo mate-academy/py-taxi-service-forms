@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <p>Are you sure you want to delete {{ manufacturer.name }}</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Yes, sure">
+    
+
+    </form>
+{% endblock %}
