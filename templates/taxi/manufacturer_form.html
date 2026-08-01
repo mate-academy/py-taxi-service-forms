@@ -7,4 +7,10 @@
     {{ form|crispy }}
     <input class="btn btn-primary" type="submit" value="Submit">
   </form>
+  <a
+      class="btn btn-primary"
+      href="{{ request.META.HTTP_REFERER }}"
+  >
+    Cancel
+  </a>
 {% endblock %}
