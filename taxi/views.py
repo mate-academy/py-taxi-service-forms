@@ -61,6 +61,7 @@ class CarListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
     queryset = Car.objects.all().select_related("manufacturer")
 
+
 class CarCreateView(generic.CreateView):
     model = Car
     form_class = CarForm
