@@ -10,6 +10,9 @@
           {{ car.model }} ({{ car.manufacturer.name }})
         </li>
       {% endfor %}
+      <li>
+          <a href="{% url 'taxi:car-create' %}" class="btn btn-primary">Create</a>
+      </li>
     </ul>
   {% else %}
     <p>There are no cars in taxi</p>
