@@ -2,10 +2,11 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>{{ object|yesno:"Update,Create" }} manufacturer</h1>
+  <h1>{% if object %}Update{% else %}Create{% endif %}</h1>
   <form action="" method="post" novalidate>
     {% csrf_token %}
     {{ form|crispy }}
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" class="btn btn-primary">
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}
