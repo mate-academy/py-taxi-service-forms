@@ -1,4 +1,7 @@
-<a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary link-to-page">
+{% extends "base.html" %}
+
+{% block content %}
+  <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary link-to-page">
   Create Manufacturer
 </a>
 
@@ -20,3 +23,4 @@
     </tr>
   {% endfor %}
 </table>
+{% endblock %}
