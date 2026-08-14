@@ -1,7 +1,10 @@
 <ul class="sidebar-nav list-group">
   {% if user.is_authenticated %}
     <li class="list-group-item">
-      User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a>
+      User:
+      <a href="{% url 'taxi:driver-detail' pk=user.pk %}">
+        {{ user.get_username }}
+      </a>
     </li>
     <li class="list-group-item">
       <form method="post" action="{% url 'logout' %}">
