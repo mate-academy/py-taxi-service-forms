@@ -1,0 +1,15 @@
+from django import forms
+
+from taxi.models import Car
+
+
+class CarForm(forms.Form):
+    drivers = forms.ModelMultipleChoiceField(
+        queryset=Car._meta.get_field("driver").related_model.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+    )
+
+    class Meta:
+        model = Car
+        fields = "__all__"
