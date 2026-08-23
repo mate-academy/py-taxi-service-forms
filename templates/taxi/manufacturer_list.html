@@ -10,7 +10,6 @@
           <th>Name</th>
           <th>Country</th>
         </tr>
-        <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary">Create Manufacturer</a>
 
 
         {% for manufacturer in manufacturer_list %}
@@ -31,6 +30,7 @@
           </tr>
         {% endfor %}
       </table>
+            <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary">Create Manufacturer</a>
 
     {% else %}
         <p>There are no manufacturers in the service.</p>
