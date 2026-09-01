@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -10,4 +11,8 @@
 
     <input class="btn btn-primary" type="submit" value="Submit">
   </form>
+  <div>
+    <br>
+    <a href="{{ previous_page }}">cancel</a>
+  </div>
 {% endblock %}
