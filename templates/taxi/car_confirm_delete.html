@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete car?</h1>
+  <p>Are you sure you want to delete {{ car.model }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Delete</button>
+    {% url 'taxi:car-detail' pk=car.id as car_detail_url %}
+    <a
+        class="btn btn-secondary"
+        href="{{ request.GET.next|default:car_detail_url }}"
+    >
+      Cancel
+    </a>
+  </form>
+{% endblock %}
