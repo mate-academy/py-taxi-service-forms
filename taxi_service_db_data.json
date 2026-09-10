@@ -1,0 +1,503 @@
+[
+  {
+    "model": "taxi.manufacturer",
+    "pk": 1,
+    "fields": {
+      "name": "Lincoln",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 2,
+    "fields": {
+      "name": "Ford Motor Company",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 3,
+    "fields": {
+      "name": "General Motors",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 4,
+    "fields": {
+      "name": "Toyota",
+      "country": "Japan"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 5,
+    "fields": {
+      "name": "Suzuki",
+      "country": "Japan"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 6,
+    "fields": {
+      "name": "Mitsubishi",
+      "country": "Japan"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 7,
+    "fields": {
+      "name": "Volkswagen",
+      "country": "Germany"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 8,
+    "fields": {
+      "name": "Daimler",
+      "country": "Germany"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 9,
+    "fields": {
+      "name": "FCA",
+      "country": "Italy"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 10,
+    "fields": {
+      "name": "Renault",
+      "country": "France"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 11,
+    "fields": {
+      "name": "SAIC",
+      "country": "China"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 12,
+    "fields": {
+      "name": "Mazda",
+      "country": "Japan"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 13,
+    "fields": {
+      "name": "BAIC",
+      "country": "China"
+    }
+  },
+  {
+    "model": "taxi.manufacturer",
+    "pk": 14,
+    "fields": {
+      "name": "BMW",
+      "country": "Germany"
+    }
+  },
+  {
+    "model": "taxi.driver",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=",
+      "last_login": "2022-08-08T14:14:03Z",
+      "is_superuser": true,
+      "username": "admin.user",
+      "first_name": "Admin",
+      "last_name": "User",
+      "email": "admin.user@taxi.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-08-08T13:58:29Z",
+      "license_number": "ADM56984",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "taxi.driver",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$73Z1Y57bcoscZ37s9rE9v0$4SEQ0TtXwJKzO5/CRdFSrTifatiPjkZ38gM2H8Kqsdg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "joyce.byers",
+      "first_name": "Joyce",
+      "last_name": "Byers",
+      "email": "joyce.byers@taxi.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-08T14:17:04Z",
+      "license_number": "JOY26458",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "taxi.driver",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$QtPol3T7x9quBj4BnbnVwW$UwT4kihkRfSvQEWEeuqVKwMgis2ikKVZfJDBcQMvOKY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jim.hopper",
+      "first_name": "Jim",
+      "last_name": "Hopper",
+      "email": "jim.hopper@taxi.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-08T14:19:09Z",
+      "license_number": "JIM26531",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "taxi.driver",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l1$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jonathan.byers",
+      "first_name": "Jonathan",
+      "last_name": "Byers",
+      "email": "jonathan.byers@taxi.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-08T14:19:09Z",
+      "license_number": "JON26231",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "taxi.driver",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l1$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "dustin.henderson",
+      "first_name": "Dustin",
+      "last_name": "Henderson",
+      "email": "dustin.henderson@taxi.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "license_number": "DUS25131",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "taxi.driver",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l2$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "mike.wheeler",
+      "first_name": "Mike",
+      "last_name": "Wheeler",
+      "email": "mike.wheeler@taxi.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "license_number": "MIK25131",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "taxi.driver",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l2$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "lucas.sinclair",
+      "first_name": "Lucas",
+      "last_name": "Sinclair",
+      "email": "lucas.sinclair@taxi.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "license_number": "LUK35131",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "taxi.driver",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l2$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "nancy.wheeler",
+      "first_name": "Nancy",
+      "last_name": "Wheeler",
+      "email": "nancy.wheeler@taxi.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "license_number": "NAN34131",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "taxi.driver",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l2$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "martin.brenner",
+      "first_name": "Martin",
+      "last_name": "Brenner",
+      "email": "martin.brenner@taxi.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "license_number": "MAR34231",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "taxi.driver",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l2$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "billy.hargrove",
+      "first_name": "Billy",
+      "last_name": "Hargrove",
+      "email": "billy.hargrove@taxi.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "license_number": "BIL39231",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+    {
+    "model": "taxi.driver",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$9yU0PLTDKlL02PedUtk2l2$LKjj8O1xGiPGEkDpjsHk87db1iLgt8dgDqECzcsivio",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "bob.newby",
+      "first_name": "Bob",
+      "last_name": "Newby",
+      "email": "bob.newby@taxi.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-09T14:19:09Z",
+      "license_number": "BOB09631",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 1,
+    "fields": {
+      "model": "Lincoln Continental",
+      "manufacturer": 1,
+      "drivers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 2,
+    "fields": {
+      "model": "Toyota Yaris",
+      "manufacturer": 4,
+      "drivers": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 3,
+    "fields": {
+      "model": "Suzuki Vitara",
+      "manufacturer": 5,
+      "drivers": [
+        1,
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 4,
+    "fields": {
+      "model": "Mitsubishi Eclipse",
+      "manufacturer": 6,
+      "drivers": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 5,
+    "fields": {
+      "model": "Mitsubishi Lancer",
+      "manufacturer": 6,
+      "drivers": [
+        11
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 6,
+    "fields": {
+      "model": "Ford Focus",
+      "manufacturer": 2,
+      "drivers": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 7,
+    "fields": {
+      "model": "Cadillac Escalade",
+      "manufacturer": 3,
+      "drivers": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 8,
+    "fields": {
+      "model": "Arcfox Alpha-S",
+      "manufacturer": 13,
+      "drivers": [
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 9,
+    "fields": {
+      "model": "Beijing EX5",
+      "manufacturer": 13,
+      "drivers": [
+        9
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 10,
+    "fields": {
+      "model": "MG 5 II",
+      "manufacturer": 11,
+      "drivers": [
+        8
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 11,
+    "fields": {
+      "model": "Rising Auto ER6",
+      "manufacturer": 11,
+      "drivers": [
+        7,
+        3
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 12,
+    "fields": {
+      "model": "SP250",
+      "manufacturer": 8,
+      "drivers": [
+        6
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 13,
+    "fields": {
+      "model": "Daimler Sovereign",
+      "manufacturer": 8,
+      "drivers": [
+        11,
+        7
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 14,
+    "fields": {
+      "model": "X5 M",
+      "manufacturer": 14,
+      "drivers": [
+        10
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 15,
+    "fields": {
+      "model": "Floride",
+      "manufacturer": 10,
+      "drivers": [
+        9
+      ]
+    }
+  },
+  {
+    "model": "taxi.car",
+    "pk": 16,
+    "fields": {
+      "model": "MX-30",
+      "manufacturer": 12,
+      "drivers": [
+        4
+      ]
+    }
+  }
+]

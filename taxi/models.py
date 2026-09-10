@@ -4,7 +4,7 @@ from django.urls import reverse
 
 
 class Manufacturer(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     country = models.CharField(max_length=255)
 
     class Meta:
@@ -25,7 +25,7 @@ class Driver(AbstractUser):
         return f"{self.username} ({self.first_name} {self.last_name})"
 
     def get_absolute_url(self):
-        return reverse("taxi:driver-detail", kwargs={'pk': self.pk})
+        return reverse("taxi:driver-detail", kwargs={"pk": self.pk})
 
 
 class Car(models.Model):

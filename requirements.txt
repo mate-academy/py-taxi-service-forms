@@ -1,2 +1,8 @@
-django==4.0.2
-django-debug-toolbar==3.2.4
+django
+flake8
+flake8-quotes
+flake8-variables-names
+pep8-naming
+django-debug-toolbar
+django-crispy-forms
+crispy-bootstrap4
