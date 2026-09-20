@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <p>Are you sure you want to delete {{ manufacturer.id }} {{ manufacturer.name }}</p>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" style="background-color: red; color: white">
+  </form>
+{% endblock %}
