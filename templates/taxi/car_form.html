@@ -7,7 +7,7 @@
     {{ form|crispy }}
     <input type="submit" value="Submit" class="btn btn-primary">
   </form>
-  <a style="color: white;text-decoration: none" href="{% url 'taxi:car-list' %}">
+  <a style="color: white;text-decoration: none" href="{{ request.META.HTTP_REFERER|default:'/cars/' }}">
     <button class="btn btn-danger">Cancel</button>
   </a>
 {% endblock %}
