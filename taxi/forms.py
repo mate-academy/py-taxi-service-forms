@@ -1,5 +1,5 @@
 from django import forms
-from .models import Manufacturer, Car
+from taxi.models import Manufacturer, Car
 
 
 class ManufacturerForm(forms.ModelForm):
