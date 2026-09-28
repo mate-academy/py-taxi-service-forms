@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Delete manufacturer?</h1>
+  <p>Delete "{{ object }}" — this will not delete cars automatically (check your cascade settings).</p>
+  <form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Yes, delete</button>
+    <a class="btn btn-secondary" href="{% url 'taxi:manufacturer-list' %}">Cancel</a>
+  </form>
+{% endblock %}

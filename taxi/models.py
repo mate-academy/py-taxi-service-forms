@@ -35,3 +35,7 @@ class Car(models.Model):
 
     def __str__(self):
         return self.model
+
+
+class ModelForm:
+    pass
