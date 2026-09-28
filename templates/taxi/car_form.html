@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <h1 class="">{{ object|yesno:"UPDATE,CREATE"}} CAR</h1>
+  <form method="post">
+    {% csrf_token %}
+
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    {% if object %}
+      <a href="{% url 'taxi:car-detail' car.pk %}" class="btn btn-light">Cancel</a>
+    {% else %}
+      <a href="{% url 'taxi:car-list' %}" class="btn btn-light">Cancel</a>
+    {% endif %}
+</form>
+{% endblock %}
