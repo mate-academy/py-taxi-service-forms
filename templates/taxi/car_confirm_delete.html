@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Видалення машини</h1>
+
+  <p>Ви впевнені, що хочете видалити машину: <strong>{{ car.model }}</strong>?</p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+
+    <input type="submit" value="Так, видалити" class="btn btn-danger">
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">Ні, скасувати</a>
+  </form>
+{% endblock %}
