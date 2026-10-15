@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>{% if object %}Оновити{% else %}Створити{% endif %} виробника</h1>
+
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+
+    {{ form|crispy }}
+
+    <input type="submit" value="Зберегти" class="btn btn-primary">
+  </form>
+{% endblock %}
