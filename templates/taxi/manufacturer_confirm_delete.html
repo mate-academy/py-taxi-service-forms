@@ -9,6 +9,6 @@
     {% csrf_token %}
 
     <input type="submit" value="Так, видалити" class="btn btn-danger">
-    <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">Ні, скасувати</a>
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">Ні, скасувати</a>
   </form>
 {% endblock %}
