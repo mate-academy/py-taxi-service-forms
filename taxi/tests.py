@@ -123,3 +123,23 @@ class FormViewsTests(TestCase):
                 self.assertEqual(self.client.get(reverse(
                     f"taxi:{model}-{action}", kwargs={"pk": 999}
                 )).status_code, 404)
+
+    def test_car_form_cancel_destinations(self):
+        for action, destination in (
+            ("create", reverse("taxi:car-list")),
+            ("update", reverse(
+                "taxi:car-detail", kwargs={"pk": self.car.pk}
+            )),
+        ):
+            with self.subTest(action=action):
+                url = reverse(
+                    f"taxi:car-{action}",
+                    kwargs={} if action == "create" else {"pk": self.car.pk},
+                )
+                response = self.client.get(url)
+                self.assertContains(
+                    response,
+                    f'<a href="{destination}" '
+                    'class="btn btn-secondary">Cancel</a>',
+                    html=True,
+                )
