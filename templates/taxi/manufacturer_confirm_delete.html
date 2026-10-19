@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete manufacturer?</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+    <a href="javascript:history.back()">Cancel</a>
+  </form>
+{% endblock %}
