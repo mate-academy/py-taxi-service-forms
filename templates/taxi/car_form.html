@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h1>
+    {% if car %}Update car{% else %}Create car{% endif %}
+  </h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {% crispy form %}
+  </form>
+
+  <a href="{% if car %}{% url 'taxi:car-detail' pk=car.pk %}{% else %}{% url 'taxi:car-list' %}{% endif %}"
+     class="btn btn-secondary">
+    Cancel
+  </a>
+{% endblock %}
