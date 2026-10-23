@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  {% if object %}
+    <h1>Update manufacturer</h1>
+  {% else %}
+    <h1>Create manufacturer</h1>
+  {% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <button type="submit">Save</button>
+    <button type="button" onclick="history.back()">Cancel</button>
+  </form>
+{% endblock %}
