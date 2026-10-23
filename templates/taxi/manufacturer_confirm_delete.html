@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete manufacturer</h1>
+  <p>
+    Are you sure you want to delete the manufacturer
+    "{{ manufacturer.name }}"? All cars of this manufacturer will be deleted
+    too.
+  </p>
+  {% url "taxi:manufacturer-list" as fallback_url %}
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete" class="btn btn-danger">
+    <a href="{{ request.META.HTTP_REFERER|default:fallback_url }}"
+       class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}
