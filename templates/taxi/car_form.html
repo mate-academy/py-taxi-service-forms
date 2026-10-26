@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Update{% else %}Create{% endif %} Car</h2>
+{% crispy form %}
+<div class="mt-2">
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-link">Cancel</a>
+</div>
+{% endblock %}

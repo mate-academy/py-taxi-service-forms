@@ -57,9 +57,7 @@ class CarTest(TestCase):
             model="Continental",
             manufacturer=self.manufacturer,
         )
-        response = self.client.post(
-            reverse("taxi:car-delete", kwargs={"pk": car.id})
-        )
+        response = self.client.post(reverse("taxi:car-delete", kwargs={"pk": car.id}))
         self.assertEqual(response.status_code, 302)
         self.assertFalse(Car.objects.filter(id=car.id).exists())
 
@@ -91,9 +89,7 @@ class ManufacturerTest(TestCase):
             country="USA",
         )
         response = self.client.post(
-            reverse(
-                "taxi:manufacturer-update", kwargs={"pk": manufacturer.id}
-            ),
+            reverse("taxi:manufacturer-update", kwargs={"pk": manufacturer.id}),
             {"name": "Not Lincoln", "country": "USA"},
         )
         Manufacturer.objects.get(id=manufacturer.id).refresh_from_db()
@@ -111,6 +107,4 @@ class ManufacturerTest(TestCase):
             reverse("taxi:manufacturer-delete", kwargs={"pk": manufacturer.id})
         )
         self.assertEqual(response.status_code, 302)
-        self.assertFalse(
-            Manufacturer.objects.filter(id=manufacturer.id).exists()
-        )
+        self.assertFalse(Manufacturer.objects.filter(id=manufacturer.id).exists())
