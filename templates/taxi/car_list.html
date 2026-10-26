@@ -2,6 +2,9 @@
 
 {% block content %}
   <h1>Car list</h1>
+  <form action="{% url "taxi:car-create" %}" method="get">
+   <button type="submit" class="btn btn-primary">Add a car</button>
+  </form>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
