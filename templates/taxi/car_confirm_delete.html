@@ -8,5 +8,5 @@
     <input type="submit" value="Yes, delete" class="btn btn-danger">
   </form>
 
-  <a href="{% url 'taxi:car-detail' pk=car.id %}">Cancel</a>
+  <input type="button" value="Cancel" onclick="history.back()">
 {% endblock %}
