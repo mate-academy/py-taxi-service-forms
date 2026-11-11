@@ -1,10 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Delete Manufacturer</h1>
-
-  <p>Are you sure you want to delete the manufacturer: {{ manufacturer }}?</p>
-  <form action="" method="post">
+  <p>
+    Are you sure you want to delete the manufacturer: {{ manufacturer }}?
+  </p>
+  <form method="post">
     {% csrf_token %}
-    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <button type="submit" class="btn btn-danger">
+      Yes, delete
+    </button>
+    <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">
+      Cancel
+    </a>
   </form>
 {% endblock %}
