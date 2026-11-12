@@ -33,6 +33,7 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +45,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "debug_toolbar",
     "taxi",
+    "crispy_forms",
+    "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [
@@ -111,9 +114,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 AUTH_USER_MODEL = "taxi.Driver"
 
 LOGIN_REDIRECT_URL = "/"
+
+
+# Crispy Forms
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -135,6 +145,7 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = (BASE_DIR / "static",)
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
