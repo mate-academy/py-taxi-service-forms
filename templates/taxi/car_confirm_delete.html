@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Car</h1>
+  <p>Are you sure you want to delete "{{ car.model }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirm</button>
+    {% url 'taxi:car-list' as fallback_url %}
+    <a href="{{ request.META.HTTP_REFERER|default:fallback_url }}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock %}
