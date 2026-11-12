@@ -1,8 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <h1>Model: {{ car.model }}</h1>
+  <form method="get" action="{% url "taxi:car-update" pk=car.id %}">
+      <button type="submit">Update</button>
+  </form>
+  <br>
+  <form method="get" action="{% url "taxi:car-delete" pk=car.id %}">
+      <button type="submit">Delete</button>
+  </form>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
-  <h1>Drivers</h1>
+  <p>Drivers</p>
   <hr>
   <ul>
   {% for driver in car.drivers.all %}

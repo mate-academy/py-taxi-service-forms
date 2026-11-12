@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Manufacturer from the list</h1>
+  <p>Are you sure you want to delete <strong>{{ manufacturer.name }}</strong>?</p>
+  <p>Deleting Manufacturer: {{ manufacturer.name }} will result in CASCADE deletion of all associated cars</p>
+  {% if manufacturer.car_set %}
+    <p>Associated Cars:</p>
+    <ul>
+      {% for car in manufacturer.car_set.all %}
+        <li>{{ car.model }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <button type="button" onclick="history.back()">Cancel</button>
+  </form>
+{% endblock %}

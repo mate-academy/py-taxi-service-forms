@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete Car from list</h1>
+  <p>Are you sure you want to delete <strong>{{ car.model }}</strong>?</p>
+  <p>Manufacturer and associated Drivers will not be deleted</p>
+  {% if car.drivers %}
+    <p>Drivers: </p>
+    <ul>
+      {% for driver in car.drivers.all %}
+        <li>{{ driver.username }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete" class="btn btn-danger">
+    <button type="button" onclick="history.back()">Cancel</button>
+  </form>
+{% endblock %}
