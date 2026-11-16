@@ -7,8 +7,9 @@
     <button type="submit" class="btn btn-danger">
       Yes, delete
     </button>
-    <a href="{% url 'taxi:manufacturer-list' %}" class="btn btn-secondary">
-      Cancel
-    </a>
+     action="" method="post">
+  {% csrf_token %}
+  <input type="submit" value="Yes, delete" class="btn btn-danger">
+  <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}
