@@ -12,11 +12,13 @@ from django.views.generic import (
 )
 from .forms import CarForm, ManufacturerForm
 
+
 class CarCreateView(CreateView):
     model = Car
     form_class = CarForm
     template_name = "taxi/car_form.html"
     success_url = reverse_lazy("taxi:car-list")
+
 
 class CarUpdateView(UpdateView):
     model = Car
@@ -24,10 +26,12 @@ class CarUpdateView(UpdateView):
     template_name = "taxi/car_form.html"
     success_url = reverse_lazy("taxi:car-list")
 
+
 class CarDeleteView(DeleteView):
     model = Car
     template_name = "taxi/car_confirm_delete.html"
     success_url = reverse_lazy("taxi:car-list")
+
 
 class ManufacturerCreateView(CreateView):
     model = Manufacturer
@@ -35,11 +39,13 @@ class ManufacturerCreateView(CreateView):
     template_name = "taxi/manufacturer_form.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
 
+
 class ManufacturerUpdateView(UpdateView):
     model = Manufacturer
     form_class = ManufacturerForm
     template_name = "taxi/manufacturer_form.html"
     success_url = reverse_lazy("taxi:manufacturer-list")
+
 
 class ManufacturerDeleteView(DeleteView):
     model = Manufacturer
