@@ -11,13 +11,12 @@
   </ul>
 
   <form action="{%  url "taxi:car-update" pk=car.id %}" method="get" novalidate>
-      {%  csrf_token %}
-      <input class="btn btn-primary" type="submit" value="Update">
+    {%  csrf_token %}
+    <input class="btn btn-primary" type="submit" value="Update">
   </form>
   <br>
   <form action="{%  url "taxi:car-delete" pk=car.id %}" method="get" novalidate>
-      {%  csrf_token %}
-      <input class="btn btn-primary" type="submit" value="Delete">
+    {%  csrf_token %}
+    <input class="btn btn-primary" type="submit" value="Delete">
   </form>
-
 {% endblock %}
