@@ -4,7 +4,7 @@
   <h1>Manufacturer List</h1>
   <form action="{%  url "taxi:manufacturer-create" %}" method="get" novalidate>
     {% csrf_token %}
-    <input class="btn btn-primary" type="submit" value="+">
+    <input class="btn btn-primary" type="submit" value="Create">
   </form>
   <br>
 
@@ -16,7 +16,7 @@
         <th>Country</th>
         <th>Update</th>
         <th>Delete</th>
-      </tr>flake8
+      </tr>
 
       {% for manufacturer in manufacturer_list %}
       <tr>
