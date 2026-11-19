@@ -3,9 +3,5 @@
 
 {% block content %}
   <h1>{% if object %}Update{% else %}Create{% endif %} car</h1>
-  <form action="" method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  {% crispy form %}
 {% endblock %}
