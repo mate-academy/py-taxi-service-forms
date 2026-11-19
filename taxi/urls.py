@@ -10,8 +10,8 @@ from .views import (
     CarCreateView,
     CarDeleteView,
     CarUpdateView,
-    ManufacturerCreatetView,
-    ManufacturerUpdatetView,
+    ManufacturerCreateView,
+    ManufacturerUpdateView,
     ManufacturerDeleteView,
 )
 
@@ -35,12 +35,12 @@ urlpatterns = [
     ),
     path(
         "manufacturers/create/",
-        ManufacturerCreatetView.as_view(),
+        ManufacturerCreateView.as_view(),
         name="manufacturer-create",
     ),
     path(
         "manufacturers/<int:pk>/update/",
-        ManufacturerUpdatetView.as_view(),
+        ManufacturerUpdateView.as_view(),
         name="manufacturer-update",
     ),
     path(
