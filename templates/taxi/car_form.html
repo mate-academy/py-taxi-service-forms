@@ -9,7 +9,8 @@
     {{ form|crispy }}
 
     <button type="submit" class="btn btn-primary">Save</button>
-    <a href="{% url 'taxi:car-list' %}" class="btn btn-secondary">
+    <a href="{{ request.META.HTTP_REFERER|default:'/' }}"
+       class="btn btn-secondary">
       Cancel
     </a>
   </form>
