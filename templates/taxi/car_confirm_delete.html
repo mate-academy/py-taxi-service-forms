@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+<form action="{% url 'taxi:car-delete' pk=object.pk %}" method="post">
+  {% csrf_token %} {{form.as_p}}
+  <input type="submit" value="Yes, delete" />
+  {% url 'taxi:car-detail' pk=object.pk as fallback_url %}
+  <a href="{{ request.META.HTTP_REFERER|default:fallback_url }}">Cancel</a>
+</form>
+
+{% endblock %}
