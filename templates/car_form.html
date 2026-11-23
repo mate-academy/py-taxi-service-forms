@@ -5,7 +5,7 @@
   <h1>{% if object %}Update{% else %}Create{% endif %} car</h1>
   <form method="post">
     {% csrf_token %}
-    {{ form|crispy }}
+    {% crispy form %}
     <input type="submit" value="Submit" class="btn btn-primary">
   </form>
 {% endblock %}
