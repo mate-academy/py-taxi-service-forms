@@ -125,7 +125,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "Europe/Kiev"
+TIME_ZONE = "Europe/Kyiv"
 
 USE_I18N = True
 
