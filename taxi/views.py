@@ -34,6 +34,18 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
+class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Manufacturer
+
+
+class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Manufacturer
+
+
+class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Manufacturer
+
+
 class CarListView(LoginRequiredMixin, generic.ListView):
     model = Car
     paginate_by = 5
@@ -41,6 +53,18 @@ class CarListView(LoginRequiredMixin, generic.ListView):
 
 
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Car
+
+
+class CarCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Car
+
+
+class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Car
+
+
+class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Car
 
 
