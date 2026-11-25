@@ -14,5 +14,7 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
-  <a href="{% url "taxi:car-create" %}">Create</a>
+  <a href="{% url "taxi:car-create" %}" class="btn btn-primary">Create</a>
+  <a href="{% url "taxi:car-update" %}" class="btn btn-primary">Edit</a>
+  <a href="{% url "taxi:car-delete" %}" class="btn btn-primary">Delete</a>
 {% endblock %}
