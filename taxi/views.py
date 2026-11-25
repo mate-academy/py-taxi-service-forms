@@ -4,6 +4,7 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Driver, Car, Manufacturer
+from .forms import CarForm, ManufacturerForm
 
 
 @login_required
@@ -36,10 +37,12 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
 
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Manufacturer
+    form_class = ManufacturerForm
 
 
 class ManufacturerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Manufacturer
+    form_class = ManufacturerForm
 
 
 class ManufacturerDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -58,10 +61,12 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
 
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
+    form_class = CarForm
 
 
 class CarUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Car
+    form_class = CarForm
 
 
 class CarDeleteView(LoginRequiredMixin, generic.DeleteView):
