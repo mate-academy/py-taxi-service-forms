@@ -1,13 +1,13 @@
 from django import forms
 from crispy_forms.helper import FormHelper
 
-from .models import Manufacturer
-from .views import Car
+from .models import Manufacturer, Car
+
 
 class CarForm(forms.ModelForm):
     class Meta:
         model = Car
-        fields = ("name", "manufacturer")
+        fields = ("model", "manufacturer", "drivers")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -17,7 +17,7 @@ class CarForm(forms.ModelForm):
 class ManufacturerForm(forms.ModelForm):
     class Meta:
         model = Manufacturer
-        fields = ("name", "manufacturer")
+        fields = ("name", "country")
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
