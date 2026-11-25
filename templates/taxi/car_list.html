@@ -14,5 +14,5 @@
   {% else %}
     <p>There are no cars in taxi</p>
   {% endif %}
-  <div>{% url "taxi:car-create" %}</div>
+  <a href="{% url "taxi:car-create" %}">Create</a>
 {% endblock %}
