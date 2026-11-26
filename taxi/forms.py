@@ -1,4 +1,5 @@
 from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit
 from django import forms
 from django.contrib.auth import get_user_model
 
@@ -18,4 +19,10 @@ class CarForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_tag = False
+        self.helper.form_method = "post"
+        self.helper.layout = Layout(
+            "model",
+            "manufacturer",
+            "drivers",
+            Submit("submit", "Submit", css_class="btn btn-primary"),
+        )
